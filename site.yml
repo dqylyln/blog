@@ -1,10 +1,11 @@
-title : dqylyln
+title : Hugo Zhu
 tagline: 树莓派 Programming Software Architecture Java Golang Raspberry Pi Web
-author : dqylyln
- email : dqylyln@gmail.com
-github : dqylyln
-twitter : dqylyln
-feedburner : dqylyln
+author :
+  name : Hugo Zhu
+  email : hugozhu@gmail.com
+  github : hugozhu
+  twitter : hugozhu
+  feedburner : hugozhu
 
 navigation :
   - posts.md  
