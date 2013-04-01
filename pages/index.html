@@ -4,104 +4,79 @@ description: When Go meets Raspberry Pi
 ---
 
 <div class="jumbotron">
-<p class="lead">This site is running on a <a href="http://www.raspberrypi.org" target="_blank">Raspberry Pi</a>, most codes are written in <a href="http://golang.org" target="_blank">Go</a> programming language</p>
+    <p class="lead">This site is running on a <a href="http://www.raspberrypi.org" target="_blank">Raspberry Pi</a>, most codes
+        are written in <a href="http://golang.org" target="_blank">Go</a> programming language</p>
 </div>
 
 <hr/>
 <div class="row-fluid marketing">
-<div class="span6">
-<h3>最近文章</h3>
-  {{# posts_latest }}
-  <h4><a href="{{url}}">{{title}}</a></h4>
-  <p>{{description}}</p>
-  {{/ posts_latest }}
+    <div class="span6">
+        <h3>最近文章</h3>
+        {{# posts_latest }}
+        <h4><a href="{{url}}">{{title}}</a></h4>
 
-  <div class="pagination">
-    <ul>
-        <li><a href="/posts/2/">更多文章...</a></li>
+        <p>{{description}}</p>
+        {{/ posts_latest }}
+        <div class="pagination">
+            <ul>
+                <li><a href="/posts/2/">更多文章...</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="span6">
+    </div>
+
+    <hr/>
+    <div style="float:right;padding-right:80px">
+        <script type="text/javascript"><!--
+        google_ad_client = "ca-pub-5109060569865704";
+        /* myalert.info */
+        google_ad_slot = "8432858182";
+        google_ad_width = 300;
+        google_ad_height = 250;
+        //-->
+        </script>
+        <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+        </script>
+    </div>
+
+    <ul><h5>常用链接</h5>
+        <li><a href="https://gist.github.com/4440996">在Raspberry Pi上听豆瓣电台</a></li>
+        <li>
+            <a href="http://elinux.org/RPi_Easy_SD_Card_Setup#Copying_an_image_to_the_SD_card_in_Mac.C2.A0OS.C2.A0X_.28Only_with_graphical_interface.29">Mac上制作Pi的启动SD卡</a>
+        </li>
+        <li><a href="http://dave.cheney.net/2012/09/25/installing-go-on-the-raspberry-pi">How to get Go running on Raspberry
+            Pi</a>
+        <li><a href="http://www.gmcbay.com/2013/01/i2c-programming-in-go/">I2C Programming in Go</a></li>
+        <li><a href="http://trouch.com/2012/08/03/airpi-airplay-audio-with-raspberry/">AirPi – AirPlay audio with Raspberry</a>
+        </li>
+        <li><a href="http://elinux.org/RPi_VerifiedPeripherals#USB_Webcams_2">和Pi兼容的外设列表</a></li>
+        <li><a href="http://hugozhu.myalert.info/2013/02/26/dynamic-dns-script.html">Pi上可运行的DNSPod的动态域名程序</a></li>
+        <li><a href="https://gist.github.com/4350411">Pi上可运行的iOS Push Service HTTP Gateway</a></li>
     </ul>
-  </div>  
-</div>
 
-<div class="span6">
-<h3>最近项目</h3>
-  <h4><a href="http://github.com/hugozhu/rpi">WiringPi-Go</a></h4>
-  <p>使用Go语言来实现GPIO编程</p>
-  <h4><a href="http://myalert.info/">实时股价提醒</a></h4>
-  <p>支持港股和美股的实时报价和多种提醒方式(手机Push消息，Web长连接Poll，<a href="http://weibo.com/myalert">微博@提醒</a>），并提供持仓一览等功能
-     <a href="http://42.120.49.45/download/">iPhone客户端下载</a>
-  </p>
+    <div>
+        <ul><h5>友情链接（网站部署在Pi上的好友）</h5>
+            <li><a href="http://kongwu.net" target="_blank">空无</a></li>
+            <li><a href="http://a7b.cn/" target="_blank">伏威</a></li>
+            <li><a href="http://pi.k17.im" target="_blank">异翅</a></li>
+            <li><a href="http://jacksontian.eicp.net" target="_blank">朴灵</a></li>
+        </ul>
+    </div>
+    <hr/>
+    <!---->
+    <a href="https://cosm.com/users/hugozhu">
+        <div align="center">
+            <img src="https://api.cosm.com/v2/feeds/92372/datastreams/1.png?width=340&height=180&colour=%23f15a24&duration=2days&title=Raspberry%20Pi%E7%9A%84CPU%20Load&show_axis_labels=false&detailed_grid=true&scale=&timezone=8"/>
 
-  <h4><a href="http://go.myalert.info/deal_alert">海外代购Deal实时提醒</a></h4>
-  <p>设置关键词，当有优惠出现时，第一时间通过微博@提醒你,数据包括了微博上的海淘大号，以及同步过来的Dealsea和Fatwallet上的数据集中在<a href="http://weibo.com/mydealsea">@海外购优惠汇</a></p>
+            <img src="https://api.cosm.com/v2/feeds/92372/datastreams/2.png?width=340&height=180&colour=%23f15a24&duration=2days&title=Raspberry%20Pi%E7%9A%84CPU%E6%B8%A9%E5%BA%A6&show_axis_labels=false&detailed_grid=true&scale=&timezone=8"/>
 
-  <h4><a href="http://go.myalert.info/twitter">微博同步到Twitter</a></h4>
-  <p>打开你和世界交流的窗口：<a href="https://github.com/hugozhu/weibo2twitter/blob/master/src/twitter.go">同步程序代码</a>
-  </p>
+            <img src="https://api.cosm.com/v2/feeds/119331/datastreams/2.png?width=340&height=180&colour=%23f15a24&duration=2days&title=室内湿度&show_axis_labels=false&detailed_grid=true&scale=&timezone=8"/>
 
-  <h4><a href="http://laiwang.myalert.info/">微博同步到来往</a></h4>
-  <p>设置关联后，你发的微博会自动同步到来往：
-     <a href="https://github.com/hugozhu/weibo2twitter/blob/master/src/laiwang.go">同步程序代码</a>   
-  </p>
-  
-<h4><a href="https://github.com/hugozhu/yunpan_pi">阿里云盘Pi客户端</a></h4>
-  <p>已完成根据文件最后修改时间的同步</p>  
-  
-  <h4><a href="http://myalert.info/">微信查实时股价</a></h4>
-  <p> <div align="center"><img src="http://go.myalert.info/img/qrcode.png" width="160" height="160"/></div>
-      关注微信号： <b>myalert</b> ，输入股票代码或公司名称即可获取实时报价，这个服务后台只有一个Pi。
-<div>
-<br/>
-</div>            
-          </p>
-        </div>  
-      </div>
+            <img src="https://api.cosm.com/v2/feeds/119331/datastreams/1.png?width=340&height=180&colour=%23f15a24&duration=2days&title=室内温度&show_axis_labels=false&detailed_grid=true&scale=&timezone=8"/>
+        </div>
+    </a>
 
-<hr/>
-<div style="float:right;padding-right:80px">
-<script type="text/javascript"><!--
-google_ad_client = "ca-pub-5109060569865704";
-/* myalert.info */
-google_ad_slot = "8432858182";
-google_ad_width = 300;
-google_ad_height = 250;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-</div>
-
-<ul><h5>常用链接</h5>
-<li><a href="https://gist.github.com/4440996">在Raspberry Pi上听豆瓣电台</a></li>
-<li><a href="http://elinux.org/RPi_Easy_SD_Card_Setup#Copying_an_image_to_the_SD_card_in_Mac.C2.A0OS.C2.A0X_.28Only_with_graphical_interface.29">Mac上制作Pi的启动SD卡</a></li>
-<li><a href="http://dave.cheney.net/2012/09/25/installing-go-on-the-raspberry-pi">How to get Go running on Raspberry Pi</a>
-<li><a href="http://www.gmcbay.com/2013/01/i2c-programming-in-go/">I2C Programming in Go</a></li>
-<li><a href="http://trouch.com/2012/08/03/airpi-airplay-audio-with-raspberry/">AirPi – AirPlay audio with Raspberry</a></li>
-<li><a href="http://elinux.org/RPi_VerifiedPeripherals#USB_Webcams_2">和Pi兼容的外设列表</a></li>
-<li><a href="http://hugozhu.myalert.info/2013/02/26/dynamic-dns-script.html">Pi上可运行的DNSPod的动态域名程序</a></li>
-<li><a href="https://gist.github.com/4350411">Pi上可运行的iOS Push Service HTTP Gateway</a></li>
-</ul> 
-
-<div>
-<ul><h5>友情链接（网站部署在Pi上的好友）</h5>
-<li><a href="http://kongwu.net" target="_blank">空无</a></li>
-<li><a href="http://a7b.cn/" target="_blank">伏威</a></li>
-<li><a href="http://pi.k17.im" target="_blank">异翅</a></li>
-<li><a href="http://jacksontian.eicp.net" target="_blank">朴灵</a></li>
-</ul>
-            
-</div>
-<hr/>              
-<!--
-<a href="https://cosm.com/users/hugozhu"><div align="center">
-<img src="https://api.cosm.com/v2/feeds/92372/datastreams/1.png?width=340&height=180&colour=%23f15a24&duration=2days&title=Raspberry%20Pi%E7%9A%84CPU%20Load&show_axis_labels=false&detailed_grid=true&scale=&timezone=8"/>
-
-<img src="https://api.cosm.com/v2/feeds/92372/datastreams/2.png?width=340&height=180&colour=%23f15a24&duration=2days&title=Raspberry%20Pi%E7%9A%84CPU%E6%B8%A9%E5%BA%A6&show_axis_labels=false&detailed_grid=true&scale=&timezone=8"/>
-
-<img src="https://api.cosm.com/v2/feeds/119331/datastreams/2.png?width=340&height=180&colour=%23f15a24&duration=2days&title=室内湿度&show_axis_labels=false&detailed_grid=true&scale=&timezone=8"/>
-
-<img src="https://api.cosm.com/v2/feeds/119331/datastreams/1.png?width=340&height=180&colour=%23f15a24&duration=2days&title=室内温度&show_axis_labels=false&detailed_grid=true&scale=&timezone=8"/>
-</div></a>
--->
-<br/><br/>
+    <br/><br/>
