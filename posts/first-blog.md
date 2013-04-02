@@ -1,8 +1,8 @@
 ---
-date: 2012-12-22
+date: 2013-04-02
 layout: post
 title: 你的第一篇博客
-permalink: '/2012/new-born.html'
+permalink: '/2013/new-born.html'
 categories:
 - Gor
 - Blog
