@@ -63,6 +63,24 @@
 <!-- /container -->
 {{{ google_prettify }}}
 {{{ analytics }}}
+<script type="text/javascript">
+    (function (win, doc) {
+        var s = doc.createElement("script"), h = doc.getElementsByTagName("head")[0];
+        if (!win.alimamatk_show) {
+            s.charset = "gbk";
+            s.async = true;
+            s.src = "http://a.alimama.cn/tkapi.js";
+            h.insertBefore(s, h.firstChild);
+        }
+        var o = {
+            pid: "mm_10003632_3503109_11465558",
+            appkey: "",
+            unid: ""
+        }
+        win.alimamatk_onload = win.alimamatk_onload || [];
+        win.alimamatk_onload.push(o);
+    })(window, document);
+</script>
 <img src="http://app.myalert.info/b.gif"/>
 </body>
 </html>
