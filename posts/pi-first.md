@@ -3,8 +3,8 @@ date: 2013-04-06
 layout: post
 title: 初试Raspberry Pi
 permalink: '/2013/pi-frist.html'
-description:
-categories: What is Raspberry Pi.How to Buy it.
+description: What is Raspberry Pi.How to Buy it.
+categories:
 - RaspberryPi
 - Blog
 tags:
