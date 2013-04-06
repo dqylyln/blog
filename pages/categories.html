@@ -3,19 +3,19 @@ description:
 ---
 
 {{#page}}
-    {{>right_ads}}
+{{>right_ads}}
 {{/page}}
 
 <ul class="tag_box inline">
-{{# categories }}
-  {{> categories_list }}
-{{/ categories }}
+    {{# categories }}
+    {{> categories_list }}
+    {{/ categories }}
 </ul>
 {{# categories }}
-  <h2>{{ name }} ({{ count }})</h2>
-  <ul>
+<h2>{{ name }} ({{ count }})</h2>
+<ul>
     {{# posts?to_posts }}
-      {{> posts_list }}
+    {{> posts_list }}
     {{/ posts?to_posts }}
-  </ul>
+</ul>
 {{/ categories }}

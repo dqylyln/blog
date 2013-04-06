@@ -3,7 +3,6 @@ date: 2013-04-06
 layout: post
 title: 初试Raspberry Pi
 permalink: '/2013/pi-frist.html'
-description: What is Raspberry Pi.How to Buy it.
 categories:
 - RaspberryPi
 - Blog
@@ -67,4 +66,4 @@ Raspberry Pi 开箱照
 
 ![](http://img03.taobaocdn.com/imgextra/i3/839475955/T2sRbbXX8bXXXXXXXX_!!839475955.png)
 
-组装工作完成后，剩下就是准备系统加电开机了，见下一篇博文。
+组装工作完成后，剩下就是准备系统加电开机了，见下一篇博文 [Raspberry Pi 开机与设置](/2013/pi-setup.html)。
