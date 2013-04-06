@@ -68,5 +68,3 @@ Raspberry Pi 开箱照
 ![](http://img03.taobaocdn.com/imgextra/i3/839475955/T2sRbbXX8bXXXXXXXX_!!839475955.png)
 
 组装工作完成后，剩下就是准备系统加电开机了，见下一篇博文。
-
-
