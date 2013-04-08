@@ -105,11 +105,13 @@ ifconfig eth0 up
 
 如果配置没问题，可以ping www.taobao.com就可以PING通
 
-跟新APT的源列表
+更新APT的源列表
+===
 
 apt-get update
 
 安装VIM
+===
 
 apt-get install vim
 
