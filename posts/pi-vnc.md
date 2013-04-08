@@ -10,7 +10,7 @@ tags:
 - Raspberry Pi
 ---
 
-今天一个同事问我是否能远程访问RaspberryPi的桌面环境，当时一口回答VNC，至于咋搞一直没尝试过，因为我一直认为Raspberry Pi上搞X的话，性能兼职
+今天一个同事问我是否能远程访问RaspberryPi的桌面环境，当时一口回答VNC，至于咋搞一直没尝试过，因为我一直认为Raspberry Pi上搞X的话，性能真
 是惨不忍睹。但是本着探索的精神今天还是尝试了下顺便记录了下过程。
 
 安装 tightvncserver
