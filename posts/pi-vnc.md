@@ -41,7 +41,7 @@ tightvnc的客户端有很多平台的，可以根据需要下载 [下载连接]
 
 准备开机启动脚本
 ---
-    sudo /etc/init.d/tightvncserver
+    sudo vi /etc/init.d/tightvncserver
 
 *下面是脚本内容
 
@@ -84,6 +84,22 @@ sudo chmod 755 /etc/init.d/tightvncserver
 添加到开机启动
 ---
 
-sudo update-rc.d tightvncserver defaults
+    sudo update-rc.d tightvncserver defaults
 
+XDRP
+===
+如果感兴趣可以安装XDRP，这个玩意也依赖VNC。好处是可以直接使用WIN的远程桌面连接，而速度快。
 
+安装命令：
+
+    sudo apt-get install xrdp
+
+注意：默认端口3389 如果是外网需要自己路由器映射暴漏这个端口。
+
+WINDOWS 下远程桌面
+
+![WIN远程桌面](http://cdntest.aliyun.com/faxianla/wood/m939474-1366612952465.png)
+
+![登录成功](http://cdntest.aliyun.com/faxianla/wood/m939475-1366612965244.png)
+
+输入你的用户名密码即可连接
