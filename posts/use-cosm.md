@@ -1,7 +1,7 @@
 ---
 date: 2013-04-22
 layout: post
-title: 利用cosm监控Raspberry Pi的Load和温度
+title: 利用COSM监控Raspberry Pi的Load和温度
 permalink: '/2013/use-cosm.html'
 categories:
 - RaspberryPi
