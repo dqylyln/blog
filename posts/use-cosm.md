@@ -97,7 +97,7 @@ cosm提供了HTTP的API方式
 浏览器调试
 ====
 
-利用chrome的一个插件叫Dev Http Client, 在连接地址里填入API的地址其中feed_id换成你真实的FEED_ID
+利用chrome的一个插件叫[Dev Http Client](https://chrome.google.com/webstore/detail/dev-http-client/aejoelaoggembcahagimdiliamlcdmfm/details?utm_source=chrome-ntp-icon), 在连接地址里填入API的地址其中feed_id换成你真实的FEED_ID
 
 如：api.cosm.com/v2/feeds/126908?timezone=+8
 
