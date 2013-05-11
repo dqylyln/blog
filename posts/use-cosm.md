@@ -105,7 +105,7 @@ cosm提供了HTTP的API方式
 
 BODY 处填写需要发送的JSON数据，方式选择PUT
 
-点击发送即可，RESPONSE 处会显示200表示成功 。如下图：
+点击发送即可，RESPONSE 处会显示200表示y成功 。如下图：
 
 <img src="http://cdntest.aliyun.com/faxianla/wood/mt1366633121092.png" width="600" height="600"/>
 
