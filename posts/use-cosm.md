@@ -50,7 +50,7 @@ xively账户准备
 xively http API
 ===
 
-上面已经创建好了数据的FEED，剩下的就是向这个FEED里提交数据了，这里用的是CRUL的API[CURL API详情](https://xively.com/dev/docs/api/data/write/multiple_datapoints_to_multiple_data_streams)
+上面已经创建好了数据的FEED，剩下的就是向这个FEED里提交数据了，这里用的是[CURL API详情](https://xively.com/dev/docs/api/data/write/multiple_datapoints_to_multiple_data_streams)
 
 
 1.数据格式（JSON）
@@ -153,7 +153,7 @@ BODY 处填写需要发送的JSON数据，方式选择PUT
 
 可以看到以下结果:
 
-<img src="http://cdntest.aliyun.com/faxianla/wood/mt1366706378183.png" width="600" height="600"/>
+<img src="http://cdntest.aliyun.com/faxianla/wood/mt1368625828856.png" width="600" height="600"/>
 
 将打点脚本添加到CRONTAB中
 ===
