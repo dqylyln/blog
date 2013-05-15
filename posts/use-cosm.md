@@ -98,7 +98,7 @@ BODY 处填写需要发送的JSON数据，方式选择PUT
 
 这个时候访问下 https://xively.com/feeds/80400859 这个地址就可以看到刚才PUT过去的数据就OK了代表你的API已经调试OK.
 
-<img src="http://cdntest.aliyun.com/faxianla/wood/mt1366704212967.png" width="600" height="600"/>
+<img src="http://cdntest.aliyun.com/faxianla/wood/mt1368625828856.png" width="600" height="600"/>
 
 准备SHELL打点脚本
 ===
@@ -153,7 +153,7 @@ BODY 处填写需要发送的JSON数据，方式选择PUT
 
 可以看到以下结果:
 
-<img src="http://cdntest.aliyun.com/faxianla/wood/mt1368625828856.png" width="600" height="600"/>
+<img src="http://cdntest.aliyun.com/faxianla/wood/mt1366706378183.png" width="600" height="600"/>
 
 将打点脚本添加到CRONTAB中
 ===
