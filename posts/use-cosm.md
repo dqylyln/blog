@@ -1,7 +1,7 @@
 ---
 date: 2013-04-22
 layout: post
-title: 利用xively.com监控Raspberry Pi的Load和温度
+title: 利用xively监控Raspberry Pi的Load和温度
 permalink: '/2013/use-cosm.html'
 categories:
 - RaspberryPi
@@ -175,4 +175,4 @@ ${LINE_ID}:替换成你FEED里具体LINE的ID，上个例子中就是load或者t
 
 ${TITLE}  :图表展示上的标题,可以自己按照需要命名，比如CPU的LOAD
 
-经过以上步骤就可以将你的PI上的CPU的LOAD还有温度数据采集到放到cosm展示，其他原理类似如统计在线人数等需求都可以用这个cosm的服务来实现。
+经过以上步骤就可以将你的PI上的CPU的LOAD还有温度数据采集到放到cosm展示，其他原理类似如统计在线人数等需求都可以用这个xively的服务来实现。
