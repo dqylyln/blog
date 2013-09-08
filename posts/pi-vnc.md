@@ -16,7 +16,7 @@ tags:
 安装 tightvncserver
 ===
 
-    sudo apt-get isntall tightvncserver
+    sudo apt-get install tightvncserver
 
 启动VNC Server
 ===

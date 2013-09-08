@@ -153,6 +153,8 @@ sudo vi /etc/apt/sources.list
 
 deb http://mirror.devunt.kr/raspbian/raspbian/ wheezy main contrib non-free rpi
 
+[更多APT源列表](http://www.raspbian.org/RaspbianMirrors)
+
 图形界面下安装中文支持还有输入发
 
 -安装文泉字体
@@ -221,7 +223,7 @@ sudo service vsftpd restart
 
 注意:如果没有图形的话，要在Makefile里注释掉X的测试
 
-\#GRAPHIC_TESTS = defined
+#GRAPHIC_TESTS = defined
 
 测试结果
 

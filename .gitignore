@@ -1,4 +1,5 @@
 .idea/
 *.iml
+.DS_Store
 .tmp_partials/
 compiled/
