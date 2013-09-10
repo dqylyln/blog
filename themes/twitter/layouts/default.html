@@ -65,22 +65,15 @@
 {{{ google_prettify }}}
 {{{ analytics }}}
 <script type="text/javascript">
-    (function (win, doc) {
-        var s = doc.createElement("script"), h = doc.getElementsByTagName("head")[0];
-        if (!win.alimamatk_show) {
-            s.charset = "gbk";
-            s.async = true;
-            s.src = "http://a.alimama.cn/tkapi.js";
-            h.insertBefore(s, h.firstChild);
-        }
-        var o = {
-            pid: "mm_10003632_4206295_13756977",
-            appkey: "",
-            unid: ""
-        }
-        win.alimamatk_onload = win.alimamatk_onload || [];
-        win.alimamatk_onload.push(o);
-    })(window, document);
+    document.write('<a style="display:none!important" id="tanx-a-mm_10003632_4206295_13756977"></a>');
+    tanx_s = document.createElement("script");
+    tanx_s.type = "text/javascript";
+    tanx_s.charset = "gbk";
+    tanx_s.id = "tanx-s-mm_10003632_4206295_13756977";
+    tanx_s.async = true;
+    tanx_s.src = "http://p.tanx.com/ex?i=mm_10003632_4206295_13756977";
+    tanx_h = document.getElementsByTagName("head")[0];
+    if(tanx_h)tanx_h.insertBefore(tanx_s,tanx_h.firstChild);
 </script>
 <img src="http://app.myalert.info/b.gif"/>
 </body>
