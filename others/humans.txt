@@ -2,7 +2,7 @@
 	Author: dqylyln
 	Contact: dqylyln [at] gmail.com
 	Weibo: @小齐昊
-	Blog: dqylyln.dyndns.org
+	Blog: dqy.me
 	Site: http://www.intellij.org.cn
 	From: HangZhou, ZheJiang, China
 
