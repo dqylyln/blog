@@ -16,7 +16,7 @@ tags:
 Raspberry Pi是一款基于Linux系统的个人电脑，配备一枚700MHz的处理器，512内存，支持SD卡和Ethernet，拥有两个USB接口，
 以及 HDMI和RCA输出支持。。。。。太多了具体还是直接[百科](http://baike.baidu.com/view/5730914.htm)吧。
 
-<img src="http://www.ickey.cn/images/raspberry/ras14.jpg" width="600" height="600"/>
+<img src="http://www.ickey.cn/images/raspberry/ras14.jpg" width="770" height="770"/>
 
 UK与China版本的区别(当初购买的时候，我也迷惑了一阵)
 ---

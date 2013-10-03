@@ -52,7 +52,7 @@ MAC为例：利用DD工具
 ===
 
 按照以下图片接口位置连接设备（USB键盘，鼠标，SD卡，网线，电视机或者显示器）
-<img src="http://files.leiphone.com/uploads/2012/08/raspberry-pi-3-1024x680.jpg" width="600" height="600"/>
+<img src="http://files.leiphone.com/uploads/2012/08/raspberry-pi-3-1024x680.jpg" width="770" height="770"/>
 
 HDMI支持开启，这个坑害我折腾半天，因为 Raspbian对于HDMI默认没有启用。如果你使用的是HDMI连接显示设备就要多一个步骤。
 
@@ -61,7 +61,7 @@ HDMI支持开启，这个坑害我折腾半天，因为 Raspbian对于HDMI默认
     hdmi_safe=1
 
 设别连接好就可以开机了，如果没什么问题开机后显示器上会显示Raspberry Pi的设置页面
-<img src="http://files.leiphone.com/uploads/2012/08/firstscreen.png" width="600" height="600"/>
+<img src="http://files.leiphone.com/uploads/2012/08/firstscreen.png" width="770" height="770"/>
 
 * info 顾名思义，显示PI的一些配置信息
 
