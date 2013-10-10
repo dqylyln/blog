@@ -1,7 +1,7 @@
 ---
 date: '2013-10-03'
 layout: post
-title: 天猫魔盒深度试用总结
+title: 天猫魔盒拆机深度测评
 permalink: '/2013/tmall-m6.html'
 categories:
 - Blog
