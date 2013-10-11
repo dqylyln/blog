@@ -142,7 +142,7 @@ tags:
 音频格式的话，天猫盒子是没办法进行音频解码结果就是光有图像没有声音。当然也是有解决方案的，那就是MXPlayer+自定义解码包。
 
 MXPlayer+解码包内含3个文件（播放器主文件：videoplayer_ad__1_7_19_neon_market.apk 常用解码包：ffmpeg_v7_neon__1_7_19.apk DTS自定义解码包：Neon_v1.7.19.zip）
-<a href="http://pan.baidu.com/s/1ghTka" target="_blank">百度云盘下载</a>
+<a href="http://pan.baidu.com/s/19U8Ak" target="_blank">百度云盘下载</a>
 
 1.将下载的ZIP包解压后，安装里面的播放器主文件和常用解码包2个APK。
 
@@ -150,7 +150,8 @@ MXPlayer+解码包内含3个文件（播放器主文件：videoplayer_ad__1_7_19
 
 3.将Neon_v1.7.19目录拷贝到内置SDCARD的目录中（系统分内卡和外卡，内卡是只ROM模拟出来的SD卡而外卡是指真是的SD卡）
 
-4.打开MXPlayer在设置里选择解码器界面，在最下面自定义解码器目录选择刚才解压到内卡的Neon_v1.7.19目录即可。
+4.打开MXPlayer在设置里选择解码器界面，先选择开启硬件解码，再到最下面自定义解码器目录选择刚才解压到内卡的Neon_v1.7.19目录即可。
+
 
 # 关于游戏
 
