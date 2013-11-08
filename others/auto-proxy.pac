@@ -1,8 +1,5 @@
 function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(url); } catch(ex) { return false; }    }
     function FindProxyForURL(url, host) {
-	if (regExpMatch(url, "[a-zA-z]{3,5}://((?!.*(encrypted)+).*){1}(\\.google\\.){1}(((com|com.hk){1})){1}(/{1}|(/{1}(.+)))?$")) return 'SOCKS5 127.0.0.1:7000';
-	if (shExpMatch(url, "https://encrypted.google.com/*")) return 'SOCKS5 127.0.0.1:7000';
-	if (regExpMatch(url, "[a-zA-z]{3,5}://(.)+\\.+((facebook|twitter|googleusercontent|fbcdn|twimg|youtube|mitbbs|python|wordpress|appspot|blogspot|ytimg){1}(\\.){1}(com|net|org){1}){1}(/{1}|(/{1}(.+)))?$")) return 'SOCKS5 127.0.0.1:7000';
 	if (shExpMatch(url, "https://autoproxy.org*")) return 'DIRECT';
 	if (shExpMatch(url, "http://ime.baidu.jp*")) return 'DIRECT';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.exblog\\.jp")) return 'DIRECT';
