@@ -302,26 +302,12 @@ MXPlayer+解码包内含3个文件（播放器主文件：videoplayer_ad__1_7_19
 # 刷机篇
 
 很多同学问迈乐M6可以刷成原生的安桌系统而天猫魔盒是否也可以呢？答案当然是肯定的 “可以”。但是
-<span style="color:red">
-由于很多原因（很多人懂的），本人不方便对外公布天猫魔盒的刷机方法以及刷机ROM等相关文件,所以请不要尝试联系我索要刷机教程和文件。
-</span>
-但是感兴趣的同学可以自行问“谷歌”或者“度娘”也可以在迈乐官方论坛里转悠下。
 
-<span style="color:red">
-本人忠告目前不要进行刷机，原因有以下几点：
-</span>
+迈乐官方固件下载: <a href="http://pan.baidu.com/s/1DuFEh" target="_blank">a20_sdk1.2_V1.2.1.img</a>
 
-<span style="color:red">
-1.天猫魔盒属于定制版的迈乐M6。由于硬件有些差异，如果刷了迈乐官方M6的固件会导致R5遥控器失灵。
-</span>
+天猫云OS固件下载: <a href="http://pan.baidu.com/s/19qZrx" target="_blank">M6阿里巴巴专用UI1.0.0-R-2013.090...</a>
 
-<span style="color:red">
-2.迈乐官方目前也没有对外放出适用于天猫魔盒的安桌固件。
-</span>
-
-<span style="color:red">
-3.天猫魔盒官方目前也没提供云OS的恢复固件，如果刷机很可能无法恢复回来。
-</span>
+刷机方法:<a href="http://bbs.mele.cn/showtopic-2270.aspx" target="_blank">SD卡刷方法</a>
 
 ## 迈乐安桌固件
 由于算上是内部人员盒子刷坏了也不怕，可以拿到天猫盒子相关的技术同学那里帮忙再刷回来。没了恢复的后顾之忧才敢大胆的刷迈乐M6的官的测试固件去体验。下面我放一些迈乐官方M6
