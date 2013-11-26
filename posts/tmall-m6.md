@@ -19,7 +19,7 @@ tags:
 
 外包装采用牛皮纸盒子搭配红黑的天猫LOGO，既环保又看起来挺时尚的。其实我第一次看到这个盒子以为是鞋盒子。
 
-<img src="http://oss.aliyuncs.com/faxianla/mt1380528940349.jpeg" width="778" height="778"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380528940349.jpeg" width="778" height="778"/>
 
 开箱照第一感官，右边静静地躺着黑色的机顶盒还有遥控器，不过印着4行英文1行中文红色说明书有点太格格不入了都是给中国人用的干嘛搞这么大英文么。
 
