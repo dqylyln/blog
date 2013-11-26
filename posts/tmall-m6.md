@@ -23,11 +23,11 @@ tags:
 
 开箱照第一感官，右边静静地躺着黑色的机顶盒还有遥控器，不过印着4行英文1行中文红色说明书有点太格格不入了都是给中国人用的干嘛搞这么大英文么。
 
-<img src="http://oss.aliyuncs.com/faxianla/mt1380529916635.jpeg" width="777" height="770"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380529916635.jpeg" width="777" height="770"/>
 
 彻底打开所有配件一目了然。
 
-<img src="http://oss.aliyuncs.com/faxianla/mt1380534324293.jpeg" width="770" height="770"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380534324293.jpeg" width="770" height="770"/>
 
 - 机顶盒
 
@@ -61,24 +61,24 @@ tags:
 
 侧面：从左到右依次是 SD卡插槽，USB接口，被阉割堵死的Micro USB，复位键
 
-<img src="http://oss.aliyuncs.com/faxianla/mt1380551751598.jpeg" width="770" height="770"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380551751598.jpeg" width="770" height="770"/>
 
 背面：从左到右依次是 电源开关，光纤，USB接口，网线接口，HDMI输出，AV输出，适配器电源接口
 
-<img src="http://oss.aliyuncs.com/faxianla/mt1380552046514.jpeg" width="770" height="770"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380552046514.jpeg" width="770" height="770"/>
 
 这里要说明下侧面的USB和背面的USB接口是一样的，随便哪个都可以插遥控器或者鼠标键盘。
 
 安装完毕的效果，之上而下分别是：天猫魔盒，美如画V5 ,华数摩托罗拉的有线电视机顶盒。三个放一起很明显可以看出它们的大小对比。
 
-<img src="http://oss.aliyuncs.com/faxianla/mt1380552467111.jpeg" width="770" height="770"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380552467111.jpeg" width="770" height="770"/>
 
 # 系统篇
 
 魔盒搭载的云OS系统为天猫定制版本，集成天猫购物，聚划算，以及支付宝生活水电煤交费等。目前版本为1.0.0-r20130925.2354。
 一开机便看到满屏的红色和一只代表TMALL的黑色猫。
 
-<img src="http://oss.aliyuncs.com/faxianla/mt1380552756029.jpeg" width="770" height="770"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380552756029.jpeg" width="770" height="770"/>
 
 系统UI采用了类似WIN8的Metro风格，不同的是提供了上下方向的功能分类（推荐，电影，回放，应用，搜索，通知，设置）。
 
@@ -86,40 +86,40 @@ tags:
 
 推荐页面明显位置为样例视频窗口，奇怪的是断网也能播放，样例视频顾及是集成在ROM里了。剩下的就是一些热播的电影和电视剧，以及网购的聚划算的入口。
 
-<img src="http://oss.aliyuncs.com/faxianla/mt1380552972974.jpeg" width="770" height="770"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380552972974.jpeg" width="770" height="770"/>
 
 ## 电影
 
 网络播放功能入口由华数提供。这里可以找到一些电影和电视剧，片源数量众多质量也还行高清的影片也有很多。最关键的是天猫魔盒用户免费使用一年，在众多
 的网络播放平台，华数这个目前只能算中等吧，后续可以自己安装PPTV,爱奇艺，HDPFANS等平台的APK.
 
-<img src="http://oss.aliyuncs.com/faxianla/mt1380553586520.jpeg" width="770" height="770"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380553586520.jpeg" width="770" height="770"/>
 
 ## 回放
 
 其实这个是个不错的功能还是由华数提供。可以回放1周内错过的电视节目，遗憾的时支持的回播的电视台只有一些知名的卫视台数量感觉是有些少。
 
-<img src="http://oss.aliyuncs.com/faxianla/mt1380553723323.jpeg" width="770" height="770"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380553723323.jpeg" width="770" height="770"/>
 
 ## 应用
 
 除了播放功能外APK扩展功能都在这个菜单里，也就是说用户自己安装应用程序都在这里，系统自带了一个应用市场，并且里面的应用和游戏都是针对“魔盒”适应的，
 但是APP的数量比较少。
 
-<img src="http://oss.aliyuncs.com/faxianla/mt1380553874927.jpeg" width="770" height="770"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380553874927.jpeg" width="770" height="770"/>
 
 ## 搜索
 
 个人认为这个搜索非常蛋疼，因为这个搜索是针对搜索华数的视频资源，其实可以跟电影或者回放集成进去，完全没必要单独搞一个栏目就叫搜索。
 
-<img src="http://oss.aliyuncs.com/faxianla/mt1380554123071.jpeg" width="770" height="770"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380554123071.jpeg" width="770" height="770"/>
 
 ## 设置
 
 设置这个应该不用多说了，这里可以绑定支付宝账户并且进行一些视频分辨率还有无线网络的设置。魔盒不会检测电视机支持的分辨率，如果是高清电视支持1080P的话，
 建议设置里自己设置下。
-<img src="http://oss.aliyuncs.com/faxianla/mt1380554253994.jpeg" width="770" height="770"/>
-<img src="http://oss.aliyuncs.com/faxianla/mt1380554368076.jpeg" width="770" height="770"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380554253994.jpeg" width="770" height="770"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380554368076.jpeg" width="770" height="770"/>
 
 # 程序的安装
 
@@ -157,7 +157,7 @@ MXPlayer+解码包内含3个文件（播放器主文件：videoplayer_ad__1_7_19
 
 如果你想把天猫魔盒当游戏机的话那么我想说你对它希望太高了。为什么呢？先看下天猫盒子的安兔兔平分你就明白了。
 
-<img src="http://oss.aliyuncs.com/faxianla/mt1380717812636.jpeg" width="770" height="770"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380717812636.jpeg" width="770" height="770"/>
 
 薄弱的3D性能根本不可能跑大型的3D游戏。也就能玩一些推荐的什么玩球王子、乒乓球等之类的小游戏。
 
@@ -222,7 +222,7 @@ MXPlayer+解码包内含3个文件（播放器主文件：videoplayer_ad__1_7_19
 而且最重要的是R5遥控器不自带保护带，很多人玩体感游戏用力过猛如果没有保护带的话，就会发生遥控器飞出击中电视机的悲剧.我之所以这么说是因为已经有同事的电视机毁在了这个R5的遥控器
 之下了。
 </span>
-<img src="http://cdntest.aliyun.com/faxianla/mt1380722089034.jpeg" width="770" height="770"/>
+<img src="http://cdntest.aliyun.com/faxianla/wood/mt1380722089034.jpeg" width="770" height="770"/>
 
 <span style="color:red">
 6.R5的MIC咪头,号称是可以将遥控器当麦克风，但是这个功能目前没有。
@@ -232,17 +232,17 @@ MXPlayer+解码包内含3个文件（播放器主文件：videoplayer_ad__1_7_19
 
 天猫魔盒的拆机比较简单，只要抠开背面的3个红圈对应的胶垫拧开下面的3个螺丝，然后用细一点的撬棒撬小心一点撬开上下红条的部分即可。
 
-<img src="http://oss.aliyuncs.com/faxianla/mt1380722836137.jpeg" width="770" height="770"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380722836137.jpeg" width="770" height="770"/>
 
 彻底拆开的效果
 
-<img src="http://oss.aliyuncs.com/faxianla/mt1380723138448.jpeg" width="770" height="770"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380723138448.jpeg" width="770" height="770"/>
 
 以上的都不重要关键是下面这主要芯片介绍的这张图，其中有根据网上资料与迈乐M6做对比，天猫魔盒阉割了哪些一目了然。
 
 ## 正面
 
-<img src="http://oss.aliyuncs.com/faxianla/mt1380723426431.jpeg" width="770" height="770"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380723426431.jpeg" width="770" height="770"/>
 
 1. 红色部分为处理器：天猫魔盒采用的是全志A20处理器(ARM Cortex™-A7 双核CPU架构),2160P视频解码(这个是理论值，真的播放2160P的话帧数少的可怜)，
 2个USB2.0的HOST(与魔盒阉割Micro USB有关)内置GPU为Mali400MP2，内置音频处理为Integrated HI-FI 100dB Audio（迈乐M6使用了外置的DRV632），更详细
@@ -272,7 +272,7 @@ MXPlayer+解码包内含3个文件（播放器主文件：videoplayer_ad__1_7_19
 
 ## 背面
 
-<img src="http://oss.aliyuncs.com/faxianla/mt1380728074987.jpeg" width="770" height="770"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380728074987.jpeg" width="770" height="770"/>
 
 1.中间黄色部分为FLASH ROM芯片：天猫魔盒采用了FORESEE NCTSTS860-04G芯片（G47A05 阿里，这个代表啥不懂）容量大小为4G。关于该芯片更详细资料没找到，
 但是迈乐M6配备的是SK Hynix 8G的MLC。天猫魔盒这个缩减就决定了魔盒不可能安装太多的APK，因为上面讲过除去自身的系统和预装软件外剩下空间1.6G左右。试问
@@ -284,16 +284,16 @@ MXPlayer+解码包内含3个文件（播放器主文件：videoplayer_ad__1_7_19
 
 由于遥控器比较难拆，弄不好拆开会破坏外壳的塑料很难还原，所以引用下别人的拆机图。
 
-<img src="http://cdntest.aliyun.com/faxianla/mt1380752681687.jpeg" width="770" height="770"/>
+<img src="http://cdntest.aliyun.com/faxianla/wood/mt1380752681687.jpeg" width="770" height="770"/>
 
 这个图的目的主要是想说明，它使带MIC的咪头的应该可以当麦克风用
-<img src="http://cdntest.aliyun.com/faxianla/mt1380753018098.jpeg" width="770" height="770"/>
+<img src="http://cdntest.aliyun.com/faxianla/wood/mt1380753018098.jpeg" width="770" height="770"/>
 
 ## 遥控器接收器
 
 用手沿着中间的分割线轻轻的掰开就可以了。其实我是想说这个玩意应该要么内置，要么做的小一点毕竟主要芯片只有一点点大小。
 
-<img src="http://oss.aliyuncs.com/faxianla/mt1380754168218.jpeg" width="770" height="770"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380754168218.jpeg" width="770" height="770"/>
 
 ## 电源
 
@@ -330,27 +330,27 @@ MXPlayer+解码包内含3个文件（播放器主文件：videoplayer_ad__1_7_19
 迈乐的首页也是采用了WIN8的风格，但是并没有采用向右延伸Metro的方式，而是采用了类似于IOS和安桌的文件夹方式。用户可以通过按菜单键呼出下方的程序菜单，将程序添加到
 主页上或者添加到具体的分类如：电影，游戏，或者其他中。
 
-<img src="http://oss.aliyuncs.com/faxianla/mt1380730750744.jpeg" width="770" height="770"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380730750744.jpeg" width="770" height="770"/>
 
 我的应用界面，4排满屏的应用相对阿里云OS的2排布局看起来更丰满，
 
-<img src="http://oss.aliyuncs.com/faxianla/mt1380730679955.jpeg" width="770" height="770"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380730679955.jpeg" width="770" height="770"/>
 
 市场应用界面，与阿里云OS的差不多里面的应用都是比较少的。
 
-<img src="http://oss.aliyuncs.com/faxianla/mt1380730817206.jpeg" width="770" height="770"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380730817206.jpeg" width="770" height="770"/>
 
 系统设置界面，标准的TAB方式，相对阿里云OS设置界面的“连接点入式“，让用户少选择一个界面。
 
-<img src="http://oss.aliyuncs.com/faxianla/mt1380731021208.jpeg" width="770" height="770"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380731021208.jpeg" width="770" height="770"/>
 
 系统升级界面，清晰的升级服务器列表，各个服务器忙闲状态一目了然，方便用户选择最空闲的服务器升级。而阿里云OS的升级界面不可以选择升级服务器，而且对于当前升级服务器的
 忙闲状态也是不得而知。
-<img src="http://oss.aliyuncs.com/faxianla/mt1380730878311.jpeg" width="770" height="770"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380730878311.jpeg" width="770" height="770"/>
 
 标准的安桌设置界面，看到这个界面我的心舒坦了好多，毕竟这个才是真正的安桌。菜单下来发现居然有开发模式而且还直接ROOT了。
 
-<img src="http://oss.aliyuncs.com/faxianla/mt1380730942572.jpeg" width="770" height="770"/>
+<img src="http://oss.aliyuncs.com/faxianla/wood/mt1380730942572.jpeg" width="770" height="770"/>
 
 ## 迈乐固件 VS 云OS固件
 
