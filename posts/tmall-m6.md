@@ -303,6 +303,8 @@ MXPlayer+解码包内含3个文件（播放器主文件：videoplayer_ad__1_7_19
 
 很多同学问迈乐M6可以刷成原生的安桌系统而天猫魔盒是否也可以呢？答案当然是肯定的 “可以”。
 
+目前网络上已经又针对这个工程样机的迈乐固件和天猫的云OS固件流出，所需资源如下需要的话请自取。
+
 迈乐官方固件下载: <a href="http://pan.baidu.com/s/1DuFEh" target="_blank">a20_sdk1.2_V1.2.1.img</a>
 
 天猫云OS固件下载: <a href="http://pan.baidu.com/s/19qZrx" target="_blank">M6阿里巴巴专用UI1.0.0-R-2013.090...</a>
