@@ -156,7 +156,6 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*89-64.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.9001700.com*") || shExpMatch(url, "http://9001700.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.92ccav.com*") || shExpMatch(url, "http://92ccav.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.9city.me/archiver*308578.html*") || shExpMatch(url, "http://9city.me/archiver*308578.html*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*a5.com.ru*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.aboluowang.com*") || shExpMatch(url, "http://aboluowang.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.aboutgfw.com*") || shExpMatch(url, "http://aboutgfw.com*")) return 'SOCKS 127.0.0.1:7000';
@@ -190,9 +189,11 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*video.aol.co.uk/video-detail*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*video.aol.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*www.aolnews.com*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*video.ap.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.apetube.com*") || shExpMatch(url, "http://apetube.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.apigee.com*") || shExpMatch(url, "http://apigee.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*appledaily.com*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*archive.is*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*archive.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.arctosia.com*") || shExpMatch(url, "http://arctosia.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://arctosia.com*")) return 'SOCKS 127.0.0.1:7000';
@@ -286,6 +287,8 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*brightkite.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*brizzly.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*broadbook.com*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "https://*.broadcasthe.net*") || shExpMatch(url, "https://broadcasthe.net*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "https://broadcasthe.net*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*ibros.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*brucewang.net*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.budaedu.org*") || shExpMatch(url, "http://budaedu.org*")) return 'SOCKS 127.0.0.1:7000';
@@ -334,6 +337,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*.change.org*") || shExpMatch(url, "http://change.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://change.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.changp.com*") || shExpMatch(url, "http://changp.com*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*.chaturbate.com*") || shExpMatch(url, "http://chaturbate.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*chengmingmag.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.chenguangcheng.com*") || shExpMatch(url, "http://chenguangcheng.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*chenpokong.com*")) return 'SOCKS 127.0.0.1:7000';
@@ -351,6 +355,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*chinagfw.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.chinagreenparty.org*") || shExpMatch(url, "http://chinagreenparty.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.chinahush.com*") || shExpMatch(url, "http://chinahush.com*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*chinalawtranslate.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*chinaxchina.com/howto*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.chinainperspective.com*") || shExpMatch(url, "http://chinainperspective.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*chinainperspective.net/ArtShow.aspx?*")) return 'SOCKS 127.0.0.1:7000';
@@ -385,7 +390,6 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*.civicparty.hk*") || shExpMatch(url, "http://civicparty.hk*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*civilhrfront.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*psiphon.civisec.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*cjb.net/vpn.html*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.ck101.com*") || shExpMatch(url, "http://ck101.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.clb.org.hk*") || shExpMatch(url, "http://clb.org.hk*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.clipfish.de*") || shExpMatch(url, "http://clipfish.de*")) return 'SOCKS 127.0.0.1:7000';
@@ -526,6 +530,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*falundafa.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*falundafamuseum.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*fangongheike.com*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*fanqianghou.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*fapdu.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.fawanghuihui.org*") || shExpMatch(url, "http://fawanghuihui.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*fanqiangyakexi.net*")) return 'SOCKS 127.0.0.1:7000';
@@ -584,6 +589,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*foxtang.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.freakshare.com*") || shExpMatch(url, "http://freakshare.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://freakshare.com*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*free-gate.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.free.fr/adsl*") || shExpMatch(url, "http://free.fr/adsl*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*kineox.free.fr*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*whitebear.freebearblog.org*")) return 'SOCKS 127.0.0.1:7000';
@@ -609,8 +615,8 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://www.zensur.freerk.com/*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*freevpn.nl*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.fring.com*") || shExpMatch(url, "http://fring.com*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*.frontlinedefenders.org*") || shExpMatch(url, "http://frontlinedefenders.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.fsurf.com*") || shExpMatch(url, "http://fsurf.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.ftchinese.com*") || shExpMatch(url, "http://ftchinese.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.fuckcnnic.net*") || shExpMatch(url, "http://fuckcnnic.net*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*fuckgfw.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*fulue.com*")) return 'SOCKS 127.0.0.1:7000';
@@ -637,6 +643,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*.geocities.com/SiliconValley/Circuit/5683/download.html*") || shExpMatch(url, "http://geocities.com/SiliconValley/Circuit/5683/download.html*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*hk.geocities.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*geocities.jp*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*.getchu.com*") || shExpMatch(url, "http://getchu.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.getfreedur.com*") || shExpMatch(url, "http://getfreedur.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.getjetso.com/forum*") || shExpMatch(url, "http://getjetso.com/forum*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*getiton.com*")) return 'SOCKS 127.0.0.1:7000';
@@ -713,6 +720,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*.google.*search*8964*") || shExpMatch(url, "http://google.*search*8964*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.google.*boxun*") || shExpMatch(url, "http://google.*boxun*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.google.*chinese+people+eating+babies*") || shExpMatch(url, "http://google.*chinese+people+eating+babies*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*.google.*http*dotsub.com*") || shExpMatch(url, "http://google.*http*dotsub.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.google.*east*turkistan*") || shExpMatch(url, "http://google.*east*turkistan*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.google.*facebook*") || shExpMatch(url, "http://google.*facebook*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.google.*falun*") || shExpMatch(url, "http://google.*falun*")) return 'SOCKS 127.0.0.1:7000';
@@ -794,6 +802,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*.google.*%E9%A9%AC%E5%87%AF*") || shExpMatch(url, "http://google.*%E9%A9%AC%E5%87%AF*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.google.*%E9%A9%AC%E5%8A%9B*") || shExpMatch(url, "http://google.*%E9%A9%AC%E5%8A%9B*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.google.*%E9%BA%A6%E5%BD%93%E5%8A%B3*") || shExpMatch(url, "http://google.*%E9%BA%A6%E5%BD%93%E5%8A%B3*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*.google.*%E6%AF%9B%E5%90%91%E8%BE%89*") || shExpMatch(url, "http://google.*%E6%AF%9B%E5%90%91%E8%BE%89*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.google.*%E5%86%85%E8%92%99*%E7%A4%BA%E5%A8%81*") || shExpMatch(url, "http://google.*%E5%86%85%E8%92%99*%E7%A4%BA%E5%A8%81*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.google.*%E5%AD%9F%E5%BB%BA%E6%9F%B1*") || shExpMatch(url, "http://google.*%E5%AD%9F%E5%BB%BA%E6%9F%B1*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.google.*%E6%A2%A6%E8%90%A6%E6%9C%AA%E5%90%8D%E6%B9%96*") || shExpMatch(url, "http://google.*%E6%A2%A6%E8%90%A6%E6%9C%AA%E5%90%8D%E6%B9%96*")) return 'SOCKS 127.0.0.1:7000';
@@ -900,6 +909,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*.googlevideo.com*") || shExpMatch(url, "http://googlevideo.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "https://apis.google.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*gospelherald.com*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://hk.gradconnection.com/*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*greatfire.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*greatfirewallofchina.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*guishan.org*")) return 'SOCKS 127.0.0.1:7000';
@@ -918,6 +928,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*heqinglian.net*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*here4news.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*app.heywire.com*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*.hgseav.com*") || shExpMatch(url, "http://hgseav.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*hidden-advent.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*hidecloud.com/blog/2008/07/29/fuck-beijing-olympics.html*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.hidemyass.com*") || shExpMatch(url, "http://hidemyass.com*")) return 'SOCKS 127.0.0.1:7000';
@@ -960,6 +971,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*.hrw.org*") || shExpMatch(url, "http://hrw.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*huaglad.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.huanghuagang.org*") || shExpMatch(url, "http://huanghuagang.org*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*.huaren.us*") || shExpMatch(url, "http://huaren.us*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*huaxia-news.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*huaxin.ph*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*hua-yue.net*")) return 'SOCKS 127.0.0.1:7000';
@@ -990,10 +1002,13 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*immigration.gov.tw*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://tech2.in.com/video/*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.inmediahk.net*") || shExpMatch(url, "http://inmediahk.net*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://internet.org/*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*internetdefenseleague.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*internetfreedom.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*inxian.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*ipobar.com*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "https://*.iptorrents.com*") || shExpMatch(url, "https://iptorrents.com*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "https://iptorrents.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*iredmail.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.beta.iset.com.tw/forum*") || shExpMatch(url, "http://beta.iset.com.tw/forum*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*http://beta.iset.com.tw/forum*")) return 'SOCKS 127.0.0.1:7000';
@@ -1002,6 +1017,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*.isaacmao.com*") || shExpMatch(url, "http://isaacmao.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*isohunt.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*blog.istef.info/2007/10/21/myentunnel*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*.istockphoto.com*") || shExpMatch(url, "http://istockphoto.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*isunaffairs.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*isuntv.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*itaboo.info*")) return 'SOCKS 127.0.0.1:7000';
@@ -1033,6 +1049,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*jingpin.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*ac.jiruan.net*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*jkforum.net*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*research.jmsc.hku.hk/social*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*jpopforum.net*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.junefourth-20.net*") || shExpMatch(url, "http://junefourth-20.net*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*justfreevpn.com*")) return 'SOCKS 127.0.0.1:7000';
@@ -1072,6 +1089,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*laomiu.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.laoyang.info*") || shExpMatch(url, "http://laoyang.info*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://laoyang.info*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*.laqingdan.net*") || shExpMatch(url, "http://laqingdan.net*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*latelinenews.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*lerosua.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*blog.lester850.info*")) return 'SOCKS 127.0.0.1:7000';
@@ -1092,6 +1110,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*.liujianshu.com*") || shExpMatch(url, "http://liujianshu.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*liuxiaotong.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*liu.lu*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*.liveleak.com*") || shExpMatch(url, "http://liveleak.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.livestation.com*") || shExpMatch(url, "http://livestation.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*livestream.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.livevideo.com*") || shExpMatch(url, "http://livevideo.com*")) return 'SOCKS 127.0.0.1:7000';
@@ -1139,6 +1158,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*.mimivip.com*") || shExpMatch(url, "http://mimivip.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*minghui.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*minghui-school.org*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*.mingjinglishi.com*") || shExpMatch(url, "http://mingjinglishi.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*mingjingnews.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*mingpao.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.mingpaomonthly.com*") || shExpMatch(url, "http://mingpaomonthly.com*")) return 'SOCKS 127.0.0.1:7000';
@@ -1176,6 +1196,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*multiproxy.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*forum.mymaji.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*multiupload.com*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*.my-proxy.com*") || shExpMatch(url, "http://my-proxy.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*forum.my903.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*myactimes.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.myav.com.tw/bbs*") || shExpMatch(url, "http://myav.com.tw/bbs*")) return 'SOCKS 127.0.0.1:7000';
@@ -1187,6 +1208,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*old.nabble.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*nanyang.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.nanyangpost.com*") || shExpMatch(url, "http://nanyangpost.com*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*.nanzao.com*") || shExpMatch(url, "http://nanzao.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.nakido.com*") || shExpMatch(url, "http://nakido.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.naol.ca*") || shExpMatch(url, "http://naol.ca*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*cyberghost.natado.com*")) return 'SOCKS 127.0.0.1:7000';
@@ -1213,13 +1235,15 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*.newscn.org*") || shExpMatch(url, "http://newscn.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*newspeak.cc/story*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.newsancai.com*") || shExpMatch(url, "http://newsancai.com*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*.newtaiwan.com.tw*") || shExpMatch(url, "http://newtaiwan.com.tw*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*newtalk.tw*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*newyorktimes.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*hk*.nextmedia.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*tw*.nextmedia.com*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*static.apple.nextmedia.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*nexttv.com.tw*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*ngensis.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*nicovideo.tw*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*.nicovideo.jp/watch/*") || shExpMatch(url, "http://nicovideo.jp/watch/*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*nintendium.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.dayaarmongol.ning.com*") || shExpMatch(url, "http://dayaarmongol.ning.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://dayaarmongol.ning.com*")) return 'SOCKS 127.0.0.1:7000';
@@ -1257,6 +1281,8 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*the-sun.on.cc*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*tv.on.cc*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.onlylady.cn*") || shExpMatch(url, "http://onlylady.cn*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*onmoon.net*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*onmoon.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.oopsforum.com*") || shExpMatch(url, "http://oopsforum.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*open.com.hk*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*opendemocracy.net*")) return 'SOCKS 127.0.0.1:7000';
@@ -1296,6 +1322,8 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*.panluan.net*") || shExpMatch(url, "http://panluan.net*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.panoramio.com*") || shExpMatch(url, "http://panoramio.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.parade.com/dictators/2009*") || shExpMatch(url, "http://parade.com/dictators/2009*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "https://passthepopcorn.me/*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "https://*.passthepopcorn.me/*") || shExpMatch(url, "https://passthepopcorn.me/*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*pastebin.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.pastie.org*") || shExpMatch(url, "http://pastie.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*pbs.org/wgbh/pages/frontline/gate*")) return 'SOCKS 127.0.0.1:7000';
@@ -1303,11 +1331,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*pbwiki.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.pcdiscuss.com*") || shExpMatch(url, "http://pcdiscuss.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*pcdvd.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blog.pchome.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*forum.pchome.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*mypaper.pchome.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*news.pchome.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*www.pchome.com.tw*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*.pchome.com.tw*") || shExpMatch(url, "http://pchome.com.tw*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*pdetails.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*peacefire.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*peacehall.com*")) return 'SOCKS 127.0.0.1:7000';
@@ -1365,6 +1389,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*privatepaste.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*privatetunnel.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*provideocoalition.com*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*proxifier.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*api.proxlet.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*proxy.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.proxypy.net*") || shExpMatch(url, "http://proxypy.net*")) return 'SOCKS 127.0.0.1:7000';
@@ -1453,6 +1478,8 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*savemedia.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*savetibet.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*savevid.com*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*.scmp.com*") || shExpMatch(url, "http://scmp.com*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*.scmpchinese.com*") || shExpMatch(url, "http://scmpchinese.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.scribd.com*") || shExpMatch(url, "http://scribd.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*seapuff.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*domainhelp.search.com*")) return 'SOCKS 127.0.0.1:7000';
@@ -1487,6 +1514,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*shenyunperformingarts.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*shenzhoufilm.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*shinychan.com*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*.shitaotv.org*") || shExpMatch(url, "http://shitaotv.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.shizhao.org*") || shExpMatch(url, "http://shizhao.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*shkspr.mobi/dabr*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.shopping.com*") || shExpMatch(url, "http://shopping.com*")) return 'SOCKS 127.0.0.1:7000';
@@ -1518,6 +1546,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*sitetag.us*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*sis.xxx*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*sis001.us*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://skyhighpremium.com/*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*bbs.skykiwi.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://www.skype.com/intl/*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*share.skype.com/sites/en/2008/10/skype_president_addresses_chin*")) return 'SOCKS 127.0.0.1:7000';
@@ -1548,8 +1577,6 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*.songjianjun.com*") || shExpMatch(url, "http://songjianjun.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.sopcast.com*") || shExpMatch(url, "http://sopcast.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.sopcast.org*") || shExpMatch(url, "http://sopcast.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*soundcloud.com/punkgod*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "https://soundcloud.com/punkgod*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*soundofhope.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.sourceforge.net*") || shExpMatch(url, "http://sourceforge.net*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*southnews.com.tw*")) return 'SOCKS 127.0.0.1:7000';
@@ -1585,6 +1612,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*.suoluo.org*") || shExpMatch(url, "http://suoluo.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*api.supertweet.net*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*www.supertweet.net*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*.surfeasy.com.au*") || shExpMatch(url, "http://surfeasy.com.au*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*support/youtube/bin/request.py?contact_type=abuse&*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*/support/youtube/bin/static.py?page=start.cs&*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.sydneytoday.com*") || shExpMatch(url, "http://sydneytoday.com*")) return 'SOCKS 127.0.0.1:7000';
@@ -1649,6 +1677,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*.time.com/time/magazine*") || shExpMatch(url, "http://time.com/time/magazine*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*tinychat.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.tistory.com*") || shExpMatch(url, "http://tistory.com*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*cn.tmagazine.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://tmi.me*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.tnaflix.com*") || shExpMatch(url, "http://tnaflix.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*togetter.com*")) return 'SOCKS 127.0.0.1:7000';
@@ -1668,6 +1697,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*trendsmap.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.trialofccp.org*") || shExpMatch(url, "http://trialofccp.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*trtc.com.tw*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*trulyergonomic.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.truth101.co.tv*") || shExpMatch(url, "http://truth101.co.tv*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://truth101.co.tv*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.truveo.com*") || shExpMatch(url, "http://truveo.com*")) return 'SOCKS 127.0.0.1:7000';
@@ -1740,6 +1770,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://t.co*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "https://t.co*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://twt.tl*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://*twittbot.net*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*twitter.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.twittercounter.com*") || shExpMatch(url, "http://twittercounter.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*twitterfeed.com*")) return 'SOCKS 127.0.0.1:7000';
@@ -1901,6 +1932,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*wwitv.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*wzyboy.im/post/160*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://www.x-berry.com/goagent*")) return 'SOCKS 127.0.0.1:7000';
+	if (shExpMatch(url, "http://x-art.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*x1949x.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*x365x.com*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*xanga.com*")) return 'SOCKS 127.0.0.1:7000';
@@ -1999,7 +2031,6 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*zhenghui.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*zhenlibu.info*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.zhinengluyou.com*") || shExpMatch(url, "http://zhinengluyou.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zhonggtuotese.net*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*zhuichaguoji.org*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*.ziddu.com/download*") || shExpMatch(url, "http://ziddu.com/download*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*zinio.com*")) return 'SOCKS 127.0.0.1:7000';
@@ -2458,6 +2489,8 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (shExpMatch(url, "http://*gov.tw*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*174.142.105.153*")) return 'SOCKS 127.0.0.1:7000';
 	if (shExpMatch(url, "http://*69.65.19.160*")) return 'SOCKS 127.0.0.1:7000';
+	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fxnetworks\\.com")) return 'SOCKS 127.0.0.1:7000';
+	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?muzu\\.tv")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?netflix\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pandora\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pure18\\.com")) return 'SOCKS 127.0.0.1:7000';
@@ -2480,6 +2513,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?2008xianzhang\\.info")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?36rain\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?4bluestones\\.biz")) return 'SOCKS 127.0.0.1:7000';
+	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?4chan\\.org")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?51\\.ca")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?6-4\\.net/")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?6park\\.com")) return 'SOCKS 127.0.0.1:7000';
@@ -2504,6 +2538,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ajaxplorer\\.info")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.ajsands\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?akiba-online\\.com")) return 'SOCKS 127.0.0.1:7000';
+	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?alabout\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?alasbarricadas\\.org")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?notes\\.alexdong\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?alkasir\\.com")) return 'SOCKS 127.0.0.1:7000';
@@ -2562,7 +2597,6 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bignews\\.org")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bill2-software\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?billywr\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bitbucket\\.org")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bjzc\\.org/")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blinkx\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blip\\.tv/")) return 'SOCKS 127.0.0.1:7000';
@@ -2657,6 +2691,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?allaboutalpha\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?civicparty\\.hk")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?civilhrfront\\.org")) return 'SOCKS 127.0.0.1:7000';
+	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cjb\\.net")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ck101\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?classicalguitarblog\\.net")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cmule\\.com")) return 'SOCKS 127.0.0.1:7000';
@@ -2664,6 +2699,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cna\\.com\\.tw")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cnd\\.org/")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cochina\\.org")) return 'SOCKS 127.0.0.1:7000';
+	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?codeshare\\.io")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?comefromchina\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?compileheart\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?conoyo\\.com")) return 'SOCKS 127.0.0.1:7000';
@@ -2709,6 +2745,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?digitalnomadsproject\\.org")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?diigo\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?furl\\.net")) return 'SOCKS 127.0.0.1:7000';
+	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?directcreative\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?discuss\\.com\\.hk")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dit-inc\\.us")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dl-laby\\.jp")) return 'SOCKS 127.0.0.1:7000';
@@ -2719,6 +2756,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dongtaiwang\\.net")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dontmovetochina\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dotplane\\.com")) return 'SOCKS 127.0.0.1:7000';
+	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dotsub\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dougscripts\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?doxygen\\.org")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dpp\\.org\\.tw")) return 'SOCKS 127.0.0.1:7000';
@@ -2779,7 +2817,6 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fengzhenghu\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?finalion\\.jp")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fireofliberty\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?flagfox\\.net")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?falsefire\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fotop\\.net")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fringenetwork\\.com")) return 'SOCKS 127.0.0.1:7000';
@@ -2868,6 +2905,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?greatroc\\.tw")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gstatic\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?guishan\\.org")) return 'SOCKS 127.0.0.1:7000';
+	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gunsamerica\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?h-china\\.org")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hackthatphone\\.net")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hakkatv\\.org\\.tw")) return 'SOCKS 127.0.0.1:7000';
@@ -2910,6 +2948,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hideipvpn\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hihistory\\.net")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?highrockmedia\\.com")) return 'SOCKS 127.0.0.1:7000';
+	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hikinggfw\\.org")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hk32168\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hkreporter\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hkzone\\.org")) return 'SOCKS 127.0.0.1:7000';
@@ -2925,12 +2964,12 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hsjp\\.net")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?htmldog\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?huanghuagang\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?huaren\\.us")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hugoroy\\.eu")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hungerstrikeforaids\\.org")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?huping\\.net")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hutianyi\\.net")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hwinfo\\.com")) return 'SOCKS 127.0.0.1:7000';
+	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hypeshell\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hyperrate\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?i1\\.hk")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?i2p2\\.de/")) return 'SOCKS 127.0.0.1:7000';
@@ -3032,6 +3071,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?liudejun\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?liujianshu\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?liuxiaotong\\.com")) return 'SOCKS 127.0.0.1:7000';
+	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?liveleak\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?livestream\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?livingonline\\.us")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?livingstream\\.com")) return 'SOCKS 127.0.0.1:7000';
@@ -3072,6 +3112,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mgstage\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?michaelmarketl\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?minghui\\.org")) return 'SOCKS 127.0.0.1:7000';
+	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mingjinglishi\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?minzhuhua\\.net")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?miroguide\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mixero\\.com")) return 'SOCKS 127.0.0.1:7000';
@@ -3123,7 +3164,6 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?newtalk\\.tw")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nexton-net\\.jp")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nga\\.mil")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ngs2\\.info")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nighost\\.org")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?njactb\\.org")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?njuice\\.com")) return 'SOCKS 127.0.0.1:7000';
@@ -3177,7 +3217,6 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wiki\\.jqueryui\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pbxes\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pbxes\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.pchome\\.com\\.tw")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pct\\.org\\.tw")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pdproxy\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pekingduck\\.org")) return 'SOCKS 127.0.0.1:7000';
@@ -3230,8 +3269,10 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?presentationzen\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?prestige-av\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?privacybox\\.de")) return 'SOCKS 127.0.0.1:7000';
+	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?privateinternetaccess\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?privatepaste\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?privatetunnel\\.com")) return 'SOCKS 127.0.0.1:7000';
+	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?procopytips\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?prosiben\\.de")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?proxomitron\\.info")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?proxypy\\.net")) return 'SOCKS 127.0.0.1:7000';
@@ -3270,7 +3311,9 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rsf-chinese\\.org")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rssmeme\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?s1heng\\.com")) return 'SOCKS 127.0.0.1:7000';
+	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?s8forum\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sacom\\.hk")) return 'SOCKS 127.0.0.1:7000';
+	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sadpanda\\.us")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?saiq\\.me/")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?salvation\\.org\\.hk")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sankaizok\\.com")) return 'SOCKS 127.0.0.1:7000';
@@ -3290,6 +3333,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sharkdolphin\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sharpdaily\\.com\\.hk")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shaunthesheep\\.com")) return 'SOCKS 127.0.0.1:7000';
+	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shellmix\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shenzhoufilm\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shixiao\\.org")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shizhao\\.org")) return 'SOCKS 127.0.0.1:7000';
@@ -3328,6 +3372,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sohfrance\\.org")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?somee\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?songjianjun\\.com")) return 'SOCKS 127.0.0.1:7000';
+	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?soundcloud\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?soundofhope\\.org")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?soupofmedia\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wlx\\.sowiki\\.net")) return 'SOCKS 127.0.0.1:7000';
@@ -3568,6 +3613,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitter\\.jp")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twttr\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^https?:\\/\\/[^\\/]+twitter\\.com")) return 'SOCKS 127.0.0.1:7000';
+	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitter4j\\.org")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twittercounter\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twittergadget\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitterkr\\.com")) return 'SOCKS 127.0.0.1:7000';
@@ -3723,6 +3769,7 @@ function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(ur
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zeutch\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhanbin\\.net")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhenlibu\\.info")) return 'SOCKS 127.0.0.1:7000';
+	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhongguotese\\.net")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhongmeng\\.org")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhreader\\.com")) return 'SOCKS 127.0.0.1:7000';
 	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhuichaguoji\\.org")) return 'SOCKS 127.0.0.1:7000';
