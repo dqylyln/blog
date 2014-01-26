@@ -1,3787 +1,3861 @@
-function regExpMatch(url, pattern) {    try { return new RegExp(pattern).test(url); } catch(ex) { return false; }    }
-    function FindProxyForURL(url, host) {
-	if (shExpMatch(url, "http://*.google.*/*") || shExpMatch(url, "http://google.*/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "https://*.google.*/*") || shExpMatch(url, "https://google.*/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "https://autoproxy.org*")) return 'DIRECT';
-	if (shExpMatch(url, "http://ime.baidu.jp*")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.exblog\\.jp")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?.*v6\\.facebook\\.com")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?site\\.locql\\.com")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?download\\.syniumsoftware\\.com")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ipv6\\.google\\.com")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?haygo\\.com")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?f\\.cl\\.ly")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?myvlog\\.im\\.tv")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?music\\.jwmusic\\.org")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.kodingen\\.com")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?simplecd\\.me")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?static\\.soup\\.io")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.tripod\\.com")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.typepad\\.com")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?static\\.typepad\\.com")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tax\\.nat\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?moe\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cwb\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?npm\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yatsen\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aec\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mvdis\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?stdtime\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nmmba\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ntdmh\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?grb\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tpde\\.aide\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?matsu-news\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nerhl\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dapu-house\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vghtc\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aide\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hchcc\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ntuh\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nhri\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nstm\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ntsec\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ner\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nmtl\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ntl\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pet\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?khcc\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nmmba\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?khms\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wanfang\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nict\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?arte\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nmh\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nmp\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tphcc\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?iner\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tncsec\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nspo\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aide\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ncree\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vghks\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tchb\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pabp\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?itrc\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?df\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?womenbusiness\\.nyc\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gsn-cert\\.nat\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kk\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thbstc\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?comnews\\.gio\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?comnews\\.gio\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?klccab\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yvtc\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aftygh\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?klra\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lungtanhr\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?taoyuan\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hcc\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nvri\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nmvttc\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kmh\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?patehr\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nerch\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kmseh\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nertt\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cycab\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chukuang\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gysd\\.nyc\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cp-house\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vghtpe\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?etraining\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?stag\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bdhr\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tcsac\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?imagesblog\\.gio\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?arte\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dmtip\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chccc\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hengchuen\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hsinchu-cc\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?921\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ncdr\\.nat\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?4pppc\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?klsio\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nici\\.nat\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cromotc\\.nat\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?taitung-house\\.gov\\.tw")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aliyun\\.com")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?baidu\\.com")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?duckduckgo\\.com")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jike\\.com")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?panguso\\.com")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?qq\\.com")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sina\\.cn")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sina\\.com\\.cn")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sogou\\.com")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?so\\.com")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?soso\\.com")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yahoo\\.cn")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?youdao\\.com")) return 'DIRECT';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhongsou\\.com")) return 'DIRECT';
-	if (shExpMatch(url, "http://*hulu.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*huluim.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.pandora.tv*") || shExpMatch(url, "http://pandora.tv*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.0rz.tw*") || shExpMatch(url, "http://0rz.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://0rz.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*1-apple.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*123rf.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.12bet.com*") || shExpMatch(url, "http://12bet.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.12vpn.com*") || shExpMatch(url, "http://12vpn.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*141hongkong.com/forum*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.173ng.com*") || shExpMatch(url, "http://173ng.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*1984bbs.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.1984bbs.org*") || shExpMatch(url, "http://1984bbs.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.1bao.org*") || shExpMatch(url, "http://1bao.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://1bao.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.1eew.com*") || shExpMatch(url, "http://1eew.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.2-hand.info*") || shExpMatch(url, "http://2-hand.info*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.2000fun.com/bbs*") || shExpMatch(url, "http://2000fun.com/bbs*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.2008xianzhang.info*") || shExpMatch(url, "http://2008xianzhang.info*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*21andy.com/blog*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*24smile.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.2shared.com*") || shExpMatch(url, "http://2shared.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.315lz.com*") || shExpMatch(url, "http://315lz.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*5i01.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*taiwannation.50webs.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.5maodang.com*") || shExpMatch(url, "http://5maodang.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*64memo*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*64tianwang.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*64wiki.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*666kb.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*6park.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.881903.com/page/zh-tw/*") || shExpMatch(url, "http://881903.com/page/zh-tw/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.888.com*") || shExpMatch(url, "http://888.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*89-64.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.9001700.com*") || shExpMatch(url, "http://9001700.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.92ccav.com*") || shExpMatch(url, "http://92ccav.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*a5.com.ru*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.aboluowang.com*") || shExpMatch(url, "http://aboluowang.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.aboutgfw.com*") || shExpMatch(url, "http://aboutgfw.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*actimes.com.au*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*adultfriendfinder.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*adultkeep.net/peepshow/members/main.htm*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*aiph.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.aisex.com*") || shExpMatch(url, "http://aisex.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.aiweiweiblog.com*") || shExpMatch(url, "http://aiweiweiblog.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*alexlur.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*aliengu.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*allgirlsallowed.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*alliance.org.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.allinfa.com*") || shExpMatch(url, "http://allinfa.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://allinfa.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*alvinalexander.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*alwaysdata.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*amazon.com/Prisoner-State-Secret-Journal-Premier*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ameblo.jp*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.amnesty.org*") || shExpMatch(url, "http://amnesty.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.amnestyusa.org*") || shExpMatch(url, "http://amnestyusa.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.amoiist.com*") || shExpMatch(url, "http://amoiist.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*amzs.me*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*analyze-v.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*animecrazy.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.anonymizer.com*") || shExpMatch(url, "http://anonymizer.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*anontext.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.antiwave.net*") || shExpMatch(url, "http://antiwave.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://antiwave.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*video.aol.ca/video-detail*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*video.aol.co.uk/video-detail*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*video.aol.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*www.aolnews.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*video.ap.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.apetube.com*") || shExpMatch(url, "http://apetube.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.apigee.com*") || shExpMatch(url, "http://apigee.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*appledaily.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*archive.is*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*archive.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.arctosia.com*") || shExpMatch(url, "http://arctosia.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://arctosia.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*artsy.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.asahichinese.com*") || shExpMatch(url, "http://asahichinese.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*asdfg.jp/dabr*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.asiaharvest.org*") || shExpMatch(url, "http://asiaharvest.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*asianews.it*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.askynz.net*") || shExpMatch(url, "http://askynz.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.atchinese.com*") || shExpMatch(url, "http://atchinese.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://atchinese.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*atgfw.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.atlaspost.com*") || shExpMatch(url, "http://atlaspost.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.atnext.com*") || shExpMatch(url, "http://atnext.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*avaaz.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*forum.baby-kingdom.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*babynet.com.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*backchina.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.backpackers.com.tw/forum*") || shExpMatch(url, "http://backpackers.com.tw/forum*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*badoo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hen.bao.li*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*bannedbook.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*bayvoice.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*dajusha.baywords.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.bbc.co.uk*chinese*") || shExpMatch(url, "http://bbc.co.uk*chinese*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.bbc.co.uk/tv*") || shExpMatch(url, "http://bbc.co.uk/tv*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.bbc.co.uk*zhongwen*") || shExpMatch(url, "http://bbc.co.uk*zhongwen*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*news.bbc.co.uk/onthisday*newsid_2496000/2496277*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*newsforums.bbc.co.uk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.bbcchinese.com*") || shExpMatch(url, "http://bbcchinese.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://bbc.in*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.bbg.gov*") || shExpMatch(url, "http://bbg.gov*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*bbsland.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.bcc.com.tw/board*") || shExpMatch(url, "http://bcc.com.tw/board*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.bcchinese.net*") || shExpMatch(url, "http://bcchinese.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.bebo.com*") || shExpMatch(url, "http://bebo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*beijingspring.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.berlintwitterwall.com*") || shExpMatch(url, "http://berlintwitterwall.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.bestforchina.org*") || shExpMatch(url, "http://bestforchina.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.bestvpnservice.com*") || shExpMatch(url, "http://bestvpnservice.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.bet365.com*") || shExpMatch(url, "http://bet365.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.betfair.com*") || shExpMatch(url, "http://betfair.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.bettween.com*") || shExpMatch(url, "http://bettween.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.bewww.net*") || shExpMatch(url, "http://bewww.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*biantailajiao.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*bigfools.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.bignews.org*") || shExpMatch(url, "http://bignews.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.bigsound.org/portnoy*") || shExpMatch(url, "http://bigsound.org/portnoy*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*billypan.com/wiki/%E9%A6%96%E9%A0%81*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*bipic.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.bit.ly*") || shExpMatch(url, "http://bit.ly*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://bit.ly*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.bitshare.com/files*") || shExpMatch(url, "http://bitshare.com/files*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*http://bitshare.com/files*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*bjzc.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tor.blingblingsquad.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.blinkx.com*") || shExpMatch(url, "http://blinkx.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blinw.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.blip.tv*") || shExpMatch(url, "http://blip.tv*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.blockcn.com*") || shExpMatch(url, "http://blockcn.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.blogcatalog.com*") || shExpMatch(url, "http://blogcatalog.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.blogger.com*") || shExpMatch(url, "http://blogger.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blogimg.jp*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.bloglines.com*") || shExpMatch(url, "http://bloglines.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.bloglovin.com*") || shExpMatch(url, "http://bloglovin.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*rconversation.blogs.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blogspot.co.uk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blogspot.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blogspot.de*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blogspot.fr*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blogspot.in*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blogspot.jp*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blogtd.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.blogtd.org*") || shExpMatch(url, "http://blogtd.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://blogtd.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.bloomberg.cn*") || shExpMatch(url, "http://bloomberg.cn*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.bloomberg.com*") || shExpMatch(url, "http://bloomberg.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*bloomberg.de*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*boardreader.com/thread*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*bonbonme.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.botanwang.com*") || shExpMatch(url, "http://botanwang.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.bot.nu*") || shExpMatch(url, "http://bot.nu*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.bowenpress.com*") || shExpMatch(url, "http://bowenpress.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*dl.box.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*boxun.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.boxun.tv*") || shExpMatch(url, "http://boxun.tv*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*boxunblog.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.break.com*") || shExpMatch(url, "http://break.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.breakingtweets.com*") || shExpMatch(url, "http://breakingtweets.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.briefdream.com/%E7%B4%A0%E6%A3%BA*") || shExpMatch(url, "http://briefdream.com/%E7%B4%A0%E6%A3%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*brightkite.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*brizzly.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*broadbook.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "https://*.broadcasthe.net*") || shExpMatch(url, "https://broadcasthe.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "https://broadcasthe.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ibros.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*brucewang.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.budaedu.org*") || shExpMatch(url, "http://budaedu.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.bullog.org*") || shExpMatch(url, "http://bullog.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.bullogger.com*") || shExpMatch(url, "http://bullogger.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.businessweek.com*") || shExpMatch(url, "http://businessweek.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.businesstimes.com.cn*") || shExpMatch(url, "http://businesstimes.com.cn*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://businesstimes.com.cn*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*buzzurl.jp*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*bwsj.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*holz.byethost8.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.c-spanvideo.org*") || shExpMatch(url, "http://c-spanvideo.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.cactusvpn.com*") || shExpMatch(url, "http://cactusvpn.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.cafepress.com*") || shExpMatch(url, "http://cafepress.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.calameo.com/books*") || shExpMatch(url, "http://calameo.com/books*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*cn.calameo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://cn.calameo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*canadameet.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://bbs.cantonese.asia/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*http://www.cantonese.asia/action-bbs.html*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.canyu.org*") || shExpMatch(url, "http://canyu.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.cao.im*") || shExpMatch(url, "http://cao.im*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.caobian.info*") || shExpMatch(url, "http://caobian.info*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://catcatbox.com/forum.php**")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*caochangqing.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*cari.com.my*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.catholic.org.hk*") || shExpMatch(url, "http://catholic.org.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*catholic.org.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.cbsnews.com/video*") || shExpMatch(url, "http://cbsnews.com/video*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.ccdtr.org*") || shExpMatch(url, "http://ccdtr.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*cclife.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.ccthere.com*") || shExpMatch(url, "http://ccthere.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.cctongbao.com/article/2078732*") || shExpMatch(url, "http://cctongbao.com/article/2078732*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ccue.ca*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ccue.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*cdjp.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.cdnews.com.tw*") || shExpMatch(url, "http://cdnews.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*cdp1998.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*cdp2006.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*cdpusa.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*cdpweb.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*cdpwu.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.cecc.gov*") || shExpMatch(url, "http://cecc.gov*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.centurys.net*") || shExpMatch(url, "http://centurys.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://centurys.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.change.org*") || shExpMatch(url, "http://change.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://change.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.changp.com*") || shExpMatch(url, "http://changp.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.chaturbate.com*") || shExpMatch(url, "http://chaturbate.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chengmingmag.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.chenguangcheng.com*") || shExpMatch(url, "http://chenguangcheng.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chenpokong.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.china-week.com*") || shExpMatch(url, "http://china-week.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*china101.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*china21.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chinaaffairs.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chinaaid.us*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chinacomments.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chinachannel.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.chinadigitaltimes.net*") || shExpMatch(url, "http://chinadigitaltimes.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://chinadigitaltimes.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.chinaeweekly.com*") || shExpMatch(url, "http://chinaeweekly.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chinageeks.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chinagfw.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.chinagreenparty.org*") || shExpMatch(url, "http://chinagreenparty.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.chinahush.com*") || shExpMatch(url, "http://chinahush.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chinalawtranslate.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chinaxchina.com/howto*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.chinainperspective.com*") || shExpMatch(url, "http://chinainperspective.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chinainperspective.net/ArtShow.aspx?*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.chinainperspective.org*") || shExpMatch(url, "http://chinainperspective.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chinalawandpolicy.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.chinamule.com*") || shExpMatch(url, "http://chinamule.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chinamz.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chinasocialdemocraticparty.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chinasoul.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chinatimes.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chinatweeps.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chinaway.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.chinaworker.info*") || shExpMatch(url, "http://chinaworker.info*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chinayouth.org.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chinayuanmin.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.chinese-hermit.net*") || shExpMatch(url, "http://chinese-hermit.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chinese-memorial.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.chinesen.de*") || shExpMatch(url, "http://chinesen.de*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chinesenewsnet.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.chinesepen.org*") || shExpMatch(url, "http://chinesepen.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.chinesetalks.net/ch*") || shExpMatch(url, "http://chinesetalks.net/ch*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.chingcheong.com*") || shExpMatch(url, "http://chingcheong.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chn.chosun.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*christianstudy.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*christusrex.org/www1/sdc*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chubun.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chuizi.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.chrlawyers.hk*") || shExpMatch(url, "http://chrlawyers.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.citizenlab.org*") || shExpMatch(url, "http://citizenlab.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*citizensradio.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*city9x.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.civicparty.hk*") || shExpMatch(url, "http://civicparty.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*civilhrfront.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*psiphon.civisec.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.ck101.com*") || shExpMatch(url, "http://ck101.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.clb.org.hk*") || shExpMatch(url, "http://clb.org.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.clipfish.de*") || shExpMatch(url, "http://clipfish.de*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.cmule.com*") || shExpMatch(url, "http://cmule.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.cnavista.com.tw/shop/stores_app*") || shExpMatch(url, "http://cnavista.com.tw/shop/stores_app*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.cnd.org*") || shExpMatch(url, "http://cnd.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*wiki.cnitter.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.cnn.com/video*") || shExpMatch(url, "http://cnn.com/video*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*news.cnyes.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.code1984.com/64*") || shExpMatch(url, "http://code1984.com/64*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://tosh.comedycentral.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*comefromchina.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.coolaler.com*") || shExpMatch(url, "http://coolaler.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*coolder.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*corumcollege.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*cpj.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*crackle.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*crd-net.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*creaders.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.crossthewall.net*") || shExpMatch(url, "http://crossthewall.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*csdparty.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*cts.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.cuhkacs.org/~benng*") || shExpMatch(url, "http://cuhkacs.org/~benng*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.cuihua.org*") || shExpMatch(url, "http://cuihua.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.cuiweiping.net*") || shExpMatch(url, "http://cuiweiping.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.culture.tw*") || shExpMatch(url, "http://culture.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*forum.cyberctm.com/forum*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*cytode.us*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*cl.d0z.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.dabr.co.uk*") || shExpMatch(url, "http://dabr.co.uk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*dabr.mobi*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*dadazim.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.dadi360.com*") || shExpMatch(url, "http://dadi360.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*dafagood.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*dafahao.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.dailidaili.com*") || shExpMatch(url, "http://dailidaili.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.dailymotion.com*") || shExpMatch(url, "http://dailymotion.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.dajiyuan.com*") || shExpMatch(url, "http://dajiyuan.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.dajiyuan.eu*") || shExpMatch(url, "http://dajiyuan.eu*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*dalailama.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.dalailamaworld.com*") || shExpMatch(url, "http://dalailamaworld.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*dalianmeng.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.danke4china.net*") || shExpMatch(url, "http://danke4china.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.danwei.org*") || shExpMatch(url, "http://danwei.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.daolan.net*") || shExpMatch(url, "http://daolan.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*daxa.cn*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*cn.dayabook.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.daylife.com/topic/dalai_lama*") || shExpMatch(url, "http://daylife.com/topic/dalai_lama*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.ddc.com.tw*") || shExpMatch(url, "http://ddc.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.de-sci.org*") || shExpMatch(url, "http://de-sci.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*lists.debian.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*packages.debian.org/zh-cn/lenny/gpass*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*delicious.com/GFWbookmark*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.democrats.org*") || shExpMatch(url, "http://democrats.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://www.dfanning.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.diaoyuislands.org*") || shExpMatch(url, "http://diaoyuislands.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.diigo.com*") || shExpMatch(url, "http://diigo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.discuss.com.hk*") || shExpMatch(url, "http://discuss.com.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*disp.cc*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.dit-inc.us*") || shExpMatch(url, "http://dit-inc.us*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.dizhidizhi.com*") || shExpMatch(url, "http://dizhidizhi.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*djangosnippets.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.docstoc.com/docs*") || shExpMatch(url, "http://docstoc.com/docs*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.dojin.com*") || shExpMatch(url, "http://dojin.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.dok-forum.net*") || shExpMatch(url, "http://dok-forum.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.domain.club.tw*") || shExpMatch(url, "http://domain.club.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*dongde.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*dongtaiwang.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.dongtaiwang.net*") || shExpMatch(url, "http://dongtaiwang.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.dongyangjing.com*") || shExpMatch(url, "http://dongyangjing.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.dontfilter.us*") || shExpMatch(url, "http://dontfilter.us*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.dotplane.com*") || shExpMatch(url, "http://dotplane.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*doubleaf.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*dowei.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*dphk.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*dpp.org.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.dropbox.com*") || shExpMatch(url, "http://dropbox.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.drtuber.com*") || shExpMatch(url, "http://drtuber.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*dtiserv2.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.duckload.com/download*") || shExpMatch(url, "http://duckload.com/download*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.duihua.org*") || shExpMatch(url, "http://duihua.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.duoweitimes.com*") || shExpMatch(url, "http://duoweitimes.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*duping.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*dupola.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*dupola.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.dw.de*") || shExpMatch(url, "http://dw.de*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://dw.de*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.dw-world.com*") || shExpMatch(url, "http://dw-world.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.dw-world.de*") || shExpMatch(url, "http://dw-world.de*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*http://dw-world.de*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*www.dwheeler.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*dwnews.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*xys.dxiong.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*dy24k.info*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.dzze.com*") || shExpMatch(url, "http://dzze.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.e-gold.com*") || shExpMatch(url, "http://e-gold.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*e-info.org.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.e-traderland.net/board*") || shExpMatch(url, "http://e-traderland.net/board*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hkjp.easyweb.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ebookbrowse.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ebookee.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ecministry.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*bbs.ecstart.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*edicypages.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*edoors.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.edubridge.com*") || shExpMatch(url, "http://edubridge.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*efcc.org.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*electionsmeter.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.eltondisney.com*") || shExpMatch(url, "http://eltondisney.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.emory.edu*") || shExpMatch(url, "http://emory.edu*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.emule-ed2k.com*") || shExpMatch(url, "http://emule-ed2k.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://emule-ed2k.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chinese.engadget.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*epochtimes-bg.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*epochtimes-romania.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*epochtimes.co.il*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*epochtimes.co.kr*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*epochtimes.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*epochtimes.de*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*epochtimes.fr*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.epochtimes.ie*") || shExpMatch(url, "http://epochtimes.ie*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*epochtimes.jp*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*epochtimes.ru*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*epochtimes.se*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*epochtimestr.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*erabaru.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.erepublik.com*") || shExpMatch(url, "http://erepublik.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*etaiwannews.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*www.eulam.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*eventful.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.extremetube.com*") || shExpMatch(url, "http://extremetube.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*eyevio.jp*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.ezpc.tk/category/soft*") || shExpMatch(url, "http://ezpc.tk/category/soft*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.ezpeer.com*") || shExpMatch(url, "http://ezpeer.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.facebook.com*") || shExpMatch(url, "http://facebook.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.fakku.net*") || shExpMatch(url, "http://fakku.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*falunart.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*falundafa.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*falundafamuseum.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*fangongheike.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*fanqianghou.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*fapdu.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.fawanghuihui.org*") || shExpMatch(url, "http://fawanghuihui.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*fanqiangyakexi.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*fail.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.fan-qiang.com*") || shExpMatch(url, "http://fan-qiang.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.fangbinxing.com*") || shExpMatch(url, "http://fangbinxing.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*fangeming.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.farwestchina.com*") || shExpMatch(url, "http://farwestchina.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*favorious.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*en.favotter.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*favstar.fm*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*faydao.com/weblog*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*fb.me*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*fc2.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.fc2china.com*") || shExpMatch(url, "http://fc2china.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*shifeike.blog125.fc2blog.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*video.fdbox.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.fdc89.jp*") || shExpMatch(url, "http://fdc89.jp*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*feedbooks.mobi*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*feeds.feedburner.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*feeds2.feedburner.com/chinagfwblog*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*feer.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*felixcat.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.fengzhenghu.com*") || shExpMatch(url, "http://fengzhenghu.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*fflick.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.fgmtv.org*") || shExpMatch(url, "http://fgmtv.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.filefactory.com/file*") || shExpMatch(url, "http://filefactory.com/file*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.files2me.com*") || shExpMatch(url, "http://files2me.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://files2me.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.fileserve.com/file*") || shExpMatch(url, "http://fileserve.com/file*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*fillthesquare.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*findbook.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*finler.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.fireofliberty.org*") || shExpMatch(url, "http://fireofliberty.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.falsefire.com*") || shExpMatch(url, "http://falsefire.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*fleshbot.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.flickr.com/photos/46231077@N06*") || shExpMatch(url, "http://flickr.com/photos/46231077@N06*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.flickr.com/groups/aiweiwei*") || shExpMatch(url, "http://flickr.com/groups/aiweiwei*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.flickr.com/photos/digitalboy100*") || shExpMatch(url, "http://flickr.com/photos/digitalboy100*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.flickr.com/photos/fzhenghu*") || shExpMatch(url, "http://flickr.com/photos/fzhenghu*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.flickr.com/photos/lonelyfox*") || shExpMatch(url, "http://flickr.com/photos/lonelyfox*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*flickr.com/photos/vanvan/529925157*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.flickr.com/photos/winterkanal*") || shExpMatch(url, "http://flickr.com/photos/winterkanal*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.flickr.com/photos/zola*") || shExpMatch(url, "http://flickr.com/photos/zola*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*flickrhivemind.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*yuming.flnet.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://cn.fmnnow.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blog.foolsmountain.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*www.forum4hk.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*pioneer-worker.forums-free.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://4sq.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*video.foxbusiness.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.focusvpn.com*") || shExpMatch(url, "http://focusvpn.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.fooooo.com*") || shExpMatch(url, "http://fooooo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*footwiball.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*foxtang.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.freakshare.com*") || shExpMatch(url, "http://freakshare.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://freakshare.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*free-gate.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.free.fr/adsl*") || shExpMatch(url, "http://free.fr/adsl*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*kineox.free.fr*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*whitebear.freebearblog.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.freechal.com*") || shExpMatch(url, "http://freechal.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.freedomhouse.org*") || shExpMatch(url, "http://freedomhouse.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.freegao.com*") || shExpMatch(url, "http://freegao.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.freelotto.com*") || shExpMatch(url, "http://freelotto.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*freeman2.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.freeopenvpn.com*") || shExpMatch(url, "http://freeopenvpn.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*freemoren.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*freemorenews.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*freenet-china.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*freenewscn.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.freeoz.org/bbs*") || shExpMatch(url, "http://freeoz.org/bbs*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.free-ssh.com*") || shExpMatch(url, "http://free-ssh.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.freeoz.org*") || shExpMatch(url, "http://freeoz.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*www.freetibet.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.freewebs.com*") || shExpMatch(url, "http://freewebs.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.freexinwen.com*") || shExpMatch(url, "http://freexinwen.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*friendfeed.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*friendfeed-media.com/e99a4ebe2fb4c1985c2a58775eb4422961aa5a2e*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://ff.im*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://www.zensur.freerk.com/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*freevpn.nl*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.fring.com*") || shExpMatch(url, "http://fring.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.frontlinedefenders.org*") || shExpMatch(url, "http://frontlinedefenders.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.fsurf.com*") || shExpMatch(url, "http://fsurf.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.fuckcnnic.net*") || shExpMatch(url, "http://fuckcnnic.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*fuckgfw.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*fulue.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.funf.tw*") || shExpMatch(url, "http://funf.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*funp.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.futurechinaforum.org*") || shExpMatch(url, "http://futurechinaforum.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*fzh999.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*fzh999.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*gamebase.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.gamer.com.tw*") || shExpMatch(url, "http://gamer.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.gamez.com.tw*") || shExpMatch(url, "http://gamez.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.gaoming.net*") || shExpMatch(url, "http://gaoming.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ganges.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.gaopi.net*") || shExpMatch(url, "http://gaopi.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://gaopi.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*gardennetworks.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*72.52.81.22*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.gazotube.com*") || shExpMatch(url, "http://gazotube.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.gcpnews.com*") || shExpMatch(url, "http://gcpnews.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.gdbt.net/forum*") || shExpMatch(url, "http://gdbt.net/forum*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*gdzf.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*geekerhome.com/2010/03/xixiang-project-cross-gfw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.geocities.co.jp*") || shExpMatch(url, "http://geocities.co.jp*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.geocities.com/SiliconValley/Circuit/5683/download.html*") || shExpMatch(url, "http://geocities.com/SiliconValley/Circuit/5683/download.html*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hk.geocities.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*geocities.jp*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.getchu.com*") || shExpMatch(url, "http://getchu.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.getfreedur.com*") || shExpMatch(url, "http://getfreedur.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.getjetso.com/forum*") || shExpMatch(url, "http://getjetso.com/forum*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*getiton.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.getsocialscope.com*") || shExpMatch(url, "http://getsocialscope.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*gfw.org.ua*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.ggssl.com*") || shExpMatch(url, "http://ggssl.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://cn.giganews.com/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*gigporno.ru*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*globalmuseumoncommunism.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.globalvoicesonline.org*") || shExpMatch(url, "http://globalvoicesonline.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*gmbd.cn*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*godfootsteps.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://www.goldenmelody.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*gongmeng.info*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*gongm.in*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*gongminliliang.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.gongwt.com*") || shExpMatch(url, "http://gongwt.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.goodreads.com*") || shExpMatch(url, "http://goodreads.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.goodreaders.com*") || shExpMatch(url, "http://goodreaders.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.googlesile.com*") || shExpMatch(url, "http://googlesile.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.gopetition.com*") || shExpMatch(url, "http://gopetition.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*grandtrial.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*greatfirewall.biz*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.greatfirewallofchina.org*") || shExpMatch(url, "http://greatfirewallofchina.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.greenparty.org.tw*") || shExpMatch(url, "http://greenparty.org.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*gpass1.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*great-firewall.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*great-roc.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*greatroc.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*greatzhonghua.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.greenvpn.net*") || shExpMatch(url, "http://greenvpn.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*gs-discuss.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*guancha.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.gun-world.net*") || shExpMatch(url, "http://gun-world.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.gzm.tv*") || shExpMatch(url, "http://gzm.tv*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.appspot.com*") || shExpMatch(url, "http://appspot.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*code.google.com/p/gappproxy*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*code.google.com/p/gaeproxy*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*code.google.com/p/west-chamber-season-3*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*code.google.com/p/icefox*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*code.google.com/p/breakwall*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*code.google.com/p/program-think/wiki/Software*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*code.google.com/p/scholarzhang*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*code.google.com/p/vforchrome/wiki/Start*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*code.google.com/p/tuite*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*code.google.com/p/twitese*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*code.google.com/p/twip*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*code.google.com/p/huhamhire-hosts*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "https://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*gfwinterceptor.googlecode.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*goagent.googlecode.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*gtap.googlecode.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*sshtunnel.googlecode.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tuite.googlecode.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*gaeproxy.googlecode.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*docs.google.com/Doc?docid=0Ae9jWMoUhgV1ZHd0cjJ2NV81NGQ5MnI0d3E1*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*docs.google.com/View?id=d8xbpp6_4hhpb2dfd*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*docs.google.com/View?id=dds68dz_9cqgm8vgq*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*docs.google.com*View*id*dg5mtmj9_8g3hk27f5*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*docs.google.com*View*id*dg5mtmj9_3188x48zcn*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*docs.google.com*dgtbmwd6_934gg99v6g4cc*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*docs.google.com/View?id=dhh5gtxb_145nsxgctcc*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chinaaid.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*echofon.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://ub0.cc*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*wozy.in*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%D8%BA%D8%A7*") || shExpMatch(url, "http://google.*%D8%BA%D8%A7*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*/complete/search*") || shExpMatch(url, "http://google.*/complete/search*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*/search?q=cache*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*/search%3Fq%3Dcache*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*%2Fsearch%3Fq%3Dcache*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*google*search*q=cache*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*search*8964*") || shExpMatch(url, "http://google.*search*8964*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*boxun*") || shExpMatch(url, "http://google.*boxun*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*chinese+people+eating+babies*") || shExpMatch(url, "http://google.*chinese+people+eating+babies*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*http*dotsub.com*") || shExpMatch(url, "http://google.*http*dotsub.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*east*turkistan*") || shExpMatch(url, "http://google.*east*turkistan*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*facebook*") || shExpMatch(url, "http://google.*facebook*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*falun*") || shExpMatch(url, "http://google.*falun*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*freechina*") || shExpMatch(url, "http://google.*freechina*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*freetibet*") || shExpMatch(url, "http://google.*freetibet*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*gfw*") || shExpMatch(url, "http://google.*gfw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*goagent*") || shExpMatch(url, "http://google.*goagent*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*&q=gpass*") || shExpMatch(url, "http://google.*&q=gpass*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*great*firewall*") || shExpMatch(url, "http://google.*great*firewall*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*hujin*") || shExpMatch(url, "http://google.*hujin*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*huayuan*") || shExpMatch(url, "http://google.*huayuan*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*jiaqinglin*") || shExpMatch(url, "http://google.*jiaqinglin*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*jiangzemin*") || shExpMatch(url, "http://google.*jiangzemin*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*&q=jzm&*") || shExpMatch(url, "http://google.*&q=jzm&*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*nytimes*") || shExpMatch(url, "http://google.*nytimes*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*peacehall*") || shExpMatch(url, "http://google.*peacehall*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.googlw.*president.gov.tw*") || shExpMatch(url, "http://googlw.*president.gov.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*protest*1989*") || shExpMatch(url, "http://google.*protest*1989*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*prisoner+of+the+state*") || shExpMatch(url, "http://google.*prisoner+of+the+state*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*search*Tankman*") || shExpMatch(url, "http://google.*search*Tankman*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*tbm=mbl*") || shExpMatch(url, "http://google.*tbm=mbl*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*tbm%3Dmbl*") || shExpMatch(url, "http://google.*tbm%3Dmbl*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*search*tbs=mbl*") || shExpMatch(url, "http://google.*search*tbs=mbl*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*search*tbs%3Dmbl*") || shExpMatch(url, "http://google.*search*tbs%3Dmbl*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*tbs=qdr*") || shExpMatch(url, "http://google.*tbs=qdr*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*tbs%3Dqdr*") || shExpMatch(url, "http://google.*tbs%3Dqdr*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*tbs=rltm*") || shExpMatch(url, "http://google.*tbs=rltm*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*tbs%3Drltm*") || shExpMatch(url, "http://google.*tbs%3Drltm*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*Tiananmen*") || shExpMatch(url, "http://google.*Tiananmen*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*tianwang*") || shExpMatch(url, "http://google.*tianwang*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*Tibetan*independence*") || shExpMatch(url, "http://google.*Tibetan*independence*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*twitter*") || shExpMatch(url, "http://google.*twitter*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*xijinping*") || shExpMatch(url, "http://google.*xijinping*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*&q=ytht&*") || shExpMatch(url, "http://google.*&q=ytht&*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*zhouyongkang*") || shExpMatch(url, "http://google.*zhouyongkang*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*08*%E5%AE%AA%E7%AB%A0*") || shExpMatch(url, "http://google.*08*%E5%AE%AA%E7%AB%A0*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*64*%E7%9C%9F%E7%9B%B8*") || shExpMatch(url, "http://google.*64*%E7%9C%9F%E7%9B%B8*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*64*%E9%95%87%E5%8E%8B*") || shExpMatch(url, "http://google.*64*%E9%95%87%E5%8E%8B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%85%AB%E4%B9%9D*") || shExpMatch(url, "http://google.*%E5%85%AB%E4%B9%9D*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%8C%97%E5%9B%BD%E4%B9%8B%E6%98%A5*") || shExpMatch(url, "http://google.*%E5%8C%97%E5%9B%BD%E4%B9%8B%E6%98%A5*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%8C%97%E4%BA%AC%E4%B9%8B%E6%98%A5*") || shExpMatch(url, "http://google.*%E5%8C%97%E4%BA%AC%E4%B9%8B%E6%98%A5*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E9%99%88%E7%A0%B4%E7%A9%BA*") || shExpMatch(url, "http://google.*%E9%99%88%E7%A0%B4%E7%A9%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E8%B5%A4%E5%8C%AA*") || shExpMatch(url, "http://google.*%E8%B5%A4%E5%8C%AA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E8%BE%BE%E8%B5%96%E5%96%87%E5%98%9B*") || shExpMatch(url, "http://google.*%E8%BE%BE%E8%B5%96%E5%96%87%E5%98%9B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E4%BB%A3%E5%BC%80*%E5%8F%91%E7%A5%A8*") || shExpMatch(url, "http://google.*%E4%BB%A3%E5%BC%80*%E5%8F%91%E7%A5%A8*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%8F%91%E7%A5%A8*%E4%BB%A3%E5%BC%80*") || shExpMatch(url, "http://google.*%E5%8F%91%E7%A5%A8*%E4%BB%A3%E5%BC%80*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E4%BB%A3%E7%90%86*") || shExpMatch(url, "http://google.*%E4%BB%A3%E7%90%86*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%9C%B0%E4%B8%8B%E6%95%99%E4%BC%9A*") || shExpMatch(url, "http://google.*%E5%9C%B0%E4%B8%8B%E6%95%99%E4%BC%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E7%8B%AC%E7%AB%8B%E5%8F%B0%E6%B9%BE%E4%BC%9A*") || shExpMatch(url, "http://google.*%E7%8B%AC%E7%AB%8B%E5%8F%B0%E6%B9%BE%E4%BC%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E7%8B%AC%E7%AB%8B%E4%B8%AD%E6%96%87%E7%AC%94%E4%BC%9A*") || shExpMatch(url, "http://google.*%E7%8B%AC%E7%AB%8B%E4%B8%AD%E6%96%87%E7%AC%94%E4%BC%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%8F%91%E8%AF%BE*") || shExpMatch(url, "http://google.*%E5%8F%91%E8%AF%BE*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E6%B3%95%E6%8B%89%E5%88%A9*") || shExpMatch(url, "http://google.*%E6%B3%95%E6%8B%89%E5%88%A9*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E7%BF%BB%E5%A2%99*") || shExpMatch(url, "http://google.*%E7%BF%BB%E5%A2%99*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E6%96%B9%E6%BB%A8%E5%85%B4*") || shExpMatch(url, "http://google.*%E6%96%B9%E6%BB%A8%E5%85%B4*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E9%98%B2%E7%81%AB%E9%95%BF%E5%9F%8E*") || shExpMatch(url, "http://google.*%E9%98%B2%E7%81%AB%E9%95%BF%E5%9F%8E*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%86%AF%E6%AD%A3%E8%99%8E*") || shExpMatch(url, "http://google.*%E5%86%AF%E6%AD%A3%E8%99%8E*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E9%AB%98%E6%99%BA%E6%99%9F*") || shExpMatch(url, "http://google.*%E9%AB%98%E6%99%BA%E6%99%9F*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E9%9D%A9%E5%91%BD*") || shExpMatch(url, "http://google.*%E9%9D%A9%E5%91%BD*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%85%B1%E4%BA%A7*") || shExpMatch(url, "http://google.*%E5%85%B1%E4%BA%A7*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%85%B3%E9%94%AE%E6%97%B6%E5%88%BB*") || shExpMatch(url, "http://google.*%E5%85%B3%E9%94%AE%E6%97%B6%E5%88%BB*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%B9%BF%E5%9C%BA*") || shExpMatch(url, "http://google.*%E5%B9%BF%E5%9C%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%9B%BD%E5%AE%B6%E9%98%B2%E7%81%AB%E5%A2%99*") || shExpMatch(url, "http://google.*%E5%9B%BD%E5%AE%B6%E9%98%B2%E7%81%AB%E5%A2%99*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E8%9B%A4%E8%9F%86*") || shExpMatch(url, "http://google.*%E8%9B%A4%E8%9F%86*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E9%9B%86%E4%BC%9A*") || shExpMatch(url, "http://google.*%E9%9B%86%E4%BC%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E8%AE%B0%E8%80%85%E6%97%A0%E7%96%86%E7%95%8C*") || shExpMatch(url, "http://google.*%E8%AE%B0%E8%80%85%E6%97%A0%E7%96%86%E7%95%8C*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%AE%B6%E5%AE%9D*") || shExpMatch(url, "http://google.*%E5%AE%B6%E5%AE%9D*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%81%87%E5%BA%86%E6%B7%8B*") || shExpMatch(url, "http://google.*%E5%81%87%E5%BA%86%E6%B7%8B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E6%88%92%E4%B8%A5*") || shExpMatch(url, "http://google.*%E6%88%92%E4%B8%A5*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E9%94%A6%E6%B6%9B*") || shExpMatch(url, "http://google.*%E9%94%A6%E6%B6%9B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E7%BB%8F%E6%96%87*") || shExpMatch(url, "http://google.*%E7%BB%8F%E6%96%87*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E8%BF%91%E5%B9%B3*") || shExpMatch(url, "http://google.*%E8%BF%91%E5%B9%B3*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E4%B9%9D%E5%B8%B8%E5%A7%94*") || shExpMatch(url, "http://google.*%E4%B9%9D%E5%B8%B8%E5%A7%94*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E9%85%B7%E5%88%91*") || shExpMatch(url, "http://google.*%E9%85%B7%E5%88%91*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E4%BB%A4*") || shExpMatch(url, "http://google.*%E4%BB%A4*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E9%9B%B6%E5%85%AB*%E5%AE%AA%E7%AB%A0*") || shExpMatch(url, "http://google.*%E9%9B%B6%E5%85%AB*%E5%AE%AA%E7%AB%A0*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*search*%E5%88%98%E6%B7%87*") || shExpMatch(url, "http://google.*search*%E5%88%98%E6%B7%87*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%85%AD*%E5%9B%9B*") || shExpMatch(url, "http://google.*%E5%85%AD*%E5%9B%9B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E9%B2%81%E6%98%95*") || shExpMatch(url, "http://google.*%E9%B2%81%E6%98%95*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E9%A9%AC%E5%87%AF*") || shExpMatch(url, "http://google.*%E9%A9%AC%E5%87%AF*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E9%A9%AC%E5%8A%9B*") || shExpMatch(url, "http://google.*%E9%A9%AC%E5%8A%9B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E9%BA%A6%E5%BD%93%E5%8A%B3*") || shExpMatch(url, "http://google.*%E9%BA%A6%E5%BD%93%E5%8A%B3*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E6%AF%9B%E5%90%91%E8%BE%89*") || shExpMatch(url, "http://google.*%E6%AF%9B%E5%90%91%E8%BE%89*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%86%85%E8%92%99*%E7%A4%BA%E5%A8%81*") || shExpMatch(url, "http://google.*%E5%86%85%E8%92%99*%E7%A4%BA%E5%A8%81*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%AD%9F%E5%BB%BA%E6%9F%B1*") || shExpMatch(url, "http://google.*%E5%AD%9F%E5%BB%BA%E6%9F%B1*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E6%A2%A6%E8%90%A6%E6%9C%AA%E5%90%8D%E6%B9%96*") || shExpMatch(url, "http://google.*%E6%A2%A6%E8%90%A6%E6%9C%AA%E5%90%8D%E6%B9%96*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%85%8D%E8%B4%B9*vpn*") || shExpMatch(url, "http://google.*%E5%85%8D%E8%B4%B9*vpn*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E8%8C%89%E8%8E%89*") || shExpMatch(url, "http://google.*%E8%8C%89%E8%8E%89*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E8%8E%AB%E6%97%A5%E6%A0%B9*") || shExpMatch(url, "http://google.*%E8%8E%AB%E6%97%A5%E6%A0%B9*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E7%BA%B3%E7%B1%B3%E6%AF%94%E4%BA%9A*") || shExpMatch(url, "http://google.*%E7%BA%B3%E7%B1%B3%E6%AF%94%E4%BA%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E8%AF%BA%E8%B4%9D%E5%B0%94%E5%92%8C%E5%B9%B3%E5%A5%96*") || shExpMatch(url, "http://google.*%E8%AF%BA%E8%B4%9D%E5%B0%94%E5%92%8C%E5%B9%B3%E5%A5%96*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.com*search*namibia*nuctech*") || shExpMatch(url, "http://google.com*search*namibia*nuctech*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E7%9B%98%E5%8F%A4%E4%B9%90%E9%98%9F*") || shExpMatch(url, "http://google.*%E7%9B%98%E5%8F%A4%E4%B9%90%E9%98%9F*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%BD%AD%E4%B8%BD%E5%AA%9B*") || shExpMatch(url, "http://google.*%E5%BD%AD%E4%B8%BD%E5%AA%9B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E8%BF%AB%E5%AE%B3*") || shExpMatch(url, "http://google.*%E8%BF%AB%E5%AE%B3*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F*") || shExpMatch(url, "http://google.*%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E6%9E%AA%E5%A3%B0*") || shExpMatch(url, "http://google.*%E6%9E%AA%E5%A3%B0*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E9%9D%92%E5%A4%A9%E7%99%BD%E6%97%A5%E6%97%97*") || shExpMatch(url, "http://google.*%E9%9D%92%E5%A4%A9%E7%99%BD%E6%97%A5%E6%97%97*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E4%BA%BA%E6%B0%91%E5%85%AC%E5%9B%AD*") || shExpMatch(url, "http://google.*%E4%BA%BA%E6%B0%91%E5%85%AC%E5%9B%AD*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E6%97%A5%E8%AE%B0*") || shExpMatch(url, "http://google.*%E6%97%A5%E8%AE%B0*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E4%B8%89%E9%80%80*") || shExpMatch(url, "http://google.*%E4%B8%89%E9%80%80*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E4%B8%96%E7%BB%B4%E4%BC%9A*") || shExpMatch(url, "http://google.*%E4%B8%96%E7%BB%B4%E4%BC%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%8F%B8%E5%BE%92%E5%8D%8E*") || shExpMatch(url, "http://google.*%E5%8F%B8%E5%BE%92%E5%8D%8E*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%A4%AA%E5%AD%90*") || shExpMatch(url, "http://google.*%E5%A4%AA%E5%AD%90*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*search*%E8%B0%AD%E4%BD%9C%E4%BA%BA*") || shExpMatch(url, "http://google.*search*%E8%B0%AD%E4%BD%9C%E4%BA%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%A4%A9%E5%AE%89%E9%97%A8*") || shExpMatch(url, "http://google.*%E5%A4%A9%E5%AE%89%E9%97%A8*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%A4%A9%E7%81%AD*") || shExpMatch(url, "http://google.*%E5%A4%A9%E7%81%AD*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%A4%A9%E7%BA%BF%E5%AE%9D%E5%AE%9D*%E5%BA%B7%E5%B8%88%E5%82%85*") || shExpMatch(url, "http://google.*%E5%A4%A9%E7%BA%BF%E5%AE%9D%E5%AE%9D*%E5%BA%B7%E5%B8%88%E5%82%85*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%BA%B7%E5%B8%88%E5%82%85*%E5%A4%A9%E7%BA%BF%E5%AE%9D%E5%AE%9D*") || shExpMatch(url, "http://google.*%E5%BA%B7%E5%B8%88%E5%82%85*%E5%A4%A9%E7%BA%BF%E5%AE%9D%E5%AE%9D*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E7%AA%81%E5%B0%BC%E6%96%AF*") || shExpMatch(url, "http://google.*%E7%AA%81%E5%B0%BC%E6%96%AF*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E6%8E%A8%E7%89%B9*") || shExpMatch(url, "http://google.*%E6%8E%A8%E7%89%B9*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E6%B1%AA%E6%96%AF*") || shExpMatch(url, "http://google.*%E6%B1%AA%E6%96%AF*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%94%AF%E8%89%B2*") || shExpMatch(url, "http://google.*%E5%94%AF%E8%89%B2*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%A8%81%E8%A7%86%E5%85%AC%E5%8F%B8*") || shExpMatch(url, "http://google.*%E5%A8%81%E8%A7%86%E5%85%AC%E5%8F%B8*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.com*%E6%88%91%E6%B2%A1%E6%9C%89%E6%95%8C%E4%BA%BA*") || shExpMatch(url, "http://google.com*%E6%88%91%E6%B2%A1%E6%9C%89%E6%95%8C%E4%BA%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E4%B9%8C%E5%B0%94%E5%87%AF%E8%A5%BF*") || shExpMatch(url, "http://google.*%E4%B9%8C%E5%B0%94%E5%87%AF%E8%A5%BF*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E4%BC%8D%E5%87%A1*") || shExpMatch(url, "http://google.*%E4%BC%8D%E5%87%A1*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E7%86%99%E6%9D%A5*") || shExpMatch(url, "http://google.*%E7%86%99%E6%9D%A5*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.%E6%96%B0%E7%96%86*%E7%8B%AC%E7%AB%8B*") || shExpMatch(url, "http://google.%E6%96%B0%E7%96%86*%E7%8B%AC%E7%AB%8B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E6%96%B0%E4%BA%AC%E6%8A%A5*") || shExpMatch(url, "http://google.*%E6%96%B0%E4%BA%AC%E6%8A%A5*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%BE%90%E6%89%8D%E5%8E%9A*") || shExpMatch(url, "http://google.*%E5%BE%90%E6%89%8D%E5%8E%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.com.*%E5%AE%A3%E8%A8%80*") || shExpMatch(url, "http://google.com.*%E5%AE%A3%E8%A8%80*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%AD%A6%E6%BD%AE*") || shExpMatch(url, "http://google.*%E5%AD%A6%E6%BD%AE*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E8%80%80%E9%82%A6*") || shExpMatch(url, "http://google.*%E8%80%80%E9%82%A6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E6%9C%88%E6%9C%88*") || shExpMatch(url, "http://google.*%E6%9C%88%E6%9C%88*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%BD%B1%E5%B8%9D*") || shExpMatch(url, "http://google.*%E5%BD%B1%E5%B8%9D*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*search*%E4%BF%9E%E6%AD%A3%E5%A3%B0*") || shExpMatch(url, "http://google.*search*%E4%BF%9E%E6%AD%A3%E5%A3%B0*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E9%98%85%E5%90%8E%E5%8D%B3%E7%84%9A*") || shExpMatch(url, "http://google.*%E9%98%85%E5%90%8E%E5%8D%B3%E7%84%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E8%97%8F%E7%8B%AC*") || shExpMatch(url, "http://google.*%E8%97%8F%E7%8B%AC*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E6%B3%BD%E6%B0%91*") || shExpMatch(url, "http://google.*%E6%B3%BD%E6%B0%91*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%BC%A0%E9%AB%98%E4%B8%BD*") || shExpMatch(url, "http://google.*%E5%BC%A0%E9%AB%98%E4%B8%BD*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E6%B5%99%E5%A4%A7%E6%8B%9B%E7%94%9F%E5%8A%9E*") || shExpMatch(url, "http://google.*%E6%B5%99%E5%A4%A7%E6%8B%9B%E7%94%9F%E5%8A%9E*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E7%9C%9F%E7%90%86%E9%83%A8*") || shExpMatch(url, "http://google.*%E7%9C%9F%E7%90%86%E9%83%A8*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E7%9C%9F%E7%9B%B8*") || shExpMatch(url, "http://google.*%E7%9C%9F%E7%9B%B8*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E6%94%BF%E5%8F%98*") || shExpMatch(url, "http://google.*%E6%94%BF%E5%8F%98*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E6%94%BF%E6%B2%BB%E5%B1%80*") || shExpMatch(url, "http://google.*%E6%94%BF%E6%B2%BB%E5%B1%80*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E7%9F%A5%E6%83%85%E8%80%85*") || shExpMatch(url, "http://google.*%E7%9F%A5%E6%83%85%E8%80%85*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E4%B8%AD%E5%85%B1*") || shExpMatch(url, "http://google.*%E4%B8%AD%E5%85%B1*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E4%B8%AD%E5%9B%BD*%E7%A6%81%E9%97%BB*") || shExpMatch(url, "http://google.*%E4%B8%AD%E5%9B%BD*%E7%A6%81%E9%97%BB*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E4%B8%AD%E5%9B%BD%E6%B0%91%E4%B8%BB%E5%85%9A*") || shExpMatch(url, "http://google.*%E4%B8%AD%E5%9B%BD%E6%B0%91%E4%B8%BB%E5%85%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E4%B8%AD%E5%9B%BD%E6%B0%91%E4%B8%BB%E8%BF%90%E5%8A%A8*") || shExpMatch(url, "http://google.*%E4%B8%AD%E5%9B%BD%E6%B0%91%E4%B8%BB%E8%BF%90%E5%8A%A8*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E4%B8%AD%E5%9B%BD%E6%95%B0%E5%AD%97%E6%97%B6%E4%BB%A3*") || shExpMatch(url, "http://google.*%E4%B8%AD%E5%9B%BD%E6%95%B0%E5%AD%97%E6%97%B6%E4%BB%A3*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E4%B8%AD%E5%9B%BD%E5%86%A4%E6%B0%91%E5%A4%A7%E5%90%8C%E7%9B%9F*") || shExpMatch(url, "http://google.*%E4%B8%AD%E5%9B%BD%E5%86%A4%E6%B0%91%E5%A4%A7%E5%90%8C%E7%9B%9F*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E8%BF%BD%E6%9F%A5%E5%9B%BD%E9%99%85*") || shExpMatch(url, "http://google.*%E8%BF%BD%E6%9F%A5%E5%9B%BD%E9%99%85*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E7%B4%AB%E9%98%B3*") || shExpMatch(url, "http://google.*%E7%B4%AB%E9%98%B3*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E8%87%AA%E7%94%B1%E9%97%A8*") || shExpMatch(url, "http://google.*%E8%87%AA%E7%94%B1%E9%97%A8*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E8%87%AA%E7%94%B1%E9%96%80*") || shExpMatch(url, "http://google.*%E8%87%AA%E7%94%B1%E9%96%80*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*q=%E8%87%AA%E7%94%B1%E4%BA%9A%E6%B4%B2%E7%94%B5%E5%8F%B0*") || shExpMatch(url, "http://google.*q=%E8%87%AA%E7%94%B1%E4%BA%9A%E6%B4%B2%E7%94%B5%E5%8F%B0*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.com/m*%E8%B4%BA*") || shExpMatch(url, "http://google.com/m*%E8%B4%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*/search*%E8%B4%BA*") || shExpMatch(url, "http://google.*/search*%E8%B4%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.com/m*%E8%83%A1*") || shExpMatch(url, "http://google.com/m*%E8%83%A1*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*/search*%E8%83%A1*") || shExpMatch(url, "http://google.*/search*%E8%83%A1*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.com/m*%E8%B4%BE*") || shExpMatch(url, "http://google.com/m*%E8%B4%BE*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*/search*%E8%B4%BE*") || shExpMatch(url, "http://google.*/search*%E8%B4%BE*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E6%B1%9F*") || shExpMatch(url, "http://google.*%E6%B1%9F*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.com/m*%E6%9D%8E*") || shExpMatch(url, "http://google.com/m*%E6%9D%8E*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*/search*%E6%9D%8E*") || shExpMatch(url, "http://google.*/search*%E6%9D%8E*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*/search*%E5%88%98*") || shExpMatch(url, "http://google.*/search*%E5%88%98*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E7%8E%8B*") || shExpMatch(url, "http://google.*%E7%8E%8B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.com/m*%E6%B8%A9*") || shExpMatch(url, "http://google.com/m*%E6%B8%A9*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*/search*%E6%B8%A9*") || shExpMatch(url, "http://google.*/search*%E6%B8%A9*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.com/m*%E5%90%B4*") || shExpMatch(url, "http://google.com/m*%E5%90%B4*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*/search*%E5%90%B4*") || shExpMatch(url, "http://google.*/search*%E5%90%B4*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.com/m*%E4%B9%A0*") || shExpMatch(url, "http://google.com/m*%E4%B9%A0*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*/search*%E4%B9%A0*") || shExpMatch(url, "http://google.*/search*%E4%B9%A0*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E5%91%A8*") || shExpMatch(url, "http://google.*%E5%91%A8*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "https://*docs.google.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "https://*drive.google.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "https://groups.google.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "https://plus*.google.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.com/moderator*") || shExpMatch(url, "http://google.com/moderator*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.com%2Fmoderator*") || shExpMatch(url, "http://google.com%2Fmoderator*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.com/reader/view/feed*") || shExpMatch(url, "http://google.com/reader/view/feed*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.com%2Freader%2Fview%2Ffeed*") || shExpMatch(url, "http://google.com%2Freader%2Fview%2Ffeed*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.com.hk/wenda*") || shExpMatch(url, "http://google.com.hk/wenda*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.com.hk%2Fwenda*") || shExpMatch(url, "http://google.com.hk%2Fwenda*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*feedproxy.google.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*groups.google.*group*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*knol.google.com/k/-/08/3jhi1zdzvxj3f*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*news.google.com.hk/nwshp?hl=zh-cn&tab=wn*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*picasaweb.google.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*sites.google.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "https://talkgadget.google.com/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*video.google.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*anti.anti.cnn.googlepages.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*myboooks.googlepages.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.googlevideo.com*") || shExpMatch(url, "http://googlevideo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "https://apis.google.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*gospelherald.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://hk.gradconnection.com/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*greatfire.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*greatfirewallofchina.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*guishan.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.gyalwarinpoche.com*") || shExpMatch(url, "http://gyalwarinpoche.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*h1n1china.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.hacken.cc/bbs*") || shExpMatch(url, "http://hacken.cc/bbs*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hahlo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.hanunyi.com*") || shExpMatch(url, "http://hanunyi.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*have8.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.hecaitou.net*") || shExpMatch(url, "http://hecaitou.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.hechaji.com*") || shExpMatch(url, "http://hechaji.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hellotxt.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.hellouk.org/forum/lofiversion*") || shExpMatch(url, "http://hellouk.org/forum/lofiversion*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.helpeachpeople.com*") || shExpMatch(url, "http://helpeachpeople.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.helpzhuling.org*") || shExpMatch(url, "http://helpzhuling.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*heqinglian.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*here4news.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*app.heywire.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.hgseav.com*") || shExpMatch(url, "http://hgseav.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hidden-advent.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hidecloud.com/blog/2008/07/29/fuck-beijing-olympics.html*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.hidemyass.com*") || shExpMatch(url, "http://hidemyass.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.hihiforum.com*") || shExpMatch(url, "http://hihiforum.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://hihiforum.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.higfw.com*") || shExpMatch(url, "http://higfw.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.himemix.com*") || shExpMatch(url, "http://himemix.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*times.hinet.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.hjclub.info*") || shExpMatch(url, "http://hjclub.info*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.hk-pub.com/forum*") || shExpMatch(url, "http://hk-pub.com/forum*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://hk-pub.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.hk32168.com*") || shExpMatch(url, "http://hk32168.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*app.hkatvnews.com/v3*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hkbc.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.hkbf.org*") || shExpMatch(url, "http://hkbf.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hkday.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.hkdailynews.com.hk/china.php*") || shExpMatch(url, "http://hkdailynews.com.hk/china.php*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.hkej.com/template/forum*") || shExpMatch(url, "http://hkej.com/template/forum*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.hkepc.com/forum/viewthread.php?tid=1153322*") || shExpMatch(url, "http://hkepc.com/forum/viewthread.php?tid=1153322*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*global.hkepc.com*forum*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hkgolden.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.hkgreenradio.org/home*") || shExpMatch(url, "http://hkgreenradio.org/home*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.hkheadline.com*blog*") || shExpMatch(url, "http://hkheadline.com*blog*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.hkheadline.com/instantnews*") || shExpMatch(url, "http://hkheadline.com/instantnews*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.hkhkhk.com*") || shExpMatch(url, "http://hkhkhk.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hkjc.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.hkjp.org*") || shExpMatch(url, "http://hkjp.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hkptu.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.hkreporter.com*") || shExpMatch(url, "http://hkreporter.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*apps.hloli.net/gfwtube*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hnjhj.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*holyspiritspeaks.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hongmeimei.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hootsuite.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hotfile.com/dl*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hotpot.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.hqcdp.org*") || shExpMatch(url, "http://hqcdp.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.hrcir.com*") || shExpMatch(url, "http://hrcir.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hrichina.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.hrw.org*") || shExpMatch(url, "http://hrw.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*huaglad.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.huanghuagang.org*") || shExpMatch(url, "http://huanghuagang.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.huaren.us*") || shExpMatch(url, "http://huaren.us*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*huaxia-news.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*huaxin.ph*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hua-yue.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*t.huhaitai.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hutong9.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*iask.ca*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*iask.bz*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ibiblio.org/pub/packages/ccic*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://cn.ibtimes.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blogs.icerocket.com/tag*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*w.idaiwan.com/forum*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.identi.ca*") || shExpMatch(url, "http://identi.ca*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://www.idlcoyote.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.idouga.com*") || shExpMatch(url, "http://idouga.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*forum.idsam.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.idv.tw*") || shExpMatch(url, "http://idv.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ieasynews.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.ied2k.net*") || shExpMatch(url, "http://ied2k.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ifanqiang.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.ifanr.com/857*") || shExpMatch(url, "http://ifanr.com/857*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.ifcss.org*") || shExpMatch(url, "http://ifcss.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ifjc.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*imageshack.us*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://www.imdb.com/name/nm0482730*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.img.ly*") || shExpMatch(url, "http://img.ly*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.imkev.com*") || shExpMatch(url, "http://imkev.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.imlive.com*") || shExpMatch(url, "http://imlive.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*immigration.gov.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://tech2.in.com/video/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.inmediahk.net*") || shExpMatch(url, "http://inmediahk.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://internet.org/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*internetdefenseleague.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*internetfreedom.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*inxian.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ipobar.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "https://*.iptorrents.com*") || shExpMatch(url, "https://iptorrents.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "https://iptorrents.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*iredmail.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.beta.iset.com.tw/forum*") || shExpMatch(url, "http://beta.iset.com.tw/forum*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*http://beta.iset.com.tw/forum*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*forum.iset.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.islam.org.hk*") || shExpMatch(url, "http://islam.org.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.isaacmao.com*") || shExpMatch(url, "http://isaacmao.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*isohunt.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blog.istef.info/2007/10/21/myentunnel*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.istockphoto.com*") || shExpMatch(url, "http://istockphoto.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*isunaffairs.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*isuntv.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*itaboo.info*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ithelp.ithome.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.itweet.net*") || shExpMatch(url, "http://itweet.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://itweet.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.iu45.com*") || shExpMatch(url, "http://iu45.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.izaobao.us*") || shExpMatch(url, "http://izaobao.us*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.izles.net*") || shExpMatch(url, "http://izles.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*itunes.apple.*285688934*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*itunes.apple.*358801284*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*itunes.apple.*375584677*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*itunes.apple.*383949089*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*itunes.apple.*319295332*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*itunes.apple.*418987775*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*itunes.apple.com/us*id447119634*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.apple.*isunaffairs*") || shExpMatch(url, "http://apple.*isunaffairs*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blog.jackjia.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*jbtalks.cc*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*jbtalks.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*jbtalks.my*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*jeanyim.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.jiehua.cz*") || shExpMatch(url, "http://jiehua.cz*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*jieshibaobao.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.jimoparty.com*") || shExpMatch(url, "http://jimoparty.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://jimoparty.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*jinbushe.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zhao.jinhai.de*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*jingpin.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ac.jiruan.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*jkforum.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*research.jmsc.hku.hk/social*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*jpopforum.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.junefourth-20.net*") || shExpMatch(url, "http://junefourth-20.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*justfreevpn.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh-tw.justin.tv*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*justtristan.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*juziyue.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.jyxf.net*") || shExpMatch(url, "http://jyxf.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.kagyuoffice.org.tw*") || shExpMatch(url, "http://kagyuoffice.org.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.kaiyuan.de*") || shExpMatch(url, "http://kaiyuan.de*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*kanzhongguo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*kanzhongguo.eu*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.kechara.com*") || shExpMatch(url, "http://kechara.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.keepandshare.com/visit/visit_page.php?i=688154*") || shExpMatch(url, "http://keepandshare.com/visit/visit_page.php?i=688154*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.kendincos.net*") || shExpMatch(url, "http://kendincos.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.kenengba.com*") || shExpMatch(url, "http://kenengba.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*wiki.keso.cn/Home*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.khmusic.com.tw*") || shExpMatch(url, "http://khmusic.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*bbs.kimy.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*kingdomsalvation.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*kinghost.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.kingstone.com.tw*") || shExpMatch(url, "http://kingstone.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*killwall.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.kissbbao.cn*") || shExpMatch(url, "http://kissbbao.cn*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.knowledgerush.com/kr/encyclopedia*") || shExpMatch(url, "http://knowledgerush.com/kr/encyclopedia*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.koornk.com*") || shExpMatch(url, "http://koornk.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.kui.name/event*") || shExpMatch(url, "http://kui.name/event*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*kun.im*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*kusocity.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*kwongwah.com.my*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*kyohk.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.kzeng.info*") || shExpMatch(url, "http://kzeng.info*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*la-forum.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ladbrokes.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*lagranepoca.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.lalulalu.com*") || shExpMatch(url, "http://lalulalu.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*laogai.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*laomiu.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.laoyang.info*") || shExpMatch(url, "http://laoyang.info*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://laoyang.info*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.laqingdan.net*") || shExpMatch(url, "http://laqingdan.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*latelinenews.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*lerosua.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blog.lester850.info*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*letscorp.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*liansi.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.lianyue.net*") || shExpMatch(url, "http://lianyue.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.liaowangxizang.net*") || shExpMatch(url, "http://liaowangxizang.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*libertytimes.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.lidecheng.com/blog/fucking-gfw*") || shExpMatch(url, "http://lidecheng.com/blog/fucking-gfw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*limiao.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*abitno.linpie.com/use-ipv6-to-fuck-gfw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.linglingfa.com*") || shExpMatch(url, "http://linglingfa.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.linkideo.com*") || shExpMatch(url, "http://linkideo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*linuxtoy.org/archives/installing-west-chamber-on-ubuntu*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.lipuman.com*") || shExpMatch(url, "http://lipuman.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*listorious.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.liuhanyu.com*") || shExpMatch(url, "http://liuhanyu.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.liujianshu.com*") || shExpMatch(url, "http://liujianshu.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*liuxiaotong.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*liu.lu*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.liveleak.com*") || shExpMatch(url, "http://liveleak.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.livestation.com*") || shExpMatch(url, "http://livestation.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*livestream.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.livevideo.com*") || shExpMatch(url, "http://livevideo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*lizhizhuangbi.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*lkcn.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*logbot.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.longhair.hk*") || shExpMatch(url, "http://longhair.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.lookatgame.com*") || shExpMatch(url, "http://lookatgame.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://lookatgame.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hkreporter.loved.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.lsd.org.hk*") || shExpMatch(url, "http://lsd.org.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*lsforum.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.lupm.org*") || shExpMatch(url, "http://lupm.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*lvhai.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*m-team.cc/forum*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*www.macrovpn.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*marguerite.su*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.maiio.net*") || shExpMatch(url, "http://maiio.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*mail-archive.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*malaysiakini.com/cn*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*markmail.org*message*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*maruta.be/forget*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.marxist.com*") || shExpMatch(url, "http://marxist.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.marxists.org/chinese*") || shExpMatch(url, "http://marxists.org/chinese*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*mashable.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*mayimayi.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*mcfog.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.md-t.org*") || shExpMatch(url, "http://md-t.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.mediafire.com/?*") || shExpMatch(url, "http://mediafire.com/?*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*mefeedia.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*lich355.megabyet.net/%E7%BD%91%E7%BB%9C%E7%A5%9E%E5%85%BD%E5%8F%A4%E9%B8%BD%E8%BF%81%E7%A7%BB%E8%AE%B0*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.megaporn.com*") || shExpMatch(url, "http://megaporn.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*megavideo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*meirixiaochao.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*memedia.cn*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*merit-times.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.mesotw.com/bbs*") || shExpMatch(url, "http://mesotw.com/bbs*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.metacafe.com*") || shExpMatch(url, "http://metacafe.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*mgoon.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*mhradio.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://michaelanti.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*middle-way.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.mihk.hk/forum*") || shExpMatch(url, "http://mihk.hk/forum*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*mihua.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.mimivip.com*") || shExpMatch(url, "http://mimivip.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*minghui.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*minghui-school.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.mingjinglishi.com*") || shExpMatch(url, "http://mingjinglishi.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*mingjingnews.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*mingpao.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.mingpaomonthly.com*") || shExpMatch(url, "http://mingpaomonthly.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*mingpaonews.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.mingpaony.com*") || shExpMatch(url, "http://mingpaony.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.mingpaosf.com*") || shExpMatch(url, "http://mingpaosf.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.mingpaotor.com*") || shExpMatch(url, "http://mingpaotor.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.mingpaovan.com*") || shExpMatch(url, "http://mingpaovan.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.mininova.org/tor/2593503*") || shExpMatch(url, "http://mininova.org/tor/2593503*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.minzhuhua.net*") || shExpMatch(url, "http://minzhuhua.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*minzhuzhongguo.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*mirrorbooks.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*mitbbs.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.mixero.com*") || shExpMatch(url, "http://mixero.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*mixpod.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.mixx.com*") || shExpMatch(url, "http://mixx.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.mk5000.com*") || shExpMatch(url, "http://mk5000.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.mlcool.com*") || shExpMatch(url, "http://mlcool.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*plurktop.mmdays.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.mmmca.com*") || shExpMatch(url, "http://mmmca.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.mobile01.com*") || shExpMatch(url, "http://mobile01.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.mobypicture.com*") || shExpMatch(url, "http://mobypicture.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://moby.to*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*wiki.moegirl.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*molihua.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://www.monlamit.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*c1522.mooo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*bbs.morbell.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*mp3ye.eu*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*mpfinance.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*mpinews.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*mrtweet.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*news.msn.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.msguancha.com*") || shExpMatch(url, "http://msguancha.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*multiproxy.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*forum.mymaji.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*multiupload.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.my-proxy.com*") || shExpMatch(url, "http://my-proxy.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*forum.my903.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*myactimes.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.myav.com.tw/bbs*") || shExpMatch(url, "http://myav.com.tw/bbs*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.mychinamyhome.com*") || shExpMatch(url, "http://mychinamyhome.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.myforum.com.hk*") || shExpMatch(url, "http://myforum.com.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.myfreshnet.com*") || shExpMatch(url, "http://myfreshnet.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*mysinablog.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.myspace.com*") || shExpMatch(url, "http://myspace.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*old.nabble.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*nanyang.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.nanyangpost.com*") || shExpMatch(url, "http://nanyangpost.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.nanzao.com*") || shExpMatch(url, "http://nanzao.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.nakido.com*") || shExpMatch(url, "http://nakido.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.naol.ca*") || shExpMatch(url, "http://naol.ca*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*cyberghost.natado.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*nccwatch.org.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.nch.com.tw*") || shExpMatch(url, "http://nch.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.ncn.org*") || shExpMatch(url, "http://ncn.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*www.ned.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*t.neolee.cn*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*netcolony.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*bolin.netfirms.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.netlog.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*netme.cc*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*networkedblogs.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*neverforget8964.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*new-3lunch.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.new-akiba.com*") || shExpMatch(url, "http://new-akiba.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.newcenturymc.com*") || shExpMatch(url, "http://newcenturymc.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://newcenturymc.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*newcenturynews.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.newchen.com*") || shExpMatch(url, "http://newchen.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.newgrounds.com*") || shExpMatch(url, "http://newgrounds.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*newlandmagazine.com.au*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*news100.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.newscn.org*") || shExpMatch(url, "http://newscn.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*newspeak.cc/story*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.newsancai.com*") || shExpMatch(url, "http://newsancai.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.newtaiwan.com.tw*") || shExpMatch(url, "http://newtaiwan.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*newtalk.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*newyorktimes.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hk*.nextmedia.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tw*.nextmedia.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*static.apple.nextmedia.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*nexttv.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ngensis.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.nicovideo.jp/watch/*") || shExpMatch(url, "http://nicovideo.jp/watch/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*nintendium.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.dayaarmongol.ning.com*") || shExpMatch(url, "http://dayaarmongol.ning.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://dayaarmongol.ning.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*taiwanyes.ning.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*njuice.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*nlfreevpn.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*nobelprize.org/nobel_prizes/peace/laureates/2010*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*nobodycanstop.us*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.nowtorrents.com*") || shExpMatch(url, "http://nowtorrents.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.noypf.com*") || shExpMatch(url, "http://noypf.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.nps.gov*") || shExpMatch(url, "http://nps.gov*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.nrk.no*") || shExpMatch(url, "http://nrk.no*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ntdtv.co*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ntdtv.ca*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ntdtv.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ntdtv.ru*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.nuvid.com*") || shExpMatch(url, "http://nuvid.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*nuzcom.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.nytimes.com*") || shExpMatch(url, "http://nytimes.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*nysingtao.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*observechina.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*offbeatchina.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twtr2src.ogaoga.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.oikos.com.tw/v4*") || shExpMatch(url, "http://oikos.com.tw/v4*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.oiktv.com*") || shExpMatch(url, "http://oiktv.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*oizoblog.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.okayfreedom.com*") || shExpMatch(url, "http://okayfreedom.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*old-cat.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.olympicwatch.org*") || shExpMatch(url, "http://olympicwatch.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*omgili.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*omnitalk.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*forum.omy.sg*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*news.omy.sg*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*showbiz.omy.sg*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*the-sun.on.cc*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tv.on.cc*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.onlylady.cn*") || shExpMatch(url, "http://onlylady.cn*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*onmoon.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*onmoon.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.oopsforum.com*") || shExpMatch(url, "http://oopsforum.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*open.com.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*opendemocracy.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*myopenid.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*openid.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.openleaks.org*") || shExpMatch(url, "http://openleaks.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*openvpn.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*my.opera.com/dahema*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*opnir.com/215/myentunnel-ssh-autoproxy-cross-gfw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*www.orchidbbs.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*orientaldaily.com.my*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*orientaldaily.on.cc*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*t.orzdream.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tui.orzdream.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*m.oulove.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*oursogo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*oursteps.com.au*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*xinqimeng.over-blog.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*share.ovi.com/media*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://owl.li*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://ht.ly*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://htl.li*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://mash.to*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*www.owind.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://www.oxid.it*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*oyax.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.ozchinese.com/bbs*") || shExpMatch(url, "http://ozchinese.com/bbs*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*bbs.ozchinese.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.ozyoyo.com*") || shExpMatch(url, "http://ozyoyo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.pacificpoker.com*") || shExpMatch(url, "http://pacificpoker.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.packetix.net*") || shExpMatch(url, "http://packetix.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*page2rss.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.palacemoon.com*") || shExpMatch(url, "http://palacemoon.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*forum.palmislife.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*paper.li*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*paperb.us*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.panluan.net*") || shExpMatch(url, "http://panluan.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.panoramio.com*") || shExpMatch(url, "http://panoramio.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.parade.com/dictators/2009*") || shExpMatch(url, "http://parade.com/dictators/2009*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "https://passthepopcorn.me/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "https://*.passthepopcorn.me/*") || shExpMatch(url, "https://passthepopcorn.me/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*pastebin.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.pastie.org*") || shExpMatch(url, "http://pastie.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*pbs.org/wgbh/pages/frontline/gate*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*pbs.org/wgbh/pages/frontline/tankman*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*pbwiki.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.pcdiscuss.com*") || shExpMatch(url, "http://pcdiscuss.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*pcdvd.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.pchome.com.tw*") || shExpMatch(url, "http://pchome.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*pdetails.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*peacefire.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*peacehall.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.peeasian.com*") || shExpMatch(url, "http://peeasian.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.pekingduck.org*") || shExpMatch(url, "http://pekingduck.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*penchinese.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.penchinese.net*") || shExpMatch(url, "http://penchinese.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*pengyulong.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.penthouse.com*") || shExpMatch(url, "http://penthouse.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.peopo.org*") || shExpMatch(url, "http://peopo.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.percy.in*") || shExpMatch(url, "http://percy.in*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*perfectvpn.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*perfspot.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*philly.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.picidae.net*") || shExpMatch(url, "http://picidae.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*picturesocial.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.pidown.com*") || shExpMatch(url, "http://pidown.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.pign.net*") || shExpMatch(url, "http://pign.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blog.pilotmoon.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.pin6.com*") || shExpMatch(url, "http://pin6.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.ping.fm*") || shExpMatch(url, "http://ping.fm*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.piring.com*") || shExpMatch(url, "http://piring.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.pixnet.net*") || shExpMatch(url, "http://pixnet.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.pk.com*") || shExpMatch(url, "http://pk.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.planetsuzy.org*") || shExpMatch(url, "http://planetsuzy.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://pictures.playboy.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*plays.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*plm.org.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*plunder.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.plus28.com*") || shExpMatch(url, "http://plus28.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.plusbb.com*") || shExpMatch(url, "http://plusbb.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.pmates.com*") || shExpMatch(url, "http://pmates.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.pokerstars.com*") || shExpMatch(url, "http://pokerstars.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.pokerstrategy.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*politicalchina.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*popyard.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.porn.com*") || shExpMatch(url, "http://porn.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.porn2.com*") || shExpMatch(url, "http://porn2.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.pornbase.org*") || shExpMatch(url, "http://pornbase.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.pornhub.com*") || shExpMatch(url, "http://pornhub.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.pornoxo.com*") || shExpMatch(url, "http://pornoxo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.pornrapidshare.com*") || shExpMatch(url, "http://pornrapidshare.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.pornstarclub.com*") || shExpMatch(url, "http://pornstarclub.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.porntube.com*") || shExpMatch(url, "http://porntube.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.pornvisit.com*") || shExpMatch(url, "http://pornvisit.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*postadult.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*puffinbrowser.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://post.ly*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.posterous.com*") || shExpMatch(url, "http://posterous.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://posterous.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.power.com*") || shExpMatch(url, "http://power.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*powerapple.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*heix.pp.ru*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*prisoner-state-secret-journal-premier*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*privatepaste.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*privatetunnel.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*provideocoalition.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*proxifier.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*api.proxlet.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*proxy.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.proxypy.net*") || shExpMatch(url, "http://proxypy.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*proxyroad.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*prozz.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*psblog.name*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*psiphon.ca*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.ptt.cc*") || shExpMatch(url, "http://ptt.cc*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.puffstore.com*") || shExpMatch(url, "http://puffstore.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.putlocker.com/file*") || shExpMatch(url, "http://putlocker.com/file*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*pwned.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*python.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.python.com.tw*") || shExpMatch(url, "http://python.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://python.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.qanote.com*") || shExpMatch(url, "http://qanote.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*qi-gong.me*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.qienkuen.org*") || shExpMatch(url, "http://qienkuen.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*qixianglu.cn*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*bbs.qmzdd.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.qkshare.com*") || shExpMatch(url, "http://qkshare.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*qoos.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blog.qooza.hk*dafengqixi*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*qusi8.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.qvodzy.org*") || shExpMatch(url, "http://qvodzy.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*nemesis2.qx.net*pages*MyEnTunnel*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*qxbbs.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*radioaustralia.net.au*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*opml.radiotime.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*rangzen.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ranyunfei.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.rapbull.net*") || shExpMatch(url, "http://rapbull.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.rapidsharedata.com*") || shExpMatch(url, "http://rapidsharedata.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*rcinet.ca*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.read100.com*") || shExpMatch(url, "http://read100.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.readingtimes.com.tw*") || shExpMatch(url, "http://readingtimes.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.realraptalk.com*") || shExpMatch(url, "http://realraptalk.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.recordhistory.org*") || shExpMatch(url, "http://recordhistory.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blog.redren.com/2009/01/jap-let-you-use-online-stealth*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.redtube.com*") || shExpMatch(url, "http://redtube.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*referer.us*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*relaxbbs.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*renminbao.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.renyurenquan.org*") || shExpMatch(url, "http://renyurenquan.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*subacme.rerouted.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*cn.reuters.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.revleft.com*") || shExpMatch(url, "http://revleft.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*retweetist.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*connectedchina.reuters.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://www.reuters.com/news/video*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*revver.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.rfa.org*") || shExpMatch(url, "http://rfa.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.rfachina.com*") || shExpMatch(url, "http://rfachina.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.rfamobile.org*") || shExpMatch(url, "http://rfamobile.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.rfi.fr*") || shExpMatch(url, "http://rfi.fr*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://rfi.my/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.rhcloud.com*") || shExpMatch(url, "http://rhcloud.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.rileyguide.com*") || shExpMatch(url, "http://rileyguide.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*riku.me/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.rlwlw.com*") || shExpMatch(url, "http://rlwlw.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chinese.rnw.nl*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.rnw.nl*") || shExpMatch(url, "http://rnw.nl*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*robtex.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.roodo.com*") || shExpMatch(url, "http://roodo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.rsf.org*") || shExpMatch(url, "http://rsf.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.rsf-chinese.org*") || shExpMatch(url, "http://rsf-chinese.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.rssmeme.com*") || shExpMatch(url, "http://rssmeme.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.rthk.hk*") || shExpMatch(url, "http://rthk.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://rthk.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.rthk.org.hk*") || shExpMatch(url, "http://rthk.org.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://rthk.org.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*rti.org.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.ruanyifeng.com/blog*some_ways_to_break_the_great_firewall*") || shExpMatch(url, "http://ruanyifeng.com/blog*some_ways_to_break_the_great_firewall*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.rushbee.com*") || shExpMatch(url, "http://rushbee.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*rutube.ru*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.ruyiseek.com*") || shExpMatch(url, "http://ruyiseek.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.rxhj.net*") || shExpMatch(url, "http://rxhj.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blog.s135.com/google_ssl*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*sacom.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.saiq.me*") || shExpMatch(url, "http://saiq.me*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.salvation.org.hk*") || shExpMatch(url, "http://salvation.org.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.samair.ru/proxy/type-01*") || shExpMatch(url, "http://samair.ru/proxy/type-01*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*sammyjs.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*sandnoble.com/bookSearch/isbnInquiry.asp*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.sanmin.com.tw*") || shExpMatch(url, "http://sanmin.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*sapikachu.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*savemedia.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*savetibet.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*savevid.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.scmp.com*") || shExpMatch(url, "http://scmp.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.scmpchinese.com*") || shExpMatch(url, "http://scmpchinese.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.scribd.com*") || shExpMatch(url, "http://scribd.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*seapuff.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*domainhelp.search.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*secretchina.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*securitykiss.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*seesmic.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*sejie.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.sendspace.com/file*") || shExpMatch(url, "http://sendspace.com/file*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://tweets.seraph.me/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*sesawe.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.sesawe.org*") || shExpMatch(url, "http://sesawe.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*forum.setty.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.sevenload.com*") || shExpMatch(url, "http://sevenload.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.sex.com*") || shExpMatch(url, "http://sex.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.sex-11.com*") || shExpMatch(url, "http://sex-11.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.sex8.cc*") || shExpMatch(url, "http://sex8.cc*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.sexandsubmission.com*") || shExpMatch(url, "http://sexandsubmission.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.sexhu.com*") || shExpMatch(url, "http://sexhu.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.sexhuang.com*") || shExpMatch(url, "http://sexhuang.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*sexinsex.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*67.220.91.18*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*67.220.91.23*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.sfileydy.com*") || shExpMatch(url, "http://sfileydy.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*shadow.ma*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.shangfang.org*") || shExpMatch(url, "http://shangfang.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*shapeservices.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.sharebee.com*") || shExpMatch(url, "http://sharebee.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*sharpdaily.com.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.sharpdaily.hk*") || shExpMatch(url, "http://sharpdaily.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.shaunthesheep.com*") || shExpMatch(url, "http://shaunthesheep.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*shenshou.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*shenyunperformingarts.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*shenzhoufilm.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*shinychan.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.shitaotv.org*") || shExpMatch(url, "http://shitaotv.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.shizhao.org*") || shExpMatch(url, "http://shizhao.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*shkspr.mobi/dabr*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.shopping.com*") || shExpMatch(url, "http://shopping.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.showtime.jp*") || shExpMatch(url, "http://showtime.jp*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ch.shvoong.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.shwchurch3.com*") || shExpMatch(url, "http://shwchurch3.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://shwchurch3.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*simplecd.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*simpleproductivityblog.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*bbs.sina.com/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*bbs.sina.com%2F*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blog.sina.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*dailynews.sina.com/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*dailynews.sina.com%2F*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*forum.sina.com.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*home.sina.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*news.sina.com.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*news.sina.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*singtao.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*news.singtao.ca*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*sino-monthly.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*sinocism.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*sinomontreal.ca*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.sinonet.ca*") || shExpMatch(url, "http://sinonet.ca*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.sinopitt.info*") || shExpMatch(url, "http://sinopitt.info*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.sinoants.com*") || shExpMatch(url, "http://sinoants.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*sinoquebec.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.sitebro.tw*") || shExpMatch(url, "http://sitebro.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*sitetag.us*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*sis.xxx*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*sis001.us*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://skyhighpremium.com/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*bbs.skykiwi.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://www.skype.com/intl/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*share.skype.com/sites/en/2008/10/skype_president_addresses_chin*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://www.skype.com/zh-Hant*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*m.slandr.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.slideshare.net*") || shExpMatch(url, "http://slideshare.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*forum.slime.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.slutload.com*") || shExpMatch(url, "http://slutload.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*smhric.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.so-ga.net*") || shExpMatch(url, "http://so-ga.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.so-news.com*") || shExpMatch(url, "http://so-news.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*home.so-net.net.tw/yisa_tsai*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.sod.co.jp*") || shExpMatch(url, "http://sod.co.jp*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.softether.org*") || shExpMatch(url, "http://softether.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*sohcradio.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.soumo.info*") || shExpMatch(url, "http://soumo.info*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.slinkset.com*") || shExpMatch(url, "http://slinkset.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.snaptu.com*") || shExpMatch(url, "http://snaptu.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*sneakme.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.sobees.com*") || shExpMatch(url, "http://sobees.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*socialwhale.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.softether.co.jp*") || shExpMatch(url, "http://softether.co.jp*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blog.sogoo.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*soh.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*sohfrance.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*chinese.soifind.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*sokamonline.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.songjianjun.com*") || shExpMatch(url, "http://songjianjun.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.sopcast.com*") || shExpMatch(url, "http://sopcast.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.sopcast.org*") || shExpMatch(url, "http://sopcast.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*soundofhope.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.sourceforge.net*") || shExpMatch(url, "http://sourceforge.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*southnews.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*sowers.org.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.spankwire.com*") || shExpMatch(url, "http://spankwire.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.spb.com/blackberry-software/tv/download*") || shExpMatch(url, "http://spb.com/blackberry-software/tv/download*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://spb.com/blackberry-software/tv/download*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.spb.com/pocketpc-software/tv/download*") || shExpMatch(url, "http://spb.com/pocketpc-software/tv/download*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://spb.com/pocketpc-software/tv/download*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.spb.com/symbian-software/tv/download*") || shExpMatch(url, "http://spb.com/symbian-software/tv/download*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://spb.com/symbian-software/tv/download*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.speedpluss.org*") || shExpMatch(url, "http://speedpluss.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*spinejs.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*squarespace.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://cdn.sstatic.net/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*www.stackfile.com/freedur*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*usinfo.state.gov*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.starp2p.com*") || shExpMatch(url, "http://starp2p.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.state168.com*") || shExpMatch(url, "http://state168.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*sthoo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.stickam.com*") || shExpMatch(url, "http://stickam.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*stickeraction.com/sesawe*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.stoptibetcrisis.net*") || shExpMatch(url, "http://stoptibetcrisis.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*cn.streetvoice.com/article*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*cn.streetvoice.com/diary*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*cn2.streetvoice.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tw.streetvoice.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.student.tw/db*") || shExpMatch(url, "http://student.tw/db*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*stupidvideos.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*sufeng.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.sugarsync.com*") || shExpMatch(url, "http://sugarsync.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*summify.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.suoluo.org*") || shExpMatch(url, "http://suoluo.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*api.supertweet.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*www.supertweet.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.surfeasy.com.au*") || shExpMatch(url, "http://surfeasy.com.au*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*support/youtube/bin/request.py?contact_type=abuse&*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*/support/youtube/bin/static.py?page=start.cs&*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.sydneytoday.com*") || shExpMatch(url, "http://sydneytoday.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*sysresccd.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.sytes.net*") || shExpMatch(url, "http://sytes.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blog.syx86.com/2009/09/puff*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blog.syx86.cn/2009/09/puff*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.szbbs.net*") || shExpMatch(url, "http://szbbs.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.t35.com*") || shExpMatch(url, "http://t35.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.t66y.com*") || shExpMatch(url, "http://t66y.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.taa-usa.org*") || shExpMatch(url, "http://taa-usa.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://taa-usa.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tabtter.jp*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.tacem.org*") || shExpMatch(url, "http://tacem.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tagwalk.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*taipei.gov.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.taipeisociety.org*") || shExpMatch(url, "http://taipeisociety.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.taiwandaily.net*") || shExpMatch(url, "http://taiwandaily.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*taiwankiss.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*taiwannation.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*taiwannation.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*taiwanus.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*taiwanyes.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*taiwan-sex.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tangben.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.taolun.info*") || shExpMatch(url, "http://taolun.info*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blog.taragana.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.taweet.com*") || shExpMatch(url, "http://taweet.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tchrd.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tcno.net*doc*tor*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.teashark.com/download.html*") || shExpMatch(url, "http://teashark.com/download.html*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.telecomspace.com*") || shExpMatch(url, "http://telecomspace.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.tenacy.com*") || shExpMatch(url, "http://tenacy.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*theblemish.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.thechinabeat.org*") || shExpMatch(url, "http://thechinabeat.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*thehousenews.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*thepiratebay.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*theqii.info/blog*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*thereallove.kr*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*thespeeder.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*thetrotskymovie.com/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*thevivekspot.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.thisav.com*") || shExpMatch(url, "http://thisav.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://thisav.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*thkphoto.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*threatchaos.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.thumbzilla.com*") || shExpMatch(url, "http://thumbzilla.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tiananmenmother.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.tianhuayuan.com*") || shExpMatch(url, "http://tianhuayuan.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tiantibooks.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.tianzhu.org*") || shExpMatch(url, "http://tianzhu.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.tibet.com*") || shExpMatch(url, "http://tibet.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.tibet.net*") || shExpMatch(url, "http://tibet.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tibet.org.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tibetalk.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.tibetanyouthcongress.org*") || shExpMatch(url, "http://tibetanyouthcongress.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tibetfund.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tibetonline.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.tibetonline.tv*") || shExpMatch(url, "http://tibetonline.tv*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.time.com/time/time100/leaders/profile/rebel*") || shExpMatch(url, "http://time.com/time/time100/leaders/profile/rebel*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.time.com/time/specials/packages/article/0,28804*") || shExpMatch(url, "http://time.com/time/specials/packages/article/0,28804*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.time.com/time/magazine*") || shExpMatch(url, "http://time.com/time/magazine*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tinychat.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.tistory.com*") || shExpMatch(url, "http://tistory.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*cn.tmagazine.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://tmi.me*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.tnaflix.com*") || shExpMatch(url, "http://tnaflix.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*togetter.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.tokyo-247.com*") || shExpMatch(url, "http://tokyo-247.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tokyo-hot.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tonyyan.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.toodoc.com*") || shExpMatch(url, "http://toodoc.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*toonel.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.topnews.in*") || shExpMatch(url, "http://topnews.in*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.topshareware.com*") || shExpMatch(url, "http://topshareware.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*topsy.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tora.to*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.torproject.org*") || shExpMatch(url, "http://torproject.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*torrentcrazy.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*touch99.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.tpi.org.tw*") || shExpMatch(url, "http://tpi.org.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*trendsmap.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.trialofccp.org*") || shExpMatch(url, "http://trialofccp.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*trtc.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*trulyergonomic.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.truth101.co.tv*") || shExpMatch(url, "http://truth101.co.tv*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://truth101.co.tv*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.truveo.com*") || shExpMatch(url, "http://truveo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.tsemtulku.com*") || shExpMatch(url, "http://tsemtulku.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tsquare.tv*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tsunagarumon.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.tsctv.net*") || shExpMatch(url, "http://tsctv.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.tttan.com*") || shExpMatch(url, "http://tttan.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*bb.ttv.com.tw/bb*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.tuanzt.com*") || shExpMatch(url, "http://tuanzt.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.tube.com*") || shExpMatch(url, "http://tube.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tube8.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tubecao.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tuidang.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tuidang.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*bbs.tuitui.info*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.tunein.com*") || shExpMatch(url, "http://tunein.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://tunein.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.turbobit.net*") || shExpMatch(url, "http://turbobit.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://turbobit.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.tv.com*") || shExpMatch(url, "http://tv.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://tv.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tvants.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*forum.tvb.com/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tvboxnow.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tvider.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twa.sh*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twapperkeeper.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.twaud.io*") || shExpMatch(url, "http://twaud.io*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.twbbs.net.tw*") || shExpMatch(url, "http://twbbs.net.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twbbs.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twbbs.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tweepmag.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.tweepml.org*") || shExpMatch(url, "http://tweepml.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.tweetbackup.com*") || shExpMatch(url, "http://tweetbackup.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tweetboard.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.tweetboner.biz*") || shExpMatch(url, "http://tweetboner.biz*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.tweetdeck.com*") || shExpMatch(url, "http://tweetdeck.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://deck.ly*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*m.tweete.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tweetmeme.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tweetphoto.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tweetree.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tweetymail.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twibase.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.twibble.de*") || shExpMatch(url, "http://twibble.de*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twibbon.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twicsy.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.twifan.com*") || shExpMatch(url, "http://twifan.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://twifan.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twiffo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twilog.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twimbow.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twipple.jp*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twistar.cc*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twisternow.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twistory.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twitbrowser.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twitgoo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twitiq.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.twitlonger.com*") || shExpMatch(url, "http://twitlonger.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://tl.gd/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twitoaster.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.twitpic.com*") || shExpMatch(url, "http://twitpic.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twitreferral.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.twit2d.com*") || shExpMatch(url, "http://twit2d.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.twitstat.com*") || shExpMatch(url, "http://twitstat.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.twitvid.com*") || shExpMatch(url, "http://twitvid.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*199.59.148.20*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://t.co*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "https://t.co*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://twt.tl*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twittbot.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twitter.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.twittercounter.com*") || shExpMatch(url, "http://twittercounter.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twitterfeed.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.twittergadget.com*") || shExpMatch(url, "http://twittergadget.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.twitterkr.com*") || shExpMatch(url, "http://twitterkr.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twittertim.es*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twitthat.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.twitturly.com*") || shExpMatch(url, "http://twitturly.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.twitzap.com*") || shExpMatch(url, "http://twitzap.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twiyia.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.twreg.info*") || shExpMatch(url, "http://twreg.info*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.twtkr.com*") || shExpMatch(url, "http://twtkr.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://twtkr.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twtrland.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*twurl.nl*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.twyac.org*") || shExpMatch(url, "http://twyac.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.tycool.com*") || shExpMatch(url, "http://tycool.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tynsoe.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*embr.in*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*guomin.us/login*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.srcf.ucam.org/salon/*") || shExpMatch(url, "http://srcf.ucam.org/salon/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.udn.com*") || shExpMatch(url, "http://udn.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ufreevpn.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.ugo.com*") || shExpMatch(url, "http://ugo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*uhrp.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*uighurbiz.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.ulike.net*") || shExpMatch(url, "http://ulike.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://www.ukchinese.com/www/22/2009-03/2842.html*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ukliferadio.co.uk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ultravpn.fr*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ultraxs.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*uncyclomedia.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*uncyclopedia.info*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.uni.cc*") || shExpMatch(url, "http://uni.cc*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*unicode.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.uniteddaily.com.my/index.php?*") || shExpMatch(url, "http://uniteddaily.com.my/index.php?*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.unix100.com*") || shExpMatch(url, "http://unix100.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*unpo.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tor.updatestar.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.upload4u.info*") || shExpMatch(url, "http://upload4u.info*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.uploaded.to/file*") || shExpMatch(url, "http://uploaded.to/file*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://uploaded.to/file*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.uploadstation.com/file*") || shExpMatch(url, "http://uploadstation.com/file*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*www.urbanoutfitters.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*myshare.url.com.tw/*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*us.to*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*beta.usejump.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*earthquake.usgs.gov/eqcenter/recenteqsww/Maps/10/105_30.php*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.ustream.tv*") || shExpMatch(url, "http://ustream.tv*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.uushare.com*") || shExpMatch(url, "http://uushare.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://uushare.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.uwants.com*") || shExpMatch(url, "http://uwants.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.uwants.net*") || shExpMatch(url, "http://uwants.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*uygur.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*v70.us*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.van698.com*") || shExpMatch(url, "http://van698.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.vanemu.cn*") || shExpMatch(url, "http://vanemu.cn*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.vanilla-jp.com*") || shExpMatch(url, "http://vanilla-jp.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*vansky.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.velkaepocha.sk*") || shExpMatch(url, "http://velkaepocha.sk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*veoh.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.verizon.net*") || shExpMatch(url, "http://verizon.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.vft.com.tw*") || shExpMatch(url, "http://vft.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*videobam.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.videomo.com*") || shExpMatch(url, "http://videomo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*vimeo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*video.tiscali.it/canali/truveo*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*cn.voa.mobi*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tw.voa.mobi*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.voachineseblog.com*") || shExpMatch(url, "http://voachineseblog.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*voagd.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*voacantonese.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*voachinese.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*voatibetan.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*voanews.com/chinese*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*vocn.tv*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.vot.org*") || shExpMatch(url, "http://vot.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*www.voy.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*vpnbook.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*vpnfire.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.vpngate.net*") || shExpMatch(url, "http://vpngate.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*lists.w3.org/archives/public*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.jyzj.waqn.com*") || shExpMatch(url, "http://jyzj.waqn.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.wahas.com*") || shExpMatch(url, "http://wahas.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.waigaobu.com*") || shExpMatch(url, "http://waigaobu.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*waikeung.org/php_wind*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.waiwaier.com*") || shExpMatch(url, "http://waiwaier.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://waiwaier.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*wallornot.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.wangjinbo.org*") || shExpMatch(url, "http://wangjinbo.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*wanglixiong.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*wangruoshui.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*www.wangruowang.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*want-daily.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*wapedia.mobi/zhsimp*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.makzhou.warehouse333.com*") || shExpMatch(url, "http://makzhou.warehouse333.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*washeng.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.wattpad.com*") || shExpMatch(url, "http://wattpad.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.wearn.com*") || shExpMatch(url, "http://wearn.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*webbang.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*weblagu.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*webs-tv.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*webshots.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*websitepulse.com/help/testtools.china-test.html*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*webworkerdaily.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*weeewooo.net/hss/hotspot_cn*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.weekmag.info*") || shExpMatch(url, "http://weekmag.info*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.wefong.com*") || shExpMatch(url, "http://wefong.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*weiboleak.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*weijingsheng.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.weiming.info*") || shExpMatch(url, "http://weiming.info*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*weiquanwang.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*wengewang.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.wengewang.org*") || shExpMatch(url, "http://wengewang.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.wenhui.ch*") || shExpMatch(url, "http://wenhui.ch*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*wenxuecity.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.wenyunchao.com*") || shExpMatch(url, "http://wenyunchao.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*westca.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hkg.westkit.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*www.wet123.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*wetpussygames.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*wexiaobo.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*wezhiyong.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.wforum.com*") || shExpMatch(url, "http://wforum.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.whatblocked.com*") || shExpMatch(url, "http://whatblocked.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.whippedass.com*") || shExpMatch(url, "http://whippedass.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*whylover.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*evchk.wikia.com/wiki/%E5%A4%A7%E7%B4%80%E5%85%83%E6%99%82%E5%A0%B1*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*cn.uncyclopedia.wikia.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.uncyclopedia.wikia.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.wikileaks.org*") || shExpMatch(url, "http://wikileaks.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*wikilivres.info/wiki/%E9%9B%B6%E5%85%AB%E5%AE%AA%E7%AB%A0*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikinews.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*winwhispers.info*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.wisevid.com*") || shExpMatch(url, "http://wisevid.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.witopia.net*") || shExpMatch(url, "http://witopia.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.wo.tc*") || shExpMatch(url, "http://wo.tc*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*wolfax.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.womensrightsofchina.org*") || shExpMatch(url, "http://womensrightsofchina.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*woopie.jp*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*woopie.tv*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.worldcat.org*") || shExpMatch(url, "http://worldcat.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*worldjournal.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.wordpress.com*") || shExpMatch(url, "http://wordpress.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*woxinghuiguo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*wow-life.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.wpoforum.com*") || shExpMatch(url, "http://wpoforum.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.wqlhw.com*") || shExpMatch(url, "http://wqlhw.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.wqyd.org*") || shExpMatch(url, "http://wqyd.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*wretch.cc*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*cn.wsj.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.wtfpeople.com*") || shExpMatch(url, "http://wtfpeople.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.wuala.com*") || shExpMatch(url, "http://wuala.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*wuerkaixi.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*wufi.org.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*wujie.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*wujieliulan.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*wukangrui.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*wwitv.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*wzyboy.im/post/160*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://www.x-berry.com/goagent*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://x-art.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*x1949x.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*x365x.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*xanga.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.xbookcn.com*") || shExpMatch(url, "http://xbookcn.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*x.xcity.jp*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.xcritic.com*") || shExpMatch(url, "http://xcritic.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*destiny.xfiles.to/ubbthreads*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.xfm.pp.ru*") || shExpMatch(url, "http://xfm.pp.ru*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*xh4n.cn/blog*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*xhamster.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*one.xthost.info*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.xiaochuncnjp.com*") || shExpMatch(url, "http://xiaochuncnjp.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*s.xiaod.in*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.xiaohexie.com*") || shExpMatch(url, "http://xiaohexie.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*xiezhua.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.xing.com*") || shExpMatch(url, "http://xing.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.xinmiao.com.hk*") || shExpMatch(url, "http://xinmiao.com.hk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*xinsheng.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*xinshijue.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*xinhuanet.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*xizang-zhiye.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*xjp.cc*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*xmovies.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*xpdo.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blog.xuite.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*vlog.xuite.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*xuzhiyong.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*xuchao.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*xvedios.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.xvideos.com*") || shExpMatch(url, "http://xvideos.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.xxbbx.com*") || shExpMatch(url, "http://xxbbx.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*xys.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*xysblogs.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*page.bid.yahoo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blogs.yahoo.co.jp*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*buy.yahoo.com.tw/gdsale*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hk.yahoo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hk.knowledge.yahoo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hk.myblog.yahoo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hk.news.yahoo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hk.rd.yahoo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hk.search.yahoo.com/search*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*hk.video.news.yahoo.com/video*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*meme.yahoo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tw.yahoo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tw.myblog.yahoo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*tw.news.yahoo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*pulse.yahoo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*upcoming.yahoo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*video.yahoo.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*yam.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*yasni.co.uk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.ydy.com*") || shExpMatch(url, "http://ydy.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*yeeyi.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*yegle.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*yfrog.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.yi.org*") || shExpMatch(url, "http://yi.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.yidio.com*") || shExpMatch(url, "http://yidio.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*yilubbs.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*xa.yimg.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.yipub.com*") || shExpMatch(url, "http://yipub.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.yogichen.org*") || shExpMatch(url, "http://yogichen.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*yong.hu*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.yorkbbs.ca*") || shExpMatch(url, "http://yorkbbs.ca*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.yyii.org*") || shExpMatch(url, "http://yyii.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.yzzk.com*") || shExpMatch(url, "http://yzzk.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.youjizz.com*") || shExpMatch(url, "http://youjizz.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*youmaker.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*youpai.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.your-freedom.net*") || shExpMatch(url, "http://your-freedom.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.yousendit.com*") || shExpMatch(url, "http://yousendit.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*youthbao.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.youthnetradio.org/tmit/forum*") || shExpMatch(url, "http://youthnetradio.org/tmit/forum*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blog.youthwant.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*share.youthwant.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*topic.youthwant.com.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.youporn.com*") || shExpMatch(url, "http://youporn.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*youtu.be*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.youtube.com*") || shExpMatch(url, "http://youtube.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.youtubecn.com*") || shExpMatch(url, "http://youtubecn.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*youversion.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*blog.youxu.info/2010/03/14/west-chamber*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ytht.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*yuanming.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*yx51.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zacebook.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*luntan.zaobao.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.zaobao.com.sg*") || shExpMatch(url, "http://zaobao.com.sg*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.zaozon.com*") || shExpMatch(url, "http://zaozon.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*www.zaurus.org.uk*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.zdnet.com.tw/news/software/0,2000085678,20111187,00*") || shExpMatch(url, "http://zdnet.com.tw/news/software/0,2000085678,20111187,00*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.zengjinyan.org*") || shExpMatch(url, "http://zengjinyan.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*www.zfreet.com/post/usejump-browns.html*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zgzcjj.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.zhanbin.net*") || shExpMatch(url, "http://zhanbin.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zhenghui.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zhenlibu.info*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.zhinengluyou.com*") || shExpMatch(url, "http://zhinengluyou.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zhuichaguoji.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.ziddu.com/download*") || shExpMatch(url, "http://ziddu.com/download*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zinio.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.zkaip.com*") || shExpMatch(url, "http://zkaip.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zmw.cn*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zomobo.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.zonaeuropa.com*") || shExpMatch(url, "http://zonaeuropa.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.zoozle.net*") || shExpMatch(url, "http://zoozle.net*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*writer.zoho.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.zshare.net/download*") || shExpMatch(url, "http://zshare.net/download*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.zsrhao.com*") || shExpMatch(url, "http://zsrhao.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.zuo.la*") || shExpMatch(url, "http://zuo.la*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.zuola.com*") || shExpMatch(url, "http://zuola.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zyzc9.com*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*freenet*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*q=freedom*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*q%3Dfreedom*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*remembering_tiananmen_20_years*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*safeweb*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*q=triangle*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*q%3DTriangle*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ultrareach*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ultrasurf*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zhengjian*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*%E7%BD%A2%E8%AF%BE*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E9%B2%8D%E5%BD%A4*") || shExpMatch(url, "http://google.*%E9%B2%8D%E5%BD%A4*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.google.*%E9%AE%91%E5%BD%A4*") || shExpMatch(url, "http://google.*%E9%AE%91%E5%BD%A4*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E5%8D%9A%E8%AE%AF*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E5%A4%A7%E7%BA%AA%E5%85%83*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E9%92%93%E9%B1%BC%E5%B2%9B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*%E5%8A%A8%E6%80%81%E7%BD%91*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E5%A4%9A%E7%B6%AD*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E5%A4%9A%E7%BB%B4*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*freegate*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E6%B3%95%E4%BC%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*%E6%B3%95%E8%BD%AE%E5%A4%A7%E6%B3%95*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*%E6%B3%95%E8%BC%AA%E5%8A%9F*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*%E6%B3%95%E8%BD%AE%E5%8A%9F*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*%E8%83%A1%E6%B5%B7%E5%B3%B0*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*%E8%83%A1%E6%B5%B7%E6%B8%85*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E8%8A%B1%E8%8A%B1%E5%85%AC%E5%AD%90*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%BC%CD%D4%AA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%BC%D3%C3%DC%B4%FA%C0%ED*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E5%8A%A0%E5%AF%86%E4%BB%A3%E7%90%86*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E6%B1%9F%E6%B5%81%E6%B0%93*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E7%9C%8B%E4%B8%AD%E5%9B%BD*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E5%85%AD%E5%9B%9B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*%E5%88%98%E6%99%93%E6%B3%A2*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*%E7%BE%8E%E5%9B%BD%E4%B9%8B%E9%9F%B3*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*%E6%B0%91%E8%BF%9B%E5%85%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*%E6%B0%91%E8%BF%90*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E8%89%B2%E6%83%85*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*%E7%8E%8B%E4%B8%B9*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E7%BD%91%E7%89%B9*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E7%8E%8B%E5%B8%8C%E5%93%B2*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E9%AD%8F%E4%BA%AC%E7%94%9F*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E6%96%87%E5%AD%97%E7%8B%B1*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E6%88%91%E7%9A%84%E5%A5%8B%E6%96%97*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E6%97%A0%E7%95%8C*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E9%82%AA%E6%81%B6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E6%B4%97%E8%84%91*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E6%96%B0%E5%94%90%E4%BA%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E6%96%B0%E8%AF%AD%E4%B8%9D*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E5%AD%A6%E8%BF%90*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E4%B8%AD%E5%8A%9F*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E4%B8%AD%E5%9B%BD%E8%AE%BA%E5%9D%9B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*search*%E4%B8%AD%E5%AE%A3%E9%83%A8*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "https://upload.wikimedia.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "https://*.wikipedia.org*") || shExpMatch(url, "https://wikipedia.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.wikipedia.org/wiki/Dalai_Lama*") || shExpMatch(url, "http://wikipedia.org/wiki/Dalai_Lama*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*.wikipedia.org/wiki/Dalai-Lama*") || shExpMatch(url, "http://wikipedia.org/wiki/Dalai-Lama*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*ar.wikipedia.org*%D8%AF%D8%A7%D9%84%D8%A7%D9%8A_%D9%84%D8%A7%D9%85%D8%A7*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh-yue.wikipedia.org/wiki/%E5%8A%89%E6%9B%89%E6%B3%A2*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Anti-communism*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Book_burning*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Censorship_in_the_People%27s_Republic_of_China*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Charter_08*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Chen_Guangcheng*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Deep_packet_inspection*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Freegate*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Golden_Shield_Project*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Great_Firewall_of_China*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Hong_Kong*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Huang_Qi*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Internet_censorship*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Java_Anon_Proxy*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Liu_Xiaobo*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Shi_Tao*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Tank_man*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Tiananmen_Papers*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Tiananmen_Square_protests_of_1989*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*en.wikipedia.org/wiki/Tibetan_independence_movement*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/wiki/Wikipedia:%E9%A0%81%E9%9D%A2%E5%AD%98%E5%BB%A2%E8%A8%8E%E8%AB%96*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.m.wikipedia.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikisource.org*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*2012%E5%B9%B4%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E8%85%90%E8%B4%A5%E6%A1%88%E4%BB%B6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*512%E5%A4%A7%E5%9C%B0%E9%9C%87*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*08%E5%AE%AA%E7%AB%A0*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*1959%E5%B9%B4*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*1989%E5%B9%B4*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*610%E8%BE%A6%E5%85%AC%E5%AE%A4*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*Anti-CNN*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%98%BF%E5%BA%95%E5%B3%BD*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%98%BF%E6%B2%9B%C2%B7%E9%98%BF%E6%97%BA%E6%99%8B%E7%BE%8E*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%89%BE%E6%9C%AA%E6%9C%AA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%85%AB%E4%B9%9D%E5%AD%A6%E8%BF%90*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%85%AB%E6%80%9D%E5%B7%B4*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%8F%AD%E7%A6%85*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%B2%8D%E5%BD%A4*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%AE%91%E5%BD%A4*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8C%97%E4%BA%AC%E9%AB%98%E6%A0%A1%E5%AD%A6%E7%94%9F%E8%87%AA%E6%B2%BB%E8%81%94%E5%90%88%E4%BC%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8C%97%E4%BA%AC%E4%B9%8B%E6%98%A5*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%96%84%E7%86%99%E6%9D%A5*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8D%9A%E8%AE%AF*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%B8%83%E6%8B%89%E6%A0%BC%E4%B9%8B%E6%98%A5*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9F%B4%E7%8E%B2*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%BB%93%E5%A4%AE%E5%98%89%E6%8E%AA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9B%B9%E9%95%B7%E9%9D%92*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%99%88%E5%85%89%E8%AF%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%A5%9A%E5%B8%83%E5%AF%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%e5%a4%a7%e5%8f%82%e8%80%83_(%e7%bd%91%e7%bb%9c%e6%9d%82%e5%bf%97)*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A7%E7%B4%80%E5%85%83*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A7%E7%BA%AA%E5%85%83%E6%97%B6%E6%8A%A5*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%BE%BE%E8%B5%96%E5%96%87%E5%98%9B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%BE%BE%E5%85%B0%E8%90%A8%E6%8B%89*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%81%94%E8%98%AD%E8%96%A9%E6%8B%89*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%BE%BE%E5%B0%94%E7%BD%95%E6%B4%BB%E4%BD%9B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A7%E8%B5%A6%E5%9B%BD%E9%99%85*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A7%E8%B5%A6%E5%9C%8B%E9%9A%9B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A7%E5%B1%A0%E6%9D%80%E5%88%97%E8%A1%A8*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A7%E8%97%8F%E5%AF%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A7%E6%98%AD%E5%AF%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%B9%E5%A2%9E%E5%98%89%E6%8E%AA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%81%E5%AD%90%E9%9C%96*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%9C%E9%A3%8E-21%E4%B8%AD%E7%A8%8B%E5%BC%B9%E9%81%93%E5%AF%BC%E5%BC%B9*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%B1%E9%A2%A8-31%E6%B4%B2%E9%9A%9B%E5%BD%88%E9%81%93%E5%B0%8E%E5%BD%88*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%B1%E7%AA%81%E5%8E%A5*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%9C%E7%AA%81%E5%8E%A5%E6%96%AF%E5%9D%A6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%9A%E7%BB%B4*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%9A%E7%B6%AD*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%BF%84%E7%BE%85%E6%96%AF*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8F%8D%E5%8D%8E%E5%8A%BF%E5%8A%9B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%98%B2%E7%81%AB%E9%95%BF%E5%9F%8E*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%96%B9%E5%8A%B1%E4%B9%8B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%96%B9%E5%8B%B5%E4%B9%8B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%96%B9%E8%88%9F%E5%AD%90*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%84%A4%E9%9D%92*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%B0%81%E4%BB%8E%E5%BE%B7*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%B0%81%E5%BE%9E%E5%BE%B7*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%86%AF%E6%AD%A3%E8%99%8E*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%82%85%E9%93%81%E5%B1%B1*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%99%B6%E5%80%AB%E8%B5%A4%E5%B7%B4*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%AB%98%E6%99%BA%E6%99%9F*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9B%B4%E7%99%BB%E7%A2%BA%E5%90%89%E5%B0%BC%E7%91%AA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%99%B6%E4%B8%BE%E6%B4%BE*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%94%B9%E9%9D%A9%E5%8E%86%E7%A8%8B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%94%98%E4%B8%B9%E5%AF%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%AB%98%E8%A1%8C%E5%81%A5*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%99%B6%E5%BD%93%E6%B4%BE*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%A0%BC%E9%B2%81%E6%B4%BE*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*GFW*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%85%AC%E5%85%B1%E7%9F%A5%E8%AF%86%E5%88%86%E5%AD%90*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*Google%E5%AE%A1%E6%9F%A5*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/zh-cn/%E8%B0%B7%E6%AD%8C%E9%80%80%E5%87%BA%E4%B8%AD%E5%9B%BD%E4%BA%8B%E4%BB%B6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/wiki/%E8%B0%B7%E6%AD%8C%E9%80%80%E5%87%BA%E4%B8%AD%E5%9B%BD%E4%BA%8B%E4%BB%B6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/wiki/%E5%B9%BF%E5%B7%9E%E5%B8%82%E6%96%B0%E5%A1%98%E4%BA%8B%E4%BB%B6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%9B%BD%E4%BF%9D*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%83%AD%E4%BC%AF%E9%9B%84*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%9B%BD%E9%99%85%E7%89%B9%E8%B5%A6%E7%BB%84%E7%BB%87*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%9B%BD%E5%86%85%E5%AE%89%E5%85%A8%E4%BF%9D%E5%8D%AB%E6%94%AF%E9%98%9F*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%9C%8B%E5%8B%99%E9%99%A2%E9%98%B2%E7%AF%84%E5%92%8C%E8%99%95%E7%90%86%E9%82%AA%E6%95%99%E5%95%8F%E9%A1%8C%E8%BE%A6%E5%85%AC%E5%AE%A4*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%9F%A9%E4%B8%9C%E6%96%B9*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%B4%BA%E5%9B%BD%E5%BC%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%BD%95%E4%BF%8A%E4%BB%81*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B2%B3%E6%AE%87*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B4%AA%E5%93%B2%E5%8B%9D*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%BE%AF%E5%BE%B7%E5%BB%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%BE%AF%E8%B5%9B%E5%9B%A0%E6%B1%9F*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%BE%AF%E5%BE%B7%E5%81%A5*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%83%A1%E4%BD%B3_%281973%E5%B9%B4%29*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%83%A1%E4%BD%B3_%28%E7%A4%BE%E6%B4%BB%E5%8B%95%E5%AE%B6%29*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%83%A1%E4%BD%B3_%28%E7%A4%BE%E6%9C%83%E6%B4%BB%E5%8B%95%E5%AE%B6%29*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%83%A1%E9%94%A6%E6%B6%9B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%83%A1%E5%B9%B3_%28%E4%BD%9C%E5%AE%B6%29*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%91%BC%E5%9C%96%E5%85%8B%E5%9C%96*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%83%A1%E6%B8%A9%E4%BD%93%E5%88%B6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%83%A1%E8%80%80%E9%82%A6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8D%8E%E5%9B%BD%E9%94%8B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%8F%AF%E5%9C%8B%E9%8B%92*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8D%8E%E5%A4%8F%E6%96%87%E6%91%98*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%8A%B1%E5%9B%AD%E8%BD%AF%E4%BB%B6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%8A%B1%E5%9B%AD%E7%BD%91*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%BB%84%E7%90%A6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%BB%83%E7%90%A6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%BB%83%E9%9B%80%E8%A1%8C%E5%8B%95*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%BB%84%E4%B8%87%E9%87%8C*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%BB%83%E6%9B%89%E6%95%8F*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%9B%9E%E8%89%AF%E7%8E%89*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%9C%8D%E8%8B%B1%E6%9D%B1*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%AF%82%E8%AD%B7*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%BF%80%E6%B5%81%E4%B8%AD%E5%9B%BD*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%98%89%E9%9D%96*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%AE%B6%E4%B9%90%E7%A6%8F*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%B3%88%E6%85%B6%E6%9E%97*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%B4%BE%E5%BA%86%E6%9E%97*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%BB%BA%E5%9B%BD%E9%97%A8%E4%BA%8B%E4%BB%B6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A7%9C%E7%BB%B4%E5%B9%B3*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B1%9F%E6%B3%BD%E6%B0%91*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B1%9F%E6%BE%A4%E6%B0%91*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%87%91%E7%9B%BE%E5%B7%A5%E7%A8%8B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%BD%F0%B6%DC%B9%A4%B3%CC*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B9%9D%E8%AF%84%E5%85%B1%E4%BA%A7%E5%85%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B9%9D%E8%A9%95%E5%85%B1%E7%94%A2%E9%BB%A8*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%B7%A8%E6%B5%AA2%E5%9E%8B%E6%BD%9C%E5%B0%84%E5%BC%B9%E9%81%93%E5%AF%BC%E5%BC%B9*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%A6%BA%E5%9B%8A%E6%B4%BE*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%BB%9D%E9%A3%9F*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%8B%89%E5%8D%9C%E6%A5%9E%E5%AF%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%8B%89%E8%90%A8*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%BB%8E%E5%AE%89%E5%8F%8B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%8E%E9%95%BF%E6%98%A5*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%8E%E9%95%B7%E6%98%A5*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%8E%E6%B4%AA%E5%BF%97*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%8E%E5%85%8B%E5%BC%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%8E%E9%B5%AC*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%8E%E9%B9%8F*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%8E%E7%91%9E%E7%8E%AF*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%8E%E7%91%9E%E7%92%B0*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%8E%E6%85%8E%E4%B9%8B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8E%86%E5%8F%B2%E7%9A%84%E4%BC%A4%E5%8F%A3*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%8E%E8%8B%B1%E6%B5%A9*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%8E%E6%BA%90%E6%BD%AE*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%8E%E5%8D%93%E4%BA%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%BB%96%E4%BA%A6%E6%AD%A6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%93%AE%E8%8A%B1%E7%94%9F*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%A2%81%E5%9B%BD%E9%9B%84*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%A2%81%E5%9C%8B%E9%9B%84*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%9B%B6%E5%85%AB%E5%AE%AA%E7%AB%A0*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%BB%A4%E8%B0%B7*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%BB%A4%E8%AE%A1%E5%88%92*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%88%98%E5%AE%BE%E9%9B%81*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8A%89%E5%89%9B_(%E6%B0%91%E9%81%8B%E4%BA%BA%E5%A3%AB)*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%88%98%E6%85%A7%E5%8D%BF*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8A%89%E6%85%A7%E5%8D%BF*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%88%98%E6%B7%87*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%85%AD%E5%9B%9B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh-yue.wikipedia.org*%E5%85%AD%E5%9B%9B%E4%BA%8B%E4%BB%B6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8A%89%E6%9B%89%E6%B3%A2*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%88%98%E5%BB%B6%E4%B8%9C*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%88%98%E4%BA%91%E5%B1%B1*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%BE%85%E5%B9%B9*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%BE%85%E5%B9%B2*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B4%9B%E6%A1%91%E6%A3%AE%E6%A0%BC*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%B6%A0%E5%A3%A9%C2%B7%E8%8A%B1%E5%AD%A3%E8%AD%B7%E8%88%AA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%BB%BF%E5%9D%9D%C2%B7%E8%8A%B1%E5%AD%A3%E6%8A%A4%E8%88%AA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/wiki/%e7%bb%bf%e5%9d%9d%e5%a8%98*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%A6%AC%E4%B8%89%E5%AE%B6%E5%A5%B3%E5%AD%90%E5%8B%9E%E6%95%99%E6%89%80*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%A6%AC%E8%8B%B1%E4%B9%9D*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%BE%8E%E5%9B%BD%E5%9B%BD%E5%AE%B6%E6%B0%91%E4%B8%BB%E5%9F%BA%E9%87%91%E4%BC%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%95%8F%E6%84%9F%E4%BA%BA%E5%A3%AB*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B0%91%E9%96%93%E4%BA%BA%E6%AC%8A%E9%99%A3%E7%B7%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%95%8F%E7%8F%A0%E6%9E%97%E5%AF%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B0%91%E4%B8%BB%E5%A5%B3%E7%A5%9E*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B0%91%E4%B8%BB%E9%BB%A8_(%E9%A6%99%E6%B8%AF)*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B0%91%E4%B8%BB%E6%AD%8C%E8%81%B2%E7%8D%BB%E4%B8%AD%E8%8F%AF*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%8C%89%E8%8E%89%E8%8A%B1%E9%9D%A9%E5%91%BD*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8D%97%E6%96%B9%E9%83%BD%E5%B8%82%E6%8A%A5*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/wiki/%E5%86%85%E8%92%99%E5%8F%A4%E6%8A%97%E8%AE%AE*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/zh-hk/%E5%86%85%E8%92%99%E5%8F%A4%E6%8A%97%E8%AE%AE*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/zh-tw/%E5%86%85%E8%92%99%E5%8F%A4%E6%8A%97%E8%AE%AE*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%86%85%E8%92%99%E5%8F%A4%E4%BA%BA%E6%B0%91%E5%85%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%85%A7%E8%92%99%E5%8F%A4%E4%BA%BA%E6%B0%91%E9%BB%A8*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%AE%81%E7%8E%9B%E6%B4%BE*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%89%9B%E5%8D%9A%E7%BD%91*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%AF%BA%E8%B4%9D%E5%B0%94%E5%92%8C%E5%B9%B3%E5%A5%96*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%8C%AA%E5%A8%81*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%9B%98%E5%8F%A4%E4%B9%90%E9%98%9F*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%BD%AD%E4%B8%BD%E5%AA%9B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%A0%B4%E7%BD%91*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B5%A6%E5%BF%97%E5%BC%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%83%E4%B8%80%E9%81%8A%E8%A1%8C*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%A7%A6%E5%9F%8E%E7%9B%91%E7%8B%B1*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B8%85%E6%9C%9D*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%85%A8%E7%90%83%E8%97%8F%E4%BA%BA%E7%89%B9%E5%88%AB%E5%A4%A7%E4%BC%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%C8%BC%C9%D5%C6%BF*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%87%83%E7%83%A7%E7%93%B6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%83%AD%E6%AF%94%E5%A8%85*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%86%B1%E6%AF%94%E5%A9%AD*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%91%9E%E5%85%B8*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%90%A8%E8%BF%A6%E6%B4%BE*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%89%E5%B9%B4%E8%87%AA%E7%84%B6%E7%81%BE%E5%AE%B3*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%89%E9%80%80*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%89%B2%E6%8B%89%E5%AF%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%9C%A3%E9%9B%84%E7%94%98%E5%9C%B0*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%9B%9B%E9%9B%AA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/zh-cn/%E4%B8%96%E7%95%8C%E5%90%84%E6%94%BF%E6%9D%83%E5%8F%97%E6%89%BF%E8%AE%A4%E7%8A%B6%E5%86%B5%E5%88%97%E8%A1%A8*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%96%E7%95%8C%E7%BB%8F%E6%B5%8E%E5%AF%BC%E6%8A%A5*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%96%E7%95%8C%E7%BB%B4%E5%90%BE%E5%B0%94%E5%A4%A7%E4%BC%9A!--Shi Jie Wei Wu Er Qing Nian Dai Biao Da Hui*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%96%E7%95%8C%E7%BB%B4%E5%90%BE%E5%B0%94%E9%9D%92%E5%B9%B4%E4%BB%A3%E8%A1%A8%E5%A4%A7%E4%BC%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%96%E7%95%8C%E7%B6%AD%E5%90%BE%E7%88%BE%E4%BB%A3%E8%A1%A8%E5%A4%A7%E6%9C%83*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8D%81%E5%9B%9B%E4%B8%96%E8%BE%BE%E8%B5%96*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%B8%88%E6%B6%9B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%B8%AB%E6%BF%A4*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%87%8A%E6%98%9F%E4%BA%91*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8F%B8%E5%BE%92%E5%8D%8E*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8F%B8%E5%BE%92%E8%8F%AF*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%9B%9B%E4%BA%94%E8%A1%8C%E5%8B%95*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%AE%8B%E5%BD%AC%E5%BD%AC*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%AE%8B%E4%BB%BB%E7%A9%B7*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%AE%8B%E4%BB%BB%E7%AA%AE*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%8B%8F%E5%AE%B6%E5%B1%AF%E4%BA%8B%E4%BB%B6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%AD%99%E6%96%87%E5%B9%BF*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A1%94%E5%B0%94%E5%AF%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%8F%B0%E7%81%A3%E7%8D%A8%E7%AB%8B%E5%BB%BA%E5%9C%8B%E8%81%AF%E7%9B%9F*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%AA%E5%AD%90%E5%85%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%AA%E5%AD%90%E5%85%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/zh-cn/%E5%A4%AA%E5%AD%90%E5%85%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%B0%AD%E4%BD%9C%E4%BA%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%94%90%E6%9F%8F%E6%A1%A5*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/zh/%E9%99%B6%E9%A9%B7%E9%A9%B9*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A9%E5%AE%89%E9%97%A8%E5%B9%BF%E5%9C%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A9%E5%AE%89%E9%97%A8%E6%AF%8D%E4%BA%B2%E8%BF%90%E5%8A%A8*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A9%E5%AE%89%E9%96%80%E4%BA%8B%E4%BB%B6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A9%E5%AE%89%E9%97%A8%E6%96%87%E4%BB%B6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A9%E5%AE%89%E9%96%80%E6%96%87%E4%BB%B6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A9%E5%AE%89%E9%97%A8%E8%87%AA%E7%84%9A%E4%BA%8B%E4%BB%B6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%A9%E8%91%AC*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/zh-cn/Tor*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/zh-hk/Twitter*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%87%E9%87%8C*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%8E%8B%E5%86%9B%E6%B6%9B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%8E%8B%E6%A8%82%E6%B3%89*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%8E%8B%E7%AB%8B%E5%86%9B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%8E%8B%E5%B2%90%E5%B1%B1*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%8E%8B%E5%8D%83%E6%BA%90*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%8E%8B%E7%BB%B4%E6%9E%97*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%8E%8B%E6%9C%89%E6%89%8D*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%AD%8F%E4%BA%AC%E7%94%9F*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B1%B6%E5%B7%9D%E5%A4%A7%E5%9C%B0%E9%9C%87*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%8E%8B%E7%82%B3%E7%AB%A0*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%8E%8B%E4%B9%90%E6%B3%89*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%8E%8B%E5%8A%9B%E9%9B%84*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%BD%91%E7%BB%9C%E8%AF%84%E8%AE%BA%E5%91%98*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/wiki/%E7%8E%8B%E5%A7%93*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B1%AA%E6%B4%8B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%8E%8B%E5%85%86%E5%9B%BD*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%94%AF%E8%89%B2*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A8%81%E8%A7%86%E8%85%90%E8%B4%A5%E6%A1%88*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B1%B6%E5%B7%9D%E5%9C%B0%E9%9C%87*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B8%A9%E5%AE%B6%E5%AE%9D*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%B8%A9%E4%BA%91%E6%9D%BE*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/wiki/%E6%96%87%E5%AD%97%E7%8B%B1*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/wiki/%E6%96%87%E5%AD%97%E7%8D%84*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%90%B4%E9%82%A6%E5%9B%BD*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%88%91%E7%9A%84%E5%A5%8B%E6%96%97*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%90%BE%E5%B0%94%E5%BC%80%E5%B8%8C*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%90%BE%E7%88%BE%E9%96%8B%E5%B8%8C*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%97%A0%E5%9B%BD%E7%95%8C%E8%AE%B0%E8%80%85*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%90%B4%E5%BC%98%E8%BE%BE*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%97%A0%E7%95%8C*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%83%8F%E5%9D%8E%E4%BA%8B%E4%BB%B6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E4%B8%83%C2%B7%E4%BA%94%E6%9A%B4%E5%8A%9B%E4%BA%8B%E4%BB%B6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%BA%94%E6%AF%9B%E8%9B%8B%E4%BA%8B%E4%BB%B6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%A5%BF%E5%8D%95%E6%B0%91%E4%B8%BB%E5%A2%99*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%BF%92%E8%BF%91%E5%B9%B3*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B9%A0%E8%BF%91%E5%B9%B3*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%A5%BF%E5%8E%A2%E8%AE%A1%E5%88%92*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%A5%BF%E8%97%8F*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B9%A0%E4%BB%B2%E5%8B%8B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%A4%8F%E7%91%AA%E5%B7%B4*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%A6%99%E6%B8%AF%E7%8D%A8%E7%AB%8B%E9%81%8B%E5%8B%95*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%A6%99%E6%B8%AF%E6%B0%91%E4%B8%BB%E9%BB%A8*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%A6%99%E6%B8%AF*%E6%B0%91%E4%B8%BB%E6%B4%BE*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%B0%8F%E6%98%AD%E5%AF%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%B0%A2%E5%BD%A6%E9%A3%9E*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%BE%9B%E7%81%8F%E5%B9%B4*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%96%B0%E7%96%86%E7%8B%AC%E7%AB%8B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%96%B0%E7%96%86%E7%8D%A8%E7%AB%8B*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%96%B0%E5%94%90%E4%BA%BA%E9%9B%BB%E8%A6%96%E5%8F%B0*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%96%B0%E9%97%BB%E8%87%AA%E7%94%B1%E6%8E%A0%E5%A4%BA%E8%80%85*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%98%9F%E4%BA%91%E6%B3%95%E5%B8%88*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%86%8A%E7%84%B1*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%BE%90%E6%89%8D%E5%8E%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%AE%B8%E5%AE%B6%E5%B1%AF*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%9B%AA%E5%B1%B1%E7%8D%85%E5%AD%90%E6%97%97*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%A9%A2%E5%95%8F%E8%99%95*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%9A%B4%E5%AE%B6%E5%85%B6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%A5%E5%AE%B6%E5%85%B6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%98%8E%E6%98%8E%E5%A4%8D*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%9D%A8%E4%BD%B3%E8%A2%AD%E8%AD%A6%E6%A1%88*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%A5%8A%E5%BB%BA%E5%88%A9*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%9A%81%E5%8A%9B%E7%A5%9E*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E9%9B%8D%E5%92%8C%E5%AE%AB*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%B9%BD%E7%81%B5%E7%BD%91*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%BD%99%E6%9D%B0*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%BF%9E%E4%B8%BD%E8%90%8D*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%BF%9E%E6%AD%A3%E5%A3%B0*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%A2%81%E7%BA%A2%E5%86%B0*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%A2%81%E7%B4%85%E5%86%B0*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%97%8F%E4%BC%A0%E4%BD%9B%E6%95%99*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E6%89%8E%E4%BB%80%E4%BC%A6%E5%B8%83%E5%AF%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%BC%A0%E5%BE%B7%E6%B1%9F*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%BC%A0%E9%AB%98%E4%B8%BD*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%AB%A0%E5%98%89%E5%91%BC%E5%9B%BE%E5%85%8B%E5%9B%BE*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%BC%A0%E7%AB%8B%E6%98%8C*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%BC%A0%E5%9F%B9%E8%8E%89*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%BC%B5%E6%96%87%E5%85%89*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%AB%A0%E8%A9%92%E5%92%8C*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%AB%A0%E8%AF%92%E5%92%8C*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%BC%A0%E9%92%B0*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%BC%B5%E9%88%BA*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%B5%B5%E7%B4%AB%E9%98%B3*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%B6%99%E7%B4%AB%E9%99%BD*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%93%B2%E5%B8%83%E5%B0%8A%E4%B8%B9%E5%B7%B4%E5%91%BC%E5%9B%BE%E5%85%8B%E5%9B%BE*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E7%9C%9F%E5%96%84%E5%BF%8D*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%85%B1%E4%B8%AD%E5%A4%AE%E5%AE%A3%E4%BC%A0%E9%83%A8*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org/wiki/%E4%B8%AD%E5%9B%BD*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9C%8B%E6%8C%81%E4%B8%8D%E5%90%8C%E6%94%BF%E8%A6%8B%E8%80%85%E5%90%8D%E5%96%AE*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86%E5%B0%81%E9%94%81%E7%BB%B4%E5%9F%BA%E5%AA%92%E4%BD%93%E4%BA%8B%E4%BB%B6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86%E5%B0%81%E9%94%81%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91%E4%BA%8B%E4%BB%B6*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9C%8B%E5%A4%A7%E9%99%B8%E7%B6%B2%E8%B7%AF%E5%B0%81%E9%8E%96*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E7%94%B5%E8%A7%86%E5%AE%A1%E6%9F%A5*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E6%B3%9B%E8%93%9D%E8%81%94%E7%9B%9F*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E5%85%B1%E4%BA%A7%E5%85%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9C%8B%E5%85%B1%E7%94%A2%E9%BB*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E5%9F%BA%E7%9D%A3%E6%95%99%E5%8D%8F%E4%BC%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E5%AE%B6%E5%BA%AD%E6%95%99%E4%BC%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9C%8B%E8%81%AF%E9%82%A6%E4%B8%BB%E7%BE%A9*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E6%B0%91%E4%B8%BB%E5%85%9A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E6%B0%91%E4%B8%BB%E8%BF%90%E5%8A%A8*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9C%8B%E6%B0%91%E4%B8%BB%E9%81%8B%E5%8B%95*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9C%8B%E8%8C%89%E8%8E%89%E8%8A%B1%E9%9D%A9%E5%91%BD*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD*%E5%9B%BD%E4%BA%BA%E6%9D%83*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E7%BD%91%E7%BB%9C%E8%BD%AF%E4%BB%B6%E8%BF%87%E6%BB%A4%E5%85%B3%E9%94%AE%E5%AD%97%E5%88%97%E8%A1%A8*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E7%BD%91%E7%BB%9C%E5%AE%A1%E6%9F%A5*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%9C%8B%E7%B6%B2%E8%B7%AF%E5%AF%A9%E6%9F%A5*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E8%8F%AF%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9C%8B%E4%BA%BA%E6%AC%8A*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E8%8F%AF%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9C%8B%E5%AF%A9%E6%9F%A5%E8%BE%AD%E5%BD%99%E5%88%97%E8%A1%A8*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E5%AE%AA%E6%B3%95*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E5%9C%8B%E6%B0%91%E5%A4%A7%E6%9C%83*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E6%B2%BB%E8%97%8F%E6%AD%B7%E5%8F%B2*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E7%B8%BD%E7%B5%B1%E5%BA%9C*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E7%BD%91%E7%BB%9C%E5%AE%A1%E6%9F%A5*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E8%8F%AF%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9C%8B%E7%B6%B2%E7%B5%A1%E5%AF%A9%E6%9F%A5*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E8%8F%AF%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9C%8B%E6%B0%91%E4%B8%BB%E9%81%8B%E5%8B%95*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E8%8F%AF%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9C%8B%E5%AE%97%E6%95%99*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E6%96%87%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%A4%AE%E8%AD%A6%E8%A1%9B%E5%B1%80*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E5%A4%AE%E6%96%87%E5%8C%96%E9%9D%A9%E5%91%BD%E5%B0%8F%E7%BB%84*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E4%B8%AD%E8%8B%B1%E7%BA%8C%E8%A8%82%E8%97%8F%E5%8D%B0%E6%A2%9D%E7%B4%84*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%91%A8%E6%B0%B8%E5%BA%B7*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%BD%AC%E6%B3%95%E8%BD%AE*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%87%AA%E7%94%B1%E9%97%A8*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E8%87%AA%E7%94%B1%E4%BA%9A%E6%B4%B2*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikipedia.org*%E5%AE%97%E5%96%80%E5%B7%B4*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*zh.wikibooks.org*%E7%AA%81%E7%A0%B4%E7%BD%91%E7%BB%9C%E5%AE%A1%E6%9F%A5*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*gov.tw*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*174.142.105.153*")) return 'SOCKS 127.0.0.1:7000';
-	if (shExpMatch(url, "http://*69.65.19.160*")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fxnetworks\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?muzu\\.tv")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?netflix\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pandora\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pure18\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?spotify\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?target\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?turntable\\.fm")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vevo\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zattoo\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?qq\\.co\\.za")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zozotown\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?0to255\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?1-apple\\.com\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?10musume\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?12bet\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?12vpn\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?173ng\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?1984bbs\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?1984bbs\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?1pondo\\.tv")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?2008xianzhang\\.info")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?36rain\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?4bluestones\\.biz")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?4chan\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?51\\.ca")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?6-4\\.net/")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?6park\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.6v6dota\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?7capture\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?881903\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?89-64\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?9bis\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?9bis\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?a-normal-day\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aboluowang\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?acgkj\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aculo\\.us")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?addictedtocoffee\\.de")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?advanscene\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?advertfan\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aenhancers\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?af\\.mil")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aiph\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ait\\.org\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aiweiweiblog\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ajaxplorer\\.info")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.ajsands\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?akiba-online\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?alabout\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?alasbarricadas\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?notes\\.alexdong\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?alkasir\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?allinfo\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?allmovie\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?alternate-tools\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?alwaysdata\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?alwaysdata\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?am730\\.com\\.hk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ameblo\\.jp")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?americangreencard\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?amiblockedornot\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?amnesty\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?amnestyusa\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?anchorfree\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?andfaraway\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?anobii\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?anthonycalzadilla\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aobo\\.com\\.au")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aolchannels\\.aol\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?video\\.aol\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?apiary\\.io")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?apigee\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?areca-backup\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?army\\.mil")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?asahichinese\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?asiaharvest\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?asianwomensfilm\\.de")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?askstudent\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?askynz\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?assembla\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?astonmartinnews\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?atj\\.org\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?atlaspost\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?atnext\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?avaaz\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?avidemux\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?avoision\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?axureformac\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?backchina\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?baidu\\.jp")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?baixing\\.me")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bannedbook\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?barnabu\\.co\\.uk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bayvoice\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bbcchinese\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bbsfeed\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bebo\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?beijing1989\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?beijingspring\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?berlintwitterwall\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bestforchina\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bettween\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bfnn\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bfsh\\.hk/")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bignews\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bill2-software\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?billywr\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bjzc\\.org/")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blinkx\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blip\\.tv/")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blockcn\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.de")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blogcatalog\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blogger\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.kangye\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bloglines\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blogspot\\.hk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bloodshed\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bloomberg\\.cn")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bloomberg\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bloomberg\\.de")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bloomfortune\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bnrmetal\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?boardreader\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?books\\.com\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bowenpress\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dl\\.box\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?boxun\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?boxun\\.tv")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?boxunblog\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?br\\.st")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?brandonhutchinson\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?braumeister\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?break\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?breakingtweets\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?brightkite\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?brizzly\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bt95\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?budaedu\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bullog\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bullogger\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bugclub\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?buugaa\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?c-spanvideo\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?c-est-simple\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cactusvpn\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cams\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?caobian\\.info")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?caochangqing\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?catch22\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?catfightpayperview\\.xxx")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?catholic\\.org\\.hk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?catholic\\.org\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ccavtop10\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ccdtr\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cdig\\.info")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cdjp\\.org/")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cdp1998\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cdp2006\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cdpweb\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cdpwu\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cecc\\.gov")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cellulo\\.info")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cenci\\.tk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cenews\\.eu")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?centralnation\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chandoo\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?changp\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chenguangcheng\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cherrysave\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?china101\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?china21\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?china21\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinaaffairs\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinaaid\\.me")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinacomments\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinachannel\\.hk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinaeweekly\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinafreepress\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinagfw\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinagreenparty\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinainperspective\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinainperspective\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinainterimgov\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinamule\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinasocialdemocraticparty\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinasoul\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinaworker\\.info")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinayuanmin\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinesedailynews\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinesen\\.de")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chingcheong\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?christianstudy\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chrlcg-hk\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chromeadblock\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chuizi\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chrispederick\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chrispederick\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?allaboutalpha\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?civicparty\\.hk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?civilhrfront\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cjb\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ck101\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?classicalguitarblog\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cmule\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cms\\.gov")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cna\\.com\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cnd\\.org/")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cochina\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?codeshare\\.io")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?comefromchina\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?compileheart\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?conoyo\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?coolaler\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?coolder\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?coolloud\\.org\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?couchdbwiki\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cotweet\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cpj\\.org/")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?crackle\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?creaders\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?crossthewall\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?csdparty\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?csuchen\\.de")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cuihua\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cuiweiping\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?curvefish\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?culture\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cyberghostvpn\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cynscribe\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ifan\\.cz\\.cc")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mike\\.cz\\.cc")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nic\\.cz\\.cc")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dabr\\.co\\.uk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dabr\\.mobi")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dabr\\.me")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dadazim\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dalailama\\.ru")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dailidaili\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dalailamaworld\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dalianmeng\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?danke4china\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?daxa\\.cn/")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?de-sci\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?delcamp\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?democrats\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?desc\\.se/")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?deutsche-welle\\.de")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dev102\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?devio\\.us")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dfas\\.mil")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?diaoyuislands\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?digitalnomadsproject\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?diigo\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?furl\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?directcreative\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?discuss\\.com\\.hk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dit-inc\\.us")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dl-laby\\.jp")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dlsite\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dolc\\.de")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dollf\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dongtaiwang\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dongtaiwang\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dontmovetochina\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dotplane\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dotsub\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dougscripts\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?doxygen\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dpp\\.org\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?weigegebyc\\.dreamhosters\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?drgan\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dtiblog\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dtic\\.mil")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?duckmylife\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?duihua\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?duoweitimes\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?duplicati\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dvorak\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dw-world\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dwnews\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dynawebinc\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?e-gold\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?edubridge\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?eevpn\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?eic-av\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?emacsblog\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?englishfromengland\\.co\\.uk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?entermap\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?epochtimes-bg\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?epochtimes-romania\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?epochtimes\\.co\\.il")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?epochtimes\\.co\\.kr")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?epochtimes\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?epochweekly\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ernestmandel\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?erights\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?etizer\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?exblog\\.jp")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.exblog\\.co\\.jp")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?expatshield\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?exploader\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?eyevio\\.jp")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?facebook\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^https?:\\/\\/[^\\/]+facebook\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?connect\\.facebook\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?facesofnyfw\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?faiththedog\\.info")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?falunhr\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fanglizhi\\.info")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fangong\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fbcdn\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?famunion\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fangbinxing\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fanswong\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?favorious\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?faststone\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?favstar\\.fm")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fb\\.me")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fourface\\.nodesnoop\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?feedzshare\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?feelssh\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?felixcat\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?feministteacher\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fengzhenghu\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?finalion\\.jp")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fireofliberty\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?falsefire\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fotop\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fringenetwork\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?flecheinthepeche\\.fr")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fofg\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fooooo\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fourthinternational\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?foxdie\\.us")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?foxsub\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fqrouter\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?franklc\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?allonlinux\\.free\\.fr")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dimitrik\\.free\\.fr")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?puttycm\\.free\\.fr")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freealim\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freedomhouse\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freegao\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freelotto\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freeoz\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.bulbous\\.freeserve\\.co\\.uk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freessh\\.us")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?free-ssh\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freenetproject\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freewallpaper4\\.me")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freeweibo\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fring\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?frommel\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fscked\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fuckcnnic\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?furinkan\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?futuremessage\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fw\\.cm")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gabocorp\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?galenwu\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gamer\\.com\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gamez\\.com\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gaoming\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gappp\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gardennetworks\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gartlive\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gather\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gaymap\\.cc")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gazotube\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gclooney\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?geek-art\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?geekmanuals\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?geohot\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?geometrictools\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?get-digital-help\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?getfoxyproxy\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ggssl\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?giga-web\\.jp")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gimpshop\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?girlbanker\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?glennhilton\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?globalrescue\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?globalvoicesonline\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gmhz\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?godfootsteps\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?goldwave\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?goodreads\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?goodreaders\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?goofind\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?googleusercontent\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gopetition\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gotw\\.ca/")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?graphis\\.ne\\.jp")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?greatfirewallofchina\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?greatfirewallofchina\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?greenvpn\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gtricks\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gutteruncensored\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gvm\\.com\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gzone-anime\\.info")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?apis\\.google\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?appspot\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^https?:\\/\\/[^\\/]+appspot\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?golang\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.klip\\.me")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?encrypted\\.google\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sites\\.google\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freegateget\\.googlepages\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gospelherald\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?graylog2\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?greatfire\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?greatroc\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gstatic\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?guishan\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gunsamerica\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?h-china\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hackthatphone\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hakkatv\\.org\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hardsextube\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hasaowall\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hdtvb\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?heartyit\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hecaitou\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hechaji\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?helloandroid\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?helloqueer\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hellotxt\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?htxt\\.it/")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?helpeachpeople\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?date\\.fm")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?flightcaster\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?branch\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?awardwinningfjords\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?futureme\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?getcloudapp\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cl\\.ly")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?getsmartlinks\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?git-scm\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lesscss\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?list\\.ly")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?maxgif\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?overlapr\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?peerpong\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pose\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?samsoff\\.es")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sendoid\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?speckleapp\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?stuffimreading\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tomayko\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twt\\.fm")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?views\\.fm")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?heungkongdiscuss\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hidden-advent\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hidemyass\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hideipvpn\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hihistory\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?highrockmedia\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hikinggfw\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hk32168\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hkreporter\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hkzone\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hnjhj\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?holyspiritspeaks\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?derekhsu\\.homeip\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hongzhi\\.li")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hootsuite\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hotspotshield\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hougaige\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?howtoforge\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hqcdp\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hsjp\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?htmldog\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?huanghuagang\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hugoroy\\.eu")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hungerstrikeforaids\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?huping\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hutianyi\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hwinfo\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hypeshell\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hyperrate\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?i1\\.hk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?i2p2\\.de/")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?i2runner\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?iask\\.ca")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?iask\\.bz")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?iblogserv-f\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?icl-fi\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?iconpaper\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?identi\\.ca")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?idiomconnection\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?if-not-true-then-false\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ifcss\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?antidrm\\.hpg\\.ig\\.com\\.br")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?igfw\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ignitedetroit\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ihakka\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?iicns\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?illusionfactory\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ilove80\\.be")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?im\\.tv")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?im88\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?imageflea\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?imagevenue\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?imagezilla\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?img\\.ly")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?imkev\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?incredibox\\.fr")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?inmediahk\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?innermongolia\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?interfaceaddiction\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?internationalrivers\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?internetpopculture\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?inxian\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?iphonehacks\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?iphonix\\.fr")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ipicture\\.ru")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ippotv\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ipvanish\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ironicsoftware\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ironbigfools\\.compython\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ironpython\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?!--isaacmao\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?isgreat\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ismprofessional\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?israbox\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?itaboo\\.info")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?itshidden\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gmozomg\\.izihost\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?j\\.mp")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jgoodies\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jiaoyou8\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hk\\.jiepang\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tw\\.jiepang\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jinbushe\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jingpin\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jitouch\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?joachims\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jobso\\.tv")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?joeedelman\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?journalofdemocracy\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?juliereyc\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?junauza\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?junefourth-20\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?juziyue\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jwmusic\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ka-wai\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kagyuoffice\\.org\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?karayou\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kcsoftwares\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kenengba\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?killwall\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kodingen\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kompozer\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?koolsolutions\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?koornk\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kurtmunger\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kzeng\\.info")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?labiennale\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?laogai\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?laptoplockdown\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?larsgeorge\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lastfm\\.es")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lazarsearlymusic\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?leecheukyan\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lenwhite\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lerosua\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?letscorp\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?liaowangxizang\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?liberal\\.org\\.hk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?api\\.linksalpha\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?apidocs\\.linksalpha\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.linksalpha\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?help\\.linksalpha\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?linux-engineer\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?linuxconfig\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?linuxreviews\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?listentoyoutube\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?liudejun\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?liujianshu\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?liuxiaotong\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?liveleak\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?livestream\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?livingonline\\.us")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?livingstream\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?livevideo\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lockdown\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lockestek\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?logiqx\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?logmike\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?longtermly\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lookingglasstheatre\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lookpic\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lrfz\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lsd\\.org\\.hk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lsm\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lsmchinese\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lsmkorean\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lupm\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lvhai\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mh4u\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mad-ar\\.ch")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?martincartoons\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?makemymood\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?marines\\.mil")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?martau\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?marxist\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mashable\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?matainja\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mathiew-badimon\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?matsushimakaede\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mcadforums\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?md-t\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?meetup\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?megarotic\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?megurineluka\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?melon-peach\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?meteorshowersonline\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?metrolife\\.ca")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mgstage\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?michaelmarketl\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?minghui\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mingjinglishi\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?minzhuhua\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?miroguide\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mixero\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mixx\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mizzmona\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mmaaxx\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mobatek\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mobileways\\.de")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mog\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mondex\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?monitorchina\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?morningsun\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?movabletype\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?moviefap\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.moztw\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mp/")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mpettis\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mrtweet\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mthruf\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?multiply\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?muouju\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?muselinks\\.co\\.jp")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?muzi\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?muzi\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mx981\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?myaudiocast\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bbs\\.mychat\\.to")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mychinamyhome\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.mycould\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?myeclipseide\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?myforum\\.com\\.hk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?myforum\\.com\\.uk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?myparagliding\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mypopescu\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?naacoalition\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?naitik\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?namsisi\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nanyang\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nanyangpost\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?navicat\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nakido\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?navy\\.mil")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ncn\\.org/")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?etools\\.ncol\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nekoslovakia\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?newchen\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?newscn\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?newsminer\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?newtalk\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nexton-net\\.jp")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nga\\.mil")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nighost\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?njactb\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?njuice\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nobodycanstop\\.us")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nokogiri\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nokola\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?noobbox\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?novelasia\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nownews\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?noypf\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?npa\\.go\\.jp")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nrk\\.no")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nsc\\.gov\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cbs\\.ntu\\.edu\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nuexpo\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nurgo-software\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nyt\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nytco\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nytimes\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nzchinese\\.net\\.nz")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?october-review\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ogaoga\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?olumpo\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?myopenid\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?openid\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.openinkpot\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?openleaks\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?openvpn\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?openwebster\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?demo\\.opera-mini\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?orient-doll\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?orientaldaily\\.com\\.my")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?orn\\.jp")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?t\\.orzdream\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?orzistic\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?osfoora\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ourdearamy\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ow\\.ly")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pagodabox\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?paint\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?coveringweb\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?paper-replika\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?eriversoft\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?panluan\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pastie\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.pathtosharepoint\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pbworks\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?developers\\.box\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wiki\\.oauth\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wiki\\.phonegap\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wiki\\.jqueryui\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pbxes\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pbxes\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pct\\.org\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pdproxy\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pekingduck\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?penchinese\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.pentalogic\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?peopo\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?perlhowto\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?photofocus\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?phuquocservices\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?img.*\\.picturedip\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pin6\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ping\\.fm/")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pinoy-n\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pixelqi\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?css\\.pixnet\\.in")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pixnet\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?placemix\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?playboy\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?m\\.plixi\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?po2b\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?podictionary\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pokerstars\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?popularpages\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?popyard\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pornmm\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pornrapidshare\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?powercx\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.powerpointninja\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pts\\.org\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?post\\.anyu\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bralio\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?calebelston\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?designerol\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.fizzik\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nf\\.id\\.au")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?markmilian\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?log\\.riku\\.me")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sogrady\\.me")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vatn\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?veempiire\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.vegorpedersen\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ventureswell\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?webfee\\.tk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?whereiswerner\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bill\\.zhong\\.pp\\.ru")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?power\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?abc\\.pp\\.ru")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?prayforchina\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?premeforwindows7\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?presentationzen\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?prestige-av\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?privacybox\\.de")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?privateinternetaccess\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?privatepaste\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?privatetunnel\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?procopytips\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?prosiben\\.de")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?proxomitron\\.info")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?proxypy\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?psblog\\.name")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pullfolio\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pureconcepts\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?purepdf\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?purevpn\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?qanote\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?qienkuen\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?qoos\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?efksoft\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?qstatus\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?qtweeter\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?qtrac\\.eu")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?quadedge\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.getyouram\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hiitch\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?radiovaticana\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?raidcall\\.com\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ranyunfei\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rapidshare8\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?readingtimes\\.com\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?referer\\.us")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?reflectivecode\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?renyurenquan\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?retweetrank\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rferl\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rfi\\.fr")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rlwlw\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?robustnessiskey\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rocmp\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rojo\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ronjoneswriter\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rsf\\.org/")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rsf-chinese\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rssmeme\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?s1heng\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?s8forum\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sacom\\.hk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sadpanda\\.us")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?saiq\\.me/")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?salvation\\.org\\.hk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sankaizok\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?say2\\.info")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?scriptspot\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?secretgarden\\.no")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?default\\.secureserver\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?seevpn\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?seezone\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sesawe\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sethwklein\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sevenload\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sexinsex\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shadowsocks\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shangfang\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sharecool\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sharkdolphin\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sharpdaily\\.com\\.hk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shaunthesheep\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shellmix\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shenzhoufilm\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shixiao\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shizhao\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shodanhq\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?simplecd\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?magazines\\.sina\\.com\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?singtao\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cdp\\.sinica\\.edu\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sinocast\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sinoants\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?site90\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?siteks\\.uk\\.to")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sitemaps\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sis001\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sjum\\.cn/")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?skimtube\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?skybet\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?slavasoft\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?slheng\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?so-ga\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?so-news\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?soc\\.mil/")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sockslist\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?softether\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sogclub\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sohcradio\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.somee\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sorting-algorithms\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?soup\\.io/")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?slickvpn\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?snaptu\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?snooper\\.co\\.uk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sobees\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?softwarebychuck\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?soh\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sohfrance\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?somee\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?songjianjun\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?soundcloud\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?soundofhope\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?soupofmedia\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wlx\\.sowiki\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?space-scape\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?spencertipping\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sproutcore\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ssh91\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?starp2p\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?steel-storm\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sthoo\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?stonegames\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?stoneip\\.info")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?storagenewsletter\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?stoptibetcrisis\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?stoweboyd\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?streamingthe\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?strongvpn\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sufeng\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sugarsync\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?svwind\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sweux\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?swift-tools\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?syncback\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sysadmin1138\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?szetowah\\.org\\.hk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?t66y\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tafaward\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tagwalk\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?taipeisociety\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?taiwantt\\.org\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?taiwandaily\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?taiwannews\\.com\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tamiaode\\.tk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?taolun\\.info")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?taweet\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tbpic\\.info")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?teamseesmic\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?techlifeweb\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?techparaiso\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?teck\\.in/")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?theampfactory\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?theappleblog\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?theatrum-belli\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thebodyshop-usa\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thebcomplex\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thedieline\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thedw\\.us")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thegatesnotes\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thehun\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thelifeyoucansave\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thelius\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thepiratebay\\.se")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thesartorialist\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thetibetpost\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thomasbernhard\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?throughnightsfire\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tiandixing\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tibet\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tibet\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tibetanyouthcongress\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tibetonline\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tibetonline\\.tv")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tibetwrites\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.tiney\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tinypaste\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tidyread\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tkcs-collins\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tkforum\\.tk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tnaflix\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tokyocn\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?topshare\\.us")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?topstyle4\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?topsy\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?torproject\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?torrentcrazy\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?torvpn\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?toutfr\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tpi\\.org\\.tw")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?transgressionism\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?travelinlocal\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?trendsmap\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?trialofccp\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tripod\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?trustedbi\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?truthcn\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tt1069\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tttan\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tube8\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tubewolf\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tumutanzi\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tunnelbear\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?turningtorso\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tuxtraining\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?301works\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?365singles\\.com\\.ar")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?all-that-is-interesting\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?art-or-porn\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?news\\.atebits\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tumblr\\.awflasher\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?badassjs\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?basetimesheightdividedby2\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?benjaminste\\.in")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.birdhouseapp\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bobulate\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bonjourlesgeeks\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bookshelfporn\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.boxcar\\.io")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.bitly\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chevronwp7\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?clientsfromhell\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?codeboxapp\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cookingtothegoodlife\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cubicle17\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?photos\\.dailyme\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?davidslog\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.davidziegler\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.dayoneapp\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?drewolanoff\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.dribbble\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chaos\\.e-spacy\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?eamonnbrennan\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?everyday-carry\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?eyespirit\\.info")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?life\\.fly4ever\\.me")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fredwilson\\.vc")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fuckgfw\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?geekmade\\.co\\.uk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?generesis\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?news\\.ghostery\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?givemesomethingtoread\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.gowalla\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?heiyo\\.info")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hellonewyork\\.us")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.hotpotato\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ialmostlaugh\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.ifttt\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.instagram\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.instapaper\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?interestinglaugh\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.iphone-dev\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jayparkinsonmd\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.joeyrobert\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kt\\.kcome\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?my\\.keso\\.cn")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.kickstarter\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.kl\\.am")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.klip\\.me")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?t\\.kun\\.im")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.lightbox\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?littlebigdetails\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lovequicksilver\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lyricsquote\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?madmenunbuttoned\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?marco\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?minimalmac\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mixedmedialabs\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?modfetish\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.mongodb\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?navigeaters\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?london\\.neighborhoodr\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.path\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?parislemon\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.pikchur\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.rockmelt\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.romanandreg\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?solozorro\\.tk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.sparrowmailapp\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?stuffimreading\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.summify\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thedailywh\\.at")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?theinternetwishlist\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thisiswhyyouarefat\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.tiffanyarment\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tjholowaychuk\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tomsc\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.topify\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thehungrydudes\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tumblweed\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?status\\.twhirl\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.usa\\.gov")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?photo\\.utom\\.us")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?v-state\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wellplacedpixels\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?whydidyoubuymethat\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wordboner\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wordsandturds\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?worstthingieverate\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xmusic\\.fm")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xuzhuoer\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bd\\.zhe\\.la")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cocoa\\.zonble\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.tv\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tv-intros\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tvunetworks\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twapperkeeper\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twaud\\.io")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twblogger\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweepml\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetbackup\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetboard\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetboner\\.biz")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetdeck\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweete\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mtw\\.tl")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetedtimes\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetmylast\\.fm")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetphoto\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetrans\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetree\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetwally\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twftp\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twibble\\.de")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twibs\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twiffo\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twimbow\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twindexx\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twipple\\.jp")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twip\\.me/")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitcause\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitgether\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twiggit\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitiq\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitlonger\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitoaster\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitonmsn\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitpic\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twit2d\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitstat\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dotheyfolloweachother\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?firstfivefollowers\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?retweeteffect\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweeplike\\.me")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweepguide\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?turbotwitter\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitvid\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twimg\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitter\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitter\\.jp")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twttr\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^https?:\\/\\/[^\\/]+twitter\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitter4j\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twittercounter\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twittergadget\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitterkr\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twittermail\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twittertim\\.es")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitturly\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twreg\\.info")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twstar\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twimg\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twyac\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tycool\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tzangms\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?typepad\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.expofutures\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?legaltech\\.law\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.loiclemeur\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?latimesblogs\\.latimes\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\\.palm\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blogs\\.tampabay\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?contests\\.twilio\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?embr\\.in")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ucdc1998\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?uderzo\\.it")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?udn\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ukliferadio\\.co\\.uk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ultravpn\\.fr")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?unblock\\.cn\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?unholyknight\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?unknownspace\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?uocn\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?urlborg\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?urlparser\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?usacn\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?usfk\\.mil")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?usmc\\.mil")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ustream\\.tv")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?uyghurcongress\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vaayoo\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?value-domain\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vapurl\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vcf-online\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vcfbuilder\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?verybs\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?videobam\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vidoemo\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?viki\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vimgolf\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vimperator\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vincnd\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vinniev\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vmixcore\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?voachineseblog\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?voacantonese\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?voachinese\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?voatibetan\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vot\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.vpncup\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vpngate\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vpnpop\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vpnpronet\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vtunnel\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?waffle1999\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jyzj\\.waqn\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wallpapercasa\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\\.wan-press\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wanderinghorse\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wangafu\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wangjinbo\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wearn\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hudatoriq\\.web\\.id")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?web2project\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wengewang\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wenku\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wenyunchao\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?westca\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?westernwolves\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wepn\\.info")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wexiaobo\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wezone\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wforum\\.com/")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?whatblocked\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?whyx\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikileaks\\.ch")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikileaks\\.de")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikileaks\\.eu")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikileaks\\.lu")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikileaks\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikileaks\\.pl")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?collateralmurder\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?collateralmurder\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikimapia\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?secure\\.wikimedia\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikimedia\\.org\\.mo")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikiwiki\\.jp")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sports\\.williamhill\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?willw\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?windowsphoneme\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wiredbytes\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wiredpen\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wisevid\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?woeser\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wolfax\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?womensrightsofchina\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?woopie\\.jp")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?woopie\\.tv")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?workatruna\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wordpress\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wpoforum\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wqyd\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wujieliulan\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?x-wall\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xbookcn\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xiaoma\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xiaohexie\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xing\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xinmiao\\.com\\.hk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xjp\\.cc")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xml-training-guide\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xnxx\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xpud\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?k2\\.xrea\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xtube\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xuchao\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xuchao\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xxxx\\.com\\.au")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yahoo\\.com\\.hk")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yam\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yasukuni\\.or\\.jp")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yeelou\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yegle\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yhcw\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yidio\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yipub\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yogichen\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?youxu\\.info")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yyii\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yzzk\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?youjizz\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?youpai\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yousendit\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?youporn\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?youtube\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?youtube-nocookie\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?youversion\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ytimg\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yunchao\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yvesgeleyn\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yymaya\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zannel\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tap11\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zaobao\\.com\\.sg")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zarias\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zeutch\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhanbin\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhenlibu\\.info")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhongguotese\\.net")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhongmeng\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhreader\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhuichaguoji\\.org")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zillionk\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zinio\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ziplib\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zkaip\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zlib\\.net/")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zonaeuropa\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zootool\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zuo\\.la")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zuola\\.com")) return 'SOCKS 127.0.0.1:7000';
-	if (regExpMatch(url, "^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zvereff\\.com")) return 'SOCKS 127.0.0.1:7000';
-	return 'DIRECT';
+/**
+ * gfwlist2pac 0.0.1 http://codelife.me
+ * Generated: Sun, 26 Jan 2014 09:17:54 GMT
+ * GFWList Last-Modified: Thu, 23 Jan 2014 04:15:28 GMT
+ */
+
+// proxy
+var P = "SOCKS5 127.0.0.1:7000; SOCKS 127.0.0.1:7000; DIRECT";
+
+// user rules
+var directUserRegexpList   = [];
+var directUserWildcardList = [
+    '*sina.com*',
+    '*163.com*'
+    ];
+    
+var proxyUserRegexpList    = [];
+var proxyUserWildcardList  = [
+    '*google.com*',
+    '*twitter.com*',
+    '*youtube.com*'
+    ];
+
+// gfwlist rules
+var directRegexpList   = [
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\.exblog\.jp',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?.*v6\.facebook\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?site\.locql\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?download\.syniumsoftware\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ipv6\.google\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?haygo\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?f\.cl\.ly',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?myvlog\.im\.tv',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?music\.jwmusic\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\.kodingen\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?simplecd\.me',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?static\.soup\.io',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\.tripod\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\.typepad\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?static\.typepad\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tax\.nat\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?moe\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cwb\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?npm\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yatsen\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aec\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mvdis\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?stdtime\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nmmba\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ntdmh\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?grb\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tpde\.aide\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?matsu-news\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nerhl\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dapu-house\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vghtc\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aide\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hchcc\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ntuh\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nhri\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nstm\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ntsec\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ner\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nmtl\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ntl\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pet\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?khcc\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nmmba\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?khms\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wanfang\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nict\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?arte\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nmh\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nmp\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tphcc\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?iner\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tncsec\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nspo\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aide\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ncree\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vghks\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tchb\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pabp\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?itrc\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?df\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?womenbusiness\.nyc\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gsn-cert\.nat\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kk\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thbstc\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?comnews\.gio\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?comnews\.gio\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?klccab\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yvtc\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aftygh\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?klra\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lungtanhr\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?taoyuan\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hcc\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nvri\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nmvttc\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kmh\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?patehr\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nerch\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kmseh\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nertt\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cycab\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chukuang\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gysd\.nyc\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cp-house\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vghtpe\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?etraining\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?stag\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bdhr\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tcsac\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?imagesblog\.gio\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?arte\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dmtip\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chccc\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hengchuen\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hsinchu-cc\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?921\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ncdr\.nat\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?4pppc\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?klsio\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nici\.nat\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cromotc\.nat\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?taitung-house\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aliyun\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?baidu\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?duckduckgo\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jike\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?panguso\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?qq\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sina\.cn',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sina\.com\.cn',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sogou\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?so\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?soso\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yahoo\.cn',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?youdao\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhongsou\.com',
+    '^https://autoproxy\.org',
+    '^http://ime\.baidu\.jp'
+    ];
+var directWildcardList = [];
+var proxyRegexpList    = [
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fxnetworks\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?muzu\.tv',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?netflix\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pandora\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pure18\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?spotify\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?target\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?turntable\.fm',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vevo\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zattoo\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?qq\.co\.za',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zozotown\.com',
+    '^http://0rz\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?0to255\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?1-apple\.com\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?10musume\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?12bet\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?12vpn\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?173ng\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?1984bbs\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?1984bbs\.org',
+    '^http://1bao\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?1pondo\.tv',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?2008xianzhang\.info',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?36rain\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?4bluestones\.biz',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?4chan\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?51\.ca',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?6-4\.net/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?6park\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\.6v6dota\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?7capture\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?881903\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?89-64\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?9bis\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?9bis\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?a-normal-day\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aboluowang\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?acgkj\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aculo\.us',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?addictedtocoffee\.de',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?advanscene\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?advertfan\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aenhancers\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?af\.mil',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aiph\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ait\.org\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aiweiweiblog\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ajaxplorer\.info',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\.ajsands\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?akiba-online\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?alabout\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?alasbarricadas\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?notes\.alexdong\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?alkasir\.com',
+    '^http://allinfa\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?allinfo\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?allmovie\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?alternate-tools\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?alwaysdata\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?alwaysdata\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?am730\.com\.hk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ameblo\.jp',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?americangreencard\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?amiblockedornot\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?amnesty\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?amnestyusa\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?anchorfree\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?andfaraway\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?anobii\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?anthonycalzadilla\.com',
+    '^http://antiwave\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aobo\.com\.au',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?aolchannels\.aol\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?video\.aol\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?apiary\.io',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?apigee\.com',
+    '^http://arctosia\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?areca-backup\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?army\.mil',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?asahichinese\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?asiaharvest\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?asianwomensfilm\.de',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?askstudent\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?askynz\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?assembla\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?astonmartinnews\.com',
+    '^http://atchinese\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?atj\.org\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?atlaspost\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?atnext\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?avaaz\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?avidemux\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?avoision\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?axureformac\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?backchina\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?baidu\.jp',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?baixing\.me',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bannedbook\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?barnabu\.co\.uk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bayvoice\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bbcchinese\.com',
+    '^http://bbc\.in',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bbsfeed\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bebo\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?beijing1989\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?beijingspring\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?berlintwitterwall\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bestforchina\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bettween\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bfnn\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bfsh\.hk/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bignews\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bill2-software\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?billywr\.com',
+    '^http://bit\.ly',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bjzc\.org/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blinkx\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blip\.tv/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blockcn\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.de',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blogcatalog\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blogger\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.kangye\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bloglines\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blogspot\.hk',
+    '^http://blogtd\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bloodshed\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bloomberg\.cn',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bloomberg\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bloomberg\.de',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bloomfortune\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bnrmetal\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?boardreader\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?books\.com\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bowenpress\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dl\.box\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?boxun\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?boxun\.tv',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?boxunblog\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?br\.st',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?brandonhutchinson\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?braumeister\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?break\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?breakingtweets\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?brightkite\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?brizzly\.com',
+    '^https://.*\.broadcasthe\.net',
+    '^https://broadcasthe\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bt95\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?budaedu\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bullog\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bullogger\.com',
+    '^http://businesstimes\.com\.cn',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bugclub\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?buugaa\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?c-spanvideo\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?c-est-simple\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cactusvpn\.com',
+    '^http://cn\.calameo\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cams\.com',
+    '^http://bbs\.cantonese\.asia/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?caobian\.info',
+    '^http://catcatbox\.com/forum\.php.*',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?caochangqing\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?catch22\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?catfightpayperview\.xxx',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?catholic\.org\.hk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?catholic\.org\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ccavtop10\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ccdtr\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cdig\.info',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cdjp\.org/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cdp1998\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cdp2006\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cdpweb\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cdpwu\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cecc\.gov',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cellulo\.info',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cenci\.tk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cenews\.eu',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?centralnation\.com',
+    '^http://centurys\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chandoo\.org',
+    '^http://change\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?changp\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chenguangcheng\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cherrysave\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?china101\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?china21\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?china21\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinaaffairs\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinaaid\.me',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinacomments\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinachannel\.hk',
+    '^http://chinadigitaltimes\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinaeweekly\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinafreepress\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinagfw\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinagreenparty\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinainperspective\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinainperspective\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinainterimgov\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinamule\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinasocialdemocraticparty\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinasoul\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinaworker\.info',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinayuanmin\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinesedailynews\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chinesen\.de',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chingcheong\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?christianstudy\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chrlcg-hk\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chromeadblock\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chuizi\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chrispederick\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chrispederick\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?allaboutalpha\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?civicparty\.hk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?civilhrfront\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cjb\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ck101\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?classicalguitarblog\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cmule\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cms\.gov',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cna\.com\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cnd\.org/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cochina\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?codeshare\.io',
+    '^http://tosh\.comedycentral\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?comefromchina\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?compileheart\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?conoyo\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?coolaler\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?coolder\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?coolloud\.org\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?couchdbwiki\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cotweet\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cpj\.org/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?crackle\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?creaders\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?crossthewall\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?csdparty\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?csuchen\.de',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cuihua\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cuiweiping\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?curvefish\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?culture\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cyberghostvpn\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cynscribe\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ifan\.cz\.cc',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mike\.cz\.cc',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nic\.cz\.cc',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dabr\.co\.uk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dabr\.mobi',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dabr\.me',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dadazim\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dalailama\.ru',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dailidaili\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dalailamaworld\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dalianmeng\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?danke4china\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?daxa\.cn/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?de-sci\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?delcamp\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?democrats\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?desc\.se/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?deutsche-welle\.de',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dev102\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?devio\.us',
+    '^http://www\.dfanning\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dfas\.mil',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?diaoyuislands\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?digitalnomadsproject\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?diigo\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?furl\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?directcreative\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?discuss\.com\.hk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dit-inc\.us',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dl-laby\.jp',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dlsite\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dolc\.de',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dollf\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dongtaiwang\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dongtaiwang\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dontmovetochina\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dotplane\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dotsub\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dougscripts\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?doxygen\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dpp\.org\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?weigegebyc\.dreamhosters\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?drgan\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dtiblog\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dtic\.mil',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?duckmylife\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?duihua\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?duoweitimes\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?duplicati\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dvorak\.org',
+    '^http://dw\.de',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dw-world\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dwnews\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dynawebinc\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?e-gold\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?edubridge\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?eevpn\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?eic-av\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?emacsblog\.org',
+    '^http://emule-ed2k\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?englishfromengland\.co\.uk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?entermap\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?epochtimes-bg\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?epochtimes-romania\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?epochtimes\.co\.il',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?epochtimes\.co\.kr',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?epochtimes\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?epochweekly\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ernestmandel\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?erights\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?etizer\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?exblog\.jp',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.exblog\.co\.jp',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?expatshield\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?exploader\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?eyevio\.jp',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?facebook\.com',
+    '^https?:\/\/[^\/]+facebook\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?connect\.facebook\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?facesofnyfw\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?faiththedog\.info',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?falunhr\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fanglizhi\.info',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fangong\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fbcdn\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?famunion\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fangbinxing\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fanswong\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?favorious\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?faststone\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?favstar\.fm',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fb\.me',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fourface\.nodesnoop\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?feedzshare\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?feelssh\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?felixcat\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?feministteacher\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fengzhenghu\.com',
+    '^http://files2me\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?finalion\.jp',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fireofliberty\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?falsefire\.com',
+    '^http://cn\.fmnnow\.com',
+    '^http://4sq\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fotop\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fringenetwork\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?flecheinthepeche\.fr',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fofg\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fooooo\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fourthinternational\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?foxdie\.us',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?foxsub\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fqrouter\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?franklc\.com',
+    '^http://freakshare\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?allonlinux\.free\.fr',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dimitrik\.free\.fr',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?puttycm\.free\.fr',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freealim\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freedomhouse\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freegao\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freelotto\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freeoz\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\.bulbous\.freeserve\.co\.uk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freessh\.us',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?free-ssh\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freenetproject\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freewallpaper4\.me',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freeweibo\.com',
+    '^http://ff\.im',
+    '^http://www\.zensur\.freerk\.com/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fring\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?frommel\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fscked\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fuckcnnic\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?furinkan\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?futuremessage\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fw\.cm',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gabocorp\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?galenwu\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gamer\.com\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gamez\.com\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gaoming\.net',
+    '^http://gaopi\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gappp\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gardennetworks\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gartlive\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gather\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gaymap\.cc',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gazotube\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gclooney\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?geek-art\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?geekmanuals\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?geohot\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?geometrictools\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?get-digital-help\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?getfoxyproxy\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ggssl\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?giga-web\.jp',
+    '^http://cn\.giganews\.com/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gimpshop\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?girlbanker\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?glennhilton\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?globalrescue\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?globalvoicesonline\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gmhz\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?godfootsteps\.org',
+    '^http://www\.goldenmelody\.com\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?goldwave\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?goodreads\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?goodreaders\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?goofind\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?googleusercontent\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gopetition\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gotw\.ca/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?graphis\.ne\.jp',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?greatfirewallofchina\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?greatfirewallofchina\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?greenvpn\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gtricks\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gutteruncensored\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gvm\.com\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gzone-anime\.info',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?apis\.google\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?appspot\.com',
+    '^https?:\/\/[^\/]+appspot\.com',
+    '^http://autoproxy-gfwlist\.googlecode\.com/svn/trunk/gfwlist\.txt',
+    '^https://autoproxy-gfwlist\.googlecode\.com/svn/trunk/gfwlist\.txt',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?golang\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\.klip\.me',
+    '^http://ub0\.cc',
+    '^https://.*docs\.google\.com',
+    '^https://.*drive\.google\.com',
+    '^https://groups\.google\.com',
+    '^https://plus.*\.google\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?encrypted\.google\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sites\.google\.com',
+    '^https://talkgadget\.google\.com/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?freegateget\.googlepages\.com',
+    '^https://apis\.google\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gospelherald\.com',
+    '^http://hk\.gradconnection\.com/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?graylog2\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?greatfire\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?greatroc\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gstatic\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?guishan\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gunsamerica\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?h-china\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hackthatphone\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hakkatv\.org\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hardsextube\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hasaowall\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hdtvb\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?heartyit\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hecaitou\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hechaji\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?helloandroid\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?helloqueer\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hellotxt\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?htxt\.it/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?helpeachpeople\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?date\.fm',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?flightcaster\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?branch\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?awardwinningfjords\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?futureme\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?getcloudapp\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cl\.ly',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?getsmartlinks\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?git-scm\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lesscss\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?list\.ly',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?maxgif\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?overlapr\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?peerpong\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pose\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?samsoff\.es',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sendoid\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?speckleapp\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?stuffimreading\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tomayko\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twt\.fm',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?views\.fm',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?heungkongdiscuss\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hidden-advent\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hidemyass\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hideipvpn\.com',
+    '^http://hihiforum\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hihistory\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?highrockmedia\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hikinggfw\.org',
+    '^http://hk-pub\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hk32168\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hkreporter\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hkzone\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hnjhj\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?holyspiritspeaks\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?derekhsu\.homeip\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hongzhi\.li',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hootsuite\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hotspotshield\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hougaige\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?howtoforge\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hqcdp\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hsjp\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?htmldog\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?huanghuagang\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hugoroy\.eu',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hungerstrikeforaids\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?huping\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hutianyi\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hwinfo\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hypeshell\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hyperrate\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?i1\.hk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?i2p2\.de/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?i2runner\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?iask\.ca',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?iask\.bz',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?iblogserv-f\.net',
+    '^http://cn\.ibtimes\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?icl-fi\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?iconpaper\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?identi\.ca',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?idiomconnection\.com',
+    '^http://www\.idlcoyote\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?if-not-true-then-false\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ifcss\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?antidrm\.hpg\.ig\.com\.br',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?igfw\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ignitedetroit\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ihakka\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?iicns\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?illusionfactory\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ilove80\.be',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?im\.tv',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?im88\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?imageflea\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?imagevenue\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?imagezilla\.net',
+    '^http://www\.imdb\.com/name/nm0482730',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?img\.ly',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?imkev\.com',
+    '^http://tech2\.in\.com/video/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?incredibox\.fr',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?inmediahk\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?innermongolia\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?interfaceaddiction\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?internationalrivers\.org',
+    '^http://internet\.org/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?internetpopculture\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?inxian\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?iphonehacks\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?iphonix\.fr',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ipicture\.ru',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ippotv\.com',
+    '^https://.*\.iptorrents\.com',
+    '^https://iptorrents\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ipvanish\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ironicsoftware\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ironbigfools\.compython\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ironpython\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?!--isaacmao\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?isgreat\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ismprofessional\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?israbox\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?itaboo\.info',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?itshidden\.com',
+    '^http://itweet\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gmozomg\.izihost\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?j\.mp',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jgoodies\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jiaoyou8\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hk\.jiepang\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tw\.jiepang\.com',
+    '^http://jimoparty\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jinbushe\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jingpin\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jitouch\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?joachims\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jobso\.tv',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?joeedelman\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?journalofdemocracy\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?juliereyc\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?junauza\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?junefourth-20\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?juziyue\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jwmusic\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ka-wai\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kagyuoffice\.org\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?karayou\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kcsoftwares\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kenengba\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?killwall\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kodingen\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kompozer\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?koolsolutions\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?koornk\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kurtmunger\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kzeng\.info',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?labiennale\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?laogai\.org',
+    '^http://laoyang\.info',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?laptoplockdown\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?larsgeorge\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lastfm\.es',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lazarsearlymusic\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?leecheukyan\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lenwhite\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lerosua\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?letscorp\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?liaowangxizang\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?liberal\.org\.hk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?api\.linksalpha\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?apidocs\.linksalpha\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\.linksalpha\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?help\.linksalpha\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?linux-engineer\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?linuxconfig\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?linuxreviews\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?listentoyoutube\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?liudejun\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?liujianshu\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?liuxiaotong\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?liveleak\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?livestream\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?livingonline\.us',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?livingstream\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?livevideo\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lockdown\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lockestek\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?logiqx\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?logmike\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?longtermly\.net',
+    '^http://lookatgame\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lookingglasstheatre\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lookpic\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lrfz\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lsd\.org\.hk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lsm\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lsmchinese\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lsmkorean\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lupm\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lvhai\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mh4u\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mad-ar\.ch',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?martincartoons\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?makemymood\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?marines\.mil',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?martau\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?marxist\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mashable\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?matainja\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mathiew-badimon\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?matsushimakaede\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mcadforums\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?md-t\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?meetup\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?megarotic\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?megurineluka\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?melon-peach\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?meteorshowersonline\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?metrolife\.ca',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mgstage\.com',
+    '^http://michaelanti\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?michaelmarketl\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?minghui\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mingjinglishi\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?minzhuhua\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?miroguide\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mixero\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mixx\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mizzmona\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mmaaxx\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mobatek\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mobileways\.de',
+    '^http://moby\.to',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mog\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mondex\.org',
+    '^http://www\.monlamit\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?monitorchina\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?morningsun\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?movabletype\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?moviefap\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\.moztw\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mp/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mpettis\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mrtweet\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mthruf\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?multiply\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?muouju\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?muselinks\.co\.jp',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?muzi\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?muzi\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mx981\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?myaudiocast\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bbs\.mychat\.to',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mychinamyhome\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\.mycould\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?myeclipseide\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?myforum\.com\.hk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?myforum\.com\.uk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?myparagliding\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mypopescu\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?naacoalition\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?naitik\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?namsisi\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nanyang\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nanyangpost\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?navicat\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nakido\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?navy\.mil',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ncn\.org/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?etools\.ncol\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nekoslovakia\.net',
+    '^http://newcenturymc\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?newchen\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?newscn\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?newsminer\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?newtalk\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nexton-net\.jp',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nga\.mil',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nighost\.org',
+    '^http://dayaarmongol\.ning\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?njactb\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?njuice\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nobodycanstop\.us',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nokogiri\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nokola\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?noobbox\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?novelasia\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nownews\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?noypf\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?npa\.go\.jp',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nrk\.no',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nsc\.gov\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cbs\.ntu\.edu\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nuexpo\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nurgo-software\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nyt\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nytco\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nytimes\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nzchinese\.net\.nz',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?october-review\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ogaoga\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?olumpo\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?myopenid\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?openid\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.openinkpot\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?openleaks\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?openvpn\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?openwebster\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?demo\.opera-mini\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?orient-doll\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?orientaldaily\.com\.my',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?orn\.jp',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?t\.orzdream\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?orzistic\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?osfoora\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ourdearamy\.com',
+    '^http://owl\.li',
+    '^http://ht\.ly',
+    '^http://htl\.li',
+    '^http://mash\.to',
+    '^http://www\.oxid\.it',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ow\.ly',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pagodabox\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?paint\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?coveringweb\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?paper-replika\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?eriversoft\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?panluan\.net',
+    '^https://passthepopcorn\.me/',
+    '^https://.*\.passthepopcorn\.me/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pastie\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.pathtosharepoint\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pbworks\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?developers\.box\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wiki\.oauth\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wiki\.phonegap\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wiki\.jqueryui\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pbxes\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pbxes\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pct\.org\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pdproxy\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pekingduck\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?penchinese\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.pentalogic\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?peopo\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?perlhowto\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?photofocus\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?phuquocservices\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?img.*\.picturedip\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pin6\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ping\.fm/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pinoy-n\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pixelqi\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?css\.pixnet\.in',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pixnet\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?placemix\.com',
+    '^http://pictures\.playboy\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?playboy\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?m\.plixi\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?po2b\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?podictionary\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pokerstars\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?popularpages\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?popyard\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pornmm\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pornrapidshare\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?powercx\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\.powerpointninja\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pts\.org\.tw',
+    '^http://post\.ly',
+    '^http://posterous\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?post\.anyu\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bralio\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?calebelston\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?designerol\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.fizzik\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nf\.id\.au',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?markmilian\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?log\.riku\.me',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sogrady\.me',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vatn\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?veempiire\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\.vegorpedersen\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ventureswell\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?webfee\.tk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?whereiswerner\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bill\.zhong\.pp\.ru',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?power\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?abc\.pp\.ru',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?prayforchina\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?premeforwindows7\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?presentationzen\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?prestige-av\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?privacybox\.de',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?privateinternetaccess\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?privatepaste\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?privatetunnel\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?procopytips\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?prosiben\.de',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?proxomitron\.info',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?proxypy\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?psblog\.name',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pullfolio\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pureconcepts\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?purepdf\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?purevpn\.com',
+    '^http://python\.com\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?qanote\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?qienkuen\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?qoos\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?efksoft\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?qstatus\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?qtweeter\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?qtrac\.eu',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?quadedge\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\.getyouram\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hiitch\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?radiovaticana\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?raidcall\.com\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ranyunfei\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rapidshare8\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?readingtimes\.com\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?referer\.us',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?reflectivecode\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?renyurenquan\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?retweetrank\.com',
+    '^http://www\.reuters\.com/news/video',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rferl\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rfi\.fr',
+    '^http://rfi\.my/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rlwlw\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?robustnessiskey\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rocmp\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rojo\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ronjoneswriter\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rsf\.org/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rsf-chinese\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?rssmeme\.com',
+    '^http://rthk\.hk',
+    '^http://rthk\.org\.hk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?s1heng\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?s8forum\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sacom\.hk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sadpanda\.us',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?saiq\.me/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?salvation\.org\.hk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sankaizok\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?say2\.info',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?scriptspot\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?secretgarden\.no',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?default\.secureserver\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?seevpn\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?seezone\.net',
+    '^http://tweets\.seraph\.me/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sesawe\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sethwklein\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sevenload\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sexinsex\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shadowsocks\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shangfang\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sharecool\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sharkdolphin\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sharpdaily\.com\.hk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shaunthesheep\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shellmix\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shenzhoufilm\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shixiao\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shizhao\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?shodanhq\.com',
+    '^http://shwchurch3\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?simplecd\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?magazines\.sina\.com\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?singtao\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cdp\.sinica\.edu\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sinocast\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sinoants\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?site90\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?siteks\.uk\.to',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sitemaps\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sis001\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sjum\.cn/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?skimtube\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?skybet\.com',
+    '^http://skyhighpremium\.com/',
+    '^http://www\.skype\.com/intl/',
+    '^http://www\.skype\.com/zh-Hant',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?slavasoft\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?slheng\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?so-ga\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?so-news\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?soc\.mil/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sockslist\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?softether\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sogclub\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sohcradio\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\.somee\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sorting-algorithms\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?soup\.io/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?slickvpn\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?snaptu\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?snooper\.co\.uk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sobees\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?softwarebychuck\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?soh\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sohfrance\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?somee\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?songjianjun\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?soundcloud\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?soundofhope\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?soupofmedia\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wlx\.sowiki\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?space-scape\.com',
+    '^http://spb\.com/blackberry-software/tv/download',
+    '^http://spb\.com/pocketpc-software/tv/download',
+    '^http://spb\.com/symbian-software/tv/download',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?spencertipping\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sproutcore\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ssh91\.com',
+    '^http://cdn\.sstatic\.net/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?starp2p\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?steel-storm\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sthoo\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?stonegames\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?stoneip\.info',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?storagenewsletter\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?stoptibetcrisis\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?stoweboyd\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?streamingthe\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?strongvpn\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sufeng\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sugarsync\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?svwind\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sweux\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?swift-tools\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?syncback\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sysadmin1138\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?szetowah\.org\.hk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?t66y\.com',
+    '^http://taa-usa\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tafaward\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tagwalk\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?taipeisociety\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?taiwantt\.org\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?taiwandaily\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?taiwannews\.com\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tamiaode\.tk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?taolun\.info',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?taweet\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tbpic\.info',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?teamseesmic\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?techlifeweb\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?techparaiso\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?teck\.in/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?theampfactory\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?theappleblog\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?theatrum-belli\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thebodyshop-usa\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thebcomplex\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thedieline\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thedw\.us',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thegatesnotes\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thehun\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thelifeyoucansave\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thelius\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thepiratebay\.se',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thesartorialist\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thetibetpost\.com',
+    '^http://thisav\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thomasbernhard\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?throughnightsfire\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tiandixing\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tibet\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tibet\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tibetanyouthcongress\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tibetonline\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tibetonline\.tv',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tibetwrites\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.tiney\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tinypaste\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tidyread\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tkcs-collins\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tkforum\.tk',
+    '^http://tmi\.me',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tnaflix\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tokyocn\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?topshare\.us',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?topstyle4\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?topsy\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?torproject\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?torrentcrazy\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?torvpn\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?toutfr\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tpi\.org\.tw',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?transgressionism\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?travelinlocal\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?trendsmap\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?trialofccp\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tripod\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?trustedbi\.com',
+    '^http://truth101\.co\.tv',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?truthcn\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tt1069\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tttan\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tube8\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tubewolf\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tumutanzi\.com',
+    '^http://tunein\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tunnelbear\.com',
+    '^http://turbobit\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?turningtorso\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tuxtraining\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?301works\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?365singles\.com\.ar',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?all-that-is-interesting\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?art-or-porn\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?news\.atebits\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tumblr\.awflasher\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?badassjs\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?basetimesheightdividedby2\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?benjaminste\.in',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.birdhouseapp\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bobulate\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bonjourlesgeeks\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bookshelfporn\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.boxcar\.io',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.bitly\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chevronwp7\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?clientsfromhell\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?codeboxapp\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cookingtothegoodlife\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cubicle17\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?photos\.dailyme\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?davidslog\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.davidziegler\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.dayoneapp\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?drewolanoff\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.dribbble\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?chaos\.e-spacy\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?eamonnbrennan\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?everyday-carry\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?eyespirit\.info',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?life\.fly4ever\.me',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fredwilson\.vc',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fuckgfw\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?geekmade\.co\.uk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?generesis\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?news\.ghostery\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?givemesomethingtoread\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.gowalla\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?heiyo\.info',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hellonewyork\.us',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.hotpotato\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ialmostlaugh\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.ifttt\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.instagram\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.instapaper\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?interestinglaugh\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.iphone-dev\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jayparkinsonmd\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.joeyrobert\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?kt\.kcome\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?my\.keso\.cn',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.kickstarter\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.kl\.am',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.klip\.me',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?t\.kun\.im',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.lightbox\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?littlebigdetails\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lovequicksilver\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?lyricsquote\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?madmenunbuttoned\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?marco\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?minimalmac\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mixedmedialabs\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?modfetish\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.mongodb\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?navigeaters\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?london\.neighborhoodr\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.path\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?parislemon\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.pikchur\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.rockmelt\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.romanandreg\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?solozorro\.tk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.sparrowmailapp\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?stuffimreading\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.summify\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thedailywh\.at',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?theinternetwishlist\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thisiswhyyouarefat\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\.tiffanyarment\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tjholowaychuk\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tomsc\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.topify\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?thehungrydudes\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tumblweed\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?status\.twhirl\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.usa\.gov',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?photo\.utom\.us',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?v-state\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wellplacedpixels\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?whydidyoubuymethat\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wordboner\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wordsandturds\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?worstthingieverate\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xmusic\.fm',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xuzhuoer\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?bd\.zhe\.la',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cocoa\.zonble\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\.tv\.com',
+    '^http://tv\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tv-intros\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tvunetworks\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twapperkeeper\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twaud\.io',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twblogger\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweepml\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetbackup\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetboard\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetboner\.biz',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetdeck\.com',
+    '^http://deck\.ly',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweete\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mtw\.tl',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetedtimes\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetmylast\.fm',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetphoto\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetrans\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetree\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetwally\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twftp\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twibble\.de',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twibs\.com',
+    '^http://twifan\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twiffo\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twimbow\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twindexx\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twipple\.jp',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twip\.me/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitcause\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitgether\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twiggit\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitiq\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitlonger\.com',
+    '^http://tl\.gd/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitoaster\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitonmsn\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitpic\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twit2d\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitstat\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?dotheyfolloweachother\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?firstfivefollowers\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?retweeteffect\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweeplike\.me',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweepguide\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?turbotwitter\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitvid\.com',
+    '^http://t\.co',
+    '^https://t\.co',
+    '^http://twt\.tl',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twimg\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitter\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitter\.jp',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twttr\.com',
+    '^https?:\/\/[^\/]+twitter\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitter4j\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twittercounter\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twittergadget\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitterkr\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twittermail\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twittertim\.es',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twitturly\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twreg\.info',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twstar\.net',
+    '^http://twtkr\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twimg\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?twyac\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tycool\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tzangms\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?typepad\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.expofutures\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?legaltech\.law\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\.loiclemeur\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?latimesblogs\.latimes\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blog\.palm\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?blogs\.tampabay\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?contests\.twilio\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?embr\.in',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ucdc1998\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?uderzo\.it',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?udn\.com',
+    '^http://www\.ukchinese\.com/www/22/2009-03/2842\.html',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ukliferadio\.co\.uk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ultravpn\.fr',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?unblock\.cn\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?unholyknight\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?unknownspace\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?uocn\.org',
+    '^http://uploaded\.to/file',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?urlborg\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?urlparser\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?usacn\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?usfk\.mil',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?usmc\.mil',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ustream\.tv',
+    '^http://uushare\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?uyghurcongress\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vaayoo\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?value-domain\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vapurl\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vcf-online\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vcfbuilder\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?verybs\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?videobam\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vidoemo\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?viki\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vimgolf\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vimperator\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vincnd\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vinniev\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vmixcore\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?voachineseblog\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?voacantonese\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?voachinese\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?voatibetan\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vot\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\.vpncup\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vpngate\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vpnpop\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vpnpronet\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vtunnel\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?waffle1999\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jyzj\.waqn\.com',
+    '^http://waiwaier\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wallpapercasa\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\.wan-press\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wanderinghorse\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wangafu\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wangjinbo\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wearn\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hudatoriq\.web\.id',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?web2project\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wengewang\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wenku\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wenyunchao\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?westca\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?westernwolves\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wepn\.info',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wexiaobo\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wezone\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wforum\.com/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?whatblocked\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?whyx\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikileaks\.ch',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikileaks\.de',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikileaks\.eu',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikileaks\.lu',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikileaks\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikileaks\.pl',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?collateralmurder\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?collateralmurder\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikimapia\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?secure\.wikimedia\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikimedia\.org\.mo',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wikiwiki\.jp',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?sports\.williamhill\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?willw\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?windowsphoneme\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wiredbytes\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wiredpen\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wisevid\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?woeser\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wolfax\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?womensrightsofchina\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?woopie\.jp',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?woopie\.tv',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?workatruna\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wordpress\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wpoforum\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wqyd\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?wujieliulan\.com',
+    '^http://www\.x-berry\.com/goagent',
+    '^http://x-art\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?x-wall\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xbookcn\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xiaoma\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xiaohexie\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xing\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xinmiao\.com\.hk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xjp\.cc',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xml-training-guide\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xnxx\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xpud\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?k2\.xrea\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xtube\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xuchao\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xuchao\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?xxxx\.com\.au',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yahoo\.com\.hk',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yam\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yasukuni\.or\.jp',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yeelou\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yegle\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yhcw\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yidio\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yipub\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yogichen\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?youxu\.info',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yyii\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yzzk\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?youjizz\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?youpai\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yousendit\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?youporn\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?youtube\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?youtube-nocookie\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?youversion\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ytimg\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yunchao\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yvesgeleyn\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?yymaya\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zannel\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tap11\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zaobao\.com\.sg',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zarias\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zeutch\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhanbin\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhenlibu\.info',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhongguotese\.net',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhongmeng\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhreader\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zhuichaguoji\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zillionk\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zinio\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?ziplib\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zkaip\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zlib\.net/',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zonaeuropa\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zootool\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zuo\.la',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zuola\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zvereff\.com',
+    '^https://upload\.wikimedia\.org',
+    '^https://.*\.wikipedia\.org'
+    ];
+var proxyWildcardList  = [
+    '*hulu.com*',
+    '*huluim.com*',
+    '*.pandora.tv*',
+    '*.0rz.tw*',
+    '*1-apple.com.tw*',
+    '*123rf.com*',
+    '*.12bet.com*',
+    '*.12vpn.com*',
+    '*141hongkong.com/forum*',
+    '*.173ng.com*',
+    '*1984bbs.com*',
+    '*.1984bbs.org*',
+    '*.1bao.org*',
+    '*.1eew.com*',
+    '*.2-hand.info*',
+    '*.2000fun.com/bbs*',
+    '*.2008xianzhang.info*',
+    '*21andy.com/blog*',
+    '*24smile.org*',
+    '*.2shared.com*',
+    '*.315lz.com*',
+    '*5i01.com*',
+    '*taiwannation.50webs.com*',
+    '*.5maodang.com*',
+    '*64memo*',
+    '*64tianwang.com*',
+    '*64wiki.com*',
+    '*666kb.com*',
+    '*6park.com*',
+    '*.881903.com/page/zh-tw/*',
+    '*.888.com*',
+    '*89-64.org*',
+    '*.9001700.com*',
+    '*.92ccav.com*',
+    '*a5.com.ru*',
+    '*.aboluowang.com*',
+    '*.aboutgfw.com*',
+    '*actimes.com.au*',
+    '*adultfriendfinder.com*',
+    '*adultkeep.net/peepshow/members/main.htm*',
+    '*aiph.net*',
+    '*.aisex.com*',
+    '*.aiweiweiblog.com*',
+    '*alexlur.org*',
+    '*aliengu.com*',
+    '*allgirlsallowed.org*',
+    '*alliance.org.hk*',
+    '*.allinfa.com*',
+    '*alvinalexander.com*',
+    '*alwaysdata.com*',
+    '*amazon.com/Prisoner-State-Secret-Journal-Premier*',
+    '*ameblo.jp*',
+    '*.amnesty.org*',
+    '*.amnestyusa.org*',
+    '*.amoiist.com*',
+    '*amzs.me*',
+    '*analyze-v.com*',
+    '*animecrazy.net*',
+    '*.anonymizer.com*',
+    '*anontext.com*',
+    '*.antiwave.net*',
+    '*video.aol.ca/video-detail*',
+    '*video.aol.co.uk/video-detail*',
+    '*video.aol.com*',
+    '*www.aolnews.com*',
+    '*video.ap.org*',
+    '*.apetube.com*',
+    '*.apigee.com*',
+    '*appledaily.com*',
+    '*archive.is*',
+    '*archive.org*',
+    '*.arctosia.com*',
+    '*artsy.net*',
+    '*.asahichinese.com*',
+    '*asdfg.jp/dabr*',
+    '*.asiaharvest.org*',
+    '*asianews.it*',
+    '*.askynz.net*',
+    '*.atchinese.com*',
+    '*atgfw.org*',
+    '*.atlaspost.com*',
+    '*.atnext.com*',
+    '*avaaz.org*',
+    '*forum.baby-kingdom.com*',
+    '*babynet.com.hk*',
+    '*backchina.com*',
+    '*.backpackers.com.tw/forum*',
+    '*badoo.com*',
+    '*hen.bao.li*',
+    '*bannedbook.org*',
+    '*bayvoice.net*',
+    '*dajusha.baywords.com*',
+    '*.bbc.co.uk*chinese*',
+    '*.bbc.co.uk/tv*',
+    '*.bbc.co.uk*zhongwen*',
+    '*news.bbc.co.uk/onthisday*newsid_2496000/2496277*',
+    '*newsforums.bbc.co.uk*',
+    '*.bbcchinese.com*',
+    '*.bbg.gov*',
+    '*bbsland.com*',
+    '*.bcc.com.tw/board*',
+    '*.bcchinese.net*',
+    '*.bebo.com*',
+    '*beijingspring.com*',
+    '*.berlintwitterwall.com*',
+    '*.bestforchina.org*',
+    '*.bestvpnservice.com*',
+    '*.bet365.com*',
+    '*.betfair.com*',
+    '*.bettween.com*',
+    '*.bewww.net*',
+    '*biantailajiao.com*',
+    '*bigfools.com*',
+    '*.bignews.org*',
+    '*.bigsound.org/portnoy*',
+    '*billypan.com/wiki/%E9%A6%96%E9%A0%81*',
+    '*bipic.net*',
+    '*.bit.ly*',
+    '*.bitshare.com/files*',
+    '*http://bitshare.com/files*',
+    '*bjzc.org*',
+    '*tor.blingblingsquad.net*',
+    '*.blinkx.com*',
+    '*blinw.com*',
+    '*.blip.tv*',
+    '*.blockcn.com*',
+    '*.blogcatalog.com*',
+    '*.blogger.com*',
+    '*blogimg.jp*',
+    '*.bloglines.com*',
+    '*.bloglovin.com*',
+    '*rconversation.blogs.com*',
+    '*blogspot.co.uk*',
+    '*blogspot.com*',
+    '*blogspot.de*',
+    '*blogspot.fr*',
+    '*blogspot.in*',
+    '*blogspot.jp*',
+    '*blogtd.net*',
+    '*.blogtd.org*',
+    '*.bloomberg.cn*',
+    '*.bloomberg.com*',
+    '*bloomberg.de*',
+    '*boardreader.com/thread*',
+    '*bonbonme.com*',
+    '*.botanwang.com*',
+    '*.bot.nu*',
+    '*.bowenpress.com*',
+    '*dl.box.net*',
+    '*boxun.com*',
+    '*.boxun.tv*',
+    '*boxunblog.com*',
+    '*.break.com*',
+    '*.breakingtweets.com*',
+    '*.briefdream.com/%E7%B4%A0%E6%A3%BA*',
+    '*brightkite.com*',
+    '*brizzly.com*',
+    '*broadbook.com*',
+    '*ibros.org*',
+    '*brucewang.net*',
+    '*.budaedu.org*',
+    '*.bullog.org*',
+    '*.bullogger.com*',
+    '*.businessweek.com*',
+    '*.businesstimes.com.cn*',
+    '*buzzurl.jp*',
+    '*bwsj.hk*',
+    '*holz.byethost8.com*',
+    '*.c-spanvideo.org*',
+    '*.cactusvpn.com*',
+    '*.cafepress.com*',
+    '*.calameo.com/books*',
+    '*cn.calameo.com*',
+    '*canadameet.com*',
+    '*http://www.cantonese.asia/action-bbs.html*',
+    '*.canyu.org*',
+    '*.cao.im*',
+    '*.caobian.info*',
+    '*caochangqing.com*',
+    '*cari.com.my*',
+    '*.catholic.org.hk*',
+    '*catholic.org.tw*',
+    '*.cbsnews.com/video*',
+    '*.ccdtr.org*',
+    '*cclife.org*',
+    '*.ccthere.com*',
+    '*.cctongbao.com/article/2078732*',
+    '*ccue.ca*',
+    '*ccue.com*',
+    '*cdjp.org*',
+    '*.cdnews.com.tw*',
+    '*cdp1998.org*',
+    '*cdp2006.org*',
+    '*cdpusa.org*',
+    '*cdpweb.org*',
+    '*cdpwu.org*',
+    '*.cecc.gov*',
+    '*.centurys.net*',
+    '*.change.org*',
+    '*.changp.com*',
+    '*.chaturbate.com*',
+    '*chengmingmag.com*',
+    '*.chenguangcheng.com*',
+    '*chenpokong.com*',
+    '*.china-week.com*',
+    '*china101.com*',
+    '*china21.org*',
+    '*chinaaffairs.org*',
+    '*chinaaid.us*',
+    '*chinacomments.org*',
+    '*chinachannel.hk*',
+    '*.chinadigitaltimes.net*',
+    '*.chinaeweekly.com*',
+    '*chinageeks.org*',
+    '*chinagfw.org*',
+    '*.chinagreenparty.org*',
+    '*.chinahush.com*',
+    '*chinalawtranslate.com*',
+    '*chinaxchina.com/howto*',
+    '*.chinainperspective.com*',
+    '*chinainperspective.net/ArtShow.aspx?*',
+    '*.chinainperspective.org*',
+    '*chinalawandpolicy.com*',
+    '*.chinamule.com*',
+    '*chinamz.org*',
+    '*chinasocialdemocraticparty.com*',
+    '*chinasoul.org*',
+    '*chinatimes.com*',
+    '*chinatweeps.com*',
+    '*chinaway.org*',
+    '*.chinaworker.info*',
+    '*chinayouth.org.hk*',
+    '*chinayuanmin.org*',
+    '*.chinese-hermit.net*',
+    '*chinese-memorial.org*',
+    '*.chinesen.de*',
+    '*chinesenewsnet.com*',
+    '*.chinesepen.org*',
+    '*.chinesetalks.net/ch*',
+    '*.chingcheong.com*',
+    '*chn.chosun.com*',
+    '*christianstudy.com*',
+    '*christusrex.org/www1/sdc*',
+    '*chubun.com*',
+    '*chuizi.net*',
+    '*.chrlawyers.hk*',
+    '*.citizenlab.org*',
+    '*citizensradio.org*',
+    '*city9x.com*',
+    '*.civicparty.hk*',
+    '*civilhrfront.org*',
+    '*psiphon.civisec.org*',
+    '*.ck101.com*',
+    '*.clb.org.hk*',
+    '*.clipfish.de*',
+    '*.cmule.com*',
+    '*.cnavista.com.tw/shop/stores_app*',
+    '*.cnd.org*',
+    '*wiki.cnitter.com*',
+    '*.cnn.com/video*',
+    '*news.cnyes.com*',
+    '*.code1984.com/64*',
+    '*comefromchina.com*',
+    '*.coolaler.com*',
+    '*coolder.com*',
+    '*corumcollege.com*',
+    '*cpj.org*',
+    '*crackle.com*',
+    '*crd-net.org*',
+    '*creaders.net*',
+    '*.crossthewall.net*',
+    '*csdparty.com*',
+    '*cts.com.tw*',
+    '*.cuhkacs.org/~benng*',
+    '*.cuihua.org*',
+    '*.cuiweiping.net*',
+    '*.culture.tw*',
+    '*forum.cyberctm.com/forum*',
+    '*cytode.us*',
+    '*cl.d0z.net*',
+    '*.dabr.co.uk*',
+    '*dabr.mobi*',
+    '*dadazim.com*',
+    '*.dadi360.com*',
+    '*dafagood.com*',
+    '*dafahao.com*',
+    '*.dailidaili.com*',
+    '*.dailymotion.com*',
+    '*.dajiyuan.com*',
+    '*.dajiyuan.eu*',
+    '*dalailama.com*',
+    '*.dalailamaworld.com*',
+    '*dalianmeng.org*',
+    '*.danke4china.net*',
+    '*.danwei.org*',
+    '*.daolan.net*',
+    '*daxa.cn*',
+    '*cn.dayabook.com*',
+    '*.daylife.com/topic/dalai_lama*',
+    '*.ddc.com.tw*',
+    '*.de-sci.org*',
+    '*lists.debian.org*',
+    '*packages.debian.org/zh-cn/lenny/gpass*',
+    '*delicious.com/GFWbookmark*',
+    '*.democrats.org*',
+    '*.diaoyuislands.org*',
+    '*.diigo.com*',
+    '*.discuss.com.hk*',
+    '*disp.cc*',
+    '*.dit-inc.us*',
+    '*.dizhidizhi.com*',
+    '*djangosnippets.org*',
+    '*.docstoc.com/docs*',
+    '*.dojin.com*',
+    '*.dok-forum.net*',
+    '*.domain.club.tw*',
+    '*dongde.com*',
+    '*dongtaiwang.com*',
+    '*.dongtaiwang.net*',
+    '*.dongyangjing.com*',
+    '*.dontfilter.us*',
+    '*.dotplane.com*',
+    '*doubleaf.com*',
+    '*dowei.org*',
+    '*dphk.org*',
+    '*dpp.org.tw*',
+    '*.dropbox.com*',
+    '*.drtuber.com*',
+    '*dtiserv2.com*',
+    '*.duckload.com/download*',
+    '*.duihua.org*',
+    '*.duoweitimes.com*',
+    '*duping.net*',
+    '*dupola.com*',
+    '*dupola.net*',
+    '*.dw.de*',
+    '*.dw-world.com*',
+    '*.dw-world.de*',
+    '*http://dw-world.de*',
+    '*www.dwheeler.com*',
+    '*dwnews.com*',
+    '*xys.dxiong.com*',
+    '*dy24k.info*',
+    '*.dzze.com*',
+    '*.e-gold.com*',
+    '*e-info.org.tw*',
+    '*.e-traderland.net/board*',
+    '*hkjp.easyweb.hk*',
+    '*ebookbrowse.com*',
+    '*ebookee.com*',
+    '*ecministry.net*',
+    '*bbs.ecstart.com*',
+    '*edicypages.com*',
+    '*edoors.com*',
+    '*.edubridge.com*',
+    '*efcc.org.hk*',
+    '*electionsmeter.com*',
+    '*.eltondisney.com*',
+    '*.emory.edu*',
+    '*.emule-ed2k.com*',
+    '*chinese.engadget.com*',
+    '*epochtimes-bg.com*',
+    '*epochtimes-romania.com*',
+    '*epochtimes.co.il*',
+    '*epochtimes.co.kr*',
+    '*epochtimes.com*',
+    '*epochtimes.de*',
+    '*epochtimes.fr*',
+    '*.epochtimes.ie*',
+    '*epochtimes.jp*',
+    '*epochtimes.ru*',
+    '*epochtimes.se*',
+    '*epochtimestr.com*',
+    '*erabaru.net*',
+    '*.erepublik.com*',
+    '*etaiwannews.com*',
+    '*www.eulam.com*',
+    '*eventful.com*',
+    '*.extremetube.com*',
+    '*eyevio.jp*',
+    '*.ezpc.tk/category/soft*',
+    '*.ezpeer.com*',
+    '*.facebook.com*',
+    '*.fakku.net*',
+    '*falunart.org*',
+    '*falundafa.org*',
+    '*falundafamuseum.org*',
+    '*fangongheike.com*',
+    '*fanqianghou.com*',
+    '*fapdu.com*',
+    '*.fawanghuihui.org*',
+    '*fanqiangyakexi.net*',
+    '*fail.hk*',
+    '*.fan-qiang.com*',
+    '*.fangbinxing.com*',
+    '*fangeming.com*',
+    '*.farwestchina.com*',
+    '*favorious.com*',
+    '*en.favotter.net*',
+    '*favstar.fm*',
+    '*faydao.com/weblog*',
+    '*fb.me*',
+    '*fc2.com*',
+    '*.fc2china.com*',
+    '*shifeike.blog125.fc2blog.net*',
+    '*video.fdbox.com*',
+    '*.fdc89.jp*',
+    '*feedbooks.mobi*',
+    '*feeds.feedburner.com*',
+    '*feeds2.feedburner.com/chinagfwblog*',
+    '*feer.com*',
+    '*felixcat.net*',
+    '*.fengzhenghu.com*',
+    '*fflick.com*',
+    '*fgmtv.net*',
+    '*.fgmtv.org*',
+    '*.filefactory.com/file*',
+    '*.files2me.com*',
+    '*.fileserve.com/file*',
+    '*fillthesquare.org*',
+    '*findbook.tw*',
+    '*finler.net*',
+    '*.fireofliberty.org*',
+    '*.falsefire.com*',
+    '*fleshbot.com*',
+    '*.flickr.com/photos/46231077@N06*',
+    '*.flickr.com/groups/aiweiwei*',
+    '*.flickr.com/photos/digitalboy100*',
+    '*.flickr.com/photos/fzhenghu*',
+    '*.flickr.com/photos/lonelyfox*',
+    '*flickr.com/photos/vanvan/529925157*',
+    '*.flickr.com/photos/winterkanal*',
+    '*.flickr.com/photos/zola*',
+    '*flickrhivemind.net*',
+    '*yuming.flnet.org*',
+    '*blog.foolsmountain.com*',
+    '*www.forum4hk.com*',
+    '*pioneer-worker.forums-free.com*',
+    '*video.foxbusiness.com*',
+    '*.focusvpn.com*',
+    '*.fooooo.com*',
+    '*footwiball.com*',
+    '*foxtang.com*',
+    '*.freakshare.com*',
+    '*free-gate.org*',
+    '*.free.fr/adsl*',
+    '*kineox.free.fr*',
+    '*whitebear.freebearblog.org*',
+    '*.freechal.com*',
+    '*.freedomhouse.org*',
+    '*.freegao.com*',
+    '*.freelotto.com*',
+    '*freeman2.com*',
+    '*.freeopenvpn.com*',
+    '*freemoren.com*',
+    '*freemorenews.com*',
+    '*freenet-china.org*',
+    '*freenewscn.com*',
+    '*.freeoz.org/bbs*',
+    '*.free-ssh.com*',
+    '*.freeoz.org*',
+    '*www.freetibet.org*',
+    '*.freewebs.com*',
+    '*.freexinwen.com*',
+    '*friendfeed.com*',
+    '*friendfeed-media.com/e99a4ebe2fb4c1985c2a58775eb4422961aa5a2e*',
+    '*freevpn.nl*',
+    '*.fring.com*',
+    '*.frontlinedefenders.org*',
+    '*.fsurf.com*',
+    '*.fuckcnnic.net*',
+    '*fuckgfw.org*',
+    '*fulue.com*',
+    '*.funf.tw*',
+    '*funp.com*',
+    '*.futurechinaforum.org*',
+    '*fzh999.com*',
+    '*fzh999.net*',
+    '*gamebase.com.tw*',
+    '*.gamer.com.tw*',
+    '*.gamez.com.tw*',
+    '*.gaoming.net*',
+    '*ganges.com*',
+    '*.gaopi.net*',
+    '*gardennetworks.com*',
+    '*72.52.81.22*',
+    '*.gazotube.com*',
+    '*.gcpnews.com*',
+    '*.gdbt.net/forum*',
+    '*gdzf.org*',
+    '*geekerhome.com/2010/03/xixiang-project-cross-gfw*',
+    '*.geocities.co.jp*',
+    '*.geocities.com/SiliconValley/Circuit/5683/download.html*',
+    '*hk.geocities.com*',
+    '*geocities.jp*',
+    '*.getchu.com*',
+    '*.getfreedur.com*',
+    '*.getjetso.com/forum*',
+    '*getiton.com*',
+    '*.getsocialscope.com*',
+    '*gfw.org.ua*',
+    '*.ggssl.com*',
+    '*gigporno.ru*',
+    '*globalmuseumoncommunism.org*',
+    '*.globalvoicesonline.org*',
+    '*gmbd.cn*',
+    '*godfootsteps.org*',
+    '*gongmeng.info*',
+    '*gongm.in*',
+    '*gongminliliang.com*',
+    '*.gongwt.com*',
+    '*.goodreads.com*',
+    '*.goodreaders.com*',
+    '*.googlesile.com*',
+    '*.gopetition.com*',
+    '*grandtrial.org*',
+    '*greatfirewall.biz*',
+    '*.greatfirewallofchina.org*',
+    '*.greenparty.org.tw*',
+    '*gpass1.com*',
+    '*great-firewall.com*',
+    '*great-roc.org*',
+    '*greatroc.org*',
+    '*greatzhonghua.org*',
+    '*.greenvpn.net*',
+    '*gs-discuss.com*',
+    '*guancha.org*',
+    '*.gun-world.net*',
+    '*.gzm.tv*',
+    '*.appspot.com*',
+    '*code.google.com/p/gappproxy*',
+    '*code.google.com/p/gaeproxy*',
+    '*code.google.com/p/west-chamber-season-3*',
+    '*code.google.com/p/icefox*',
+    '*code.google.com/p/breakwall*',
+    '*code.google.com/p/program-think/wiki/Software*',
+    '*code.google.com/p/scholarzhang*',
+    '*code.google.com/p/vforchrome/wiki/Start*',
+    '*code.google.com/p/tuite*',
+    '*code.google.com/p/twitese*',
+    '*code.google.com/p/twip*',
+    '*code.google.com/p/huhamhire-hosts*',
+    '*gfwinterceptor.googlecode.com*',
+    '*goagent.googlecode.com*',
+    '*gtap.googlecode.com*',
+    '*sshtunnel.googlecode.com*',
+    '*tuite.googlecode.com*',
+    '*gaeproxy.googlecode.com*',
+    '*docs.google.com/Doc?docid=0Ae9jWMoUhgV1ZHd0cjJ2NV81NGQ5MnI0d3E1*',
+    '*docs.google.com/View?id=d8xbpp6_4hhpb2dfd*',
+    '*docs.google.com/View?id=dds68dz_9cqgm8vgq*',
+    '*docs.google.com*View*id*dg5mtmj9_8g3hk27f5*',
+    '*docs.google.com*View*id*dg5mtmj9_3188x48zcn*',
+    '*docs.google.com*dgtbmwd6_934gg99v6g4cc*',
+    '*docs.google.com/View?id=dhh5gtxb_145nsxgctcc*',
+    '*chinaaid.net*',
+    '*echofon.com*',
+    '*wozy.in*',
+    '*.google.*%D8%BA%D8%A7*',
+    '*.google.*/complete/search*',
+    '*/search?q=cache*',
+    '*/search%3Fq%3Dcache*',
+    '*%2Fsearch%3Fq%3Dcache*',
+    '*google*search*q=cache*',
+    '*.google.*search*8964*',
+    '*.google.*boxun*',
+    '*.google.*chinese+people+eating+babies*',
+    '*.google.*http*dotsub.com*',
+    '*.google.*east*turkistan*',
+    '*.google.*facebook*',
+    '*.google.*falun*',
+    '*.google.*freechina*',
+    '*.google.*freetibet*',
+    '*.google.*gfw*',
+    '*.google.*goagent*',
+    '*.google.*&q=gpass*',
+    '*.google.*great*firewall*',
+    '*.google.*hujin*',
+    '*.google.*huayuan*',
+    '*.google.*jiaqinglin*',
+    '*.google.*jiangzemin*',
+    '*.google.*&q=jzm&*',
+    '*.google.*nytimes*',
+    '*.google.*peacehall*',
+    '*.googlw.*president.gov.tw*',
+    '*.google.*protest*1989*',
+    '*.google.*prisoner+of+the+state*',
+    '*.google.*search*Tankman*',
+    '*.google.*tbm=mbl*',
+    '*.google.*tbm%3Dmbl*',
+    '*.google.*search*tbs=mbl*',
+    '*.google.*search*tbs%3Dmbl*',
+    '*.google.*tbs=qdr*',
+    '*.google.*tbs%3Dqdr*',
+    '*.google.*tbs=rltm*',
+    '*.google.*tbs%3Drltm*',
+    '*.google.*Tiananmen*',
+    '*.google.*tianwang*',
+    '*.google.*Tibetan*independence*',
+    '*.google.*twitter*',
+    '*.google.*xijinping*',
+    '*.google.*&q=ytht&*',
+    '*.google.*zhouyongkang*',
+    '*.google.*08*%E5%AE%AA%E7%AB%A0*',
+    '*.google.*64*%E7%9C%9F%E7%9B%B8*',
+    '*.google.*64*%E9%95%87%E5%8E%8B*',
+    '*.google.*%E5%85%AB%E4%B9%9D*',
+    '*.google.*%E5%8C%97%E5%9B%BD%E4%B9%8B%E6%98%A5*',
+    '*.google.*%E5%8C%97%E4%BA%AC%E4%B9%8B%E6%98%A5 *',
+    '*.google.*%E9%99%88%E7%A0%B4%E7%A9%BA*',
+    '*.google.*%E8%B5%A4%E5%8C%AA*',
+    '*.google.*%E8%BE%BE%E8%B5%96%E5%96%87%E5%98%9B*',
+    '*.google.*%E4%BB%A3%E5%BC%80*%E5%8F%91%E7%A5%A8*',
+    '*.google.*%E5%8F%91%E7%A5%A8*%E4%BB%A3%E5%BC%80*',
+    '*.google.*%E4%BB%A3%E7%90%86*',
+    '*.google.*%E5%9C%B0%E4%B8%8B%E6%95%99%E4%BC%9A*',
+    '*.google.*%E7%8B%AC%E7%AB%8B%E5%8F%B0%E6%B9%BE%E4%BC%9A*',
+    '*.google.*%E7%8B%AC%E7%AB%8B%E4%B8%AD%E6%96%87%E7%AC%94%E4%BC%9A*',
+    '*.google.*%E5%8F%91%E8%AF%BE*',
+    '*.google.*%E6%B3%95%E6%8B%89%E5%88%A9*',
+    '*.google.*%E7%BF%BB%E5%A2%99*',
+    '*.google.*%E6%96%B9%E6%BB%A8%E5%85%B4*',
+    '*.google.*%E9%98%B2%E7%81%AB%E9%95%BF%E5%9F%8E*',
+    '*.google.*%E5%86%AF%E6%AD%A3%E8%99%8E*',
+    '*.google.*%E9%AB%98%E6%99%BA%E6%99%9F*',
+    '*.google.*%E9%9D%A9%E5%91%BD*',
+    '*.google.*%E5%85%B1%E4%BA%A7*',
+    '*.google.*%E5%85%B3%E9%94%AE%E6%97%B6%E5%88%BB*',
+    '*.google.*%E5%B9%BF%E5%9C%BA*',
+    '*.google.*%E5%9B%BD%E5%AE%B6%E9%98%B2%E7%81%AB%E5%A2%99*',
+    '*.google.*%E8%9B%A4%E8%9F%86*',
+    '*.google.*%E9%9B%86%E4%BC%9A*',
+    '*.google.*%E8%AE%B0%E8%80%85%E6%97%A0%E7%96%86%E7%95%8C*',
+    '*.google.*%E5%AE%B6%E5%AE%9D*',
+    '*.google.*%E5%81%87%E5%BA%86%E6%B7%8B*',
+    '*.google.*%E6%88%92%E4%B8%A5*',
+    '*.google.*%E9%94%A6%E6%B6%9B*',
+    '*.google.*%E7%BB%8F%E6%96%87*',
+    '*.google.*%E8%BF%91%E5%B9%B3*',
+    '*.google.*%E4%B9%9D%E5%B8%B8%E5%A7%94*',
+    '*.google.*%E9%85%B7%E5%88%91*',
+    '*.google.*%E4%BB%A4*',
+    '*.google.*%E9%9B%B6%E5%85%AB*%E5%AE%AA%E7%AB%A0*',
+    '*.google.*search*%E5%88%98%E6%B7%87*',
+    '*.google.*%E5%85%AD*%E5%9B%9B*',
+    '*.google.*%E9%B2%81%E6%98%95*',
+    '*.google.*%E9%A9%AC%E5%87%AF*',
+    '*.google.*%E9%A9%AC%E5%8A%9B*',
+    '*.google.*%E9%BA%A6%E5%BD%93%E5%8A%B3*',
+    '*.google.*%E6%AF%9B%E5%90%91%E8%BE%89*',
+    '*.google.*%E5%86%85%E8%92%99*%E7%A4%BA%E5%A8%81*',
+    '*.google.*%E5%AD%9F%E5%BB%BA%E6%9F%B1*',
+    '*.google.*%E6%A2%A6%E8%90%A6%E6%9C%AA%E5%90%8D%E6%B9%96*',
+    '*.google.*%E5%85%8D%E8%B4%B9*vpn*',
+    '*.google.*%E8%8C%89%E8%8E%89*',
+    '*.google.*%E8%8E%AB%E6%97%A5%E6%A0%B9*',
+    '*.google.*%E7%BA%B3%E7%B1%B3%E6%AF%94%E4%BA%9A*',
+    '*.google.*%E8%AF%BA%E8%B4%9D%E5%B0%94%E5%92%8C%E5%B9%B3%E5%A5%96*',
+    '*.google.com*search*namibia*nuctech*',
+    '*.google.*%E7%9B%98%E5%8F%A4%E4%B9%90%E9%98%9F*',
+    '*.google.*%E5%BD%AD%E4%B8%BD%E5%AA%9B*',
+    '*.google.*%E8%BF%AB%E5%AE%B3*',
+    '*.google.*%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F*',
+    '*.google.*%E6%9E%AA%E5%A3%B0*',
+    '*.google.*%E9%9D%92%E5%A4%A9%E7%99%BD%E6%97%A5%E6%97%97*',
+    '*.google.*%E4%BA%BA%E6%B0%91%E5%85%AC%E5%9B%AD*',
+    '*.google.*%E6%97%A5%E8%AE%B0*',
+    '*.google.*%E4%B8%89%E9%80%80*',
+    '*.google.*%E4%B8%96%E7%BB%B4%E4%BC%9A*',
+    '*.google.*%E5%8F%B8%E5%BE%92%E5%8D%8E*',
+    '*.google.*%E5%A4%AA%E5%AD%90*',
+    '*.google.*search*%E8%B0%AD%E4%BD%9C%E4%BA%BA*',
+    '*.google.*%E5%A4%A9%E5%AE%89%E9%97%A8*',
+    '*.google.*%E5%A4%A9%E7%81%AD*',
+    '*.google.*%E5%A4%A9%E7%BA%BF%E5%AE%9D%E5%AE%9D*%E5%BA%B7%E5%B8%88%E5%82%85*',
+    '*.google.*%E5%BA%B7%E5%B8%88%E5%82%85*%E5%A4%A9%E7%BA%BF%E5%AE%9D%E5%AE%9D*',
+    '*.google.*%E7%AA%81%E5%B0%BC%E6%96%AF*',
+    '*.google.*%E6%8E%A8%E7%89%B9*',
+    '*.google.*%E6%B1%AA%E6%96%AF*',
+    '*.google.*%E5%94%AF%E8%89%B2*',
+    '*.google.*%E5%A8%81%E8%A7%86%E5%85%AC%E5%8F%B8*',
+    '*.google.com*%E6%88%91%E6%B2%A1%E6%9C%89%E6%95%8C%E4%BA%BA*',
+    '*.google.*%E4%B9%8C%E5%B0%94%E5%87%AF%E8%A5%BF*',
+    '*.google.*%E4%BC%8D%E5%87%A1*',
+    '*.google.*%E7%86%99%E6%9D%A5*',
+    '*.google.%E6%96%B0%E7%96%86*%E7%8B%AC%E7%AB%8B*',
+    '*.google.*%E6%96%B0%E4%BA%AC%E6%8A%A5*',
+    '*.google.*%E5%BE%90%E6%89%8D%E5%8E%9A*',
+    '*.google.com.*%E5%AE%A3%E8%A8%80*',
+    '*.google.*%E5%AD%A6%E6%BD%AE*',
+    '*.google.*%E8%80%80%E9%82%A6*',
+    '*.google.*%E6%9C%88%E6%9C%88*',
+    '*.google.*%E5%BD%B1%E5%B8%9D*',
+    '*.google.*search*%E4%BF%9E%E6%AD%A3%E5%A3%B0*',
+    '*.google.*%E9%98%85%E5%90%8E%E5%8D%B3%E7%84%9A*',
+    '*.google.*%E8%97%8F%E7%8B%AC*',
+    '*.google.*%E6%B3%BD%E6%B0%91*',
+    '*.google.*%E5%BC%A0%E9%AB%98%E4%B8%BD*',
+    '*.google.*%E6%B5%99%E5%A4%A7%E6%8B%9B%E7%94%9F%E5%8A%9E*',
+    '*.google.*%E7%9C%9F%E7%90%86%E9%83%A8*',
+    '*.google.*%E7%9C%9F%E7%9B%B8*',
+    '*.google.*%E6%94%BF%E5%8F%98*',
+    '*.google.*%E6%94%BF%E6%B2%BB%E5%B1%80*',
+    '*.google.*%E7%9F%A5%E6%83%85%E8%80%85*',
+    '*.google.*%E4%B8%AD%E5%85%B1*',
+    '*.google.*%E4%B8%AD%E5%9B%BD*%E7%A6%81%E9%97%BB*',
+    '*.google.*%E4%B8%AD%E5%9B%BD%E6%B0%91%E4%B8%BB%E5%85%9A*',
+    '*.google.*%E4%B8%AD%E5%9B%BD%E6%B0%91%E4%B8%BB%E8%BF%90%E5%8A%A8*',
+    '*.google.*%E4%B8%AD%E5%9B%BD%E6%95%B0%E5%AD%97%E6%97%B6%E4%BB%A3*',
+    '*.google.*%E4%B8%AD%E5%9B%BD%E5%86%A4%E6%B0%91%E5%A4%A7%E5%90%8C%E7%9B%9F*',
+    '*.google.*%E8%BF%BD%E6%9F%A5%E5%9B%BD%E9%99%85*',
+    '*.google.*%E7%B4%AB%E9%98%B3*',
+    '*.google.*%E8%87%AA%E7%94%B1%E9%97%A8*',
+    '*.google.*%E8%87%AA%E7%94%B1%E9%96%80*',
+    '*.google.*q=%E8%87%AA%E7%94%B1%E4%BA%9A%E6%B4%B2%E7%94%B5%E5%8F%B0*',
+    '*.google.com/m*%E8%B4%BA*',
+    '*.google.*/search*%E8%B4%BA*',
+    '*.google.com/m*%E8%83%A1*',
+    '*.google.*/search*%E8%83%A1*',
+    '*.google.com/m*%E8%B4%BE*',
+    '*.google.*/search*%E8%B4%BE*',
+    '*.google.*%E6%B1%9F*',
+    '*.google.com/m*%E6%9D%8E*',
+    '*.google.*/search*%E6%9D%8E*',
+    '*.google.*/search*%E5%88%98*',
+    '*.google.*%E7%8E%8B*',
+    '*.google.com/m*%E6%B8%A9*',
+    '*.google.*/search*%E6%B8%A9*',
+    '*.google.com/m*%E5%90%B4*',
+    '*.google.*/search*%E5%90%B4*',
+    '*.google.com/m*%E4%B9%A0*',
+    '*.google.*/search*%E4%B9%A0*',
+    '*.google.*%E5%91%A8*',
+    '*.google.com/moderator*',
+    '*.google.com%2Fmoderator*',
+    '*.google.com/reader/view/feed*',
+    '*.google.com%2Freader%2Fview%2Ffeed*',
+    '*.google.com.hk/wenda*',
+    '*.google.com.hk%2Fwenda*',
+    '*feedproxy.google.com*',
+    '*groups.google.*group*',
+    '*knol.google.com/k/-/08/3jhi1zdzvxj3f*',
+    '*news.google.com.hk/nwshp?hl=zh-cn&tab=wn*',
+    '*picasaweb.google.com*',
+    '*sites.google.com*',
+    '*video.google.com*',
+    '*anti.anti.cnn.googlepages.com*',
+    '*myboooks.googlepages.com*',
+    '*.googlevideo.com*',
+    '*gospelherald.com*',
+    '*greatfire.org*',
+    '*greatfirewallofchina.org*',
+    '*guishan.org*',
+    '*.gyalwarinpoche.com*',
+    '*h1n1china.org*',
+    '*.hacken.cc/bbs*',
+    '*hahlo.com*',
+    '*.hanunyi.com*',
+    '*have8.com*',
+    '*.hecaitou.net*',
+    '*.hechaji.com*',
+    '*hellotxt.com*',
+    '*.hellouk.org/forum/lofiversion*',
+    '*.helpeachpeople.com*',
+    '*.helpzhuling.org*',
+    '*heqinglian.net*',
+    '*here4news.com*',
+    '*app.heywire.com*',
+    '*.hgseav.com*',
+    '*hidden-advent.org*',
+    '*hidecloud.com/blog/2008/07/29/fuck-beijing-olympics.html*',
+    '*.hidemyass.com*',
+    '*.hihiforum.com*',
+    '*.higfw.com*',
+    '*.himemix.com*',
+    '*times.hinet.net*',
+    '*.hjclub.info*',
+    '*.hk-pub.com/forum*',
+    '*.hk32168.com*',
+    '*app.hkatvnews.com/v3*',
+    '*hkbc.net*',
+    '*.hkbf.org*',
+    '*hkday.net*',
+    '*.hkdailynews.com.hk/china.php*',
+    '*.hkej.com/template/forum*',
+    '*.hkepc.com/forum/viewthread.php?tid=1153322*',
+    '*global.hkepc.com*forum*',
+    '*hkgolden.com*',
+    '*.hkgreenradio.org/home*',
+    '*.hkheadline.com*blog*',
+    '*.hkheadline.com/instantnews*',
+    '*.hkhkhk.com*',
+    '*hkjc.com*',
+    '*.hkjp.org*',
+    '*hkptu.org*',
+    '*.hkreporter.com*',
+    '*apps.hloli.net/gfwtube*',
+    '*hnjhj.com*',
+    '*holyspiritspeaks.org*',
+    '*hongmeimei.com*',
+    '*hootsuite.com*',
+    '*hotfile.com/dl*',
+    '*hotpot.hk*',
+    '*.hqcdp.org*',
+    '*.hrcir.com*',
+    '*hrichina.org*',
+    '*.hrw.org*',
+    '*huaglad.com*',
+    '*.huanghuagang.org*',
+    '*.huaren.us*',
+    '*huaxia-news.com*',
+    '*huaxin.ph*',
+    '*hua-yue.net*',
+    '*t.huhaitai.com*',
+    '*hutong9.net*',
+    '*iask.ca*',
+    '*iask.bz*',
+    '*ibiblio.org/pub/packages/ccic*',
+    '*blogs.icerocket.com/tag*',
+    '*w.idaiwan.com/forum*',
+    '*.identi.ca*',
+    '*.idouga.com*',
+    '*forum.idsam.com*',
+    '*.idv.tw*',
+    '*ieasynews.net*',
+    '*.ied2k.net*',
+    '*ifanqiang.com*',
+    '*.ifanr.com/857*',
+    '*.ifcss.org*',
+    '*ifjc.org*',
+    '*imageshack.us*',
+    '*.img.ly*',
+    '*.imkev.com*',
+    '*.imlive.com*',
+    '*immigration.gov.tw*',
+    '*.inmediahk.net*',
+    '*internetdefenseleague.org*',
+    '*internetfreedom.org*',
+    '*inxian.com*',
+    '*ipobar.com*',
+    '*iredmail.org*',
+    '*.beta.iset.com.tw/forum*',
+    '*http://beta.iset.com.tw/forum*',
+    '*forum.iset.com.tw*',
+    '*.islam.org.hk*',
+    '*.isaacmao.com*',
+    '*isohunt.com*',
+    '*blog.istef.info/2007/10/21/myentunnel*',
+    '*.istockphoto.com*',
+    '*isunaffairs.com*',
+    '*isuntv.com*',
+    '*itaboo.info*',
+    '*ithelp.ithome.com.tw*',
+    '*.itweet.net*',
+    '*.iu45.com*',
+    '*.izaobao.us*',
+    '*.izles.net*',
+    '*itunes.apple.*285688934*',
+    '*itunes.apple.*358801284*',
+    '*itunes.apple.*375584677*',
+    '*itunes.apple.*383949089*',
+    '*itunes.apple.*319295332*',
+    '*itunes.apple.*418987775*',
+    '*itunes.apple.com/us*id447119634*',
+    '*.apple.*isunaffairs*',
+    '*blog.jackjia.com*',
+    '*jbtalks.cc*',
+    '*jbtalks.com*',
+    '*jbtalks.my*',
+    '*jeanyim.com*',
+    '*.jiehua.cz*',
+    '*jieshibaobao.com*',
+    '*.jimoparty.com*',
+    '*jinbushe.org*',
+    '*zhao.jinhai.de*',
+    '*jingpin.org*',
+    '*ac.jiruan.net*',
+    '*jkforum.net*',
+    '*research.jmsc.hku.hk/social*',
+    '*jpopforum.net*',
+    '*.junefourth-20.net*',
+    '*justfreevpn.com*',
+    '*zh-tw.justin.tv*',
+    '*justtristan.com*',
+    '*juziyue.com*',
+    '*.jyxf.net*',
+    '*.kagyuoffice.org.tw*',
+    '*.kaiyuan.de*',
+    '*kanzhongguo.com*',
+    '*kanzhongguo.eu*',
+    '*.kechara.com*',
+    '*.keepandshare.com/visit/visit_page.php?i=688154*',
+    '*.kendincos.net*',
+    '*.kenengba.com*',
+    '*wiki.keso.cn/Home*',
+    '*.khmusic.com.tw*',
+    '*bbs.kimy.com.tw*',
+    '*kingdomsalvation.org*',
+    '*kinghost.com*',
+    '*.kingstone.com.tw*',
+    '*killwall.com*',
+    '*.kissbbao.cn*',
+    '*.knowledgerush.com/kr/encyclopedia*',
+    '*.koornk.com*',
+    '*.kui.name/event*',
+    '*kun.im*',
+    '*kusocity.com*',
+    '*kwongwah.com.my*',
+    '*kyohk.net*',
+    '*.kzeng.info*',
+    '*la-forum.org*',
+    '*ladbrokes.com*',
+    '*lagranepoca.com*',
+    '*.lalulalu.com*',
+    '*laogai.org*',
+    '*laomiu.com*',
+    '*.laoyang.info*',
+    '*.laqingdan.net*',
+    '*latelinenews.com*',
+    '*lerosua.org*',
+    '*blog.lester850.info*',
+    '*letscorp.net*',
+    '*liansi.org*',
+    '*.lianyue.net*',
+    '*.liaowangxizang.net*',
+    '*libertytimes.com.tw*',
+    '*.lidecheng.com/blog/fucking-gfw*',
+    '*limiao.net*',
+    '*abitno.linpie.com/use-ipv6-to-fuck-gfw*',
+    '*.linglingfa.com*',
+    '*.linkideo.com*',
+    '*linuxtoy.org/archives/installing-west-chamber-on-ubuntu*',
+    '*.lipuman.com*',
+    '*listorious.com*',
+    '*.liuhanyu.com*',
+    '*.liujianshu.com*',
+    '*liuxiaotong.com*',
+    '*liu.lu*',
+    '*.liveleak.com*',
+    '*.livestation.com*',
+    '*livestream.com*',
+    '*.livevideo.com*',
+    '*lizhizhuangbi.com*',
+    '*lkcn.net*',
+    '*logbot.net*',
+    '*.longhair.hk*',
+    '*.lookatgame.com*',
+    '*hkreporter.loved.hk*',
+    '*.lsd.org.hk*',
+    '*lsforum.net*',
+    '*.lupm.org*',
+    '*lvhai.org*',
+    '*m-team.cc/forum*',
+    '*www.macrovpn.com*',
+    '*marguerite.su*',
+    '*.maiio.net*',
+    '*mail-archive.com*',
+    '*malaysiakini.com/cn*',
+    '*markmail.org*message*',
+    '*maruta.be/forget*',
+    '*.marxist.com*',
+    '*.marxists.org/chinese*',
+    '*mashable.com*',
+    '*mayimayi.com*',
+    '*mcfog.com*',
+    '*.md-t.org*',
+    '*.mediafire.com/?*',
+    '*mefeedia.com*',
+    '*lich355.megabyet.net/%E7%BD%91%E7%BB%9C%E7%A5%9E%E5%85%BD%E5%8F%A4%E9%B8%BD%E8%BF%81%E7%A7%BB%E8%AE%B0*',
+    '*.megaporn.com*',
+    '*megavideo.com*',
+    '*meirixiaochao.com*',
+    '*memedia.cn*',
+    '*merit-times.com.tw*',
+    '*.mesotw.com/bbs*',
+    '*.metacafe.com*',
+    '*mgoon.com*',
+    '*mhradio.org*',
+    '*middle-way.net*',
+    '*.mihk.hk/forum*',
+    '*mihua.org*',
+    '*.mimivip.com*',
+    '*minghui.org*',
+    '*minghui-school.org*',
+    '*.mingjinglishi.com*',
+    '*mingjingnews.com*',
+    '*mingpao.com*',
+    '*.mingpaomonthly.com*',
+    '*mingpaonews.com*',
+    '*.mingpaony.com*',
+    '*.mingpaosf.com*',
+    '*.mingpaotor.com*',
+    '*.mingpaovan.com*',
+    '*.mininova.org/tor/2593503*',
+    '*.minzhuhua.net*',
+    '*minzhuzhongguo.org*',
+    '*mirrorbooks.com*',
+    '*mitbbs.com*',
+    '*.mixero.com*',
+    '*mixpod.com*',
+    '*.mixx.com*',
+    '*.mk5000.com*',
+    '*.mlcool.com*',
+    '*plurktop.mmdays.com*',
+    '*.mmmca.com*',
+    '*.mobile01.com*',
+    '*.mobypicture.com*',
+    '*wiki.moegirl.org*',
+    '*molihua.org*',
+    '*c1522.mooo.com*',
+    '*bbs.morbell.com*',
+    '*mp3ye.eu*',
+    '*mpfinance.com*',
+    '*mpinews.com*',
+    '*mrtweet.com*',
+    '*news.msn.com.tw*',
+    '*.msguancha.com*',
+    '*multiproxy.org*',
+    '*forum.mymaji.com*',
+    '*multiupload.com*',
+    '*.my-proxy.com*',
+    '*forum.my903.com*',
+    '*myactimes.com*',
+    '*.myav.com.tw/bbs*',
+    '*.mychinamyhome.com*',
+    '*.myforum.com.hk*',
+    '*.myfreshnet.com*',
+    '*mysinablog.com*',
+    '*.myspace.com*',
+    '*old.nabble.com*',
+    '*nanyang.com*',
+    '*.nanyangpost.com*',
+    '*.nanzao.com*',
+    '*.nakido.com*',
+    '*.naol.ca*',
+    '*cyberghost.natado.com*',
+    '*nccwatch.org.tw*',
+    '*.nch.com.tw*',
+    '*.ncn.org*',
+    '*www.ned.org*',
+    '*t.neolee.cn*',
+    '*netcolony.com*',
+    '*bolin.netfirms.com*',
+    '*zh.netlog.com*',
+    '*netme.cc*',
+    '*networkedblogs.com*',
+    '*neverforget8964.org*',
+    '*new-3lunch.net*',
+    '*.new-akiba.com*',
+    '*.newcenturymc.com*',
+    '*newcenturynews.com*',
+    '*.newchen.com*',
+    '*.newgrounds.com*',
+    '*newlandmagazine.com.au*',
+    '*news100.com.tw*',
+    '*.newscn.org*',
+    '*newspeak.cc/story*',
+    '*.newsancai.com*',
+    '*.newtaiwan.com.tw*',
+    '*newtalk.tw*',
+    '*newyorktimes.com*',
+    '*hk*.nextmedia.com*',
+    '*tw*.nextmedia.com*',
+    '*static.apple.nextmedia.com*',
+    '*nexttv.com.tw*',
+    '*ngensis.com*',
+    '*.nicovideo.jp/watch/*',
+    '*nintendium.com*',
+    '*.dayaarmongol.ning.com*',
+    '*taiwanyes.ning.com*',
+    '*njuice.com*',
+    '*nlfreevpn.com*',
+    '*nobelprize.org/nobel_prizes/peace/laureates/2010*',
+    '*nobodycanstop.us*',
+    '*.nowtorrents.com*',
+    '*.noypf.com*',
+    '*.nps.gov*',
+    '*.nrk.no*',
+    '*ntdtv.co*',
+    '*ntdtv.ca*',
+    '*ntdtv.org*',
+    '*ntdtv.ru*',
+    '*.nuvid.com*',
+    '*nuzcom.com*',
+    '*.nytimes.com*',
+    '*nysingtao.com*',
+    '*observechina.net*',
+    '*offbeatchina.com*',
+    '*twtr2src.ogaoga.org*',
+    '*.oikos.com.tw/v4*',
+    '*.oiktv.com*',
+    '*oizoblog.com*',
+    '*.okayfreedom.com*',
+    '*old-cat.net*',
+    '*.olympicwatch.org*',
+    '*omgili.com*',
+    '*omnitalk.com*',
+    '*forum.omy.sg*',
+    '*news.omy.sg*',
+    '*showbiz.omy.sg*',
+    '*the-sun.on.cc*',
+    '*tv.on.cc*',
+    '*.onlylady.cn*',
+    '*onmoon.net*',
+    '*onmoon.com*',
+    '*.oopsforum.com*',
+    '*open.com.hk*',
+    '*opendemocracy.net*',
+    '*myopenid.com*',
+    '*openid.net*',
+    '*.openleaks.org*',
+    '*openvpn.net*',
+    '*my.opera.com/dahema*',
+    '*opnir.com/215/myentunnel-ssh-autoproxy-cross-gfw*',
+    '*www.orchidbbs.com*',
+    '*orientaldaily.com.my*',
+    '*orientaldaily.on.cc*',
+    '*t.orzdream.com*',
+    '*tui.orzdream.com*',
+    '*m.oulove.org*',
+    '*oursogo.com*',
+    '*oursteps.com.au*',
+    '*xinqimeng.over-blog.com*',
+    '*share.ovi.com/media*',
+    '*www.owind.com*',
+    '*oyax.com*',
+    '*.ozchinese.com/bbs*',
+    '*bbs.ozchinese.com*',
+    '*.ozyoyo.com*',
+    '*.pacificpoker.com*',
+    '*.packetix.net*',
+    '*page2rss.com*',
+    '*.palacemoon.com*',
+    '*forum.palmislife.com*',
+    '*paper.li*',
+    '*paperb.us*',
+    '*.panluan.net*',
+    '*.panoramio.com*',
+    '*.parade.com/dictators/2009*',
+    '*pastebin.com*',
+    '*.pastie.org*',
+    '*pbs.org/wgbh/pages/frontline/gate*',
+    '*pbs.org/wgbh/pages/frontline/tankman*',
+    '*pbwiki.com*',
+    '*.pcdiscuss.com*',
+    '*pcdvd.com.tw*',
+    '*.pchome.com.tw*',
+    '*pdetails.com*',
+    '*peacefire.org*',
+    '*peacehall.com*',
+    '*.peeasian.com*',
+    '*.pekingduck.org*',
+    '*penchinese.com*',
+    '*.penchinese.net*',
+    '*pengyulong.com*',
+    '*.penthouse.com*',
+    '*.peopo.org*',
+    '*.percy.in*',
+    '*perfectvpn.net*',
+    '*perfspot.com*',
+    '*philly.com*',
+    '*.picidae.net*',
+    '*picturesocial.com*',
+    '*.pidown.com*',
+    '*.pign.net*',
+    '*blog.pilotmoon.com*',
+    '*.pin6.com*',
+    '*.ping.fm*',
+    '*.piring.com*',
+    '*.pixnet.net*',
+    '*.pk.com*',
+    '*.planetsuzy.org*',
+    '*plays.com.tw*',
+    '*plm.org.hk*',
+    '*plunder.com*',
+    '*.plus28.com*',
+    '*.plusbb.com*',
+    '*.pmates.com*',
+    '*.pokerstars.com*',
+    '*zh.pokerstrategy.com*',
+    '*politicalchina.org*',
+    '*popyard.com*',
+    '*.porn.com*',
+    '*.porn2.com*',
+    '*.pornbase.org*',
+    '*.pornhub.com*',
+    '*.pornoxo.com*',
+    '*.pornrapidshare.com*',
+    '*.pornstarclub.com*',
+    '*.porntube.com*',
+    '*.pornvisit.com*',
+    '*postadult.com*',
+    '*puffinbrowser.com*',
+    '*.posterous.com*',
+    '*.power.com*',
+    '*powerapple.com*',
+    '*heix.pp.ru*',
+    '*prisoner-state-secret-journal-premier*',
+    '*privatepaste.com*',
+    '*privatetunnel.com*',
+    '*provideocoalition.com*',
+    '*proxifier.com*',
+    '*api.proxlet.com*',
+    '*proxy.org*',
+    '*.proxypy.net*',
+    '*proxyroad.com*',
+    '*prozz.net*',
+    '*psblog.name*',
+    '*psiphon.ca*',
+    '*.ptt.cc*',
+    '*.puffstore.com*',
+    '*.putlocker.com/file*',
+    '*pwned.com*',
+    '*python.com*',
+    '*.python.com.tw*',
+    '*.qanote.com*',
+    '*qi-gong.me*',
+    '*.qienkuen.org*',
+    '*qixianglu.cn*',
+    '*bbs.qmzdd.com*',
+    '*.qkshare.com*',
+    '*qoos.com*',
+    '*blog.qooza.hk*dafengqixi*',
+    '*qusi8.net*',
+    '*.qvodzy.org*',
+    '*nemesis2.qx.net*pages*MyEnTunnel*',
+    '*qxbbs.org*',
+    '*radioaustralia.net.au*',
+    '*opml.radiotime.com*',
+    '*rangzen.org*',
+    '*ranyunfei.com*',
+    '*.rapbull.net*',
+    '*.rapidsharedata.com*',
+    '*rcinet.ca*',
+    '*.read100.com*',
+    '*.readingtimes.com.tw*',
+    '*.realraptalk.com*',
+    '*.recordhistory.org*',
+    '*blog.redren.com/2009/01/jap-let-you-use-online-stealth*',
+    '*.redtube.com*',
+    '*referer.us*',
+    '*relaxbbs.com*',
+    '*renminbao.com*',
+    '*.renyurenquan.org*',
+    '*subacme.rerouted.org*',
+    '*cn.reuters.com*',
+    '*.revleft.com*',
+    '*retweetist.com*',
+    '*connectedchina.reuters.com*',
+    '*revver.com*',
+    '*.rfa.org*',
+    '*.rfachina.com*',
+    '*.rfamobile.org*',
+    '*.rfi.fr*',
+    '*.rhcloud.com*',
+    '*.rileyguide.com*',
+    '*riku.me/*',
+    '*.rlwlw.com*',
+    '*chinese.rnw.nl*',
+    '*.rnw.nl*',
+    '*robtex.com*',
+    '*.roodo.com*',
+    '*.rsf.org*',
+    '*.rsf-chinese.org*',
+    '*.rssmeme.com*',
+    '*.rthk.hk*',
+    '*.rthk.org.hk*',
+    '*rti.org.tw*',
+    '*.ruanyifeng.com/blog*some_ways_to_break_the_great_firewall*',
+    '*.rushbee.com*',
+    '*rutube.ru*',
+    '*.ruyiseek.com*',
+    '*.rxhj.net*',
+    '*blog.s135.com/google_ssl*',
+    '*sacom.hk*',
+    '*.saiq.me*',
+    '*.salvation.org.hk*',
+    '*.samair.ru/proxy/type-01*',
+    '*sammyjs.org*',
+    '*sandnoble.com/bookSearch/isbnInquiry.asp*',
+    '*.sanmin.com.tw*',
+    '*sapikachu.net*',
+    '*savemedia.com*',
+    '*savetibet.org*',
+    '*savevid.com*',
+    '*.scmp.com*',
+    '*.scmpchinese.com*',
+    '*.scribd.com*',
+    '*seapuff.com*',
+    '*domainhelp.search.com*',
+    '*secretchina.com*',
+    '*securitykiss.com*',
+    '*seesmic.com*',
+    '*sejie.com*',
+    '*.sendspace.com/file*',
+    '*sesawe.net*',
+    '*.sesawe.org*',
+    '*forum.setty.com.tw*',
+    '*.sevenload.com*',
+    '*.sex.com*',
+    '*.sex-11.com*',
+    '*.sex8.cc*',
+    '*.sexandsubmission.com*',
+    '*.sexhu.com*',
+    '*.sexhuang.com*',
+    '*sexinsex.net*',
+    '*67.220.91.18*',
+    '*67.220.91.23*',
+    '*.sfileydy.com*',
+    '*shadow.ma*',
+    '*.shangfang.org*',
+    '*shapeservices.com*',
+    '*.sharebee.com*',
+    '*sharpdaily.com.hk*',
+    '*.sharpdaily.hk*',
+    '*.shaunthesheep.com*',
+    '*shenshou.org*',
+    '*shenyunperformingarts.org*',
+    '*shenzhoufilm.com*',
+    '*shinychan.com*',
+    '*.shitaotv.org*',
+    '*.shizhao.org*',
+    '*shkspr.mobi/dabr*',
+    '*.shopping.com*',
+    '*.showtime.jp*',
+    '*ch.shvoong.com*',
+    '*.shwchurch3.com*',
+    '*simplecd.org*',
+    '*simpleproductivityblog.com*',
+    '*bbs.sina.com/*',
+    '*bbs.sina.com%2F*',
+    '*blog.sina.com.tw*',
+    '*dailynews.sina.com/*',
+    '*dailynews.sina.com%2F*',
+    '*forum.sina.com.hk*',
+    '*home.sina.com*',
+    '*news.sina.com.hk*',
+    '*news.sina.com.tw*',
+    '*singtao.com*',
+    '*news.singtao.ca*',
+    '*sino-monthly.com*',
+    '*sinocism.com*',
+    '*sinomontreal.ca*',
+    '*.sinonet.ca*',
+    '*.sinopitt.info*',
+    '*.sinoants.com*',
+    '*sinoquebec.com*',
+    '*.sitebro.tw*',
+    '*sitetag.us*',
+    '*sis.xxx*',
+    '*sis001.us*',
+    '*bbs.skykiwi.com*',
+    '*share.skype.com/sites/en/2008/10/skype_president_addresses_chin*',
+    '*m.slandr.net*',
+    '*.slideshare.net*',
+    '*forum.slime.com.tw*',
+    '*.slutload.com*',
+    '*smhric.org*',
+    '*.so-ga.net*',
+    '*.so-news.com*',
+    '*home.so-net.net.tw/yisa_tsai*',
+    '*.sod.co.jp*',
+    '*.softether.org*',
+    '*sohcradio.com*',
+    '*.soumo.info*',
+    '*.slinkset.com*',
+    '*.snaptu.com*',
+    '*sneakme.net*',
+    '*.sobees.com*',
+    '*socialwhale.com*',
+    '*.softether.co.jp*',
+    '*blog.sogoo.org*',
+    '*soh.tw*',
+    '*sohfrance.org*',
+    '*chinese.soifind.com*',
+    '*sokamonline.com*',
+    '*.songjianjun.com*',
+    '*.sopcast.com*',
+    '*.sopcast.org*',
+    '*soundofhope.org*',
+    '*.sourceforge.net*',
+    '*southnews.com.tw*',
+    '*sowers.org.hk*',
+    '*.spankwire.com*',
+    '*.spb.com/blackberry-software/tv/download*',
+    '*.spb.com/pocketpc-software/tv/download*',
+    '*.spb.com/symbian-software/tv/download*',
+    '*.speedpluss.org*',
+    '*spinejs.com*',
+    '*squarespace.com*',
+    '*www.stackfile.com/freedur*',
+    '*usinfo.state.gov*',
+    '*.starp2p.com*',
+    '*.state168.com*',
+    '*sthoo.com*',
+    '*.stickam.com*',
+    '*stickeraction.com/sesawe*',
+    '*.stoptibetcrisis.net*',
+    '*cn.streetvoice.com/article*',
+    '*cn.streetvoice.com/diary*',
+    '*cn2.streetvoice.com*',
+    '*tw.streetvoice.com*',
+    '*.student.tw/db*',
+    '*stupidvideos.com*',
+    '*sufeng.org*',
+    '*.sugarsync.com*',
+    '*summify.com*',
+    '*.suoluo.org*',
+    '*api.supertweet.net*',
+    '*www.supertweet.net*',
+    '*.surfeasy.com.au*',
+    '*support/youtube/bin/request.py?contact_type=abuse&*',
+    '*/support/youtube/bin/static.py?page=start.cs&*',
+    '*.sydneytoday.com*',
+    '*sysresccd.org*',
+    '*.sytes.net*',
+    '*blog.syx86.com/2009/09/puff*',
+    '*blog.syx86.cn/2009/09/puff*',
+    '*.szbbs.net*',
+    '*.t35.com*',
+    '*.t66y.com*',
+    '*.taa-usa.org*',
+    '*tabtter.jp*',
+    '*.tacem.org*',
+    '*tagwalk.com*',
+    '*taipei.gov.tw*',
+    '*.taipeisociety.org*',
+    '*.taiwandaily.net*',
+    '*taiwankiss.com*',
+    '*taiwannation.com*',
+    '*taiwannation.com.tw*',
+    '*taiwanus.net*',
+    '*taiwanyes.com*',
+    '*taiwan-sex.com*',
+    '*tangben.com*',
+    '*.taolun.info*',
+    '*blog.taragana.com*',
+    '*.taweet.com*',
+    '*tchrd.org*',
+    '*tcno.net*doc*tor*',
+    '*.teashark.com/download.html*',
+    '*.telecomspace.com*',
+    '*.tenacy.com*',
+    '*theblemish.com*',
+    '*.thechinabeat.org*',
+    '*thehousenews.com*',
+    '*thepiratebay.org*',
+    '*theqii.info/blog*',
+    '*thereallove.kr*',
+    '*thespeeder.com*',
+    '*thetrotskymovie.com/*',
+    '*thevivekspot.com*',
+    '*.thisav.com*',
+    '*thkphoto.com*',
+    '*threatchaos.com*',
+    '*.thumbzilla.com*',
+    '*tiananmenmother.org*',
+    '*.tianhuayuan.com*',
+    '*tiantibooks.org*',
+    '*.tianzhu.org*',
+    '*.tibet.com*',
+    '*.tibet.net*',
+    '*tibet.org.tw*',
+    '*tibetalk.com*',
+    '*.tibetanyouthcongress.org*',
+    '*tibetfund.org*',
+    '*tibetonline.com*',
+    '*.tibetonline.tv*',
+    '*.time.com/time/time100/leaders/profile/rebel*',
+    '*.time.com/time/specials/packages/article/0,28804*',
+    '*.time.com/time/magazine*',
+    '*tinychat.com*',
+    '*.tistory.com*',
+    '*cn.tmagazine.com*',
+    '*.tnaflix.com*',
+    '*togetter.com*',
+    '*.tokyo-247.com*',
+    '*tokyo-hot.com*',
+    '*tonyyan.net*',
+    '*.toodoc.com*',
+    '*toonel.net*',
+    '*.topnews.in*',
+    '*.topshareware.com*',
+    '*topsy.com*',
+    '*tora.to*',
+    '*.torproject.org*',
+    '*torrentcrazy.com*',
+    '*touch99.com*',
+    '*.tpi.org.tw*',
+    '*trendsmap.com*',
+    '*.trialofccp.org*',
+    '*trtc.com.tw*',
+    '*trulyergonomic.com*',
+    '*.truth101.co.tv*',
+    '*.truveo.com*',
+    '*.tsemtulku.com*',
+    '*tsquare.tv*',
+    '*tsunagarumon.com*',
+    '*.tsctv.net*',
+    '*.tttan.com*',
+    '*bb.ttv.com.tw/bb*',
+    '*.tuanzt.com*',
+    '*.tube.com*',
+    '*tube8.com*',
+    '*tubecao.com*',
+    '*tuidang.net*',
+    '*tuidang.org*',
+    '*bbs.tuitui.info*',
+    '*.tunein.com*',
+    '*.turbobit.net*',
+    '*.tv.com*',
+    '*tvants.com*',
+    '*forum.tvb.com/*',
+    '*tvboxnow.com*',
+    '*tvider.com*',
+    '*twa.sh*',
+    '*twapperkeeper.com*',
+    '*.twaud.io*',
+    '*.twbbs.net.tw*',
+    '*twbbs.org*',
+    '*twbbs.tw*',
+    '*tweepmag.com*',
+    '*.tweepml.org*',
+    '*.tweetbackup.com*',
+    '*tweetboard.com*',
+    '*.tweetboner.biz*',
+    '*.tweetdeck.com*',
+    '*m.tweete.net*',
+    '*tweetmeme.com*',
+    '*tweetphoto.com*',
+    '*tweetree.com*',
+    '*tweetymail.com*',
+    '*twibase.com*',
+    '*.twibble.de*',
+    '*twibbon.com*',
+    '*twicsy.com*',
+    '*.twifan.com*',
+    '*twiffo.com*',
+    '*twilog.org*',
+    '*twimbow.com*',
+    '*twipple.jp*',
+    '*twistar.cc*',
+    '*twisternow.com*',
+    '*twistory.net*',
+    '*twitbrowser.net*',
+    '*twitgoo.com*',
+    '*twitiq.com*',
+    '*.twitlonger.com*',
+    '*twitoaster.com*',
+    '*.twitpic.com*',
+    '*twitreferral.com*',
+    '*.twit2d.com*',
+    '*.twitstat.com*',
+    '*.twitvid.com*',
+    '*199.59.148.20*',
+    '*twittbot.net*',
+    '*twitter.com*',
+    '*.twittercounter.com*',
+    '*twitterfeed.com*',
+    '*.twittergadget.com*',
+    '*.twitterkr.com*',
+    '*twittertim.es*',
+    '*twitthat.com*',
+    '*.twitturly.com*',
+    '*.twitzap.com*',
+    '*twiyia.com*',
+    '*.twreg.info*',
+    '*.twtkr.com*',
+    '*twtrland.com*',
+    '*twurl.nl*',
+    '*.twyac.org*',
+    '*.tycool.com*',
+    '*tynsoe.org*',
+    '*embr.in*',
+    '*guomin.us/login*',
+    '*.srcf.ucam.org/salon/*',
+    '*.udn.com*',
+    '*ufreevpn.com*',
+    '*.ugo.com*',
+    '*uhrp.org*',
+    '*uighurbiz.net*',
+    '*.ulike.net*',
+    '*ukliferadio.co.uk*',
+    '*ultravpn.fr*',
+    '*ultraxs.com*',
+    '*uncyclomedia.org*',
+    '*uncyclopedia.info*',
+    '*.uni.cc*',
+    '*unicode.org*',
+    '*.uniteddaily.com.my/index.php?*',
+    '*.unix100.com*',
+    '*unpo.org*',
+    '*tor.updatestar.com*',
+    '*.upload4u.info*',
+    '*.uploaded.to/file*',
+    '*.uploadstation.com/file*',
+    '*www.urbanoutfitters.com*',
+    '*myshare.url.com.tw/*',
+    '*us.to*',
+    '*beta.usejump.com*',
+    '*earthquake.usgs.gov/eqcenter/recenteqsww/Maps/10/105_30.php*',
+    '*.ustream.tv*',
+    '*.uushare.com*',
+    '*.uwants.com*',
+    '*.uwants.net*',
+    '*uygur.org*',
+    '*v70.us*',
+    '*.van698.com*',
+    '*.vanemu.cn*',
+    '*.vanilla-jp.com*',
+    '*vansky.com*',
+    '*.velkaepocha.sk*',
+    '*veoh.com*',
+    '*.verizon.net*',
+    '*.vft.com.tw*',
+    '*videobam.com*',
+    '*.videomo.com*',
+    '*vimeo.com*',
+    '*video.tiscali.it/canali/truveo*',
+    '*cn.voa.mobi*',
+    '*tw.voa.mobi*',
+    '*.voachineseblog.com*',
+    '*voagd.com*',
+    '*voacantonese.com*',
+    '*voachinese.com*',
+    '*voatibetan.com*',
+    '*voanews.com/chinese*',
+    '*vocn.tv*',
+    '*.vot.org*',
+    '*www.voy.com*',
+    '*vpnbook.com*',
+    '*vpnfire.com*',
+    '*.vpngate.net*',
+    '*lists.w3.org/archives/public*',
+    '*.jyzj.waqn.com*',
+    '*.wahas.com*',
+    '*.waigaobu.com*',
+    '*waikeung.org/php_wind*',
+    '*.waiwaier.com*',
+    '*wallornot.org*',
+    '*.wangjinbo.org*',
+    '*wanglixiong.com*',
+    '*wangruoshui.net*',
+    '*www.wangruowang.org*',
+    '*want-daily.com*',
+    '*wapedia.mobi/zhsimp*',
+    '*.makzhou.warehouse333.com*',
+    '*washeng.net*',
+    '*.wattpad.com*',
+    '*.wearn.com*',
+    '*webbang.net*',
+    '*weblagu.com*',
+    '*webs-tv.net*',
+    '*webshots.com*',
+    '*websitepulse.com/help/testtools.china-test.html*',
+    '*webworkerdaily.com*',
+    '*weeewooo.net/hss/hotspot_cn*',
+    '*.weekmag.info*',
+    '*.wefong.com*',
+    '*weiboleak.com*',
+    '*weijingsheng.org*',
+    '*.weiming.info*',
+    '*weiquanwang.org*',
+    '*wengewang.com*',
+    '*.wengewang.org*',
+    '*.wenhui.ch*',
+    '*wenxuecity.com*',
+    '*.wenyunchao.com*',
+    '*westca.com*',
+    '*hkg.westkit.net*',
+    '*www.wet123.com*',
+    '*wetpussygames.com*',
+    '*wexiaobo.org*',
+    '*wezhiyong.org*',
+    '*.wforum.com*',
+    '*.whatblocked.com*',
+    '*.whippedass.com*',
+    '*whylover.com*',
+    '*evchk.wikia.com/wiki/%E5%A4%A7%E7%B4%80%E5%85%83%E6%99%82%E5%A0%B1*',
+    '*cn.uncyclopedia.wikia.com*',
+    '*zh.uncyclopedia.wikia.com*',
+    '*.wikileaks.org*',
+    '*wikilivres.info/wiki/%E9%9B%B6%E5%85%AB%E5%AE%AA%E7%AB%A0*',
+    '*zh.wikinews.org*',
+    '*winwhispers.info*',
+    '*.wisevid.com*',
+    '*.witopia.net*',
+    '*.wo.tc*',
+    '*wolfax.com*',
+    '*.womensrightsofchina.org*',
+    '*woopie.jp*',
+    '*woopie.tv*',
+    '*.worldcat.org*',
+    '*worldjournal.com*',
+    '*.wordpress.com*',
+    '*woxinghuiguo.com*',
+    '*wow-life.net*',
+    '*.wpoforum.com*',
+    '*.wqlhw.com*',
+    '*.wqyd.org*',
+    '*wretch.cc*',
+    '*cn.wsj.com*',
+    '*.wtfpeople.com*',
+    '*.wuala.com*',
+    '*wuerkaixi.com*',
+    '*wufi.org.tw*',
+    '*wujie.net*',
+    '*wujieliulan.com*',
+    '*wukangrui.net*',
+    '*wwitv.com*',
+    '*wzyboy.im/post/160*',
+    '*x1949x.com*',
+    '*x365x.com*',
+    '*xanga.com*',
+    '*.xbookcn.com*',
+    '*x.xcity.jp*',
+    '*.xcritic.com*',
+    '*destiny.xfiles.to/ubbthreads*',
+    '*.xfm.pp.ru*',
+    '*xh4n.cn/blog*',
+    '*xhamster.com*',
+    '*one.xthost.info*',
+    '*.xiaochuncnjp.com*',
+    '*s.xiaod.in*',
+    '*.xiaohexie.com*',
+    '*xiezhua.com*',
+    '*.xing.com*',
+    '*.xinmiao.com.hk*',
+    '*xinsheng.net*',
+    '*xinshijue.com*',
+    '*xinhuanet.org*',
+    '*xizang-zhiye.org*',
+    '*xjp.cc*',
+    '*xmovies.com*',
+    '*xpdo.net*',
+    '*blog.xuite.net*',
+    '*vlog.xuite.net*',
+    '*xuzhiyong.net*',
+    '*xuchao.net*',
+    '*xvedios.com*',
+    '*.xvideos.com*',
+    '*.xxbbx.com*',
+    '*xys.org*',
+    '*xysblogs.org*',
+    '*page.bid.yahoo.com*',
+    '*blogs.yahoo.co.jp*',
+    '*buy.yahoo.com.tw/gdsale*',
+    '*hk.yahoo.com*',
+    '*hk.knowledge.yahoo.com*',
+    '*hk.myblog.yahoo.com*',
+    '*hk.news.yahoo.com*',
+    '*hk.rd.yahoo.com*',
+    '*hk.search.yahoo.com/search*',
+    '*hk.video.news.yahoo.com/video*',
+    '*meme.yahoo.com*',
+    '*tw.yahoo.com*',
+    '*tw.myblog.yahoo.com*',
+    '*tw.news.yahoo.com*',
+    '*pulse.yahoo.com*',
+    '*upcoming.yahoo.com*',
+    '*video.yahoo.com*',
+    '*yam.com*',
+    '*yasni.co.uk*',
+    '*.ydy.com*',
+    '*yeeyi.com*',
+    '*yegle.net*',
+    '*yfrog.com*',
+    '*.yi.org*',
+    '*.yidio.com*',
+    '*yilubbs.com*',
+    '*xa.yimg.com*',
+    '*.yipub.com*',
+    '*.yogichen.org*',
+    '*yong.hu*',
+    '*.yorkbbs.ca*',
+    '*.yyii.org*',
+    '*.yzzk.com*',
+    '*.youjizz.com*',
+    '*youmaker.com*',
+    '*youpai.org*',
+    '*.your-freedom.net*',
+    '*.yousendit.com*',
+    '*youthbao.com*',
+    '*.youthnetradio.org/tmit/forum*',
+    '*blog.youthwant.com.tw*',
+    '*share.youthwant.com.tw*',
+    '*topic.youthwant.com.tw*',
+    '*.youporn.com*',
+    '*youtu.be*',
+    '*.youtube.com*',
+    '*.youtubecn.com*',
+    '*youversion.com*',
+    '*blog.youxu.info/2010/03/14/west-chamber*',
+    '*ytht.net*',
+    '*yuanming.net*',
+    '*yx51.net*',
+    '*zacebook.com*',
+    '*luntan.zaobao.com*',
+    '*.zaobao.com.sg*',
+    '*.zaozon.com*',
+    '*www.zaurus.org.uk*',
+    '*.zdnet.com.tw/news/software/0,2000085678,20111187,00*',
+    '*.zengjinyan.org*',
+    '*www.zfreet.com/post/usejump-browns.html*',
+    '*zgzcjj.net*',
+    '*.zhanbin.net*',
+    '*zhenghui.org*',
+    '*zhenlibu.info*',
+    '*.zhinengluyou.com*',
+    '*zhuichaguoji.org*',
+    '*.ziddu.com/download*',
+    '*zinio.com*',
+    '*.zkaip.com*',
+    '*zmw.cn*',
+    '*zomobo.net*',
+    '*.zonaeuropa.com*',
+    '*.zoozle.net*',
+    '*writer.zoho.com*',
+    '*.zshare.net/download*',
+    '*.zsrhao.com*',
+    '*.zuo.la*',
+    '*.zuola.com*',
+    '*zyzc9.com*',
+    '*freenet*',
+    '*q=freedom*',
+    '*q%3Dfreedom*',
+    '*remembering_tiananmen_20_years*',
+    '*search*safeweb*',
+    '*q=triangle*',
+    '*q%3DTriangle*',
+    '*ultrareach*',
+    '*ultrasurf*',
+    '*zhengjian*',
+    '*%E7%BD%A2%E8%AF%BE*',
+    '*.google.*%E9%B2%8D%E5%BD%A4*',
+    '*.google.*%E9%AE%91%E5%BD%A4*',
+    '*search*%E5%8D%9A%E8%AE%AF*',
+    '*search*%E5%A4%A7%E7%BA%AA%E5%85%83*',
+    '*search*%E9%92%93%E9%B1%BC%E5%B2%9B*',
+    '*%E5%8A%A8%E6%80%81%E7%BD%91*',
+    '*search*%E5%A4%9A%E7%B6%AD*',
+    '*search*%E5%A4%9A%E7%BB%B4*',
+    '*search*freegate*',
+    '*search*%E6%B3%95%E4%BC%9A*',
+    '*%E6%B3%95%E8%BD%AE%E5%A4%A7%E6%B3%95*',
+    '*%E6%B3%95%E8%BC%AA%E5%8A%9F*',
+    '*%E6%B3%95%E8%BD%AE%E5%8A%9F*',
+    '*%E8%83%A1%E6%B5%B7%E5%B3%B0*',
+    '*%E8%83%A1%E6%B5%B7%E6%B8%85*',
+    '*search*%E8%8A%B1%E8%8A%B1%E5%85%AC%E5%AD%90*',
+    '*search*%BC%CD%D4%AA*',
+    '*search*%BC%D3%C3%DC%B4%FA%C0%ED*',
+    '*search*%E5%8A%A0%E5%AF%86%E4%BB%A3%E7%90%86*',
+    '*search*%E6%B1%9F%E6%B5%81%E6%B0%93*',
+    '*search*%E7%9C%8B%E4%B8%AD%E5%9B%BD*',
+    '*search*%E5%85%AD%E5%9B%9B*',
+    '*%E5%88%98%E6%99%93%E6%B3%A2*',
+    '*%E7%BE%8E%E5%9B%BD%E4%B9%8B%E9%9F%B3*',
+    '*%E6%B0%91%E8%BF%9B%E5%85%9A*',
+    '*%E6%B0%91%E8%BF%90*',
+    '*search*%E8%89%B2%E6%83%85*',
+    '*%E7%8E%8B%E4%B8%B9*',
+    '*search*%E7%BD%91%E7%89%B9*',
+    '*search*%E7%8E%8B%E5%B8%8C%E5%93%B2*',
+    '*search*%E9%AD%8F%E4%BA%AC%E7%94%9F*',
+    '*search*%E6%96%87%E5%AD%97%E7%8B%B1*',
+    '*search*%E6%88%91%E7%9A%84%E5%A5%8B%E6%96%97*',
+    '*search*%E6%97%A0%E7%95%8C*',
+    '*search*%E9%82%AA%E6%81%B6*',
+    '*search*%E6%B4%97%E8%84%91*',
+    '*search*%E6%96%B0%E5%94%90%E4%BA%BA*',
+    '*search*%E6%96%B0%E8%AF%AD%E4%B8%9D*',
+    '*search*%E5%AD%A6%E8%BF%90*',
+    '*search*%E4%B8%AD%E5%8A%9F*',
+    '*search*%E4%B8%AD%E5%9B%BD%E8%AE%BA%E5%9D%9B*',
+    '*search*%E4%B8%AD%E5%AE%A3%E9%83%A8*',
+    '*.wikipedia.org/wiki/Dalai_Lama*',
+    '*.wikipedia.org/wiki/Dalai-Lama*',
+    '*ar.wikipedia.org*%D8%AF%D8%A7%D9%84%D8%A7%D9%8A_%D9%84%D8%A7%D9%85%D8%A7*',
+    '*zh-yue.wikipedia.org/wiki/%E5%8A%89%E6%9B%89%E6%B3%A2*',
+    '*en.wikipedia.org/wiki/Anti-communism*',
+    '*en.wikipedia.org/wiki/Book_burning*',
+    '*en.wikipedia.org/wiki/Censorship_in_the_People%27s_Republic_of_China*',
+    '*en.wikipedia.org/wiki/Charter_08*',
+    '*en.wikipedia.org/wiki/Chen_Guangcheng*',
+    '*en.wikipedia.org/wiki/Deep_packet_inspection*',
+    '*en.wikipedia.org/wiki/Freegate*',
+    '*en.wikipedia.org/wiki/Golden_Shield_Project*',
+    '*en.wikipedia.org/wiki/Great_Firewall_of_China*',
+    '*en.wikipedia.org/wiki/Hong_Kong*',
+    '*en.wikipedia.org/wiki/Huang_Qi*',
+    '*en.wikipedia.org/wiki/Internet_censorship*',
+    '*en.wikipedia.org/wiki/Java_Anon_Proxy*',
+    '*en.wikipedia.org/wiki/Liu_Xiaobo*',
+    '*en.wikipedia.org/wiki/Shi_Tao*',
+    '*en.wikipedia.org/wiki/Tank_man*',
+    '*en.wikipedia.org/wiki/Tiananmen_Papers*',
+    '*en.wikipedia.org/wiki/Tiananmen_Square_protests_of_1989*',
+    '*en.wikipedia.org/wiki/Tibetan_independence_movement*',
+    '*zh.wikipedia.org/wiki/Wikipedia:%E9%A0%81%E9%9D%A2%E5%AD%98%E5%BB%A2%E8%A8%8E%E8%AB%96*',
+    '*zh.m.wikipedia.org*',
+    '*zh.wikisource.org*',
+    '*zh.wikipedia.org*2012%E5%B9%B4%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E8%85%90%E8%B4%A5%E6%A1%88%E4%BB%B6*',
+    '*zh.wikipedia.org*512%E5%A4%A7%E5%9C%B0%E9%9C%87*',
+    '*zh.wikipedia.org*08%E5%AE%AA%E7%AB%A0*',
+    '*zh.wikipedia.org*1959%E5%B9%B4*',
+    '*zh.wikipedia.org*1989%E5%B9%B4*',
+    '*zh.wikipedia.org*610%E8%BE%A6%E5%85%AC%E5%AE%A4*',
+    '*zh.wikipedia.org*Anti-CNN*',
+    '*zh.wikipedia.org*%E9%98%BF%E5%BA%95%E5%B3%BD*',
+    '*zh.wikipedia.org*%E9%98%BF%E6%B2%9B%C2%B7%E9%98%BF%E6%97%BA%E6%99%8B%E7%BE%8E*',
+    '*zh.wikipedia.org*%E8%89%BE%E6%9C%AA%E6%9C%AA*',
+    '*zh.wikipedia.org*%E5%85%AB%E4%B9%9D%E5%AD%A6%E8%BF%90*',
+    '*zh.wikipedia.org*%E5%85%AB%E6%80%9D%E5%B7%B4*',
+    '*zh.wikipedia.org*%E7%8F%AD%E7%A6%85*',
+    '*zh.wikipedia.org*%E9%B2%8D%E5%BD%A4*',
+    '*zh.wikipedia.org*%E9%AE%91%E5%BD%A4*',
+    '*zh.wikipedia.org*%E5%8C%97%E4%BA%AC%E9%AB%98%E6%A0%A1%E5%AD%A6%E7%94%9F%E8%87%AA%E6%B2%BB%E8%81%94%E5%90%88%E4%BC%9A*',
+    '*zh.wikipedia.org*%E5%8C%97%E4%BA%AC%E4%B9%8B%E6%98%A5*',
+    '*zh.wikipedia.org*%E8%96%84%E7%86%99%E6%9D%A5*',
+    '*zh.wikipedia.org*%E5%8D%9A%E8%AE%AF*',
+    '*zh.wikipedia.org*%E5%B8%83%E6%8B%89%E6%A0%BC%E4%B9%8B%E6%98%A5*',
+    '*zh.wikipedia.org*%E6%9F%B4%E7%8E%B2*',
+    '*zh.wikipedia.org*%E4%BB%93%E5%A4%AE%E5%98%89%E6%8E%AA*',
+    '*zh.wikipedia.org*%E6%9B%B9%E9%95%B7%E9%9D%92*',
+    '*zh.wikipedia.org*%E9%99%88%E5%85%89%E8%AF%9A*',
+    '*zh.wikipedia.org*%E6%A5%9A%E5%B8%83%E5%AF%BA*',
+    '*zh.wikipedia.org*%e5%a4%a7%e5%8f%82%e8%80%83_(%e7%bd%91%e7%bb%9c%e6%9d%82%e5%bf%97)*',
+    '*zh.wikipedia.org*%E5%A4%A7%E7%B4%80%E5%85%83*',
+    '*zh.wikipedia.org*%E5%A4%A7%E7%BA%AA%E5%85%83%E6%97%B6%E6%8A%A5*',
+    '*zh.wikipedia.org*%E8%BE%BE%E8%B5%96%E5%96%87%E5%98%9B*',
+    '*zh.wikipedia.org*%E8%BE%BE%E5%85%B0%E8%90%A8%E6%8B%89*',
+    '*zh.wikipedia.org*%E9%81%94%E8%98%AD%E8%96%A9%E6%8B%89*',
+    '*zh.wikipedia.org*%E8%BE%BE%E5%B0%94%E7%BD%95%E6%B4%BB%E4%BD%9B*',
+    '*zh.wikipedia.org*%E5%A4%A7%E8%B5%A6%E5%9B%BD%E9%99%85*',
+    '*zh.wikipedia.org*%E5%A4%A7%E8%B5%A6%E5%9C%8B%E9%9A%9B*',
+    '*zh.wikipedia.org*%E5%A4%A7%E5%B1%A0%E6%9D%80%E5%88%97%E8%A1%A8*',
+    '*zh.wikipedia.org*%E5%A4%A7%E8%97%8F%E5%AF%BA*',
+    '*zh.wikipedia.org*%E5%A4%A7%E6%98%AD%E5%AF%BA*',
+    '*zh.wikipedia.org*%E4%B8%B9%E5%A2%9E%E5%98%89%E6%8E%AA*',
+    '*zh.wikipedia.org*%E4%B8%81%E5%AD%90%E9%9C%96*',
+    '*zh.wikipedia.org*%E4%B8%9C%E9%A3%8E-21%E4%B8%AD%E7%A8%8B%E5%BC%B9%E9%81%93%E5%AF%BC%E5%BC%B9 *',
+    '*zh.wikipedia.org*%E6%9D%B1%E9%A2%A8-31%E6%B4%B2%E9%9A%9B%E5%BD%88%E9%81%93%E5%B0%8E%E5%BD%88*',
+    '*zh.wikipedia.org*%E6%9D%B1%E7%AA%81%E5%8E%A5*',
+    '*zh.wikipedia.org*%E4%B8%9C%E7%AA%81%E5%8E%A5%E6%96%AF%E5%9D%A6*',
+    '*zh.wikipedia.org*%E5%A4%9A%E7%BB%B4*',
+    '*zh.wikipedia.org*%E5%A4%9A%E7%B6%AD*',
+    '*zh.wikipedia.org*%E4%BF%84%E7%BE%85%E6%96%AF*',
+    '*zh.wikipedia.org*%E5%8F%8D%E5%8D%8E%E5%8A%BF%E5%8A%9B*',
+    '*zh.wikipedia.org*%E9%98%B2%E7%81%AB%E9%95%BF%E5%9F%8E*',
+    '*zh.wikipedia.org*%E6%96%B9%E5%8A%B1%E4%B9%8B*',
+    '*zh.wikipedia.org*%E6%96%B9%E5%8B%B5%E4%B9%8B*',
+    '*zh.wikipedia.org*%E6%96%B9%E8%88%9F%E5%AD%90*',
+    '*zh.wikipedia.org*%E6%84%A4%E9%9D%92*',
+    '*zh.wikipedia.org*%E5%B0%81%E4%BB%8E%E5%BE%B7*',
+    '*zh.wikipedia.org*%E5%B0%81%E5%BE%9E%E5%BE%B7*',
+    '*zh.wikipedia.org*%E5%86%AF%E6%AD%A3%E8%99%8E*',
+    '*zh.wikipedia.org*%E5%82%85%E9%93%81%E5%B1%B1*',
+    '*zh.wikipedia.org*%E5%99%B6%E5%80%AB%E8%B5%A4%E5%B7%B4*',
+    '*zh.wikipedia.org*%E9%AB%98%E6%99%BA%E6%99%9F*',
+    '*zh.wikipedia.org*%E6%9B%B4%E7%99%BB%E7%A2%BA%E5%90%89%E5%B0%BC%E7%91%AA*',
+    '*zh.wikipedia.org*%E5%99%B6%E4%B8%BE%E6%B4%BE*',
+    '*zh.wikipedia.org*%E6%94%B9%E9%9D%A9%E5%8E%86%E7%A8%8B*',
+    '*zh.wikipedia.org*%E7%94%98%E4%B8%B9%E5%AF%BA*',
+    '*zh.wikipedia.org*%E9%AB%98%E8%A1%8C%E5%81%A5*',
+    '*zh.wikipedia.org*%E5%99%B6%E5%BD%93%E6%B4%BE*',
+    '*zh.wikipedia.org*%E6%A0%BC%E9%B2%81%E6%B4%BE*',
+    '*zh.wikipedia.org*GFW*',
+    '*zh.wikipedia.org*%E5%85%AC%E5%85%B1%E7%9F%A5%E8%AF%86%E5%88%86%E5%AD%90*',
+    '*zh.wikipedia.org*Google%E5%AE%A1%E6%9F%A5*',
+    '*zh.wikipedia.org/zh-cn/%E8%B0%B7%E6%AD%8C%E9%80%80%E5%87%BA%E4%B8%AD%E5%9B%BD%E4%BA%8B%E4%BB%B6*',
+    '*zh.wikipedia.org/wiki/%E8%B0%B7%E6%AD%8C%E9%80%80%E5%87%BA%E4%B8%AD%E5%9B%BD%E4%BA%8B%E4%BB%B6*',
+    '*zh.wikipedia.org/wiki/%E5%B9%BF%E5%B7%9E%E5%B8%82%E6%96%B0%E5%A1%98%E4%BA%8B%E4%BB%B6*',
+    '*zh.wikipedia.org*%E5%9B%BD%E4%BF%9D*',
+    '*zh.wikipedia.org*%E9%83%AD%E4%BC%AF%E9%9B%84*',
+    '*zh.wikipedia.org*%E5%9B%BD%E9%99%85%E7%89%B9%E8%B5%A6%E7%BB%84%E7%BB%87*',
+    '*zh.wikipedia.org*%E5%9B%BD%E5%86%85%E5%AE%89%E5%85%A8%E4%BF%9D%E5%8D%AB%E6%94%AF%E9%98%9F*',
+    '*zh.wikipedia.org*%E5%9C%8B%E5%8B%99%E9%99%A2%E9%98%B2%E7%AF%84%E5%92%8C%E8%99%95%E7%90%86%E9%82%AA%E6%95%99%E5%95%8F%E9%A1%8C%E8%BE%A6%E5%85%AC%E5%AE%A4*',
+    '*zh.wikipedia.org*%E9%9F%A9%E4%B8%9C%E6%96%B9*',
+    '*zh.wikipedia.org*%E8%B4%BA%E5%9B%BD%E5%BC%BA*',
+    '*zh.wikipedia.org*%E4%BD%95%E4%BF%8A%E4%BB%81*',
+    '*zh.wikipedia.org*%E6%B2%B3%E6%AE%87*',
+    '*zh.wikipedia.org*%E6%B4%AA%E5%93%B2%E5%8B%9D*',
+    '*zh.wikipedia.org*%E4%BE%AF%E5%BE%B7%E5%BB%BA*',
+    '*zh.wikipedia.org*%E4%BE%AF%E8%B5%9B%E5%9B%A0%E6%B1%9F*',
+    '*zh.wikipedia.org*%E4%BE%AF%E5%BE%B7%E5%81%A5*',
+    '*zh.wikipedia.org*%E8%83%A1%E4%BD%B3_%281973%E5%B9%B4%29*',
+    '*zh.wikipedia.org*%E8%83%A1%E4%BD%B3_%28%E7%A4%BE%E6%B4%BB%E5%8B%95%E5%AE%B6%29*',
+    '*zh.wikipedia.org*%E8%83%A1%E4%BD%B3_%28%E7%A4%BE%E6%9C%83%E6%B4%BB%E5%8B%95%E5%AE%B6%29*',
+    '*zh.wikipedia.org*%E8%83%A1%E9%94%A6%E6%B6%9B*',
+    '*zh.wikipedia.org*%E8%83%A1%E5%B9%B3_%28%E4%BD%9C%E5%AE%B6%29*',
+    '*zh.wikipedia.org*%E5%91%BC%E5%9C%96%E5%85%8B%E5%9C%96*',
+    '*zh.wikipedia.org*%E8%83%A1%E6%B8%A9%E4%BD%93%E5%88%B6*',
+    '*zh.wikipedia.org*%E8%83%A1%E8%80%80%E9%82%A6*',
+    '*zh.wikipedia.org*%E5%8D%8E%E5%9B%BD%E9%94%8B*',
+    '*zh.wikipedia.org*%E8%8F%AF%E5%9C%8B%E9%8B%92*',
+    '*zh.wikipedia.org*%E5%8D%8E%E5%A4%8F%E6%96%87%E6%91%98*',
+    '*zh.wikipedia.org*%E8%8A%B1%E5%9B%AD%E8%BD%AF%E4%BB%B6*',
+    '*zh.wikipedia.org*%E8%8A%B1%E5%9B%AD%E7%BD%91*',
+    '*zh.wikipedia.org*%E9%BB%84%E7%90%A6*',
+    '*zh.wikipedia.org*%E9%BB%83%E7%90%A6*',
+    '*zh.wikipedia.org*%E9%BB%83%E9%9B%80%E8%A1%8C%E5%8B%95*',
+    '*zh.wikipedia.org*%E9%BB%84%E4%B8%87%E9%87%8C*',
+    '*zh.wikipedia.org*%E9%BB%83%E6%9B%89%E6%95%8F*',
+    '*zh.wikipedia.org*%E5%9B%9E%E8%89%AF%E7%8E%89*',
+    '*zh.wikipedia.org*%E9%9C%8D%E8%8B%B1%E6%9D%B1*',
+    '*zh.wikipedia.org*%E5%AF%82%E8%AD%B7*',
+    '*zh.wikipedia.org*%E6%BF%80%E6%B5%81%E4%B8%AD%E5%9B%BD*',
+    '*zh.wikipedia.org*%E5%98%89%E9%9D%96*',
+    '*zh.wikipedia.org*%E5%AE%B6%E4%B9%90%E7%A6%8F*',
+    '*zh.wikipedia.org*%E8%B3%88%E6%85%B6%E6%9E%97*',
+    '*zh.wikipedia.org*%E8%B4%BE%E5%BA%86%E6%9E%97*',
+    '*zh.wikipedia.org*%E5%BB%BA%E5%9B%BD%E9%97%A8%E4%BA%8B%E4%BB%B6*',
+    '*zh.wikipedia.org*%E5%A7%9C%E7%BB%B4%E5%B9%B3*',
+    '*zh.wikipedia.org*%E6%B1%9F%E6%B3%BD%E6%B0%91*',
+    '*zh.wikipedia.org*%E6%B1%9F%E6%BE%A4%E6%B0%91*',
+    '*zh.wikipedia.org*%E9%87%91%E7%9B%BE%E5%B7%A5%E7%A8%8B*',
+    '*zh.wikipedia.org*%BD%F0%B6%DC%B9%A4%B3%CC*',
+    '*zh.wikipedia.org*%E4%B9%9D%E8%AF%84%E5%85%B1%E4%BA%A7%E5%85%9A*',
+    '*zh.wikipedia.org*%E4%B9%9D%E8%A9%95%E5%85%B1%E7%94%A2%E9%BB%A8*',
+    '*zh.wikipedia.org*%E5%B7%A8%E6%B5%AA2%E5%9E%8B%E6%BD%9C%E5%B0%84%E5%BC%B9%E9%81%93%E5%AF%BC%E5%BC%B9*',
+    '*zh.wikipedia.org*%E8%A6%BA%E5%9B%8A%E6%B4%BE*',
+    '*zh.wikipedia.org*%E7%BB%9D%E9%A3%9F*',
+    '*zh.wikipedia.org*%E6%8B%89%E5%8D%9C%E6%A5%9E%E5%AF%BA*',
+    '*zh.wikipedia.org*%E6%8B%89%E8%90%A8*',
+    '*zh.wikipedia.org*%E9%BB%8E%E5%AE%89%E5%8F%8B*',
+    '*zh.wikipedia.org*%E6%9D%8E%E9%95%BF%E6%98%A5*',
+    '*zh.wikipedia.org*%E6%9D%8E%E9%95%B7%E6%98%A5*',
+    '*zh.wikipedia.org*%E6%9D%8E%E6%B4%AA%E5%BF%97*',
+    '*zh.wikipedia.org*%E6%9D%8E%E5%85%8B%E5%BC%BA*',
+    '*zh.wikipedia.org*%E6%9D%8E%E9%B5%AC*',
+    '*zh.wikipedia.org*%E6%9D%8E%E9%B9%8F*',
+    '*zh.wikipedia.org*%E6%9D%8E%E7%91%9E%E7%8E%AF*',
+    '*zh.wikipedia.org*%E6%9D%8E%E7%91%9E%E7%92%B0*',
+    '*zh.wikipedia.org*%E6%9D%8E%E6%85%8E%E4%B9%8B*',
+    '*zh.wikipedia.org*%E5%8E%86%E5%8F%B2%E7%9A%84%E4%BC%A4%E5%8F%A3*',
+    '*zh.wikipedia.org*%E6%9D%8E%E8%8B%B1%E6%B5%A9*',
+    '*zh.wikipedia.org*%E6%9D%8E%E6%BA%90%E6%BD%AE*',
+    '*zh.wikipedia.org*%E6%9D%8E%E5%8D%93%E4%BA%BA*',
+    '*zh.wikipedia.org*%E5%BB%96%E4%BA%A6%E6%AD%A6*',
+    '*zh.wikipedia.org*%E8%93%AE%E8%8A%B1%E7%94%9F*',
+    '*zh.wikipedia.org*%E6%A2%81%E5%9B%BD%E9%9B%84*',
+    '*zh.wikipedia.org*%E6%A2%81%E5%9C%8B%E9%9B%84*',
+    '*zh.wikipedia.org*%E9%9B%B6%E5%85%AB%E5%AE%AA%E7%AB%A0*',
+    '*zh.wikipedia.org*%E4%BB%A4%E8%B0%B7*',
+    '*zh.wikipedia.org*%E4%BB%A4%E8%AE%A1%E5%88%92*',
+    '*zh.wikipedia.org*%E5%88%98%E5%AE%BE%E9%9B%81*',
+    '*zh.wikipedia.org*%E5%8A%89%E5%89%9B_(%E6%B0%91%E9%81%8B%E4%BA%BA%E5%A3%AB)*',
+    '*zh.wikipedia.org*%E5%88%98%E6%85%A7%E5%8D%BF*',
+    '*zh.wikipedia.org*%E5%8A%89%E6%85%A7%E5%8D%BF*',
+    '*zh.wikipedia.org*%E5%88%98%E6%B7%87*',
+    '*zh.wikipedia.org*%E5%85%AD%E5%9B%9B*',
+    '*zh-yue.wikipedia.org*%E5%85%AD%E5%9B%9B%E4%BA%8B%E4%BB%B6*',
+    '*zh.wikipedia.org*%E5%8A%89%E6%9B%89%E6%B3%A2*',
+    '*zh.wikipedia.org*%E5%88%98%E5%BB%B6%E4%B8%9C*',
+    '*zh.wikipedia.org*%E5%88%98%E4%BA%91%E5%B1%B1*',
+    '*zh.wikipedia.org*%E7%BE%85%E5%B9%B9*',
+    '*zh.wikipedia.org*%E7%BE%85%E5%B9%B2*',
+    '*zh.wikipedia.org*%E6%B4%9B%E6%A1%91%E6%A3%AE%E6%A0%BC*',
+    '*zh.wikipedia.org*%E7%B6%A0%E5%A3%A9%C2%B7%E8%8A%B1%E5%AD%A3%E8%AD%B7%E8%88%AA*',
+    '*zh.wikipedia.org*%E7%BB%BF%E5%9D%9D%C2%B7%E8%8A%B1%E5%AD%A3%E6%8A%A4%E8%88%AA*',
+    '*zh.wikipedia.org/wiki/%e7%bb%bf%e5%9d%9d%e5%a8%98*',
+    '*zh.wikipedia.org*%E9%A6%AC%E4%B8%89%E5%AE%B6%E5%A5%B3%E5%AD%90%E5%8B%9E%E6%95%99%E6%89%80*',
+    '*zh.wikipedia.org*%E9%A6%AC%E8%8B%B1%E4%B9%9D*',
+    '*zh.wikipedia.org*%E7%BE%8E%E5%9B%BD%E5%9B%BD%E5%AE%B6%E6%B0%91%E4%B8%BB%E5%9F%BA%E9%87%91%E4%BC%9A*',
+    '*zh.wikipedia.org*%E6%95%8F%E6%84%9F%E4%BA%BA%E5%A3%AB*',
+    '*zh.wikipedia.org*%E6%B0%91%E9%96%93%E4%BA%BA%E6%AC%8A%E9%99%A3%E7%B7%9A*',
+    '*zh.wikipedia.org*%E6%95%8F%E7%8F%A0%E6%9E%97%E5%AF%BA*',
+    '*zh.wikipedia.org*%E6%B0%91%E4%B8%BB%E5%A5%B3%E7%A5%9E*',
+    '*zh.wikipedia.org*%E6%B0%91%E4%B8%BB%E9%BB%A8_(%E9%A6%99%E6%B8%AF)*',
+    '*zh.wikipedia.org*%E6%B0%91%E4%B8%BB%E6%AD%8C%E8%81%B2%E7%8D%BB%E4%B8%AD%E8%8F%AF*',
+    '*zh.wikipedia.org*%E8%8C%89%E8%8E%89%E8%8A%B1%E9%9D%A9%E5%91%BD*',
+    '*zh.wikipedia.org*%E5%8D%97%E6%96%B9%E9%83%BD%E5%B8%82%E6%8A%A5*',
+    '*zh.wikipedia.org/wiki/%E5%86%85%E8%92%99%E5%8F%A4%E6%8A%97%E8%AE%AE*',
+    '*zh.wikipedia.org/zh-hk/%E5%86%85%E8%92%99%E5%8F%A4%E6%8A%97%E8%AE%AE*',
+    '*zh.wikipedia.org/zh-tw/%E5%86%85%E8%92%99%E5%8F%A4%E6%8A%97%E8%AE%AE*',
+    '*zh.wikipedia.org*%E5%86%85%E8%92%99%E5%8F%A4%E4%BA%BA%E6%B0%91%E5%85%9A*',
+    '*zh.wikipedia.org*%E5%85%A7%E8%92%99%E5%8F%A4%E4%BA%BA%E6%B0%91%E9%BB%A8*',
+    '*zh.wikipedia.org*%E5%AE%81%E7%8E%9B%E6%B4%BE*',
+    '*zh.wikipedia.org*%E7%89%9B%E5%8D%9A%E7%BD%91*',
+    '*zh.wikipedia.org*%E8%AF%BA%E8%B4%9D%E5%B0%94%E5%92%8C%E5%B9%B3%E5%A5%96*',
+    '*zh.wikipedia.org*%E6%8C%AA%E5%A8%81*',
+    '*zh.wikipedia.org*%E7%9B%98%E5%8F%A4%E4%B9%90%E9%98%9F*',
+    '*zh.wikipedia.org*%E5%BD%AD%E4%B8%BD%E5%AA%9B*',
+    '*zh.wikipedia.org*%E7%A0%B4%E7%BD%91*',
+    '*zh.wikipedia.org*%E6%B5%A6%E5%BF%97%E5%BC%BA*',
+    '*zh.wikipedia.org*%E4%B8%83%E4%B8%80%E9%81%8A%E8%A1%8C*',
+    '*zh.wikipedia.org*%E7%A7%A6%E5%9F%8E%E7%9B%91%E7%8B%B1*',
+    '*zh.wikipedia.org*%E6%B8%85%E6%9C%9D*',
+    '*zh.wikipedia.org*%E5%85%A8%E7%90%83%E8%97%8F%E4%BA%BA%E7%89%B9%E5%88%AB%E5%A4%A7%E4%BC%9A*',
+    '*zh.wikipedia.org*%C8%BC%C9%D5%C6%BF*',
+    '*zh.wikipedia.org*%E7%87%83%E7%83%A7%E7%93%B6*',
+    '*zh.wikipedia.org*%E7%83%AD%E6%AF%94%E5%A8%85*',
+    '*zh.wikipedia.org*%E7%86%B1%E6%AF%94%E5%A9%AD*',
+    '*zh.wikipedia.org*%E7%91%9E%E5%85%B8*',
+    '*zh.wikipedia.org*%E8%90%A8%E8%BF%A6%E6%B4%BE*',
+    '*zh.wikipedia.org*%E4%B8%89%E5%B9%B4%E8%87%AA%E7%84%B6%E7%81%BE%E5%AE%B3*',
+    '*zh.wikipedia.org*%E4%B8%89%E9%80%80*',
+    '*zh.wikipedia.org*%E8%89%B2%E6%8B%89%E5%AF%BA*',
+    '*zh.wikipedia.org*%E5%9C%A3%E9%9B%84%E7%94%98%E5%9C%B0*',
+    '*zh.wikipedia.org*%E7%9B%9B%E9%9B%AA*',
+    '*zh.wikipedia.org/zh-cn/%E4%B8%96%E7%95%8C%E5%90%84%E6%94%BF%E6%9D%83%E5%8F%97%E6%89%BF%E8%AE%A4%E7%8A%B6%E5%86%B5%E5%88%97%E8%A1%A8*',
+    '*zh.wikipedia.org*%E4%B8%96%E7%95%8C%E7%BB%8F%E6%B5%8E%E5%AF%BC%E6%8A%A5*',
+    '*zh.wikipedia.org*%E4%B8%96%E7%95%8C%E7%BB%B4%E5%90%BE%E5%B0%94%E5%A4%A7%E4%BC%9A!--Shi Jie Wei Wu Er Qing Nian Dai Biao Da Hui*',
+    '*zh.wikipedia.org*%E4%B8%96%E7%95%8C%E7%BB%B4%E5%90%BE%E5%B0%94%E9%9D%92%E5%B9%B4%E4%BB%A3%E8%A1%A8%E5%A4%A7%E4%BC%9A*',
+    '*zh.wikipedia.org*%E4%B8%96%E7%95%8C%E7%B6%AD%E5%90%BE%E7%88%BE%E4%BB%A3%E8%A1%A8%E5%A4%A7%E6%9C%83*',
+    '*zh.wikipedia.org*%E5%8D%81%E5%9B%9B%E4%B8%96%E8%BE%BE%E8%B5%96*',
+    '*zh.wikipedia.org*%E5%B8%88%E6%B6%9B*',
+    '*zh.wikipedia.org*%E5%B8%AB%E6%BF%A4*',
+    '*zh.wikipedia.org*%E9%87%8A%E6%98%9F%E4%BA%91*',
+    '*zh.wikipedia.org*%E5%8F%B8%E5%BE%92%E5%8D%8E*',
+    '*zh.wikipedia.org*%E5%8F%B8%E5%BE%92%E8%8F%AF*',
+    '*zh.wikipedia.org*%E5%9B%9B%E4%BA%94%E8%A1%8C%E5%8B%95*',
+    '*zh.wikipedia.org*%E5%AE%8B%E5%BD%AC%E5%BD%AC*',
+    '*zh.wikipedia.org*%E5%AE%8B%E4%BB%BB%E7%A9%B7*',
+    '*zh.wikipedia.org*%E5%AE%8B%E4%BB%BB%E7%AA%AE*',
+    '*zh.wikipedia.org*%E8%8B%8F%E5%AE%B6%E5%B1%AF%E4%BA%8B%E4%BB%B6*',
+    '*zh.wikipedia.org*%E5%AD%99%E6%96%87%E5%B9%BF*',
+    '*zh.wikipedia.org*%E5%A1%94%E5%B0%94%E5%AF%BA*',
+    '*zh.wikipedia.org*%E5%8F%B0%E7%81%A3%E7%8D%A8%E7%AB%8B%E5%BB%BA%E5%9C%8B%E8%81%AF%E7%9B%9F*',
+    '*zh.wikipedia.org*%E5%A4%AA%E5%AD%90%E5%85%9A*',
+    '*zh.wikipedia.org*%E5%A4%AA%E5%AD%90%E5%85%9A*',
+    '*zh.wikipedia.org/zh-cn/%E5%A4%AA%E5%AD%90%E5%85%9A*',
+    '*zh.wikipedia.org*%E8%B0%AD%E4%BD%9C%E4%BA%BA*',
+    '*zh.wikipedia.org*%E5%94%90%E6%9F%8F%E6%A1%A5*',
+    '*zh.wikipedia.org/zh/%E9%99%B6%E9%A9%B7%E9%A9%B9*',
+    '*zh.wikipedia.org*%E5%A4%A9%E5%AE%89%E9%97%A8%E5%B9%BF%E5%9C%BA*',
+    '*zh.wikipedia.org*%E5%A4%A9%E5%AE%89%E9%97%A8%E6%AF%8D%E4%BA%B2%E8%BF%90%E5%8A%A8*',
+    '*zh.wikipedia.org*%E5%A4%A9%E5%AE%89%E9%96%80%E4%BA%8B%E4%BB%B6*',
+    '*zh.wikipedia.org*%E5%A4%A9%E5%AE%89%E9%97%A8%E6%96%87%E4%BB%B6*',
+    '*zh.wikipedia.org*%E5%A4%A9%E5%AE%89%E9%96%80%E6%96%87%E4%BB%B6*',
+    '*zh.wikipedia.org*%E5%A4%A9%E5%AE%89%E9%97%A8%E8%87%AA%E7%84%9A%E4%BA%8B%E4%BB%B6*',
+    '*zh.wikipedia.org*%E5%A4%A9%E8%91%AC*',
+    '*zh.wikipedia.org/zh-cn/Tor*',
+    '*zh.wikipedia.org/zh-hk/Twitter*',
+    '*zh.wikipedia.org*%E4%B8%87%E9%87%8C*',
+    '*zh.wikipedia.org*%E7%8E%8B%E5%86%9B%E6%B6%9B*',
+    '*zh.wikipedia.org*%E7%8E%8B%E6%A8%82%E6%B3%89*',
+    '*zh.wikipedia.org*%E7%8E%8B%E7%AB%8B%E5%86%9B*',
+    '*zh.wikipedia.org*%E7%8E%8B%E5%B2%90%E5%B1%B1*',
+    '*zh.wikipedia.org*%E7%8E%8B%E5%8D%83%E6%BA%90*',
+    '*zh.wikipedia.org*%E7%8E%8B%E7%BB%B4%E6%9E%97*',
+    '*zh.wikipedia.org*%E7%8E%8B%E6%9C%89%E6%89%8D*',
+    '*zh.wikipedia.org*%E9%AD%8F%E4%BA%AC%E7%94%9F*',
+    '*zh.wikipedia.org*%E6%B1%B6%E5%B7%9D%E5%A4%A7%E5%9C%B0%E9%9C%87*',
+    '*zh.wikipedia.org*%E7%8E%8B%E7%82%B3%E7%AB%A0*',
+    '*zh.wikipedia.org*%E7%8E%8B%E4%B9%90%E6%B3%89*',
+    '*zh.wikipedia.org*%E7%8E%8B%E5%8A%9B%E9%9B%84*',
+    '*zh.wikipedia.org*%E7%BD%91%E7%BB%9C%E8%AF%84%E8%AE%BA%E5%91%98*',
+    '*zh.wikipedia.org/wiki/%E7%8E%8B%E5%A7%93*',
+    '*zh.wikipedia.org*%E6%B1%AA%E6%B4%8B*',
+    '*zh.wikipedia.org*%E7%8E%8B%E5%85%86%E5%9B%BD*',
+    '*zh.wikipedia.org*%E5%94%AF%E8%89%B2*',
+    '*zh.wikipedia.org*%E5%A8%81%E8%A7%86%E8%85%90%E8%B4%A5%E6%A1%88*',
+    '*zh.wikipedia.org*%E6%B1%B6%E5%B7%9D%E5%9C%B0%E9%9C%87*',
+    '*zh.wikipedia.org*%E6%B8%A9%E5%AE%B6%E5%AE%9D*',
+    '*zh.wikipedia.org*%E6%B8%A9%E4%BA%91%E6%9D%BE*',
+    '*zh.wikipedia.org/wiki/%E6%96%87%E5%AD%97%E7%8B%B1*',
+    '*zh.wikipedia.org/wiki/%E6%96%87%E5%AD%97%E7%8D%84*',
+    '*zh.wikipedia.org*%E5%90%B4%E9%82%A6%E5%9B%BD*',
+    '*zh.wikipedia.org*%E6%88%91%E7%9A%84%E5%A5%8B%E6%96%97*',
+    '*zh.wikipedia.org*%E5%90%BE%E5%B0%94%E5%BC%80%E5%B8%8C*',
+    '*zh.wikipedia.org*%E5%90%BE%E7%88%BE%E9%96%8B%E5%B8%8C*',
+    '*zh.wikipedia.org*%E6%97%A0%E5%9B%BD%E7%95%8C%E8%AE%B0%E8%80%85*',
+    '*zh.wikipedia.org*%E5%90%B4%E5%BC%98%E8%BE%BE*',
+    '*zh.wikipedia.org*%E6%97%A0%E7%95%8C*',
+    '*zh.wikipedia.org*%E7%83%8F%E5%9D%8E%E4%BA%8B%E4%BB%B6*',
+    '*zh.wikipedia.org*%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E4%B8%83%C2%B7%E4%BA%94%E6%9A%B4%E5%8A%9B%E4%BA%8B%E4%BB%B6*',
+    '*zh.wikipedia.org*%E4%BA%94%E6%AF%9B%E8%9B%8B%E4%BA%8B%E4%BB%B6*',
+    '*zh.wikipedia.org*%E8%A5%BF%E5%8D%95%E6%B0%91%E4%B8%BB%E5%A2%99*',
+    '*zh.wikipedia.org*%E7%BF%92%E8%BF%91%E5%B9%B3*',
+    '*zh.wikipedia.org*%E4%B9%A0%E8%BF%91%E5%B9%B3*',
+    '*zh.wikipedia.org*%E8%A5%BF%E5%8E%A2%E8%AE%A1%E5%88%92*',
+    '*zh.wikipedia.org*%E8%A5%BF%E8%97%8F*',
+    '*zh.wikipedia.org*%E4%B9%A0%E4%BB%B2%E5%8B%8B*',
+    '*zh.wikipedia.org*%E5%A4%8F%E7%91%AA%E5%B7%B4*',
+    '*zh.wikipedia.org*%E9%A6%99%E6%B8%AF%E7%8D%A8%E7%AB%8B%E9%81%8B%E5%8B%95*',
+    '*zh.wikipedia.org*%E9%A6%99%E6%B8%AF%E6%B0%91%E4%B8%BB%E9%BB%A8*',
+    '*zh.wikipedia.org*%E9%A6%99%E6%B8%AF*%E6%B0%91%E4%B8%BB%E6%B4%BE*',
+    '*zh.wikipedia.org*%E5%B0%8F%E6%98%AD%E5%AF%BA*',
+    '*zh.wikipedia.org*%E8%B0%A2%E5%BD%A6%E9%A3%9E*',
+    '*zh.wikipedia.org*%E8%BE%9B%E7%81%8F%E5%B9%B4*',
+    '*zh.wikipedia.org*%E6%96%B0%E7%96%86%E7%8B%AC%E7%AB%8B*',
+    '*zh.wikipedia.org*%E6%96%B0%E7%96%86%E7%8D%A8%E7%AB%8B*',
+    '*zh.wikipedia.org*%E6%96%B0%E5%94%90%E4%BA%BA%E9%9B%BB%E8%A6%96%E5%8F%B0*',
+    '*zh.wikipedia.org*%E6%96%B0%E9%97%BB%E8%87%AA%E7%94%B1%E6%8E%A0%E5%A4%BA%E8%80%85*',
+    '*zh.wikipedia.org*%E6%98%9F%E4%BA%91%E6%B3%95%E5%B8%88*',
+    '*zh.wikipedia.org*%E7%86%8A%E7%84%B1*',
+    '*zh.wikipedia.org*%E5%BE%90%E6%89%8D%E5%8E%9A*',
+    '*zh.wikipedia.org*%E8%AE%B8%E5%AE%B6%E5%B1%AF*',
+    '*zh.wikipedia.org*%E9%9B%AA%E5%B1%B1%E7%8D%85%E5%AD%90%E6%97%97*',
+    '*zh.wikipedia.org*%E8%A9%A2%E5%95%8F%E8%99%95*',
+    '*zh.wikipedia.org*%E5%9A%B4%E5%AE%B6%E5%85%B6*',
+    '*zh.wikipedia.org*%E4%B8%A5%E5%AE%B6%E5%85%B6*',
+    '*zh.wikipedia.org*%E9%98%8E%E6%98%8E%E5%A4%8D*',
+    '*zh.wikipedia.org*%E6%9D%A8%E4%BD%B3%E8%A2%AD%E8%AD%A6%E6%A1%88*',
+    '*zh.wikipedia.org*%E6%A5%8A%E5%BB%BA%E5%88%A9*',
+    '*zh.wikipedia.org*%E8%9A%81%E5%8A%9B%E7%A5%9E*',
+    '*zh.wikipedia.org*%E9%9B%8D%E5%92%8C%E5%AE%AB*',
+    '*zh.wikipedia.org*%E5%B9%BD%E7%81%B5%E7%BD%91*',
+    '*zh.wikipedia.org*%E4%BD%99%E6%9D%B0*',
+    '*zh.wikipedia.org*%E4%BF%9E%E4%B8%BD%E8%90%8D*',
+    '*zh.wikipedia.org*%E4%BF%9E%E6%AD%A3%E5%A3%B0*',
+    '*zh.wikipedia.org*%E8%A2%81%E7%BA%A2%E5%86%B0*',
+    '*zh.wikipedia.org*%E8%A2%81%E7%B4%85%E5%86%B0*',
+    '*zh.wikipedia.org*%E8%97%8F%E4%BC%A0%E4%BD%9B%E6%95%99*',
+    '*zh.wikipedia.org*%E6%89%8E%E4%BB%80%E4%BC%A6%E5%B8%83%E5%AF%BA*',
+    '*zh.wikipedia.org*%E5%BC%A0%E5%BE%B7%E6%B1%9F*',
+    '*zh.wikipedia.org*%E5%BC%A0%E9%AB%98%E4%B8%BD*',
+    '*zh.wikipedia.org*%E7%AB%A0%E5%98%89%E5%91%BC%E5%9B%BE%E5%85%8B%E5%9B%BE*',
+    '*zh.wikipedia.org*%E5%BC%A0%E7%AB%8B%E6%98%8C*',
+    '*zh.wikipedia.org*%E5%BC%A0%E5%9F%B9%E8%8E%89*',
+    '*zh.wikipedia.org*%E5%BC%B5%E6%96%87%E5%85%89*',
+    '*zh.wikipedia.org*%E7%AB%A0%E8%A9%92%E5%92%8C*',
+    '*zh.wikipedia.org*%E7%AB%A0%E8%AF%92%E5%92%8C*',
+    '*zh.wikipedia.org*%E5%BC%A0%E9%92%B0*',
+    '*zh.wikipedia.org*%E5%BC%B5%E9%88%BA*',
+    '*zh.wikipedia.org*%E8%B5%B5%E7%B4%AB%E9%98%B3*',
+    '*zh.wikipedia.org*%E8%B6%99%E7%B4%AB%E9%99%BD*',
+    '*zh.wikipedia.org*%E5%93%B2%E5%B8%83%E5%B0%8A%E4%B8%B9%E5%B7%B4%E5%91%BC%E5%9B%BE%E5%85%8B%E5%9B%BE*',
+    '*zh.wikipedia.org*%E7%9C%9F%E5%96%84%E5%BF%8D*',
+    '*zh.wikipedia.org*%E4%B8%AD%E5%85%B1%E4%B8%AD%E5%A4%AE%E5%AE%A3%E4%BC%A0%E9%83%A8*',
+    '*zh.wikipedia.org/wiki/%E4%B8%AD%E5%9B%BD*',
+    '*zh.wikipedia.org*%E4%B8%AD%E5%9C%8B%E6%8C%81%E4%B8%8D%E5%90%8C%E6%94%BF%E8%A6%8B%E8%80%85%E5%90%8D%E5%96%AE*',
+    '*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86%E5%B0%81%E9%94%81%E7%BB%B4%E5%9F%BA%E5%AA%92%E4%BD%93%E4%BA%8B%E4%BB%B6*',
+    '*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86%E5%B0%81%E9%94%81%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91%E4%BA%8B%E4%BB%B6*',
+    '*zh.wikipedia.org*%E4%B8%AD%E5%9C%8B%E5%A4%A7%E9%99%B8%E7%B6%B2%E8%B7%AF%E5%B0%81%E9%8E%96*',
+    '*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E7%94%B5%E8%A7%86%E5%AE%A1%E6%9F%A5*',
+    '*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E6%B3%9B%E8%93%9D%E8%81%94%E7%9B%9F*',
+    '*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E5%85%B1%E4%BA%A7%E5%85%9A*',
+    '*zh.wikipedia.org*%E4%B8%AD%E5%9C%8B%E5%85%B1%E7%94%A2%E9%BB*',
+    '*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E5%9F%BA%E7%9D%A3%E6%95%99%E5%8D%8F%E4%BC%9A*',
+    '*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E5%AE%B6%E5%BA%AD%E6%95%99%E4%BC%9A*',
+    '*zh.wikipedia.org*%E4%B8%AD%E5%9C%8B%E8%81%AF%E9%82%A6%E4%B8%BB%E7%BE%A9*',
+    '*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E6%B0%91%E4%B8%BB%E5%85%9A*',
+    '*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E6%B0%91%E4%B8%BB%E8%BF%90%E5%8A%A8*',
+    '*zh.wikipedia.org*%E4%B8%AD%E5%9C%8B%E6%B0%91%E4%B8%BB%E9%81%8B%E5%8B%95*',
+    '*zh.wikipedia.org*%E4%B8%AD%E5%9C%8B%E8%8C%89%E8%8E%89%E8%8A%B1%E9%9D%A9%E5%91%BD*',
+    '*zh.wikipedia.org*%E4%B8%AD*%E5%9B%BD%E4%BA%BA%E6%9D%83*',
+    '*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E7%BD%91%E7%BB%9C%E8%BD%AF%E4%BB%B6%E8%BF%87%E6%BB%A4%E5%85%B3%E9%94%AE%E5%AD%97%E5%88%97%E8%A1%A8*',
+    '*zh.wikipedia.org*%E4%B8%AD%E5%9B%BD%E7%BD%91%E7%BB%9C%E5%AE%A1%E6%9F%A5*',
+    '*zh.wikipedia.org*%E4%B8%AD%E5%9C%8B%E7%B6%B2%E8%B7%AF%E5%AF%A9%E6%9F%A5*',
+    '*zh.wikipedia.org*%E4%B8%AD%E8%8F%AF%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9C%8B%E4%BA%BA%E6%AC%8A*',
+    '*zh.wikipedia.org*%E4%B8%AD%E8%8F%AF%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9C%8B%E5%AF%A9%E6%9F%A5%E8%BE%AD%E5%BD%99%E5%88%97%E8%A1%A8*',
+    '*zh.wikipedia.org*%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E5%AE%AA%E6%B3%95*',
+    '*zh.wikipedia.org*%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E5%9C%8B%E6%B0%91%E5%A4%A7%E6%9C%83*',
+    '*zh.wikipedia.org*%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E6%B2%BB%E8%97%8F%E6%AD%B7%E5%8F%B2*',
+    '*zh.wikipedia.org*%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E7%B8%BD%E7%B5%B1%E5%BA%9C*',
+    '*zh.wikipedia.org*%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E7%BD%91%E7%BB%9C%E5%AE%A1%E6%9F%A5*',
+    '*zh.wikipedia.org*%E4%B8%AD%E8%8F%AF%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9C%8B%E7%B6%B2%E7%B5%A1%E5%AF%A9%E6%9F%A5*',
+    '*zh.wikipedia.org*%E4%B8%AD%E8%8F%AF%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9C%8B%E6%B0%91%E4%B8%BB%E9%81%8B%E5%8B%95*',
+    '*zh.wikipedia.org*%E4%B8%AD%E8%8F%AF%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9C%8B%E5%AE%97%E6%95%99*',
+    '*zh.wikipedia.org*%E4%B8%AD%E6%96%87%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91*',
+    '*zh.wikipedia.org*%E4%B8%AD%E5%A4%AE%E8%AD%A6%E8%A1%9B%E5%B1%80*',
+    '*zh.wikipedia.org*%E4%B8%AD%E5%A4%AE%E6%96%87%E5%8C%96%E9%9D%A9%E5%91%BD%E5%B0%8F%E7%BB%84*',
+    '*zh.wikipedia.org*%E4%B8%AD%E8%8B%B1%E7%BA%8C%E8%A8%82%E8%97%8F%E5%8D%B0%E6%A2%9D%E7%B4%84*',
+    '*zh.wikipedia.org*%E5%91%A8%E6%B0%B8%E5%BA%B7*',
+    '*zh.wikipedia.org*%E8%BD%AC%E6%B3%95%E8%BD%AE*',
+    '*zh.wikipedia.org*%E8%87%AA%E7%94%B1%E9%97%A8*',
+    '*zh.wikipedia.org*%E8%87%AA%E7%94%B1%E4%BA%9A%E6%B4%B2*',
+    '*zh.wikipedia.org*%E5%AE%97%E5%96%80%E5%B7%B4*',
+    '*zh.wikibooks.org*%E7%AA%81%E7%A0%B4%E7%BD%91%E7%BB%9C%E5%AE%A1%E6%9F%A5*',
+    '*gov.tw*',
+    '*174.142.105.153*',
+    '*69.65.19.160*'
+    ];
+
+function FindProxyForURL(url, host) {
+    var D = "DIRECT";
+
+    var regExpMatch = function(url, pattern) {
+        try { 
+            return new RegExp(pattern).test(url); 
+        } catch(ex) { 
+            return false; 
+        }
+    };
+    
+    var i = 0;
+
+    for (i in directUserRegexpList) {
+        if(regExpMatch(url, directUserRegexpList[i])) return D;
+    }
+
+    for (i in directUserWildcardList) {
+        if (shExpMatch(url, directUserWildcardList[i])) return D;
+    }
+
+    for (i in proxyUserRegexpList) {
+        if(regExpMatch(url, proxyUserRegexpList[i])) return P;
+    }
+
+    for (i in proxyUserWildcardList) {
+        if(shExpMatch(url, proxyUserWildcardList[i])) return P;
+    }
+
+    for (i in directRegexpList) {
+        if(regExpMatch(url, directRegexpList[i])) return D;
+    }
+
+    for (i in directWildcardList) {
+        if (shExpMatch(url, directWildcardList[i])) return D;
+    }
+
+    for (i in proxyRegexpList) {
+        if(regExpMatch(url, proxyRegexpList[i])) return P;
+    }
+
+    for (i in proxyWildcardList) {
+        if(shExpMatch(url, proxyWildcardList[i])) return P;
+    }
+
+    return D;
 }
