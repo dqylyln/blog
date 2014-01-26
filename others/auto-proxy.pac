@@ -10,6 +10,7 @@ var P = "SOCKS5 127.0.0.1:7000; SOCKS 127.0.0.1:7000; DIRECT";
 // user rules
 var directUserRegexpList   = [];
 var directUserWildcardList = [
+ 		'maps.google.com',
     '*sina.com*',
     '*163.com*'
     ];
