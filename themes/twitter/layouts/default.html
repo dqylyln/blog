@@ -37,6 +37,22 @@
 <div class="container">
     <div class="content">
         {{{ content }}}
+        <!-- Duoshuo Comment BEGIN -->
+        <div class="ds-thread" data-thread-key="{{title}}"
+             data-title="{{title}}" data-author-key="{{ site.author.name }}" data-url="{{url}}"></div>
+        <script type="text/javascript">
+            var duoshuoQuery = {short_name: "dqy"};
+            (function () {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';
+                ds.async = true;
+                ds.src = 'http://static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0]
+                        || document.getElementsByTagName('body')[0]).appendChild(ds);
+            })();
+        </script>
+        <!-- Duoshuo Comment END -->
         <hr/>
         <script type="text/javascript">
             alimama_pid = "mm_10003632_4206295_13756977";
@@ -47,12 +63,11 @@
         </script>
     </div>
     <footer>
-        <p>&copy; <a href="http://weibo.com/dqylyln">{{ site.author.name }}</a> 2013
+        <p>&copy; <a href="http://weibo.com/dqylyln">{{ site.author.name }}</a> 2014
             Powered by <a href="http://www.raspberrypi.org" target="_blank"><img
-                    src="http://a0.twimg.com/profile_images/1590336143/Raspi-PGB001_normal.png"/> Raspberry Pi</a>
+                    src="/raspberrypi.ico"/> Raspberry Pi</a>
             with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
             and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-            and Idea from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
             <!--# echo var="remote_addr" default="no" -->
             <br/>
             <script src="http://s15.cnzz.com/stat.php?id=5178536&web_id=5178536&online=1&show=line"
@@ -60,9 +75,10 @@
         </p>
     </footer>
 </div>
-<!-- /container -->
+<!-- container
 {{{ google_prettify }}}
 {{{ analytics }}}
+-->
 <script type="text/javascript">
     document.write('<a style="display:none!important" id="tanx-a-mm_10003632_4206295_13756977"></a>');
     tanx_s = document.createElement("script");
