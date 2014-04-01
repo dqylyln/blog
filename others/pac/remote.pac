@@ -25,6 +25,7 @@ var proxyUserWildcardList  = [
 // gfwlist rules
 var directRegexpList   = [
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?www\.exblog\.jp',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?github\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?.*v6\.facebook\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?site\.locql\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?download\.syniumsoftware\.com',
