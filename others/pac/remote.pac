@@ -10,11 +10,13 @@ var P = "SOCKS5 dqy.me:7000; SOCKS dqy.me:7000; PROXY dqy.me:8000; DIRECT";
 // user rules
 var directUserRegexpList   = [];
 var directUserWildcardList = [
+ 	'maps.google.com',
     '*sina.com*',
     '*163.com*'
     ];
 var proxyUserRegexpList    = [];
 var proxyUserWildcardList  = [
+    '*google.com*',
     '*twitter.com*',
     '*youtube.com*'
     ];
