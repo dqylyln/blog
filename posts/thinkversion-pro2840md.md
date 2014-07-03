@@ -42,7 +42,6 @@ tags:
 <img src="http://khulcg.by3302.livefilestore.com/y2pD4Ym-WBjJEs-sGTLj2tbyZuC7fRAlyGI1jpFT6dfsBEyO4eZCkpRcxk30zpxuFRkxh37Rj2etdrnPhDOOX--8dHjexQaPVPYyym24C0EbX0/2014-06-13%20152142.jpg" width="777" height="770"/>
 
 ThinkVision Pro2840mD 全身黑色棱角分的外观明沿袭着thinkpad的一贯设计风格，屏幕采用镜面面板（屏幕反光相当严重），功能按键功能按键采用
-
 虚拟按键。 放到我厂的办公桌上显得格外的大。
 
 方向调节支持，高度，倾斜角，水平旋转，垂直旋转。
