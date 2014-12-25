@@ -5,7 +5,7 @@
  */
 
 // proxy
-var P = "SOCKS5 192.168.1.2:7000; SOCKS 192.168.1.2:7000; DIRECT";
+var P = "SOCKS5 192.168.1.1:7000; SOCKS 192.168.1.1:7000; DIRECT";
 
 // user rules
 var directUserRegexpList   = [];
