@@ -2441,7 +2441,7 @@ var domains = {
   "1-apple.com.tw": 1
 };
 
-var proxy = "SOCKS5 192.168.1.1:7000; SOCKS 192.168.1.1:7000; DIRECT;";
+var proxy = "SOCKS 192.168.1.1:7000; DIRECT;";
 
 var direct = 'DIRECT;';
 
