@@ -19,7 +19,7 @@ services:
         shortname: "dqylyln"
     # GA Tracking ID
     googleAnalytics:
-        id: "G-8HNW8929NE"
+        id: "G-J4VWVWWWN0"
 
 permalinks:
     post: /p/:slug/

@@ -212,7 +212,7 @@ a {
     // 根据服务器上的分辨率来定
     @include respond(xl) {
       //max-width: 1536px;
-      max-width: 1900px;
+      max-width: 1920px;
       --left-sidebar-max-width: 20%;
       --right-sidebar-max-width: 20%;
     }
