@@ -202,12 +202,12 @@ menu:
         #   params:
         #       icon: brand-twitter
 
-        # - identifier: mail
-        #   weight: 3
-        #   name: Email
-        #   url: "mailto:dqy@dqy.me"
-        #   params:
-        #       icon: mail
+        - identifier: mail
+          weight: 3
+          name: Email
+          url: "mailto:dqy@dqy.me"
+          params:
+              icon: mail
 
         - identifier: books
           weight: 4
