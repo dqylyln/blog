@@ -19,7 +19,7 @@ services:
         shortname: "dqylyln"
     # GA Tracking ID
     googleAnalytics:
-        id: "K5-oKNvjQsaaki_EDxK58g"
+        id: "G-8HNW8929NE"
 
 permalinks:
     post: /p/:slug/
@@ -74,7 +74,7 @@ params:
             label:
 
         beaudar:
-            repo: 
+            repo:
             issueTerm: pathname
             label:
             theme:
