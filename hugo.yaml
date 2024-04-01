@@ -43,7 +43,7 @@ params:
 
     sidebar:
         emoji: 💯
-        subtitle: 折腾不止，快乐不停！
+        subtitle: 折腾不止，快乐不停
         avatar:
             enabled: true
             local: true
