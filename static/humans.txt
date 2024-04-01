@@ -1,0 +1,18 @@
+/* TEAM */
+	Author: dqylyln
+	Contact: dqylyln [at] gmail.com
+	Weibo: @小齐昊
+	Blog: dqy.me
+	Site: //www.intellij.org.cn
+	From: HangZhou, ZheJiang, China
+
+/* SITE */
+	Last update:2013/4/11
+	Language:Chinese
+	Doctype:HTML4
+	Standards: HTML4, CSS
+	Core:  NodeJs, Hexo, Html, MarkDown
+	Deployment: Aliyun ECS, Ubuntu, Nginx, Hexo, Git
+	IDE: IntelliJ IDEA
+
+dqylyln 's blog
