@@ -59,7 +59,7 @@ params:
 
     comments:
         enabled: true
-        provider: disqus
+        provider: waline
 
         disqusjs:
             shortname:
@@ -94,15 +94,15 @@ params:
 
         # Waline client configuration see: https://waline.js.org/en/reference/component.html
         waline:
-            serverURL:
-            lang:
+            serverURL: "https://waline-nteczq60w-dqylylns-projects.vercel.app"
+            lang: "zh-CN"
             pageview:
             emoji:
                 - https://unpkg.com/@waline/emojis@1.0.1/weibo
             requiredMeta:
                 - name
                 - email
-                - url
+            #    - url
             locale:
                 admin: Admin
                 placeholder:
@@ -138,8 +138,8 @@ params:
             clientSecret:
 
         cusdis:
-            host:
-            id:
+            host: "https://cusdis.com"
+            id: "f1d1b7cb-2dbe-4812-b7c8-cba5b741dd4e"
     widgets:
         homepage:
             - type: search
