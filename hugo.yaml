@@ -99,6 +99,9 @@ params:
             pageview:
             emoji:
                 - https://unpkg.com/@waline/emojis@1.0.1/weibo
+            meta:
+                - name
+                - email
             requiredMeta:
                 - name
                 - email
