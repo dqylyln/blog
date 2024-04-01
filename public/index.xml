@@ -545,11 +545,19 @@ $$&lt;/p&gt;</description>
 </description>
         </item>
         <item>
-        <title>连接</title>
-        <link>https://dqy.me/%E8%BF%9E%E6%8E%A5/</link>
+        <title>搜索</title>
+        <link>https://dqy.me/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://dqy.me/%E8%BF%9E%E6%8E%A5/</guid>
+        <guid>https://dqy.me/search/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>友链</title>
+        <link>https://dqy.me/%E5%8F%8B%E9%93%BE/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://dqy.me/%E5%8F%8B%E9%93%BE/</guid>
         <description>&lt;p&gt;To use this feature, add &lt;code&gt;links&lt;/code&gt; section to frontmatter.&lt;/p&gt;
 &lt;p&gt;This page&amp;rsquo;s frontmatter:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -578,14 +586,6 @@ $$&lt;/p&gt;</description>
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;code&gt;image&lt;/code&gt; field accepts both local and external images.&lt;/p&gt;
 </description>
-        </item>
-        <item>
-        <title>搜索</title>
-        <link>https://dqy.me/search/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        
-        <guid>https://dqy.me/search/</guid>
-        <description></description>
         </item>
         
     </channel>

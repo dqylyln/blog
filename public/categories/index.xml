@@ -8,12 +8,12 @@
         <language>zh-cn</language>
         <copyright>DQY</copyright>
         <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://dqy.me/categories/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Hugo</title>
+        <title>hugo</title>
         <link>https://dqy.me/categories/hugo/</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
         <guid>https://dqy.me/categories/hugo/</guid>
-        <description></description>
+        <description>&lt;img src="https://dqy.me/categories/hugo/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post hugo" /&gt;</description>
         </item>
         <item>
         <title>Syntax</title>
@@ -22,14 +22,6 @@
         
         <guid>https://dqy.me/categories/syntax/</guid>
         <description></description>
-        </item>
-        <item>
-        <title>Test</title>
-        <link>https://dqy.me/categories/test/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        
-        <guid>https://dqy.me/categories/test/</guid>
-        <description>&lt;img src="https://dqy.me/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /&gt;</description>
         </item>
         
     </channel>

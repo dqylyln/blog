@@ -20,10 +20,10 @@
     <loc>https://dqy.me/tags/html/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dqy.me/tags/hugo/</loc>
+    <loc>https://dqy.me/categories/hugo/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dqy.me/categories/hugo/</loc>
+    <loc>https://dqy.me/tags/hugo/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dqy.me/tags/markdown/</loc>
@@ -68,10 +68,8 @@
     <loc>https://dqy.me/%E5%85%B3%E4%BA%8E/</loc>
     <lastmod>2020-10-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dqy.me/categories/test/</loc>
-  </url><url>
-    <loc>https://dqy.me/%E8%BF%9E%E6%8E%A5/</loc>
-  </url><url>
     <loc>https://dqy.me/search/</loc>
+  </url><url>
+    <loc>https://dqy.me/%E5%8F%8B%E9%93%BE/</loc>
   </url>
 </urlset>
