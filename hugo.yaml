@@ -2,8 +2,8 @@ baseurl: https://dqy.me
 languageCode: zh-cn
 theme: hugo-theme-stack
 paginate: 3
-title: 演示站点
-copyright: Example Person
+title: DQY的博客
+copyright: dqylyln
 
 # Theme i18n support
 # Available values: ar, bn, ca, de, el, en, es, fr, hu, id, it, ja, ko, nl, pt-br, th, uk, zh-cn, zh-hk, zh-tw
@@ -42,7 +42,7 @@ params:
         lastUpdated: Jan 02, 2006 15:04 MST
 
     sidebar:
-        emoji: 🍥
+        emoji: 💯
         subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         avatar:
             enabled: true
@@ -187,19 +187,34 @@ params:
 ### To remove about, archive and search page menu item, remove `menu` field from their FrontMatter
 menu:
     main: []
-
     social:
         - identifier: github
+          weight: 1
           name: GitHub
-          url: https://github.com/CaiJimmy/hugo-theme-stack
+          url: https://github.com/dqylyln
           params:
               icon: brand-github
 
         - identifier: twitter
+          weight: 2
           name: Twitter
-          url: https://twitter.com
+          url: https://twitter.com/dqylyln
           params:
               icon: brand-twitter
+
+        - identifier: mail
+          weight: 3
+          name: Email
+          url: "mailto:dqy@dqy.me"
+          params:
+              icon: mail
+
+        - identifier: rss
+          weight: 4
+          name: RSS
+          url: "https://dqy.me/index.xml"
+          params:
+              icon: rss
 
 related:
     includeNewer: true
