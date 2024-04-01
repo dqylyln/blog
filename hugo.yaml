@@ -1,7 +1,7 @@
 baseurl: https://dqy.me
 languageCode: zh-cn
 theme: hugo-theme-stack
-paginate: 3
+paginate: 5
 title: DQY的小窝
 copyright: DQY
 
