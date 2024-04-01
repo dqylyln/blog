@@ -4,13 +4,12 @@ title = "Placeholder Text"
 date = "2019-03-09"
 description = "Lorem Ipsum Dolor Si Amet"
 categories = [
-    "Test",
-    "Test with whitespaces"
+    "hugo"
 ]
 tags = [
     "markdown",
     "text",
-    "tag with whitespaces"
+    "hugo"
 ]
 image = "matt-le-SJSpo9hQf7s-unsplash.jpg"
 +++

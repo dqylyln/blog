@@ -7,10 +7,10 @@ tags = [
     "markdown",
     "css",
     "html",
-    "themes",
+    "hugo",
 ]
 categories = [
-    "themes",
+    "hugo",
     "syntax",
 ]
 series = ["Themes Guide"]
