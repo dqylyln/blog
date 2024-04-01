@@ -2,8 +2,8 @@ baseurl: https://dqy.me
 languageCode: zh-cn
 theme: hugo-theme-stack
 paginate: 3
-title: DQY的博客
-copyright: DQY.ME
+title: DQY的小窝
+copyright: DQY
 
 # Theme i18n support
 # Available values: ar, bn, ca, de, el, en, es, fr, hu, id, it, ja, ko, nl, pt-br, th, uk, zh-cn, zh-hk, zh-tw
@@ -35,7 +35,7 @@ params:
 
     footer:
         since: 2024
-        customText: <a href="https://beian.miit.gov.cn/" target="_blank">备案号</a>
+        #customText: <a href="https://beian.miit.gov.cn/" target="_blank">备案号</a>
 
     dateFormat:
         published: Jan 02, 2006
@@ -43,7 +43,7 @@ params:
 
     sidebar:
         emoji: 💯
-        subtitle: 
+        subtitle: 折腾不止，快乐不停！
         avatar:
             enabled: true
             local: true
@@ -195,22 +195,29 @@ menu:
           params:
               icon: brand-github
 
-        - identifier: twitter
-          weight: 2
-          name: Twitter
-          url: https://twitter.com/dqylyln
-          params:
-              icon: brand-twitter
+        # - identifier: twitter
+        #   weight: 2
+        #   name: Twitter
+        #   url: https://twitter.com/dqylyln
+        #   params:
+        #       icon: brand-twitter
 
-        - identifier: mail
-          weight: 3
-          name: Email
-          url: "mailto:dqy@dqy.me"
+        # - identifier: mail
+        #   weight: 3
+        #   name: Email
+        #   url: "mailto:dqy@dqy.me"
+        #   params:
+        #       icon: mail
+
+        - identifier: books
+          weight: 4
+          name: Library
+          url: "https://h.dqy.me:1076"
           params:
-              icon: mail
+              icon: books
 
         - identifier: rss
-          weight: 4
+          weight: 5
           name: RSS
           url: "https://dqy.me/index.xml"
           params:
