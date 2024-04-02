@@ -1,5 +1,5 @@
 ---
-title: "hugo"
+title: "Hugo"
 description: "This is an hugo category"
 slug: "hugo"
 image: "hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg"
