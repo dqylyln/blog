@@ -13,241 +13,237 @@ DefaultContentLanguage: zh-cn
 # This will make .Summary and .WordCount behave correctly for CJK languages.
 hasCJKLanguage: true
 
-services:
-    # Change it to your Disqus shortname before using
-    disqus:
-        shortname: "dqylyln"
-    # GA Tracking ID
-    googleAnalytics:
-        id: "G-J4VWVWWWN0"
+services: # Change it to your Disqus shortname before using
+  disqus:
+    shortname: "dqylyln"
+  # GA Tracking ID
+  googleAnalytics:
+    id: "G-J4VWVWWWN0"
 
 permalinks:
-    post: /p/:slug/
-    page: /:slug/
+  post: /p/:slug/
+  page: /:slug/
 
 params:
-    mainSections:
-        - post
-    featuredImageField: image
-    rssFullContent: true
-    # e.g.: favicon placed in `static/favicon.ico` of your site folder, then set this field to `/favicon.ico` (`/` is necessary)
-    favicon: /favicon.ico
+  mainSections:
+    - post
+  featuredImageField: image
+  rssFullContent: true
+  # e.g.: favicon placed in `static/favicon.ico` of your site folder, then set this field to `/favicon.ico` (`/` is necessary)
+  favicon: /favicon.ico
 
-    footer:
-        since: 2024
-        #customText: <a href="https://beian.miit.gov.cn/" target="_blank">备案号</a>
+  footer:
+    since: 2024
+    #customText: <a href="https://beian.miit.gov.cn/" target="_blank">备案号</a>
 
-    dateFormat:
-        published: Jan 02, 2006
-        lastUpdated: Jan 02, 2006 15:04 MST
+  dateFormat:
+    published: Jan 02, 2006
+    lastUpdated: Jan 02, 2006 15:04 MST
 
-    sidebar:
-        emoji: 💯
-        subtitle: 折腾不止，快乐不停
-        avatar:
-            enabled: true
-            local: true
-            src: img/avatar.png
+  sidebar:
+    emoji: 💯
+    subtitle: 折腾不止，快乐不停
+    avatar:
+      enabled: true
+      local: true
+      src: img/avatar.png
 
-    article:
-        math: false
-        toc: true
-        readingTime: true
-        license:
-            enabled: true
-            default: Licensed under CC BY-NC-SA 4.0
+  article:
+    math: false
+    toc: true
+    readingTime: true
+    license:
+      enabled: true
+      default: Licensed under CC BY-NC-SA 4.0
 
-    comments:
-        enabled: true
-        provider: disqus
+  comments:
+    enabled: true
+    provider: disqus
 
-        disqusjs:
-            shortname:
-            apiUrl:
-            apiKey:
-            admin:
-            adminLabel:
+    disqusjs:
+      shortname:
+      apiUrl:
+      apiKey:
+      admin:
+      adminLabel:
 
-        utterances:
-            repo:
-            issueTerm: pathname
-            label:
+    utterances:
+      repo:
+      issueTerm: pathname
+      label:
 
-        beaudar:
-            repo:
-            issueTerm: pathname
-            label:
-            theme:
+    beaudar:
+      repo:
+      issueTerm: pathname
+      label:
+      theme:
 
-        remark42:
-            host:
-            site:
-            locale:
+    remark42:
+      host:
+      site:
+      locale:
 
-        vssue:
-            platform:
-            owner:
-            repo:
-            clientId:
-            clientSecret:
-            autoCreateIssue: false
+    vssue:
+      platform:
+      owner:
+      repo:
+      clientId:
+      clientSecret:
+      autoCreateIssue: false
 
-        # Waline client configuration see: https://waline.js.org/en/reference/component.html
-        waline:
-            serverURL: "https://waline-nteczq60w-dqylylns-projects.vercel.app"
-            lang: "zh-CN"
-            pageview:
-            emoji:
-                - https://unpkg.com/@waline/emojis@1.0.1/weibo
-            requiredMeta:
-                - name
-                - email
-            #    - url
-            locale:
-                admin: Admin
-                placeholder:
+    # Waline client configuration see: https://waline.js.org/en/reference/component.html
+    waline:
+      serverURL: "https://waline-nteczq60w-dqylylns-projects.vercel.app"
+      lang: "zh-CN"
+      pageview:
+      emoji:
+        - https://unpkg.com/@waline/emojis@1.0.1/weibo
+      requiredMeta:
+        - name
+        - email
+      #    - url
+      locale:
+        admin: Admin
+        placeholder:
 
-        twikoo:
-            envId:
-            region:
-            path:
-            lang:
+    twikoo:
+      envId:
+      region:
+      path:
+      lang:
 
-        # See https://cactus.chat/docs/reference/web-client/#configuration for description of the various options
-        cactus:
-            defaultHomeserverUrl: "https://matrix.cactus.chat:8448"
-            serverName: "cactus.chat"
-            siteName: "" # You must insert a unique identifier here matching the one you registered (See https://cactus.chat/docs/getting-started/quick-start/#register-your-site)
+    # See https://cactus.chat/docs/reference/web-client/#configuration for description of the various options
+    cactus:
+      defaultHomeserverUrl: "https://matrix.cactus.chat:8448"
+      serverName: "cactus.chat"
+      siteName: "" # You must insert a unique identifier here matching the one you registered (See https://cactus.chat/docs/getting-started/quick-start/#register-your-site)
 
-        giscus:
-            repo:
-            repoID:
-            category:
-            categoryID:
-            mapping:
-            lightTheme:
-            darkTheme:
-            reactionsEnabled: 1
-            emitMetadata: 0
+    giscus:
+      repo:
+      repoID:
+      category:
+      categoryID:
+      mapping:
+      lightTheme:
+      darkTheme:
+      reactionsEnabled: 1
+      emitMetadata: 0
 
-        gitalk:
-            owner:
-            admin:
-            repo:
-            clientID:
-            clientSecret:
+    gitalk:
+      owner:
+      admin:
+      repo:
+      clientID:
+      clientSecret:
 
-        cusdis:
-            host: "https://cusdis.com"
-            id: "f1d1b7cb-2dbe-4812-b7c8-cba5b741dd4e"
-    widgets:
-        homepage:
-            - type: search
-            - type: archives
-              params:
-                  limit: 5
-            - type: categories
-              params:
-                  limit: 10
-            - type: tag-cloud
-              params:
-                  limit: 10
-        page:
-            - type: toc
+    cusdis:
+      host: "https://cusdis.com"
+      id: "f1d1b7cb-2dbe-4812-b7c8-cba5b741dd4e"
+  widgets:
+    homepage:
+      - type: search
+      - type: archives
+        params:
+          limit: 5
+      - type: categories
+        params:
+          limit: 10
+      - type: tag-cloud
+        params:
+          limit: 10
+    page:
+      - type: toc
 
+  opengraph:
+    twitter: # Your Twitter username
+      site: dqylyln
+
+      # Available values: summary, summary_large_image
+      card: summary_large_image
+
+  defaultImage:
     opengraph:
-        twitter:
-            # Your Twitter username
-            site: dqylyln
+      enabled: false
+      local: false
+      src:
 
-            # Available values: summary, summary_large_image
-            card: summary_large_image
+  colorScheme: # Display toggle
+    toggle: true
 
-    defaultImage:
-        opengraph:
-            enabled: false
-            local: false
-            src:
+    # Available values: auto, light, dark
+    default: auto
 
-    colorScheme:
-        # Display toggle
-        toggle: true
-
-        # Available values: auto, light, dark
-        default: auto
-
-    imageProcessing:
-        cover:
-            enabled: true
-        content:
-            enabled: true
+  imageProcessing:
+    cover:
+      enabled: true
+    content:
+      enabled: true
 
 ### Custom menu
 ### See https://stack.jimmycai.com/config/menu
 ### To remove about, archive and search page menu item, remove `menu` field from their FrontMatter
 menu:
-    main: []
-    social:
-        - identifier: github
-          weight: 1
-          name: GitHub
-          url: https://github.com/dqylyln
-          params:
-              icon: brand-github
+  main: [ ]
+  social:
+    - identifier: github
+      weight: 1
+      name: GitHub
+      url: https://github.com/dqylyln
+      params:
+        icon: brand-github
 
-        # - identifier: twitter
-        #   weight: 2
-        #   name: Twitter
-        #   url: https://twitter.com/dqylyln
-        #   params:
-        #       icon: brand-twitter
+    # - identifier: twitter
+    #   weight: 2
+    #   name: Twitter
+    #   url: https://twitter.com/dqylyln
+    #   params:
+    #       icon: brand-twitter
 
-        - identifier: mail
-          weight: 3
-          name: Email
-          url: "mailto:dqy@dqy.me"
-          params:
-              icon: mail
+    - identifier: mail
+      weight: 3
+      name: Email
+      url: "mailto:dqy@dqy.me"
+      params:
+        icon: mail
 
-        - identifier: books
-          weight: 4
-          name: Library
-          url: "https://h.dqy.me:1076"
-          params:
-              icon: books
+    - identifier: books
+      weight: 4
+      name: Library
+      url: "https://h.dqy.me:1076"
+      params:
+        icon: books
 
-        - identifier: rss
-          weight: 5
-          name: RSS
-          url: "https://dqy.me/index.xml"
-          params:
-              icon: rss
+    - identifier: rss
+      weight: 5
+      name: RSS
+      url: "https://dqy.me/index.xml"
+      params:
+        icon: rss
 
 related:
-    includeNewer: true
-    threshold: 60
-    toLower: false
-    indices:
-        - name: tags
-          weight: 100
+  includeNewer: true
+  threshold: 60
+  toLower: false
+  indices:
+    - name: tags
+      weight: 100
 
-        - name: categories
-          weight: 200
+    - name: categories
+      weight: 200
 
 markup:
-    goldmark:
-        renderer:
-            ## Set to true if you have HTML content inside Markdown
-            unsafe: true
-    tableOfContents:
-        endLevel: 4
-        ordered: true
-        startLevel: 2
-    highlight:
-        noClasses: false
-        codeFences: true
-        guessSyntax: true
-        lineNoStart: 1
-        lineNos: true
-        lineNumbersInTable: true
-        tabWidth: 4
+  goldmark:
+    renderer: ## Set to true if you have HTML content inside Markdown
+      unsafe: true
+  tableOfContents:
+    endLevel: 4
+    ordered: true
+    startLevel: 2
+  highlight:
+    noClasses: false
+    codeFences: true
+    guessSyntax: true
+    lineNoStart: 1
+    lineNos: true
+    lineNumbersInTable: true
+    tabWidth: 4

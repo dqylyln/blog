@@ -19,7 +19,7 @@
     {{- $TOCEnabled := and (not $TOCManuallyDisabled) $TOCWidgetEnabled -}}
     {{- $hasTOC := ge (len .TableOfContents) 100 -}}
     {{- .Scratch.Set "TOCEnabled" (and $TOCEnabled $hasTOC) -}}
-    
+
     {{- .Scratch.Set "hasWidget" (or $HasWidgetNotTOC (and $TOCEnabled $hasTOC)) -}}
 {{ end }}
 
@@ -31,7 +31,7 @@
     {{ end }}
 
     {{ partial "article/components/related-content" . }}
-     
+
     {{ if not (eq .Params.comments false) }}
         {{ partial "comments/include" . }}
     {{ end }}
@@ -42,7 +42,7 @@
 {{ end }}
 {{/* 文章添加返回按钮 */}}
 {{ define "left-sidebar" }}
-{{ if (.Scratch.Get "TOCEnabled") }}
+    {{ if (.Scratch.Get "TOCEnabled") }}
         <div id="article-toolbar" style="position: sticky;top: 5px;z-index: 1000;">
             <a href="{{ .Site.BaseURL | relLangURL }}" class="back-home">
                 {{ (resources.Get "icons/back.svg").Content | safeHTML }}
@@ -54,5 +54,5 @@
     {{ end }}
 {{ end }}
 {{ define "right-sidebar" }}
-    {{ if .Scratch.Get "hasWidget" }}{{ partial "sidebar/right.html" (dict "Context" . "Scope" "page") }}{{ end}}
+    {{ if .Scratch.Get "hasWidget" }}{{ partial "sidebar/right.html" (dict "Context" . "Scope" "page") }}{{ end }}
 {{ end }}

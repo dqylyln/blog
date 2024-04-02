@@ -1,4 +1,5 @@
 ##ignore file
-.DS_Store
 resources/_gen
+.idea/
+.DS_Store
 .hugo_build.lock

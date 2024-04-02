@@ -12,8 +12,9 @@ Mathematical notation in a Hugo project can be enabled by using third party Java
 In this example we will be using [KaTeX](https://katex.org/)
 
 - Create a partial under `/layouts/partials/math.html`
-- Within this partial reference the [Auto-render Extension](https://katex.org/docs/autorender.html) or host these scripts locally.
-- Include the partial in your templates like so:  
+- Within this partial reference the [Auto-render Extension](https://katex.org/docs/autorender.html) or host these
+  scripts locally.
+- Include the partial in your templates like so:
 
 ```bash
 {{ if or .Params.math .Site.Params.math }}
@@ -41,5 +42,5 @@ Inline math: $\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…$
 
 Block math:
 $$
- \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } } 
+\varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
 $$
