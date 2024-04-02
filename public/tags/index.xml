@@ -2,73 +2,73 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Tags on DQY的小窝</title>
-        <link>https://dqy.me/tags/</link>
+        <link>https://dqy.me/tags.html</link>
         <description>Recent content in Tags on DQY的小窝</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>DQY</copyright>
         <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://dqy.me/tags/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Css</title>
-        <link>https://dqy.me/tags/css/</link>
+        <link>https://dqy.me/tags/css.html</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://dqy.me/tags/css/</guid>
+        <guid>https://dqy.me/tags/css.html</guid>
         <description></description>
         </item>
         <item>
         <title>Html</title>
-        <link>https://dqy.me/tags/html/</link>
+        <link>https://dqy.me/tags/html.html</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://dqy.me/tags/html/</guid>
+        <guid>https://dqy.me/tags/html.html</guid>
         <description></description>
         </item>
         <item>
         <title>Hugo</title>
-        <link>https://dqy.me/tags/hugo/</link>
+        <link>https://dqy.me/tags/hugo.html</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://dqy.me/tags/hugo/</guid>
+        <guid>https://dqy.me/tags/hugo.html</guid>
         <description></description>
         </item>
         <item>
         <title>Markdown</title>
-        <link>https://dqy.me/tags/markdown/</link>
+        <link>https://dqy.me/tags/markdown.html</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://dqy.me/tags/markdown/</guid>
+        <guid>https://dqy.me/tags/markdown.html</guid>
         <description></description>
         </item>
         <item>
         <title>Privacy</title>
-        <link>https://dqy.me/tags/privacy/</link>
+        <link>https://dqy.me/tags/privacy.html</link>
         <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://dqy.me/tags/privacy/</guid>
+        <guid>https://dqy.me/tags/privacy.html</guid>
         <description></description>
         </item>
         <item>
         <title>Shortcodes</title>
-        <link>https://dqy.me/tags/shortcodes/</link>
+        <link>https://dqy.me/tags/shortcodes.html</link>
         <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://dqy.me/tags/shortcodes/</guid>
+        <guid>https://dqy.me/tags/shortcodes.html</guid>
         <description></description>
         </item>
         <item>
         <title>Text</title>
-        <link>https://dqy.me/tags/text/</link>
+        <link>https://dqy.me/tags/text.html</link>
         <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://dqy.me/tags/text/</guid>
+        <guid>https://dqy.me/tags/text.html</guid>
         <description></description>
         </item>
         <item>
         <title>Emoji</title>
-        <link>https://dqy.me/tags/emoji/</link>
+        <link>https://dqy.me/tags/emoji.html</link>
         <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://dqy.me/tags/emoji/</guid>
+        <guid>https://dqy.me/tags/emoji.html</guid>
         <description></description>
         </item>
         

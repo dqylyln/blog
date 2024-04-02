@@ -12,6 +12,16 @@ DefaultContentLanguage: zh-cn
 # Set hasCJKLanguage to true if DefaultContentLanguage is in [zh-cn ja ko]
 # This will make .Summary and .WordCount behave correctly for CJK languages.
 hasCJKLanguage: true
+# 启用生成 robots.txt 文件
+enableRobotsTXT: true
+# 启用时，创建的 URL 格式是 /filename.html 而不是 /filename/
+uglyURLs: true
+# 自动摘要中显示的文字长度默认值： 70
+summaryLength: 70
+# 关闭Hugo 在 HTML 的首页的头部插入一个生成器元标记
+#disableHugoGeneratorInject: true
+# 在页面内容中启用 Emoji 表情符号的支持
+enableEmoji: true
 
 services: # Change it to your Disqus shortname before using
   disqus:
