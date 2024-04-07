@@ -3,16 +3,34 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://dqy.me/</loc>
-    <lastmod>2020-10-09T00:00:00+00:00</lastmod>
+    <lastmod>2023-06-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dqy.me/tags/bitwarden.html</loc>
+    <lastmod>2023-06-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dqy.me/categories/bitwarden.html</loc>
+    <lastmod>2023-06-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dqy.me/categories.html</loc>
+    <lastmod>2023-06-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dqy.me/categories/dsm.html</loc>
+    <lastmod>2023-06-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dqy.me/p/dsm%E6%90%AD%E5%BB%BA%E7%9A%84bitwarden%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86%E6%9C%8D%E5%8A%A1.html</loc>
+    <lastmod>2023-06-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dqy.me/post.html</loc>
+    <lastmod>2023-06-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dqy.me/tags.html</loc>
+    <lastmod>2023-06-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dqy.me/page.html</loc>
     <lastmod>2020-10-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dqy.me/archives.html</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dqy.me/categories.html</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dqy.me/tags/css.html</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
@@ -32,13 +50,7 @@
     <loc>https://dqy.me/p/markdown-syntax-guide.html</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dqy.me/post.html</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://dqy.me/categories/syntax.html</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dqy.me/tags.html</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dqy.me/tags/privacy.html</loc>

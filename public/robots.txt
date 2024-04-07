@@ -1,1 +1,1 @@
-User-agent: *
+Sitemap: //dqy.me/sitemap.xml

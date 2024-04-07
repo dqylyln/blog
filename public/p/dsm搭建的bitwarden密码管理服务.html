@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="利用NAS搭建私有的Bitwarden服务，替代1password！">
+<title>DSM搭建的Bitwarden密码管理服务</title>
+
+<link rel='canonical' href='https://dqy.me/p/dsm%E6%90%AD%E5%BB%BA%E7%9A%84bitwarden%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86%E6%9C%8D%E5%8A%A1.html'>
+
+<link rel="stylesheet" href="/scss/style.min.633e7b0e213842d171f712a7d5d0533bd27508821513820715b97318539776cf.css"><meta property='og:title' content="DSM搭建的Bitwarden密码管理服务">
+<meta property='og:description' content="利用NAS搭建私有的Bitwarden服务，替代1password！">
+<meta property='og:url' content='https://dqy.me/p/dsm%E6%90%AD%E5%BB%BA%E7%9A%84bitwarden%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86%E6%9C%8D%E5%8A%A1.html'>
+<meta property='og:site_name' content='DQY的小窝'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Bitwarden' /><meta property='article:published_time' content='2023-06-20T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-06-20T00:00:00&#43;00:00'/><meta property='og:image' content='https://h.dqy.me:1077/pub/b/2024/04/07/202404071946361.jpg' />
+<meta name="twitter:site" content="@dqylyln">
+    <meta name="twitter:creator" content="@dqylyln"><meta name="twitter:title" content="DSM搭建的Bitwarden密码管理服务">
+<meta name="twitter:description" content="利用NAS搭建私有的Bitwarden服务，替代1password！"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://h.dqy.me:1077/pub/b/2024/04/07/202404071946361.jpg' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J4VWVWWWN0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-J4VWVWWWN0');
+</script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended">
+    
+        <div id="article-toolbar" style="position: sticky;top: 5px;z-index: 1000;">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#vaultwarden服务端搭建">Vaultwarden服务端搭建</a>
+      <ol>
+        <li><a href="#1-添加三方套件源">1. 添加三方套件源</a></li>
+        <li><a href="#2安装vaultwarden">2.安装Vaultwarden</a></li>
+        <li><a href="#3设置反向代理">3.设置反向代理</a></li>
+        <li><a href="#4设置端口转发">4.设置端口转发</a></li>
+        <li><a href="#5创建vaultwarden账号">5.创建Vaultwarden账号</a></li>
+        <li><a href="#6导入1password-的密码">6.导入1password 的密码</a></li>
+      </ol>
+    </li>
+  </ol>
+
+  <ol>
+    <li><a href="#客户端使用">客户端使用</a>
+      <ol>
+        <li><a href="#密码生成">密码生成</a></li>
+        <li><a href="#密码填充">密码填充</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/dsm%E6%90%AD%E5%BB%BA%E7%9A%84bitwarden%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86%E6%9C%8D%E5%8A%A1.html">
+                
+                    <img src="https://h.dqy.me:1077/pub/b/2024/04/07/202404071946361.jpg" loading="lazy" alt="Featured image of post DSM搭建的Bitwarden密码管理服务" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/dsm.html" >
+                DSM
+            </a>
+        
+            <a href="/categories/bitwarden.html" >
+                Bitwarden
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/dsm%E6%90%AD%E5%BB%BA%E7%9A%84bitwarden%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86%E6%9C%8D%E5%8A%A1.html">DSM搭建的Bitwarden密码管理服务</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            利用NAS搭建私有的Bitwarden服务，替代1password！
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jun 20, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 5 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="背景">
+    <a href="#%e8%83%8c%e6%99%af">#</a>
+    背景
+</h1><p>曾几何时，对于个人密码经常是一个密码走天下，各大网站app全部使用同一个密码，带来的风险就是任何一个网站出现漏洞导致密码泄露，其他网站的账号也出现风险。 但是如果每个网站都设置一个独立的密码，面对成百上千个网站密码，人脑记忆肯定是不靠谱的。 所以这个时候就需要密码管理软件来统一管理密码
+<img src="https://h.dqy.me:1077/pub/b/2024/04/07/202404071956900.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="密码管理软件示意图"
+	
+	
+></p>
+<p>市面上的密码管理软件很多，比如最开始mac 平台上的1password（1password8 开始支持其他平台）和Bitwarden 等。 1password跟苹果生态结合比较好，支持本地密码库的icloud 同步，但是从1password8开始取消了本地密码库，强推自家的云存储，吃相难看不说而且密码的存储放到三方云存储始终不放心，而Bitwarden 虽然也是支持自家云存储，但是有开源的vaultwarden 三方服务器的实现，完美的兼容了Bitwarden 的所有平台客户端，并且vaultwarden也支持自并且支持1password一键导入。所以在1password7 停止维护后 使用vaultwarden 搭建自己的Bitwarden服务，结合Bitwarden的客户端是个不错的替代选择
+<img src="https://h.dqy.me:1077/pub/b/2024/04/07/202404071959466.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="私有化部署Bitwarden方案示意图"
+	
+	
+></p>
+<h2 id="vaultwarden服务端搭建">
+    <a href="#vaultwarden%e6%9c%8d%e5%8a%a1%e7%ab%af%e6%90%ad%e5%bb%ba">#</a>
+    Vaultwarden服务端搭建
+</h2><p>Vaultwarden 是一个使用 Rust 编写的非官方 Bitwarden 服务器实现，它与官方 Bitwarden 客户端兼容，对于不希望使用官方的占用大量资源的自托管部署而言，它是理想的选择。开源地址：<a class="link" href="https://github.com/dani-garcia/vaultwarden"  target="_blank" rel="noopener"
+    >https://github.com/dani-garcia/vaultwarden</a></p>
+<p>搭建Vaultwarden的方式可以有很多，比如常见的docker，但是如果是DSM的话，有大拿已经将Vaultwarden 服务做成了DMS 的套件，可以通过套件中心一键安装。下面主要描述DSM7 下的Vaultwarden 搭建。</p>
+<h3 id="1-添加三方套件源">
+    <a href="#1-%e6%b7%bb%e5%8a%a0%e4%b8%89%e6%96%b9%e5%a5%97%e4%bb%b6%e6%ba%90">#</a>
+    1. 添加三方套件源
+</h3><p>在DSM的套件中心-》设置-》套件来源-》新增,添加三方套件源<a class="link" href="https://spk7.imnks.com"  target="_blank" rel="noopener"
+    >https://spk7.imnks.com/</a></p>
+<p><img src="https://h.dqy.me:1077/pub/b/2024/04/07/202404072006254.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="DSM三方套件"
+	
+	
+></p>
+<h3 id="2安装vaultwarden">
+    <a href="#2%e5%ae%89%e8%a3%85vaultwarden">#</a>
+    2.安装Vaultwarden
+</h3><p>套件中心-》搜索Vaultwarden进行安装，安装后启动即可，默认http服务端口是8507
+<img src="https://h.dqy.me:1077/pub/b/2024/04/07/202404072007536.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="启动Vaultwarden"
+	
+	
+></p>
+<h3 id="3设置反向代理">
+    <a href="#3%e8%ae%be%e7%bd%ae%e5%8f%8d%e5%90%91%e4%bb%a3%e7%90%86">#</a>
+    3.设置反向代理
+</h3><p>由于Vaultwarden 要求必须是https的协议，一般两种做法1是给Vaultwarden配置证书，2是通过dsm 自带的nginx，将外部https 请求代理到http 的8507端口上，推荐是选择后者好处是，证书可以跟DSM系统证书一起更新，不至于证书到期要给每个服务单独替换证书。
+打开DSM的控制面板-》登录门户-》高级-》反向代理，添加 https 的8508 端口到localhost http 的8507的代理。 这样就可以通过https://xxx:8508的方式进行访问 Vaultwarden
+<img src="https://h.dqy.me:1077/pub/b/2024/04/07/202404072009867.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="DSM方向代理"
+	
+	
+></p>
+<h3 id="4设置端口转发">
+    <a href="#4%e8%ae%be%e7%bd%ae%e7%ab%af%e5%8f%a3%e8%bd%ac%e5%8f%91">#</a>
+    4.设置端口转发
+</h3><p>如果需要互联网同步密码库，就需要将服务暴露到公网，当然如果只是在内网同步使用，这个步骤可以忽略。 由于每个路由器的端口转发设置不同，但是原理大同小异，都是将https 服务的8508端口，通过wan的自定义端口对外暴露，这里就不展开了。</p>
+<h3 id="5创建vaultwarden账号">
+    <a href="#5%e5%88%9b%e5%bb%bavaultwarden%e8%b4%a6%e5%8f%b7">#</a>
+    5.创建Vaultwarden账号
+</h3><p>浏览器访问搭建好的服务，用邮箱进行账户创建，邮箱作为登录的id来使用，这里注意主密码一定要记住，后面是用主密码来解锁密码管理软件，进行网站密码填充的。
+<img src="https://h.dqy.me:1077/pub/b/2024/04/07/202404072012202.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="账号注册-1"
+	
+	
+>
+<img src="https://h.dqy.me:1077/pub/b/2024/04/07/202404072012808.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="账号注册-2"
+	
+	
+></p>
+<p>用户创建成功后，就可以在自己的密码库里创建密码了
+<img src="https://h.dqy.me:1077/pub/b/2024/04/07/202404072013974.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="创建密码库"
+	
+	
+></p>
+<h3 id="6导入1password-的密码">
+    <a href="#6%e5%af%bc%e5%85%a51password-%e7%9a%84%e5%af%86%e7%a0%81">#</a>
+    6.导入1password 的密码
+</h3><p>如果你需要把之前1password 的密码导入到Vaultwarden，那么就按照下面步骤进行，如果没有需要从1password 导出密码到Vaultwarden 的需求可以忽略这步。</p>
+<ul>
+<li>1passowrd 导出:
+1password 选中文件》导出-》所有项目
+<img src="https://h.dqy.me:1077/pub/b/2024/04/07/202404072015862.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="1password-导出"
+	
+	
+></li>
+</ul>
+<p>输入1password 主密码后，选择导出.1pif文件
+<img src="https://h.dqy.me:1077/pub/b/2024/04/07/202404072016298.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="1password-保存文件"
+	
+	
+></p>
+<ul>
+<li>Vaultwarden导入:
+浏览器打开Vaultwarden 的web 服务页面， 工具-》导入数据-》选择1pif 文件格式-》选择1pasword 导出的data.1pif文件，导入即可。
+<img src="https://h.dqy.me:1077/pub/b/2024/04/07/202404072017082.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Vaultwarden-导入"
+	
+	
+></li>
+</ul>
+<h1 id="客户端配置">
+    <a href="#%e5%ae%a2%e6%88%b7%e7%ab%af%e9%85%8d%e7%bd%ae">#</a>
+    客户端配置
+</h1><p>Vaultwarden 支持使用Bitwarden 各种平台的客户端以及各种浏览器插件，其配置大同小异，各种客户端列表见：(<a class="link" href="https://bitwarden.com/download/%29[https://bitwarden.com/download/]"  target="_blank" rel="noopener"
+    >https://bitwarden.com/download/)[https://bitwarden.com/download/]</a></p>
+<p>下面以chrome 浏览器插件配置作为示例：
+安装chrome 插件：(<a class="link" href="https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb%29[https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb]"  target="_blank" rel="noopener"
+    >https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb)[https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb]</a></p>
+<p><img src="https://h.dqy.me:1077/pub/b/2024/04/07/202404072030215.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="chrome插件"
+	
+	
+></p>
+<p>点击Bitwarden 插件，在区域里选择自托管</p>
+<p><img src="https://h.dqy.me:1077/pub/b/2024/04/07/202404072031173.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="自定义托管"
+	
+	
+></p>
+<h2 id="客户端使用">
+    <a href="#%e5%ae%a2%e6%88%b7%e7%ab%af%e4%bd%bf%e7%94%a8">#</a>
+    客户端使用
+</h2><h3 id="密码生成">
+    <a href="#%e5%af%86%e7%a0%81%e7%94%9f%e6%88%90">#</a>
+    密码生成
+</h3><p>在某网站需要注册的时候，可以点击插件，在弹出的页面里，选择自动生成用户名或者自动生成密码
+<img src="https://h.dqy.me:1077/pub/b/2024/04/07/202404072033499.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="密码生成"
+	
+	
+></p>
+<p>生成密码的策略可以灵活自定义
+<img src="https://h.dqy.me:1077/pub/b/2024/04/07/202404072034022.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="密码自定义"
+	
+	
+></p>
+<h3 id="密码填充">
+    <a href="#%e5%af%86%e7%a0%81%e5%a1%ab%e5%85%85">#</a>
+    密码填充
+</h3><p>在访问密码库中的网站，点击插件输入主密码，插件会自动从密码库里查找对应网站的密码进行填充。
+<img src="https://h.dqy.me:1077/pub/b/2024/04/07/202404072035901.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="密码填充"
+	
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/bitwarden.html">Bitwarden</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "dqylyln" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 DQY
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.25.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script
+        src="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/js/ribbon.min.js"
+        integrity="sha384-UEK8ZiP3VgFNP8KnKMKDmd4pAUAOJ59Y2Jo3ED2Z5qKQf6HLHovMxq7Beb9CLPUe"
+        crossorigin="anonymous"
+        size="300"
+        alpha="0.6"
+        zindex="-1"
+        defer
+></script>
+<script
+        src="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/js/nprogress.min.js"
+        integrity="sha384-bHDlAEUFxsRI7JfULv3DTpL2IXbbgn4JHQJibgo5iiXSK6Iu8muwqHANhun74Cqg"
+        crossorigin="anonymous"
+></script>
+<link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/css/nprogress.css"
+        integrity="sha384-KJyhr2syt5+4M9Pz5dipCvTrtvOmLk/olWVdfhAp858UCa64Ia5GFpTN7+G4BWpE"
+        crossorigin="anonymous"
+/>
+<script>
+    NProgress.start();
+    document.addEventListener("readystatechange", () => {
+        if (document.readyState === "interactive") NProgress.inc(0.8);
+        if (document.readyState === "complete") NProgress.done();
+    });
+</script>
+    </body>
+</html>
