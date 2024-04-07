@@ -191,6 +191,7 @@ params:
 
 ### Custom menu
 ### See https://stack.jimmycai.com/config/menu
+### ICON See https://tabler.io/icons
 ### To remove about, archive and search page menu item, remove `menu` field from their FrontMatter
 menu:
   main: [ ]
@@ -202,12 +203,12 @@ menu:
       params:
         icon: brand-github
 
-    # - identifier: twitter
-    #   weight: 2
-    #   name: Twitter
-    #   url: https://twitter.com/dqylyln
-    #   params:
-    #       icon: brand-twitter
+    - identifier: twitter
+      weight: 2
+      name: Twitter
+      url: https://twitter.com/dqylyln
+      params:
+        icon: brand-twitter
 
     - identifier: mail
       weight: 3
