@@ -491,3 +491,38 @@ main.main {
     background-position: -1px 2px;
   }
 }
+//----------------------------------------------------------
+//调整左侧目录间距
+.widget--toc {
+  // display:inline-block;
+  font-size: 16px;
+
+  #TableOfContents {
+    overflow-x: auto;
+    max-height: 70vh;
+
+    ol,
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    // & > ul {
+    //     padding: 0 1em;
+    // }
+    li {
+      margin: 5px 10px;
+      padding: 6px;
+      & > ol,
+      & > ul {
+        margin-top: 10px;
+        padding-left: 8px;
+        margin-bottom: -5px;
+
+        & > li:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

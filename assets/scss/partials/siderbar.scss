@@ -1,0 +1,9 @@
+.site-avatar {
+  position: relative;
+  margin-left: auto; // 站点头像居中
+  margin-right: auto; // 站点头像居中
+  width: var(--sidebar-avatar-size);
+  height: var(--sidebar-avatar-size);
+
+  margin-bottom: var(--sidebar-element-separation);
+}
