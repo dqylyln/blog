@@ -70,7 +70,7 @@ markup
 Vaultwarden 支持使用Bitwarden 各种平台的客户端以及各种浏览器插件，其配置大同小异，各种客户端列表见：(https://bitwarden.com/download/)[https://bitwarden.com/download/]
 
 下面以chrome 浏览器插件配置作为示例：
-安装chrome 插件：(https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb)[https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb]
+安装chrome 插件：[https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb](https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb)
 
 ![chrome插件](https://h.dqy.me:1077/pub/b/2024/04/07/202404072030215.png)
 
