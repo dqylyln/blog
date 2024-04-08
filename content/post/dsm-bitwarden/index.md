@@ -90,3 +90,77 @@ Vaultwarden 支持使用Bitwarden 各种平台的客户端以及各种浏览器�
 ### 密码填充
 在访问密码库中的网站，点击插件输入主密码，插件会自动从密码库里查找对应网站的密码进行填充。
 ![密码填充](https://h.dqy.me:1077/pub/b/2024/04/07/202404072035901.png)
+
+# Alfred集成
+Alfred是mac os 平台上非常好用的快速启动工具，通过它可以快速的启动应用，脚本等。 尤其是1password 的Alfred 插件，可以实现一键快速打开网站，并且自动填充用户名和密码的功能，那么切换到Bitwarden 是否也有Bitwarden和Alfred的插件实现这些功能呢？ 答案是肯定的。
+
+先看效果：直接回车密码自动复制到粘贴板，shfit+回车就是用默认浏览器打开对应网站，并且填充用户名密码。
+
+![Alfred](https://h.dqy.me:1077/pub/b/2024/04/08/202404081440974.png)
+
+
+## 集成步骤
+
+### 下载bitwarden alfred workflow插件:
+到[https://github.com/blacs30/bitwarden-alfred-workflow/releases](https://github.com/blacs30/bitwarden-alfred-workflow/releases) 下载bitwarden-alfred-workflow.alfredworkflow 文件
+![下载插件](https://h.dqy.me:1077/pub/b/2024/04/08/202404081443360.png)
+
+### 安装bitwarden alfred workflow插件:
+下载后双击bitwarden-alfred-workflow.alfredworkflow 进行安装（要求已经安装好Alfred 5+ 版本）
+![安装插件](https://h.dqy.me:1077/pub/b/2024/04/08/202404081444572.png)
+
+### 安装Bitwarden CLI 命令行工具:
+因为alfredworkflow 是调用Bitwarden CLI  命令行工具实现功能，所以要先安装Bitwarden CLI 。 它的安装方式有很多，详见：https://github.com/bitwarden/cli#downloadinstall 这里推荐使用Homebrew 进行安装，打开macos 的命令行终端，
+输入安装命令：
+```shell
+brew install bitwarden-cli
+```
+### 配置alfredworkflow 环境变量:
+需要修改的环境变量有3个：
+EMAIL： Vaultwarden 注册账户的email
+SERVER_URL： 自建Vaultwarden 服务器的https 的url eg：https://xxx.com:8508
+WEBUI_URL:自建Vaultwarden 服务器的https 的url eg：https://xxx.com:8508
+更多环境变量解释见：[https://github.com/blacs30/bitwarden-alfred-workflow#advanced-features--configuration](https://github.com/blacs30/bitwarden-alfred-workflow#advanced-features--configuration)
+
+![环境变量-1](https://h.dqy.me:1077/pub/b/2024/04/08/202404081449392.png)
+![环境变量-2](https://h.dqy.me:1077/pub/b/2024/04/08/202404081450774.png)
+
+### 使用alfredworkflow
+快捷键唤出alfred，输入.bwauth 选择login to Bitwarden,按照提示输入主密码即可。
+![登录](https://h.dqy.me:1077/pub/b/2024/04/08/202404081451698.png)
+
+输入.bwconfig sync 同步服务端密码库（第一次同步会有点慢）
+![同步密码](https://h.dqy.me:1077/pub/b/2024/04/08/202404081452160.png)
+
+输入.bwauto 选择install 设置定时同步,默认是10小时同步一次
+![定时同步](https://h.dqy.me:1077/pub/b/2024/04/08/202404081452819.png)
+
+以上都完成后，输入.bw就可以愉快的玩耍了。
+![完成配置使用](https://h.dqy.me:1077/pub/b/2024/04/08/202404081453613.png)
+接回车密码自动复制到粘贴板，shfit+回车就是用默认浏览器打开对应网站，并且填充用户名密码。
+
+### APIKEY 登录(可选)
+如果担心环境变量里指定用户email 有安全问题，可以使用apikey 的方式登录，使用apikey 方式登录不需要设置EMAIL的环境变量。
+
+* 生成APIKEY
+登录Vaultwarden web控制台,点击右上角头像，选择账户设置。
+![账户设置](https://h.dqy.me:1077/pub/b/2024/04/08/202404081455560.png)
+
+在账户设置总，选择安全-》秘钥，选择查看秘钥
+![查看秘钥](https://h.dqy.me:1077/pub/b/2024/04/08/202404081456433.png)
+
+输入主密码后，即可得到client_id 和client_secret
+```angular17html
+client_id:
+user.xxx-xxxx-xxxx-xxxxxx-xxxxxxxx
+
+client_secret:
+xxxxxxxxxx
+```
+* 设置alfredworkflow 使用apikey 方式登录 
+
+alfredworkflow 进入环境变量设置，删除EMAIL 变量配置的email 值，修改USE_APIKEY 变量为true 即可。 配置完成后输入.bwauth 登录，按照提示输入client_id  和client_secret 即可。
+
+
+# 后记
+Bitwarden 客户端支持的平台非常多，并且主流浏览器的插件也很丰富，使用方法大同小异，其他平台的客户端可以自行摸索使用。最终都能实现密码管理在自己的服务器上，多个平台多个设备可以实现一个主密码来管理所有网站密码，简单快捷，方便安全。
