@@ -88,23 +88,28 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#vaultwarden服务端搭建">Vaultwarden服务端搭建</a>
+    <li><a href="#背景">背景</a>
       <ol>
-        <li><a href="#1-添加三方套件源">1. 添加三方套件源</a></li>
-        <li><a href="#2安装vaultwarden">2.安装Vaultwarden</a></li>
-        <li><a href="#3设置反向代理">3.设置反向代理</a></li>
-        <li><a href="#4设置端口转发">4.设置端口转发</a></li>
-        <li><a href="#5创建vaultwarden账号">5.创建Vaultwarden账号</a></li>
-        <li><a href="#6导入1password-的密码">6.导入1password 的密码</a></li>
+        <li><a href="#vaultwarden服务端搭建">Vaultwarden服务端搭建</a>
+          <ol>
+            <li><a href="#添加三方套件源">添加三方套件源</a></li>
+            <li><a href="#安装vaultwarden">安装Vaultwarden</a></li>
+            <li><a href="#设置反向代理">设置反向代理</a></li>
+            <li><a href="#设置端口转发">设置端口转发</a></li>
+            <li><a href="#创建vaultwarden账号">创建Vaultwarden账号</a></li>
+            <li><a href="#导入1password-的密码">导入1password 的密码</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
-  </ol>
-
-  <ol>
-    <li><a href="#客户端使用">客户端使用</a>
+    <li><a href="#客户端配置">客户端配置</a>
       <ol>
-        <li><a href="#密码生成">密码生成</a></li>
-        <li><a href="#密码填充">密码填充</a></li>
+        <li><a href="#客户端使用">客户端使用</a>
+          <ol>
+            <li><a href="#密码生成">密码生成</a></li>
+            <li><a href="#密码填充">密码填充</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -203,7 +208,7 @@
     
     
     <h1 id="背景">
-    <a href="#%e8%83%8c%e6%99%af">#</a>
+    <a href="#%e8%83%8c%e6%99%af">👉</a>
     背景
 </h1><p>曾几何时，对于个人密码经常是一个密码走天下，各大网站app全部使用同一个密码，带来的风险就是任何一个网站出现漏洞导致密码泄露，其他网站的账号也出现风险。 但是如果每个网站都设置一个独立的密码，面对成百上千个网站密码，人脑记忆肯定是不靠谱的。 所以这个时候就需要密码管理软件来统一管理密码
 <img src="https://h.dqy.me:1077/pub/b/2024/04/07/202404071956900.png"
@@ -228,14 +233,14 @@
 	
 ></p>
 <h2 id="vaultwarden服务端搭建">
-    <a href="#vaultwarden%e6%9c%8d%e5%8a%a1%e7%ab%af%e6%90%ad%e5%bb%ba">#</a>
+    <a href="#vaultwarden%e6%9c%8d%e5%8a%a1%e7%ab%af%e6%90%ad%e5%bb%ba">👉</a>
     Vaultwarden服务端搭建
 </h2><p>Vaultwarden 是一个使用 Rust 编写的非官方 Bitwarden 服务器实现，它与官方 Bitwarden 客户端兼容，对于不希望使用官方的占用大量资源的自托管部署而言，它是理想的选择。开源地址：<a class="link" href="https://github.com/dani-garcia/vaultwarden"  target="_blank" rel="noopener"
     >https://github.com/dani-garcia/vaultwarden</a></p>
 <p>搭建Vaultwarden的方式可以有很多，比如常见的docker，但是如果是DSM的话，有大拿已经将Vaultwarden 服务做成了DMS 的套件，可以通过套件中心一键安装。下面主要描述DSM7 下的Vaultwarden 搭建。</p>
-<h3 id="1-添加三方套件源">
-    <a href="#1-%e6%b7%bb%e5%8a%a0%e4%b8%89%e6%96%b9%e5%a5%97%e4%bb%b6%e6%ba%90">#</a>
-    1. 添加三方套件源
+<h3 id="添加三方套件源">
+    <a href="#%e6%b7%bb%e5%8a%a0%e4%b8%89%e6%96%b9%e5%a5%97%e4%bb%b6%e6%ba%90">👉</a>
+    添加三方套件源
 </h3><p>在DSM的套件中心-》设置-》套件来源-》新增,添加三方套件源<a class="link" href="https://spk7.imnks.com"  target="_blank" rel="noopener"
     >https://spk7.imnks.com/</a></p>
 <p><img src="https://h.dqy.me:1077/pub/b/2024/04/07/202404072006254.png"
@@ -247,10 +252,11 @@
 		alt="DSM三方套件"
 	
 	
-></p>
-<h3 id="2安装vaultwarden">
-    <a href="#2%e5%ae%89%e8%a3%85vaultwarden">#</a>
-    2.安装Vaultwarden
+>
+markup</p>
+<h3 id="安装vaultwarden">
+    <a href="#%e5%ae%89%e8%a3%85vaultwarden">👉</a>
+    安装Vaultwarden
 </h3><p>套件中心-》搜索Vaultwarden进行安装，安装后启动即可，默认http服务端口是8507
 <img src="https://h.dqy.me:1077/pub/b/2024/04/07/202404072007536.png"
 	
@@ -262,9 +268,9 @@
 	
 	
 ></p>
-<h3 id="3设置反向代理">
-    <a href="#3%e8%ae%be%e7%bd%ae%e5%8f%8d%e5%90%91%e4%bb%a3%e7%90%86">#</a>
-    3.设置反向代理
+<h3 id="设置反向代理">
+    <a href="#%e8%ae%be%e7%bd%ae%e5%8f%8d%e5%90%91%e4%bb%a3%e7%90%86">👉</a>
+    设置反向代理
 </h3><p>由于Vaultwarden 要求必须是https的协议，一般两种做法1是给Vaultwarden配置证书，2是通过dsm 自带的nginx，将外部https 请求代理到http 的8507端口上，推荐是选择后者好处是，证书可以跟DSM系统证书一起更新，不至于证书到期要给每个服务单独替换证书。
 打开DSM的控制面板-》登录门户-》高级-》反向代理，添加 https 的8508 端口到localhost http 的8507的代理。 这样就可以通过https://xxx:8508的方式进行访问 Vaultwarden
 <img src="https://h.dqy.me:1077/pub/b/2024/04/07/202404072009867.png"
@@ -277,13 +283,13 @@
 	
 	
 ></p>
-<h3 id="4设置端口转发">
-    <a href="#4%e8%ae%be%e7%bd%ae%e7%ab%af%e5%8f%a3%e8%bd%ac%e5%8f%91">#</a>
-    4.设置端口转发
+<h3 id="设置端口转发">
+    <a href="#%e8%ae%be%e7%bd%ae%e7%ab%af%e5%8f%a3%e8%bd%ac%e5%8f%91">👉</a>
+    设置端口转发
 </h3><p>如果需要互联网同步密码库，就需要将服务暴露到公网，当然如果只是在内网同步使用，这个步骤可以忽略。 由于每个路由器的端口转发设置不同，但是原理大同小异，都是将https 服务的8508端口，通过wan的自定义端口对外暴露，这里就不展开了。</p>
-<h3 id="5创建vaultwarden账号">
-    <a href="#5%e5%88%9b%e5%bb%bavaultwarden%e8%b4%a6%e5%8f%b7">#</a>
-    5.创建Vaultwarden账号
+<h3 id="创建vaultwarden账号">
+    <a href="#%e5%88%9b%e5%bb%bavaultwarden%e8%b4%a6%e5%8f%b7">👉</a>
+    创建Vaultwarden账号
 </h3><p>浏览器访问搭建好的服务，用邮箱进行账户创建，邮箱作为登录的id来使用，这里注意主密码一定要记住，后面是用主密码来解锁密码管理软件，进行网站密码填充的。
 <img src="https://h.dqy.me:1077/pub/b/2024/04/07/202404072012202.png"
 	
@@ -316,9 +322,9 @@
 	
 	
 ></p>
-<h3 id="6导入1password-的密码">
-    <a href="#6%e5%af%bc%e5%85%a51password-%e7%9a%84%e5%af%86%e7%a0%81">#</a>
-    6.导入1password 的密码
+<h3 id="导入1password-的密码">
+    <a href="#%e5%af%bc%e5%85%a51password-%e7%9a%84%e5%af%86%e7%a0%81">👉</a>
+    导入1password 的密码
 </h3><p>如果你需要把之前1password 的密码导入到Vaultwarden，那么就按照下面步骤进行，如果没有需要从1password 导出密码到Vaultwarden 的需求可以忽略这步。</p>
 <ul>
 <li>1passowrd 导出:
@@ -360,7 +366,7 @@
 ></li>
 </ul>
 <h1 id="客户端配置">
-    <a href="#%e5%ae%a2%e6%88%b7%e7%ab%af%e9%85%8d%e7%bd%ae">#</a>
+    <a href="#%e5%ae%a2%e6%88%b7%e7%ab%af%e9%85%8d%e7%bd%ae">👉</a>
     客户端配置
 </h1><p>Vaultwarden 支持使用Bitwarden 各种平台的客户端以及各种浏览器插件，其配置大同小异，各种客户端列表见：(<a class="link" href="https://bitwarden.com/download/%29[https://bitwarden.com/download/]"  target="_blank" rel="noopener"
     >https://bitwarden.com/download/)[https://bitwarden.com/download/]</a></p>
@@ -389,10 +395,10 @@
 	
 ></p>
 <h2 id="客户端使用">
-    <a href="#%e5%ae%a2%e6%88%b7%e7%ab%af%e4%bd%bf%e7%94%a8">#</a>
+    <a href="#%e5%ae%a2%e6%88%b7%e7%ab%af%e4%bd%bf%e7%94%a8">👉</a>
     客户端使用
 </h2><h3 id="密码生成">
-    <a href="#%e5%af%86%e7%a0%81%e7%94%9f%e6%88%90">#</a>
+    <a href="#%e5%af%86%e7%a0%81%e7%94%9f%e6%88%90">👉</a>
     密码生成
 </h3><p>在某网站需要注册的时候，可以点击插件，在弹出的页面里，选择自动生成用户名或者自动生成密码
 <img src="https://h.dqy.me:1077/pub/b/2024/04/07/202404072033499.png"
@@ -417,7 +423,7 @@
 	
 ></p>
 <h3 id="密码填充">
-    <a href="#%e5%af%86%e7%a0%81%e5%a1%ab%e5%85%85">#</a>
+    <a href="#%e5%af%86%e7%a0%81%e5%a1%ab%e5%85%85">👉</a>
     密码填充
 </h3><p>在访问密码库中的网站，点击插件输入主密码，插件会自动从密码库里查找对应网站的密码进行填充。
 <img src="https://h.dqy.me:1077/pub/b/2024/04/07/202404072035901.png"

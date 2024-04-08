@@ -28,24 +28,24 @@ Vaultwarden 是一个使用 Rust 编写的非官方 Bitwarden 服务器实现，
 
 搭建Vaultwarden的方式可以有很多，比如常见的docker，但是如果是DSM的话，有大拿已经将Vaultwarden 服务做成了DMS 的套件，可以通过套件中心一键安装。下面主要描述DSM7 下的Vaultwarden 搭建。
 
-### 1. 添加三方套件源
+### 添加三方套件源
 在DSM的套件中心-》设置-》套件来源-》新增,添加三方套件源[https://spk7.imnks.com/](https://spk7.imnks.com)
 
 ![DSM三方套件](https://h.dqy.me:1077/pub/b/2024/04/07/202404072006254.png)
-
-### 2.安装Vaultwarden
+markup
+### 安装Vaultwarden
 套件中心-》搜索Vaultwarden进行安装，安装后启动即可，默认http服务端口是8507
 ![启动Vaultwarden](https://h.dqy.me:1077/pub/b/2024/04/07/202404072007536.png)
 
-### 3.设置反向代理
+### 设置反向代理
 由于Vaultwarden 要求必须是https的协议，一般两种做法1是给Vaultwarden配置证书，2是通过dsm 自带的nginx，将外部https 请求代理到http 的8507端口上，推荐是选择后者好处是，证书可以跟DSM系统证书一起更新，不至于证书到期要给每个服务单独替换证书。
 打开DSM的控制面板-》登录门户-》高级-》反向代理，添加 https 的8508 端口到localhost http 的8507的代理。 这样就可以通过https://xxx:8508的方式进行访问 Vaultwarden
 ![DSM方向代理](https://h.dqy.me:1077/pub/b/2024/04/07/202404072009867.png)
 
-### 4.设置端口转发
+### 设置端口转发
 如果需要互联网同步密码库，就需要将服务暴露到公网，当然如果只是在内网同步使用，这个步骤可以忽略。 由于每个路由器的端口转发设置不同，但是原理大同小异，都是将https 服务的8508端口，通过wan的自定义端口对外暴露，这里就不展开了。
 
-### 5.创建Vaultwarden账号
+### 创建Vaultwarden账号
 浏览器访问搭建好的服务，用邮箱进行账户创建，邮箱作为登录的id来使用，这里注意主密码一定要记住，后面是用主密码来解锁密码管理软件，进行网站密码填充的。
 ![账号注册-1](https://h.dqy.me:1077/pub/b/2024/04/07/202404072012202.png)
 ![账号注册-2](https://h.dqy.me:1077/pub/b/2024/04/07/202404072012808.png)
@@ -53,7 +53,7 @@ Vaultwarden 是一个使用 Rust 编写的非官方 Bitwarden 服务器实现，
 用户创建成功后，就可以在自己的密码库里创建密码了
 ![创建密码库](https://h.dqy.me:1077/pub/b/2024/04/07/202404072013974.png)
 
-### 6.导入1password 的密码
+### 导入1password 的密码
 如果你需要把之前1password 的密码导入到Vaultwarden，那么就按照下面步骤进行，如果没有需要从1password 导出密码到Vaultwarden 的需求可以忽略这步。
 * 1passowrd 导出:
 1password 选中文件》导出-》所有项目
