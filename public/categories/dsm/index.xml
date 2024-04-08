@@ -26,15 +26,7 @@
 		alt=&#34;密码管理软件示意图&#34;
 	
 	
-&gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-5f633&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-5f633&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404071956900.png&#34; alt=&#34;密码管理软件示意图&#34;
-			  /&gt;
-	&lt;/label&gt;
-&lt;/p&gt;
+&gt;&lt;/p&gt;
 &lt;p&gt;市面上的密码管理软件很多，比如最开始mac 平台上的1password（1password8 开始支持其他平台）和Bitwarden 等。 1password跟苹果生态结合比较好，支持本地密码库的icloud 同步，但是从1password8开始取消了本地密码库，强推自家的云存储，吃相难看不说而且密码的存储放到三方云存储始终不放心，而Bitwarden 虽然也是支持自家云存储，但是有开源的vaultwarden 三方服务器的实现，完美的兼容了Bitwarden 的所有平台客户端，并且vaultwarden也支持自并且支持1password一键导入。所以在1password7 停止维护后 使用vaultwarden 搭建自己的Bitwarden服务，结合Bitwarden的客户端是个不错的替代选择
 &lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404071959466.png&#34;
 	
@@ -45,15 +37,7 @@
 		alt=&#34;私有化部署Bitwarden方案示意图&#34;
 	
 	
-&gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-ef175&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-ef175&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404071959466.png&#34; alt=&#34;私有化部署Bitwarden方案示意图&#34;
-			  /&gt;
-	&lt;/label&gt;
-&lt;/p&gt;
+&gt;&lt;/p&gt;
 &lt;h2 id=&#34;vaultwarden服务端搭建&#34;&gt;
     &lt;a href=&#34;#vaultwarden%e6%9c%8d%e5%8a%a1%e7%ab%af%e6%90%ad%e5%bb%ba&#34;&gt;👉&lt;/a&gt;
     Vaultwarden服务端搭建
@@ -75,14 +59,6 @@
 	
 	
 &gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-610a8&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-610a8&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072006254.png&#34; alt=&#34;DSM三方套件&#34;
-			  /&gt;
-	&lt;/label&gt;
-
 markup&lt;/p&gt;
 &lt;h3 id=&#34;安装vaultwarden&#34;&gt;
     &lt;a href=&#34;#%e5%ae%89%e8%a3%85vaultwarden&#34;&gt;👉&lt;/a&gt;
@@ -97,15 +73,7 @@ markup&lt;/p&gt;
 		alt=&#34;启动Vaultwarden&#34;
 	
 	
-&gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-d7ffe&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-d7ffe&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072007536.png&#34; alt=&#34;启动Vaultwarden&#34;
-			  /&gt;
-	&lt;/label&gt;
-&lt;/p&gt;
+&gt;&lt;/p&gt;
 &lt;h3 id=&#34;设置反向代理&#34;&gt;
     &lt;a href=&#34;#%e8%ae%be%e7%bd%ae%e5%8f%8d%e5%90%91%e4%bb%a3%e7%90%86&#34;&gt;👉&lt;/a&gt;
     设置反向代理
@@ -120,15 +88,7 @@ markup&lt;/p&gt;
 		alt=&#34;DSM方向代理&#34;
 	
 	
-&gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-4a7bc&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-4a7bc&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072009867.png&#34; alt=&#34;DSM方向代理&#34;
-			  /&gt;
-	&lt;/label&gt;
-&lt;/p&gt;
+&gt;&lt;/p&gt;
 &lt;h3 id=&#34;设置端口转发&#34;&gt;
     &lt;a href=&#34;#%e8%ae%be%e7%bd%ae%e7%ab%af%e5%8f%a3%e8%bd%ac%e5%8f%91&#34;&gt;👉&lt;/a&gt;
     设置端口转发
@@ -147,14 +107,6 @@ markup&lt;/p&gt;
 	
 	
 &gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-e8320&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-e8320&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072012202.png&#34; alt=&#34;账号注册-1&#34;
-			  /&gt;
-	&lt;/label&gt;
-
 &lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072012808.png&#34;
 	
 	
@@ -164,15 +116,7 @@ markup&lt;/p&gt;
 		alt=&#34;账号注册-2&#34;
 	
 	
-&gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-d44e1&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-d44e1&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072012808.png&#34; alt=&#34;账号注册-2&#34;
-			  /&gt;
-	&lt;/label&gt;
-&lt;/p&gt;
+&gt;&lt;/p&gt;
 &lt;p&gt;用户创建成功后，就可以在自己的密码库里创建密码了
 &lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072013974.png&#34;
 	
@@ -183,15 +127,7 @@ markup&lt;/p&gt;
 		alt=&#34;创建密码库&#34;
 	
 	
-&gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-55f64&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-55f64&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072013974.png&#34; alt=&#34;创建密码库&#34;
-			  /&gt;
-	&lt;/label&gt;
-&lt;/p&gt;
+&gt;&lt;/p&gt;
 &lt;h3 id=&#34;导入1password-的密码&#34;&gt;
     &lt;a href=&#34;#%e5%af%bc%e5%85%a51password-%e7%9a%84%e5%af%86%e7%a0%81&#34;&gt;👉&lt;/a&gt;
     导入1password 的密码
@@ -208,15 +144,7 @@ markup&lt;/p&gt;
 		alt=&#34;1password-导出&#34;
 	
 	
-&gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-94ea3&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-94ea3&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072015862.png&#34; alt=&#34;1password-导出&#34;
-			  /&gt;
-	&lt;/label&gt;
-&lt;/li&gt;
+&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;输入1password 主密码后，选择导出.1pif文件
 &lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072016298.png&#34;
@@ -228,15 +156,7 @@ markup&lt;/p&gt;
 		alt=&#34;1password-保存文件&#34;
 	
 	
-&gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-40216&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-40216&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072016298.png&#34; alt=&#34;1password-保存文件&#34;
-			  /&gt;
-	&lt;/label&gt;
-&lt;/p&gt;
+&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Vaultwarden导入:
 浏览器打开Vaultwarden 的web 服务页面， 工具-》导入数据-》选择1pif 文件格式-》选择1pasword 导出的data.1pif文件，导入即可。
@@ -249,15 +169,7 @@ markup&lt;/p&gt;
 		alt=&#34;Vaultwarden-导入&#34;
 	
 	
-&gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-e9a99&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-e9a99&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072017082.png&#34; alt=&#34;Vaultwarden-导入&#34;
-			  /&gt;
-	&lt;/label&gt;
-&lt;/li&gt;
+&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;客户端配置&#34;&gt;
     &lt;a href=&#34;#%e5%ae%a2%e6%88%b7%e7%ab%af%e9%85%8d%e7%bd%ae&#34;&gt;👉&lt;/a&gt;
@@ -276,15 +188,7 @@ markup&lt;/p&gt;
 		alt=&#34;chrome插件&#34;
 	
 	
-&gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-970a8&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-970a8&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072030215.png&#34; alt=&#34;chrome插件&#34;
-			  /&gt;
-	&lt;/label&gt;
-&lt;/p&gt;
+&gt;&lt;/p&gt;
 &lt;p&gt;点击Bitwarden 插件，在区域里选择自托管&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072031173.png&#34;
 	
@@ -295,15 +199,7 @@ markup&lt;/p&gt;
 		alt=&#34;自定义托管&#34;
 	
 	
-&gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-6b383&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-6b383&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072031173.png&#34; alt=&#34;自定义托管&#34;
-			  /&gt;
-	&lt;/label&gt;
-&lt;/p&gt;
+&gt;&lt;/p&gt;
 &lt;h2 id=&#34;客户端使用&#34;&gt;
     &lt;a href=&#34;#%e5%ae%a2%e6%88%b7%e7%ab%af%e4%bd%bf%e7%94%a8&#34;&gt;👉&lt;/a&gt;
     客户端使用
@@ -320,15 +216,7 @@ markup&lt;/p&gt;
 		alt=&#34;密码生成&#34;
 	
 	
-&gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-00dbb&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-00dbb&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072033499.png&#34; alt=&#34;密码生成&#34;
-			  /&gt;
-	&lt;/label&gt;
-&lt;/p&gt;
+&gt;&lt;/p&gt;
 &lt;p&gt;生成密码的策略可以灵活自定义
 &lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072034022.png&#34;
 	
@@ -339,15 +227,7 @@ markup&lt;/p&gt;
 		alt=&#34;密码自定义&#34;
 	
 	
-&gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-121d1&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-121d1&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072034022.png&#34; alt=&#34;密码自定义&#34;
-			  /&gt;
-	&lt;/label&gt;
-&lt;/p&gt;
+&gt;&lt;/p&gt;
 &lt;h3 id=&#34;密码填充&#34;&gt;
     &lt;a href=&#34;#%e5%af%86%e7%a0%81%e5%a1%ab%e5%85%85&#34;&gt;👉&lt;/a&gt;
     密码填充
@@ -361,15 +241,7 @@ markup&lt;/p&gt;
 		alt=&#34;密码填充&#34;
 	
 	
-&gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-58105&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-58105&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072035901.png&#34; alt=&#34;密码填充&#34;
-			  /&gt;
-	&lt;/label&gt;
-&lt;/p&gt;
+&gt;&lt;/p&gt;
 &lt;h1 id=&#34;alfred集成&#34;&gt;
     &lt;a href=&#34;#alfred%e9%9b%86%e6%88%90&#34;&gt;👉&lt;/a&gt;
     Alfred集成
@@ -384,15 +256,7 @@ markup&lt;/p&gt;
 		alt=&#34;Alfred&#34;
 	
 	
-&gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-2ed25&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-2ed25&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081440974.png&#34; alt=&#34;Alfred&#34;
-			  /&gt;
-	&lt;/label&gt;
-&lt;/p&gt;
+&gt;&lt;/p&gt;
 &lt;h2 id=&#34;集成步骤&#34;&gt;
     &lt;a href=&#34;#%e9%9b%86%e6%88%90%e6%ad%a5%e9%aa%a4&#34;&gt;👉&lt;/a&gt;
     集成步骤
@@ -410,15 +274,7 @@ markup&lt;/p&gt;
 		alt=&#34;下载插件&#34;
 	
 	
-&gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-0ff73&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-0ff73&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081443360.png&#34; alt=&#34;下载插件&#34;
-			  /&gt;
-	&lt;/label&gt;
-&lt;/p&gt;
+&gt;&lt;/p&gt;
 &lt;h3 id=&#34;安装bitwarden-alfred-workflow插件&#34;&gt;
     &lt;a href=&#34;#%e5%ae%89%e8%a3%85bitwarden-alfred-workflow%e6%8f%92%e4%bb%b6&#34;&gt;👉&lt;/a&gt;
     安装bitwarden alfred workflow插件:
@@ -432,15 +288,7 @@ markup&lt;/p&gt;
 		alt=&#34;安装插件&#34;
 	
 	
-&gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-88fb5&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-88fb5&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081444572.png&#34; alt=&#34;安装插件&#34;
-			  /&gt;
-	&lt;/label&gt;
-&lt;/p&gt;
+&gt;&lt;/p&gt;
 &lt;h3 id=&#34;安装bitwarden-cli-命令行工具&#34;&gt;
     &lt;a href=&#34;#%e5%ae%89%e8%a3%85bitwarden-cli-%e5%91%bd%e4%bb%a4%e8%a1%8c%e5%b7%a5%e5%85%b7&#34;&gt;👉&lt;/a&gt;
     安装Bitwarden CLI 命令行工具:
@@ -473,14 +321,6 @@ WEBUI_URL:自建Vaultwarden 服务器的https 的url eg：https://xxx.com:8508
 	
 	
 &gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-0164a&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-0164a&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081449392.png&#34; alt=&#34;环境变量-1&#34;
-			  /&gt;
-	&lt;/label&gt;
-
 &lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081450774.png&#34;
 	
 	
@@ -490,15 +330,7 @@ WEBUI_URL:自建Vaultwarden 服务器的https 的url eg：https://xxx.com:8508
 		alt=&#34;环境变量-2&#34;
 	
 	
-&gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-04f31&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-04f31&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081450774.png&#34; alt=&#34;环境变量-2&#34;
-			  /&gt;
-	&lt;/label&gt;
-&lt;/p&gt;
+&gt;&lt;/p&gt;
 &lt;h3 id=&#34;使用alfredworkflow&#34;&gt;
     &lt;a href=&#34;#%e4%bd%bf%e7%94%a8alfredworkflow&#34;&gt;👉&lt;/a&gt;
     使用alfredworkflow
@@ -512,15 +344,7 @@ WEBUI_URL:自建Vaultwarden 服务器的https 的url eg：https://xxx.com:8508
 		alt=&#34;登录&#34;
 	
 	
-&gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-04cfa&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-04cfa&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081451698.png&#34; alt=&#34;登录&#34;
-			  /&gt;
-	&lt;/label&gt;
-&lt;/p&gt;
+&gt;&lt;/p&gt;
 &lt;p&gt;输入.bwconfig sync 同步服务端密码库（第一次同步会有点慢）
 &lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081452160.png&#34;
 	
@@ -531,15 +355,7 @@ WEBUI_URL:自建Vaultwarden 服务器的https 的url eg：https://xxx.com:8508
 		alt=&#34;同步密码&#34;
 	
 	
-&gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-bf5cf&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-bf5cf&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081452160.png&#34; alt=&#34;同步密码&#34;
-			  /&gt;
-	&lt;/label&gt;
-&lt;/p&gt;
+&gt;&lt;/p&gt;
 &lt;p&gt;输入.bwauto 选择install 设置定时同步,默认是10小时同步一次
 &lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081452819.png&#34;
 	
@@ -550,15 +366,7 @@ WEBUI_URL:自建Vaultwarden 服务器的https 的url eg：https://xxx.com:8508
 		alt=&#34;定时同步&#34;
 	
 	
-&gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-9fa1a&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-9fa1a&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081452819.png&#34; alt=&#34;定时同步&#34;
-			  /&gt;
-	&lt;/label&gt;
-&lt;/p&gt;
+&gt;&lt;/p&gt;
 &lt;p&gt;以上都完成后，输入.bw就可以愉快的玩耍了。
 &lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081453613.png&#34;
 	
@@ -570,14 +378,6 @@ WEBUI_URL:自建Vaultwarden 服务器的https 的url eg：https://xxx.com:8508
 	
 	
 &gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-cac4a&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-cac4a&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081453613.png&#34; alt=&#34;完成配置使用&#34;
-			  /&gt;
-	&lt;/label&gt;
-
 接回车密码自动复制到粘贴板，shfit+回车就是用默认浏览器打开对应网站，并且填充用户名密码。&lt;/p&gt;
 &lt;h3 id=&#34;apikey-登录可选&#34;&gt;
     &lt;a href=&#34;#apikey-%e7%99%bb%e5%bd%95%e5%8f%af%e9%80%89&#34;&gt;👉&lt;/a&gt;
@@ -595,15 +395,7 @@ WEBUI_URL:自建Vaultwarden 服务器的https 的url eg：https://xxx.com:8508
 		alt=&#34;账户设置&#34;
 	
 	
-&gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-866c1&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-866c1&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081455560.png&#34; alt=&#34;账户设置&#34;
-			  /&gt;
-	&lt;/label&gt;
-&lt;/li&gt;
+&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;在账户设置总，选择安全-》秘钥，选择查看秘钥
 &lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081456433.png&#34;
@@ -615,15 +407,7 @@ WEBUI_URL:自建Vaultwarden 服务器的https 的url eg：https://xxx.com:8508
 		alt=&#34;查看秘钥&#34;
 	
 	
-&gt;
-	
-	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-badb8&#34; hidden&gt;
-	&lt;label for=&#34;zoomCheck-badb8&#34;&gt;
-		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
-			 src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081456433.png&#34; alt=&#34;查看秘钥&#34;
-			  /&gt;
-	&lt;/label&gt;
-&lt;/p&gt;
+&gt;&lt;/p&gt;
 &lt;p&gt;输入主密码后，即可得到client_id 和client_secret&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
