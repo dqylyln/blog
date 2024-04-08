@@ -283,7 +283,15 @@ within a &lt;code&gt;footer&lt;/code&gt; or &lt;code&gt;cite&lt;/code&gt; elemen
 		alt=&#34;Google&#34;
 	
 	
-&gt;&lt;/a&gt;&lt;/p&gt;
+&gt;
+	
+	&lt;input type=&#34;checkbox&#34; id=&#34;zoomCheck-9276f&#34; hidden&gt;
+	&lt;label for=&#34;zoomCheck-9276f&#34;&gt;
+		&lt;img class=&#34;zoomCheck&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;
+			 src=&#34;https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png&#34; alt=&#34;Google&#34;
+			  /&gt;
+	&lt;/label&gt;
+&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;
