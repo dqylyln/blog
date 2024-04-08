@@ -1,6 +1,7 @@
 +++
 author = "dqylyln"
 title = "DSM搭建的Bitwarden密码管理服务"
+slug = "DSM_Witch_Bitwarden"
 date = "2023-06-20"
 description = "利用NAS搭建私有的Bitwarden服务，替代1password！"
 categories = [

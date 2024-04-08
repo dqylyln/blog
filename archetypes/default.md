@@ -1,6 +1,7 @@
 +++
 author = "dqy"
-title = '{{ replace .File.ContentBaseName "-" " " | title }}'
+title: "{{ replace .Name "-" " " | title }}"
+slug: "{{ replace .Name "-" " " | title }}"
 date = {{ .Date } }
 tags = [
     "tags1",
