@@ -107,6 +107,7 @@ params:
       serverURL: "https://waline-dqylylns-projects.vercel.app/"
       lang: "zh-CN"
       visitor: "true"
+      pageview: "true"
       avatar:
       emoji:
         - https://npm.elemecdn.com/@waline/emojis@1.1.0/weibo
