@@ -109,7 +109,7 @@ params:
       visitor: "true"
       avatar:
       emoji:
-        - https://cdn.jsdelivr.net/gh/walinejs/emojis/qq
+        - https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq/
         - https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba
         - https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus
       requiredMeta:
