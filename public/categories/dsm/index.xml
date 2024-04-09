@@ -13,11 +13,12 @@
         <pubDate>Tue, 20 Jun 2023 00:00:00 +0000</pubDate>
         
         <guid>https://dqy.me/p/dsm_witch_bitwarden.html</guid>
-        <description>&lt;img src="https://h.dqy.me:1077/pub/b/2024/04/07/202404071946361.jpg" alt="Featured image of post DSM搭建的Bitwarden密码管理服务" /&gt;&lt;h1 id=&#34;背景&#34;&gt;
+        <description>&lt;img src="https://h.dqy.me:1077/pub/b/2024/04/09/202404090937788.webp" alt="Featured image of post DSM搭建的Bitwarden密码管理服务" /&gt;&lt;h1 id=&#34;背景&#34;&gt;
     &lt;a href=&#34;#%e8%83%8c%e6%99%af&#34;&gt;👉&lt;/a&gt;
     背景
-&lt;/h1&gt;&lt;p&gt;曾几何时，对于个人密码经常是一个密码走天下，各大网站app全部使用同一个密码，带来的风险就是任何一个网站出现漏洞导致密码泄露，其他网站的账号也出现风险。 但是如果每个网站都设置一个独立的密码，面对成百上千个网站密码，人脑记忆肯定是不靠谱的。 所以这个时候就需要密码管理软件来统一管理密码
-&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404071956900.png&#34;
+&lt;/h1&gt;&lt;p&gt;曾几何时，对于个人密码经常是一个密码走天下，各大网站app全部使用同一个密码，带来的风险就是任何一个网站出现漏洞导致密码泄露，其他网站的账号也出现风险。
+但是如果每个网站都设置一个独立的密码，面对成百上千个网站密码，人脑记忆肯定是不靠谱的。 所以这个时候就需要密码管理软件来统一管理密码
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090938306.webp&#34;
 	
 	
 	
@@ -27,8 +28,13 @@
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;市面上的密码管理软件很多，比如最开始mac 平台上的1password（1password8 开始支持其他平台）和Bitwarden 等。 1password跟苹果生态结合比较好，支持本地密码库的icloud 同步，但是从1password8开始取消了本地密码库，强推自家的云存储，吃相难看不说而且密码的存储放到三方云存储始终不放心，而Bitwarden 虽然也是支持自家云存储，但是有开源的vaultwarden 三方服务器的实现，完美的兼容了Bitwarden 的所有平台客户端，并且vaultwarden也支持自并且支持1password一键导入。所以在1password7 停止维护后 使用vaultwarden 搭建自己的Bitwarden服务，结合Bitwarden的客户端是个不错的替代选择
-&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404071959466.png&#34;
+&lt;p&gt;市面上的密码管理软件很多，比如最开始mac 平台上的1password（1password8 开始支持其他平台）和Bitwarden 等。
+1password跟苹果生态结合比较好，支持本地密码库的icloud
+同步，但是从1password8开始取消了本地密码库，强推自家的云存储，吃相难看不说而且密码的存储放到三方云存储始终不放心，而Bitwarden
+虽然也是支持自家云存储，但是有开源的vaultwarden 三方服务器的实现，完美的兼容了Bitwarden
+的所有平台客户端，并且vaultwarden也支持自并且支持1password一键导入。所以在1password7 停止维护后 使用vaultwarden
+搭建自己的Bitwarden服务，结合Bitwarden的客户端是个不错的替代选择
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090939783.webp&#34;
 	
 	
 	
@@ -41,15 +47,17 @@
 &lt;h2 id=&#34;vaultwarden服务端搭建&#34;&gt;
     &lt;a href=&#34;#vaultwarden%e6%9c%8d%e5%8a%a1%e7%ab%af%e6%90%ad%e5%bb%ba&#34;&gt;👉&lt;/a&gt;
     Vaultwarden服务端搭建
-&lt;/h2&gt;&lt;p&gt;Vaultwarden 是一个使用 Rust 编写的非官方 Bitwarden 服务器实现，它与官方 Bitwarden 客户端兼容，对于不希望使用官方的占用大量资源的自托管部署而言，它是理想的选择。开源地址：&lt;a class=&#34;link&#34; href=&#34;https://github.com/dani-garcia/vaultwarden&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;/h2&gt;&lt;p&gt;Vaultwarden 是一个使用 Rust 编写的非官方 Bitwarden 服务器实现，它与官方 Bitwarden
+客户端兼容，对于不希望使用官方的占用大量资源的自托管部署而言，它是理想的选择。开源地址：&lt;a class=&#34;link&#34; href=&#34;https://github.com/dani-garcia/vaultwarden&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://github.com/dani-garcia/vaultwarden&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;搭建Vaultwarden的方式可以有很多，比如常见的docker，但是如果是DSM的话，有大拿已经将Vaultwarden 服务做成了DMS 的套件，可以通过套件中心一键安装。下面主要描述DSM7 下的Vaultwarden 搭建。&lt;/p&gt;
+&lt;p&gt;搭建Vaultwarden的方式可以有很多，比如常见的docker，但是如果是DSM的话，有大拿已经将Vaultwarden 服务做成了DMS
+的套件，可以通过套件中心一键安装。下面主要描述DSM7 下的Vaultwarden 搭建。&lt;/p&gt;
 &lt;h3 id=&#34;添加三方套件源&#34;&gt;
     &lt;a href=&#34;#%e6%b7%bb%e5%8a%a0%e4%b8%89%e6%96%b9%e5%a5%97%e4%bb%b6%e6%ba%90&#34;&gt;👉&lt;/a&gt;
     添加三方套件源
 &lt;/h3&gt;&lt;p&gt;在DSM的套件中心-》设置-》套件来源-》新增,添加三方套件源&lt;a class=&#34;link&#34; href=&#34;https://spk7.imnks.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://spk7.imnks.com/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072006254.png&#34;
+    &gt;https://spk7.imnks.com/&lt;/a&gt;
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090939594.webp&#34;
 	
 	
 	
@@ -58,13 +66,12 @@
 		alt=&#34;DSM三方套件&#34;
 	
 	
-&gt;
-markup&lt;/p&gt;
+&gt;&lt;/p&gt;
 &lt;h3 id=&#34;安装vaultwarden&#34;&gt;
     &lt;a href=&#34;#%e5%ae%89%e8%a3%85vaultwarden&#34;&gt;👉&lt;/a&gt;
     安装Vaultwarden
 &lt;/h3&gt;&lt;p&gt;套件中心-》搜索Vaultwarden进行安装，安装后启动即可，默认http服务端口是8507
-&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072007536.png&#34;
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090941945.webp&#34;
 	
 	
 	
@@ -77,9 +84,11 @@ markup&lt;/p&gt;
 &lt;h3 id=&#34;设置反向代理&#34;&gt;
     &lt;a href=&#34;#%e8%ae%be%e7%bd%ae%e5%8f%8d%e5%90%91%e4%bb%a3%e7%90%86&#34;&gt;👉&lt;/a&gt;
     设置反向代理
-&lt;/h3&gt;&lt;p&gt;由于Vaultwarden 要求必须是https的协议，一般两种做法1是给Vaultwarden配置证书，2是通过dsm 自带的nginx，将外部https 请求代理到http 的8507端口上，推荐是选择后者好处是，证书可以跟DSM系统证书一起更新，不至于证书到期要给每个服务单独替换证书。
-打开DSM的控制面板-》登录门户-》高级-》反向代理，添加 https 的8508 端口到localhost http 的8507的代理。 这样就可以通过https://xxx:8508的方式进行访问 Vaultwarden
-&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072009867.png&#34;
+&lt;/h3&gt;&lt;p&gt;由于Vaultwarden 要求必须是https的协议，一般两种做法1是给Vaultwarden配置证书，2是通过dsm 自带的nginx，将外部https 请求代理到http
+的8507端口上，推荐是选择后者好处是，证书可以跟DSM系统证书一起更新，不至于证书到期要给每个服务单独替换证书。
+打开DSM的控制面板-》登录门户-》高级-》反向代理，添加 https 的8508 端口到localhost http 的8507的代理。 这样就可以通过https:
+//xxx:8508的方式进行访问 Vaultwarden
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090941465.webp&#34;
 	
 	
 	
@@ -92,12 +101,13 @@ markup&lt;/p&gt;
 &lt;h3 id=&#34;设置端口转发&#34;&gt;
     &lt;a href=&#34;#%e8%ae%be%e7%bd%ae%e7%ab%af%e5%8f%a3%e8%bd%ac%e5%8f%91&#34;&gt;👉&lt;/a&gt;
     设置端口转发
-&lt;/h3&gt;&lt;p&gt;如果需要互联网同步密码库，就需要将服务暴露到公网，当然如果只是在内网同步使用，这个步骤可以忽略。 由于每个路由器的端口转发设置不同，但是原理大同小异，都是将https 服务的8508端口，通过wan的自定义端口对外暴露，这里就不展开了。&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;如果需要互联网同步密码库，就需要将服务暴露到公网，当然如果只是在内网同步使用，这个步骤可以忽略。
+由于每个路由器的端口转发设置不同，但是原理大同小异，都是将https 服务的8508端口，通过wan的自定义端口对外暴露，这里就不展开了。&lt;/p&gt;
 &lt;h3 id=&#34;创建vaultwarden账号&#34;&gt;
     &lt;a href=&#34;#%e5%88%9b%e5%bb%bavaultwarden%e8%b4%a6%e5%8f%b7&#34;&gt;👉&lt;/a&gt;
     创建Vaultwarden账号
 &lt;/h3&gt;&lt;p&gt;浏览器访问搭建好的服务，用邮箱进行账户创建，邮箱作为登录的id来使用，这里注意主密码一定要记住，后面是用主密码来解锁密码管理软件，进行网站密码填充的。
-&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072012202.png&#34;
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090942051.webp&#34;
 	
 	
 	
@@ -107,7 +117,7 @@ markup&lt;/p&gt;
 	
 	
 &gt;
-&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072012808.png&#34;
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090943939.webp&#34;
 	
 	
 	
@@ -118,7 +128,7 @@ markup&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;用户创建成功后，就可以在自己的密码库里创建密码了
-&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072013974.png&#34;
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090943309.webp&#34;
 	
 	
 	
@@ -131,11 +141,12 @@ markup&lt;/p&gt;
 &lt;h3 id=&#34;导入1password-的密码&#34;&gt;
     &lt;a href=&#34;#%e5%af%bc%e5%85%a51password-%e7%9a%84%e5%af%86%e7%a0%81&#34;&gt;👉&lt;/a&gt;
     导入1password 的密码
-&lt;/h3&gt;&lt;p&gt;如果你需要把之前1password 的密码导入到Vaultwarden，那么就按照下面步骤进行，如果没有需要从1password 导出密码到Vaultwarden 的需求可以忽略这步。&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;如果你需要把之前1password 的密码导入到Vaultwarden，那么就按照下面步骤进行，如果没有需要从1password 导出密码到Vaultwarden
+的需求可以忽略这步。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;1passowrd 导出:
 1password 选中文件》导出-》所有项目
-&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072015862.png&#34;
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090944694.webp&#34;
 	
 	
 	
@@ -147,7 +158,7 @@ markup&lt;/p&gt;
 &gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;输入1password 主密码后，选择导出.1pif文件
-&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072016298.png&#34;
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090945215.webp&#34;
 	
 	
 	
@@ -160,7 +171,7 @@ markup&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Vaultwarden导入:
 浏览器打开Vaultwarden 的web 服务页面， 工具-》导入数据-》选择1pif 文件格式-》选择1pasword 导出的data.1pif文件，导入即可。
-&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072017082.png&#34;
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090945895.webp&#34;
 	
 	
 	
@@ -174,12 +185,14 @@ markup&lt;/p&gt;
 &lt;h1 id=&#34;客户端配置&#34;&gt;
     &lt;a href=&#34;#%e5%ae%a2%e6%88%b7%e7%ab%af%e9%85%8d%e7%bd%ae&#34;&gt;👉&lt;/a&gt;
     客户端配置
-&lt;/h1&gt;&lt;p&gt;Vaultwarden 支持使用Bitwarden 各种平台的客户端以及各种浏览器插件，其配置大同小异，各种客户端列表见：&lt;a class=&#34;link&#34; href=&#34;https://bitwarden.com/download/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;/h1&gt;&lt;p&gt;Vaultwarden 支持使用Bitwarden
+各种平台的客户端以及各种浏览器插件，其配置大同小异，各种客户端列表见：&lt;a class=&#34;link&#34; href=&#34;https://bitwarden.com/download/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://bitwarden.com/download/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;下面以chrome 浏览器插件配置作为示例：
-安装chrome 插件：&lt;a class=&#34;link&#34; href=&#34;https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072030215.png&#34;
+安装chrome
+插件：&lt;a class=&#34;link&#34; href=&#34;https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb&lt;/a&gt;
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090947497.webp&#34;
 	
 	
 	
@@ -189,14 +202,24 @@ markup&lt;/p&gt;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;点击Bitwarden 插件，在区域里选择自托管&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072031173.png&#34;
+&lt;p&gt;点击Bitwarden 插件，在区域里选择自托管
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090948228.webp&#34;
 	
 	
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;自定义托管&#34;
+		alt=&#34;自定义托管-1&#34;
+	
+	
+&gt;
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090949355.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;自定义托管-2&#34;
 	
 	
 &gt;&lt;/p&gt;
@@ -207,7 +230,7 @@ markup&lt;/p&gt;
     &lt;a href=&#34;#%e5%af%86%e7%a0%81%e7%94%9f%e6%88%90&#34;&gt;👉&lt;/a&gt;
     密码生成
 &lt;/h3&gt;&lt;p&gt;在某网站需要注册的时候，可以点击插件，在弹出的页面里，选择自动生成用户名或者自动生成密码
-&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072033499.png&#34;
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090949040.webp&#34;
 	
 	
 	
@@ -218,7 +241,7 @@ markup&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;生成密码的策略可以灵活自定义
-&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072034022.png&#34;
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090950926.webp&#34;
 	
 	
 	
@@ -232,7 +255,7 @@ markup&lt;/p&gt;
     &lt;a href=&#34;#%e5%af%86%e7%a0%81%e5%a1%ab%e5%85%85&#34;&gt;👉&lt;/a&gt;
     密码填充
 &lt;/h3&gt;&lt;p&gt;在访问密码库中的网站，点击插件输入主密码，插件会自动从密码库里查找对应网站的密码进行填充。
-&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/07/202404072035901.png&#34;
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090951372.webp&#34;
 	
 	
 	
@@ -245,9 +268,11 @@ markup&lt;/p&gt;
 &lt;h1 id=&#34;alfred集成&#34;&gt;
     &lt;a href=&#34;#alfred%e9%9b%86%e6%88%90&#34;&gt;👉&lt;/a&gt;
     Alfred集成
-&lt;/h1&gt;&lt;p&gt;Alfred是mac os 平台上非常好用的快速启动工具，通过它可以快速的启动应用，脚本等。 尤其是1password 的Alfred 插件，可以实现一键快速打开网站，并且自动填充用户名和密码的功能，那么切换到Bitwarden 是否也有Bitwarden和Alfred的插件实现这些功能呢？ 答案是肯定的。&lt;/p&gt;
-&lt;p&gt;先看效果：直接回车密码自动复制到粘贴板，shfit+回车就是用默认浏览器打开对应网站，并且填充用户名密码。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081440974.png&#34;
+&lt;/h1&gt;&lt;p&gt;Alfred是mac os 平台上非常好用的快速启动工具，通过它可以快速的启动应用，脚本等。 尤其是1password 的Alfred
+插件，可以实现一键快速打开网站，并且自动填充用户名和密码的功能，那么切换到Bitwarden 是否也有Bitwarden和Alfred的插件实现这些功能呢？
+答案是肯定的。&lt;/p&gt;
+&lt;p&gt;先看效果：直接回车密码自动复制到粘贴板，shfit+回车就是用默认浏览器打开对应网站，并且填充用户名密码。
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090952527.webp&#34;
 	
 	
 	
@@ -264,8 +289,9 @@ markup&lt;/p&gt;
     &lt;a href=&#34;#%e4%b8%8b%e8%bd%bdbitwarden-alfred-workflow%e6%8f%92%e4%bb%b6&#34;&gt;👉&lt;/a&gt;
     下载bitwarden alfred workflow插件:
 &lt;/h3&gt;&lt;p&gt;到&lt;a class=&#34;link&#34; href=&#34;https://github.com/blacs30/bitwarden-alfred-workflow/releases&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/blacs30/bitwarden-alfred-workflow/releases&lt;/a&gt; 下载bitwarden-alfred-workflow.alfredworkflow 文件
-&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081443360.png&#34;
+    &gt;https://github.com/blacs30/bitwarden-alfred-workflow/releases&lt;/a&gt;
+下载bitwarden-alfred-workflow.alfredworkflow 文件
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090952420.webp&#34;
 	
 	
 	
@@ -279,7 +305,7 @@ markup&lt;/p&gt;
     &lt;a href=&#34;#%e5%ae%89%e8%a3%85bitwarden-alfred-workflow%e6%8f%92%e4%bb%b6&#34;&gt;👉&lt;/a&gt;
     安装bitwarden alfred workflow插件:
 &lt;/h3&gt;&lt;p&gt;下载后双击bitwarden-alfred-workflow.alfredworkflow 进行安装（要求已经安装好Alfred 5+ 版本）
-&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081444572.png&#34;
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090953922.webp&#34;
 	
 	
 	
@@ -292,7 +318,8 @@ markup&lt;/p&gt;
 &lt;h3 id=&#34;安装bitwarden-cli-命令行工具&#34;&gt;
     &lt;a href=&#34;#%e5%ae%89%e8%a3%85bitwarden-cli-%e5%91%bd%e4%bb%a4%e8%a1%8c%e5%b7%a5%e5%85%b7&#34;&gt;👉&lt;/a&gt;
     安装Bitwarden CLI 命令行工具:
-&lt;/h3&gt;&lt;p&gt;因为alfredworkflow 是调用Bitwarden CLI  命令行工具实现功能，所以要先安装Bitwarden CLI 。 它的安装方式有很多，详见：https://github.com/bitwarden/cli#downloadinstall 这里推荐使用Homebrew 进行安装，打开macos 的命令行终端，
+&lt;/h3&gt;&lt;p&gt;因为alfredworkflow 是调用Bitwarden CLI 命令行工具实现功能，所以要先安装Bitwarden CLI 。
+它的安装方式有很多，详见：https://github.com/bitwarden/cli#downloadinstall 这里推荐使用Homebrew 进行安装，打开macos 的命令行终端，
 输入安装命令：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -311,7 +338,7 @@ SERVER_URL： 自建Vaultwarden 服务器的https 的url eg：https://xxx.com:85
 WEBUI_URL:自建Vaultwarden 服务器的https 的url eg：https://xxx.com:8508
 更多环境变量解释见：&lt;a class=&#34;link&#34; href=&#34;https://github.com/blacs30/bitwarden-alfred-workflow#advanced-features--configuration&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://github.com/blacs30/bitwarden-alfred-workflow#advanced-features&amp;ndash;configuration&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081449392.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090953127.webp&#34;
 	
 	
 	
@@ -321,7 +348,7 @@ WEBUI_URL:自建Vaultwarden 服务器的https 的url eg：https://xxx.com:8508
 	
 	
 &gt;
-&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081450774.png&#34;
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090955607.webp&#34;
 	
 	
 	
@@ -335,7 +362,7 @@ WEBUI_URL:自建Vaultwarden 服务器的https 的url eg：https://xxx.com:8508
     &lt;a href=&#34;#%e4%bd%bf%e7%94%a8alfredworkflow&#34;&gt;👉&lt;/a&gt;
     使用alfredworkflow
 &lt;/h3&gt;&lt;p&gt;快捷键唤出alfred，输入.bwauth 选择login to Bitwarden,按照提示输入主密码即可。
-&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081451698.png&#34;
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090955556.webp&#34;
 	
 	
 	
@@ -346,7 +373,7 @@ WEBUI_URL:自建Vaultwarden 服务器的https 的url eg：https://xxx.com:8508
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;输入.bwconfig sync 同步服务端密码库（第一次同步会有点慢）
-&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081452160.png&#34;
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090956714.webp&#34;
 	
 	
 	
@@ -357,7 +384,7 @@ WEBUI_URL:自建Vaultwarden 服务器的https 的url eg：https://xxx.com:8508
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;输入.bwauto 选择install 设置定时同步,默认是10小时同步一次
-&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081452819.png&#34;
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090956223.webp&#34;
 	
 	
 	
@@ -368,7 +395,7 @@ WEBUI_URL:自建Vaultwarden 服务器的https 的url eg：https://xxx.com:8508
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;以上都完成后，输入.bw就可以愉快的玩耍了。
-&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081453613.png&#34;
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090957754.webp&#34;
 	
 	
 	
@@ -386,7 +413,7 @@ WEBUI_URL:自建Vaultwarden 服务器的https 的url eg：https://xxx.com:8508
 &lt;ul&gt;
 &lt;li&gt;生成APIKEY
 登录Vaultwarden web控制台,点击右上角头像，选择账户设置。
-&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081455560.png&#34;
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090958304.webp&#34;
 	
 	
 	
@@ -398,7 +425,7 @@ WEBUI_URL:自建Vaultwarden 服务器的https 的url eg：https://xxx.com:8508
 &gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;在账户设置总，选择安全-》秘钥，选择查看秘钥
-&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/08/202404081456433.png&#34;
+&lt;img src=&#34;https://h.dqy.me:1077/pub/b/2024/04/09/202404090958870.webp&#34;
 	
 	
 	
@@ -428,7 +455,8 @@ WEBUI_URL:自建Vaultwarden 服务器的https 的url eg：https://xxx.com:8508
 &lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;设置alfredworkflow 使用apikey 方式登录&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;alfredworkflow 进入环境变量设置，删除EMAIL 变量配置的email 值，修改USE_APIKEY 变量为true 即可。 配置完成后输入.bwauth 登录，按照提示输入client_id  和client_secret 即可。&lt;/p&gt;
+&lt;p&gt;alfredworkflow 进入环境变量设置，删除EMAIL 变量配置的email 值，修改USE_APIKEY 变量为true 即可。 配置完成后输入.bwauth
+登录，按照提示输入client_id 和client_secret 即可。&lt;/p&gt;
 &lt;h1 id=&#34;后记&#34;&gt;
     &lt;a href=&#34;#%e5%90%8e%e8%ae%b0&#34;&gt;👉&lt;/a&gt;
     后记
