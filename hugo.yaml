@@ -106,16 +106,17 @@ params:
     waline:
       serverURL: "https://waline-nteczq60w-dqylylns-projects.vercel.app"
       lang: "zh-CN"
-      login: "force"
-      pageview:
+      visitor: "true"
+      avatar:
       emoji:
-        - https://unpkg.com/@waline/emojis@1.0.1/weibo
+        - https://cdn.jsdelivr.net/gh/walinejs/emojis/qq
+        - https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba
+        - https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus
       requiredMeta:
-        - name
-        - email
-      #    - url
+        - nick
+        - mail
       locale:
-        admin: Admin
+        admin: 博主
         placeholder:
 
     twikoo:
