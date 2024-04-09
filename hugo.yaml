@@ -102,22 +102,23 @@ params:
       autoCreateIssue: false
 
     # Waline client configuration see: https://waline.js.org/en/reference/component.html
-    # https://waline-nteczq60w-dqylylns-projects.vercel.app
+    # https://waline-dqylylns-projects.vercel.app
     waline:
-      serverURL: "https://waline-nteczq60w-dqylylns-projects.vercel.app"
+      serverURL: "https://waline-dqylylns-projects.vercel.app/"
       lang: "zh-CN"
       visitor: "true"
       avatar:
       emoji:
-        - https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq
-        - https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba
-        - https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus
+        - https://npm.elemecdn.com/@waline/emojis@1.1.0/weibo
+        - https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili
+        - https://npm.elemecdn.com/@waline/emojis@1.1.0/bmoji
       requiredMeta:
         - nick
         - mail
       locale:
         admin: 博主
-        placeholder:
+        placeholder: 欢迎留下宝贵的评论！
+        sofa: 还没有人评论哦！快来抢沙发吧~
 
     twikoo:
       envId:
