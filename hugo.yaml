@@ -68,8 +68,7 @@ params:
 
   comments:
     enabled: true
-    provider: waline
-
+    provider: disqus
     disqusjs:
       shortname:
       apiUrl:
