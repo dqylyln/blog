@@ -68,7 +68,7 @@ params:
 
   comments:
     enabled: true
-    provider: cusdis
+    provider: waline
 
     disqusjs:
       shortname:
@@ -106,6 +106,7 @@ params:
     waline:
       serverURL: "https://waline-nteczq60w-dqylylns-projects.vercel.app"
       lang: "zh-CN"
+      login: "force"
       pageview:
       emoji:
         - https://unpkg.com/@waline/emojis@1.0.1/weibo
