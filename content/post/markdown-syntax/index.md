@@ -15,7 +15,7 @@ categories = [
 ]
 series = ["Themes Guide"]
 aliases = ["migrate-from-jekyl"]
-image = "pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg"
+image = "https://h.dqy.me:1077/pub/b/2024/04/09/202404091005292.webp"
 +++
 
 This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether
