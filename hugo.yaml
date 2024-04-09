@@ -104,9 +104,9 @@ params:
     # Waline client configuration see: https://waline.js.org/en/reference/component.html
     # https://waline-dqylylns-projects.vercel.app
     waline:
-      serverURL: "https://waline-dqylylns-projects.vercel.app/"
+      serverURL: "https://waline-dqylylns-projects.vercel.app"
       lang: "zh-CN"
-      visitor: "true"
+      visitor: "false"
       pageview: "true"
       avatar:
       emoji:
