@@ -56,7 +56,7 @@ params:
     avatar:
       enabled: true
       local: true
-      src: img/avatar.webp
+      src: img/avatar.png
 
   article:
     math: true
